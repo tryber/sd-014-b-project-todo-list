@@ -10,11 +10,21 @@ function selectItem(event) {
   event.target.classList.add('selected');
 }
 
+function completeTask(event) {
+  const classList = event.target.classList;
+  if (classList.contains('completed')) {
+    classList.remove('completed');
+  } else {
+    classList.add('completed');
+  }
+}
+
 createTodoButton.addEventListener('click', () => {
   const item = document.createElement('li');
   item.innerText = inputTodo.value;
   item.className = 'item';
   item.addEventListener('click', selectItem);
+  item.addEventListener('dblclick', completeTask);
   todoList.appendChild(item);
   inputTodo.value = '';
 });
