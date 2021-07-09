@@ -6,4 +6,7 @@ header {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 24px;
   color: #fffffe;
+  text-align: center;
+  background-color: #f25f4c;
+  border-radius: 8px;
 }
