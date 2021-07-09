@@ -1,5 +1,6 @@
 window.onload = function() {
 
+  //Define constantes que armazenam os botões e adicionam 'escutadores' de eventos
   const addTaskButton = document.getElementById('criar-tarefa');
   addTaskButton.addEventListener('click', addTask);
 
@@ -9,6 +10,7 @@ window.onload = function() {
   const clearAllButton = document.getElementById('apaga-tudo');
   clearAllButton.addEventListener('click', removeAll);
 
+  // Função que permite adicionar tarefa à lista, também atribui classe e a sensibilidade a eventos
   function addTask() {
     let input = document.getElementById('texto-tarefa');
     let newTask = document.createElement('li');
@@ -19,8 +21,10 @@ window.onload = function() {
     newTask.addEventListener('click', highlight);
     newTask.addEventListener('dblclick', riskCleared);
     position.appendChild(newTask);
+    input.value = '';
   }
 
+  // Permite aplicar cor de realce à tarefa seleciona, também restringe a seleção a um elemento por vez
   function highlight(selection) {
     let selectionedTask = document.querySelectorAll('.selected');
     if (selectionedTask.length !== 0) { 
@@ -29,6 +33,7 @@ window.onload = function() {
     selection.target.classList.add('selected');
   }
 
+  // Atribui a classe 'realizada' e aplica estilo na fonte, riscando.
   function riskCleared(selection) {
     let classes = selection.target.classList;
     if (classes.length === 2) {
@@ -38,6 +43,7 @@ window.onload = function() {
     }
   }
 
+  // Remove as tarefas realizadas da lista
   function removeClearedTasks() {
     let clearedTasks = document.querySelectorAll('.cleared');
     let taskList = document.getElementById('lista-tarefas');
@@ -46,6 +52,7 @@ window.onload = function() {
     }
   }
 
+  // Limpa a lista, removendo todos os itens
   function removeAll() {
     let allItems = document.querySelectorAll('.tarefa');
     let taskList = document.getElementById('lista-tarefas');
