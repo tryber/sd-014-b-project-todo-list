@@ -1,11 +1,11 @@
-const query = document.querySelector.bind(document);
-const queries = document.querySelectorAll.bind(document);
+let btn = document.querySelector('#criar-tarefa');
+btn.addEventListener('click', addTask);
 
-function olList() {
-  let localList = document.querySelector('#local-lista');
-  let oList = document.createElement('ol');
-  oList.id = 'lista-tarefas';
-
-  localList.appendChild(oList);
+function addTask() {
+  let input = document.querySelector('#texto-tarefa');
+  let list = document.querySelector('#lista-tarefas');
+  let li = document.createElement('li');
+  list.appendChild(li);
+  li.innerText = input.value;
+  input.value = '';
 }
-olList();
