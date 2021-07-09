@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffeb54;
+}
+
+.main-content {
+    background: #fff;
+}
+
+#funcionamento {
+    color: #797575;
+    font-style: italic;
+}
