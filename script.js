@@ -24,6 +24,9 @@ window.onload = function () {
       alert('Você precisa digitar uma tarefa!');
     }
   };
+ // Função Apagar tudo
+ btnApagar.onclick = function () {
+    listaOrdenada.innerHTML = null;
+  };
 
-  
 }  
