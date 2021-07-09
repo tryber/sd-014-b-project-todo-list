@@ -13,12 +13,18 @@ function changeColor (event) {
   }
 }
 
-// function teskDone(event) {
-//   let lis = document.getElementsByClassName('tarefa');
-//   for (let index = 0; index <= lis.length; index += 1) {
-//     event.target.classList.add('.completed');
-//   }
-// }
+function teskDone(event) {
+  let lis = document.getElementsByClassName('tarefa');
+  if (event.target.className.includes('completed')) {
+    for (let index = 0; index <= lis.length; index += 1) {
+      event.target.classList.remove('completed')
+    }
+  } else {
+    for (let index = 0; index <= lis.length; index += 1) {
+      event.target.classList.add('completed');
+    }
+  }
+}
 
 function addTextList() {
   let input = document.querySelector('#texto-tarefa');
@@ -28,13 +34,9 @@ function addTextList() {
   li.innerHTML = input.value;
   document.querySelector('#lista-tarefas').appendChild(li);
   li.addEventListener('click', changeColor);
+  li.addEventListener('dblclick', teskDone);
   removeInputText();
 }
 
 let button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addTextList);
-
-// let lis = document.getElementsByClassName('tarefa');
-// for (let index of lis) {
-//   index.addEventListener('dblclick', teskDone);
-// }
