@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient()
+}
+
+#container {
+  border: 1px solid;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 30px;
+  width: 600px;
+  height: 250px;
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 300px);
+} 
+
+#title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#funcionamento {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#forms {
+  display: inline-block;
+  margin-left: 80px;
+  margin-top: 10px;
+}
+
+.botton {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#criar-tarefa {
+  background-color: cyan;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+#criar-tarefa:hover {
+  background-color: rgba(81, 192, 236, 0.822);
+  transition-duration: 0.5s;
+}
