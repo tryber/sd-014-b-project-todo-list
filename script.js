@@ -3,6 +3,7 @@ const taskButton = document.querySelector('#criar-tarefa');
 const tasks = document.querySelector('#lista-tarefas');
 const btClearAll = document.querySelector('#apaga-tudo');
 const btClearCompleted = document.querySelector('#remover-finalizados');
+const btSaveTasks = document.querySelector('#salvar-tarefas');
 
 function createElement() {
   return document.createElement('li');
@@ -60,3 +61,30 @@ function deleteTasksDone() {
   });
 }
 deleteTasksDone();
+
+function tasksToLocalStorage() {
+  const tasksToSave = tasks.querySelectorAll('.task');
+  const taskList = [];
+  for (const task of tasksToSave) {
+    let taskText = task.innerText;
+    taskText = taskText.trim();
+    taskList.push(taskText);
+  }
+  const tasksJSON = JSON.stringify(taskList);
+  localStorage.setItem('tasks', tasksJSON);
+}
+
+function returnSavedTasks() {
+  const localTasks = localStorage.getItem('tasks');
+  const tasksList = JSON.parse(localTasks);
+  console.log(tasksList);
+  for (const task of tasksList) {
+    createTask(task);
+  }
+}
+returnSavedTasks();
+
+function saveTasks() {
+  btSaveTasks.addEventListener('click', tasksToLocalStorage);
+}
+saveTasks();
