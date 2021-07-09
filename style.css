@@ -52,3 +52,7 @@ button {
 button:hover {
   background: var(--primary-color-darker);
 }
+
+.task {
+  cursor: pointer;
+}
