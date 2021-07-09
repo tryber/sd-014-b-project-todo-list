@@ -14,7 +14,7 @@ main {
   border-radius: 10px;
 }
 
-header h1{
+header h1 {
   font-family: sans-serif;
   font-size: 2em;
 }
@@ -28,6 +28,10 @@ header h1{
 
 #listArea {
   margin-top: 20px;
+}
+
+#listArea .selected {
+    background-color: rgb(128 , 128 , 128);
 }
 
 #btnsArea {
