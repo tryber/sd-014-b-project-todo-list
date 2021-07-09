@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+}
+
+body {
+  background: rgb(59 , 59 , 59);
+}
+
+main {
+  background: white;
+  padding: 20px;
+  width: 80vw;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-family: sans-serif;
+  font-size: 2em;
+}
+
+#listArea p {
+  font-family: sans-serif;
+  font-size: 0.95em;
+  color: darkgrey;
+  margin-bottom: 5px;
+}
+
+#listArea {
+  margin-top: 20px;
+}
+
+#listArea .selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
+#listArea .completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+  color: red;
+}
+
+#btnsArea {
+  margin-top: 20px;
+  width: 70%;
+}
+
+#btnsArea .btn {
+  margin: 10px 10px 0 0;
+}
