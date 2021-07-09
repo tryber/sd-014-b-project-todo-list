@@ -10,3 +10,8 @@ header {
   background-color: #f25f4c;
   border-radius: 8px;
 }
+
+#criar-tarefa {
+  width: 40px;
+  height: 40px;
+}
