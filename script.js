@@ -34,3 +34,14 @@ function apagando() {
 }
 const botaoApagar = document.getElementById('apaga-tudo');
 botaoApagar.addEventListener('click', apagando);
+
+function removerElemento(elemento) {
+  elemento.remove();
+}
+// forEach -->Fonte : stack Overflow
+function removerFinalizados() {
+  const elementosSublinhados = document.getElementsByClassName('completed');
+  [...elementosSublinhados].forEach(removerElemento)
+}
+const botaoApagarSublinhados = document.getElementById('remover-finalizados');
+botaoApagarSublinhados.addEventListener('click', removerFinalizados);
