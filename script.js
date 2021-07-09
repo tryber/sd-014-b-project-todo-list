@@ -1,5 +1,7 @@
 const buttonAddTask = document.querySelector('#criar-tarefa');
 const listParent = document.querySelector('#lista-tarefas');
+const eraseButton = document.querySelector('#apaga-tudo');
+const removeFinishedButton = document.querySelector('#remover-finalizados');
 
 buttonAddTask.addEventListener('click', criarTarefa);
 
@@ -33,4 +35,14 @@ function mudarCorDaTarefa(mouse) {
 
 function mudarStatusDaTarefa (event) {
  event.target.classList.toggle('completed')
+}
+
+eraseButton.addEventListener('click', apagaTodasTarefas)
+
+function apagaTodasTarefas () {
+  let tarefas = document.querySelectorAll('.list-item')
+  let tarefasParent = document.querySelector('#lista-tarefas')
+  for (index = 0; index < tarefas.length; index += 1){
+    tarefasParent.removeChild(tarefas[index]);
+  }
 }

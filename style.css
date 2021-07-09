@@ -23,3 +23,28 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#apaga-tudo {
+  background-color: tomato;
+  width: 60px;
+  font-size: 12px;
+  padding: 10px 3px;
+  border-radius: 30px;
+  line-height: 14px;
+  margin-right: 10px;
+}
+
+#remover-finalizados {
+  background-color: rgba(255, 230, 0, 0.932);
+  color: black;
+  padding: 14px 10px;
+  line-height: 23px;
+  border-radius: 30px;
+  vertical-align: bottom;
+  font-size: 12px;
+}
+
+#buttons {
+  vertical-align: top;
+  margin-top: 50px;
+}
