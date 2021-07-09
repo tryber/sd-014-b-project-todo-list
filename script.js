@@ -15,10 +15,10 @@ function addLi() {
 // Chamada do evento de click para o elemento button
 buttonNewTarefa.addEventListener('click', addLi);
 
-// function alterBackgroundColorLi(event) {
-//   event.target.
-// }
-
-listTarefas.addEventListener('click', function (event) {
+// Função altera backgorund-color da li selecionada;
+function alterBackgrountLi(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
-});
+}
+
+// Chamada de evento de click para selecionar elemento li;
+listTarefas.addEventListener('click', alterBackgrountLi);
