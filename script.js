@@ -1,5 +1,12 @@
-// 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão,
-// um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+// OK - 1 - Adicione à sua lista o título "Minha Lista de Tarefas" em uma tag
+
+// OK - 2 - Adicione abaixo do título um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
+
+// OK - 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
+
+// 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
+
+// 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 
 function newTask() {
   const taskList = document.querySelector('#lista-tarefas'); // Atribuir elemento de id lista-tarefas à variável taskList
@@ -13,5 +20,3 @@ function newTask() {
 }
 
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
-
-function removeAll() {};
