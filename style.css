@@ -1,0 +1,30 @@
+// Estilos padrões e reset do CSS
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 80%; 
+}
+
+header {
+
+}
+
+input {
+
+}
+
+button {
+
+}
+
+ol {
+
+}
+
+
+.completed{
+
+}
