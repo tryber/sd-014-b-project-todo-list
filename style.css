@@ -1,11 +1,11 @@
 body {
-  background-color: rgb(241, 240, 238);
+  background-color: rgb(241 , 240 , 238);
   font-family: monospace;
   color: grey;
 }
 
 h1 {
-  color: rgb(248, 147, 52);
+  color: rgb(248 , 147 , 52);
 }
 
 aside {
@@ -22,4 +22,9 @@ header {
 #texto-tarefa {
   color: black;
   background-color: beige;
+  margin-left: 45px;
+}
+
+section {
+  margin-left: 250px;
 }
