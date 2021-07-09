@@ -11,8 +11,12 @@ function addTarefa() {
   let lista = document.getElementById('lista-tarefas');
   let item = document.createElement('li');
   item.innerText = tarefa;
-  
+  item.addEventListener('click', markTask);
   lista.appendChild(item);
   document.getElementById('texto-tarefa').value = '';
 
+}
+
+function markTask(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
