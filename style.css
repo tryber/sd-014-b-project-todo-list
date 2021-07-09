@@ -7,11 +7,29 @@ body {
     background: #ffeb54;
 }
 
+/**********
+----- Conteúdo Principal -----
+**********/
+
 .main-content {
     background: #fff;
+    padding: 25px;
+    width: 70%;
 }
+
+/**********
+----- Cabeçalho -----
+**********/
 
 #funcionamento {
     color: #797575;
     font-style: italic;
+}
+
+/**********
+----- Conteúdo Central -----
+**********/
+
+#lista-tarefas {
+    padding: 17px;
 }
