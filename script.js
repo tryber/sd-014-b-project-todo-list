@@ -33,6 +33,29 @@ function createListItem() {
 }
 createListItem()
 
+function deleteListItems() {
+ const deleteButton = document.getElementById('apaga-tudo');
+ const ol = document.getElementById('lista-tarefas');
+ deleteButton.addEventListener('click', function() {
+  let listItems = document.querySelectorAll('.listItem');
+  for (let index = 0; index < listItems.length; index += 1){
+   ol.removeChild(listItems[index])
+  }
+ })
+}
+deleteListItems()
+
+function removeCompleted() {
+ const removeCompletedButton = document.getElementById('remover-finalizados');
+ const ol = document.getElementById('lista-tarefas');
+ removeCompletedButton.addEventListener('click', function() {
+  let completedItems = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedItems.length; index += 1){
+   ol.removeChild(completedItems[index])
+  }
+ })
+}
+removeCompleted()
 
 
 
