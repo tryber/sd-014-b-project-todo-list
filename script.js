@@ -7,4 +7,11 @@ button.addEventListener('click', function() {
   listaOrde.appendChild(li);
   li.innerText = inputText.value;
   inputText.value = '';
-})  
+})
+color = 'grey';
+listaOrde.addEventListener('click', function(event) {
+  let list = document.querySelectorAll('li');
+  for (let index = 0; index < list.length; index += 1 ) {
+    event.target.style.background = color;
+  }
+})
