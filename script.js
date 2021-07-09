@@ -29,4 +29,11 @@ window.onload = function () {
     listaOrdenada.innerHTML = null;
   };
 
+   // Função Remover Completos
+   btnRemover.onclick = function () {
+    const tarefaCompleta = document.querySelectorAll('.completed');
+    for (let i = 0; i < tarefaCompleta.length; i++) {
+      tarefaCompleta[i].remove();
+    }
+  };
 }  
