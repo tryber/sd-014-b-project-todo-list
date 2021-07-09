@@ -72,7 +72,13 @@ function salvarLista () {
 
 function ImprimirListaSalva() {
   let ol = document.querySelector('ol');
-  for (let index = 0; index <= localStorage.length -1; index += 1) { // falta tornar o localStorage.leght = lista.lenght;
+  let contador = 0;
+  for (let index in localStorage.getItem('lista' + index)) { // Ta errado :(
+    if (.includes('lista') === true){
+      contador += 1;
+    }
+  }
+  for (let index = 0; index <= contador; index += 1) { // falta tornar o localStorage.leght = lista.lenght;
     let valor = localStorage.getItem('lista' + index);
     let li = document.createElement('li');
     li.innerText = valor;
