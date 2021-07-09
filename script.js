@@ -26,8 +26,10 @@ function riscaItem(evento) {
   let tarefasLista = document.querySelectorAll('li');
   if (evento.target.style.textDecoration != 'line-through') {
     evento.target.style.textDecoration = 'line-through';
+    evento.target.className = 'completed';
   } else {
     evento.target.style.textDecoration = 'none';
+    evento.target.className = '';
   }
 }
 
