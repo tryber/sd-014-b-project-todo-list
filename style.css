@@ -1,0 +1,8 @@
+body {
+  margin: 1%;
+  background-color:darkcyan;
+}
+
+.selectedItem {
+  background-color: rgb(128,128,128);
+}
