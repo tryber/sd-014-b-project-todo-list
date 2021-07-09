@@ -12,7 +12,7 @@
   background-color: black;
   color: orangered;
   text-transform: uppercase;
-  font-family: 'Encode Sans SC',sans-serif,serif;
+  font-family: Encode Sans SC, sans-serif, serif;
   margin-bottom: 20px;
 }
 
@@ -23,17 +23,17 @@
 }
 
 #funcionamento {
-  font-family: 'Encode Sans SC',sans-serif,serif;
+  font-family: Encode Sans SC, sans-serif, serif;
   padding: 0 15px;
 }
 
 #texto-tarefa {
-  font-family: 'Encode Sans SC',sans-serif,serif;
+  font-family: Encode Sans SC, sans-serif, serif;
   margin-right: 15px;
 }
 
 #criar-tarefa {
-  font-family: 'Encode Sans SC',sans-serif,serif;
+  font-family: Encode Sans SC, sans-serif, serif;
   padding: 0 15px;
   background-color: orangered;
 }
@@ -45,10 +45,10 @@
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
