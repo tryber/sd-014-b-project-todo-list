@@ -147,7 +147,7 @@ function moveUp() { // referencia https://github.com/tryber/sd-012-project-todo-
   if (ol.firstChild !== taskUp && taskUp != null) { // The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true 
     ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
   } // !== null é quando a classe é a selected (o item clicado)
-}
+} // pega o elemento de baixo (o previousSibling) e adiciona o item selecionado em cima dele (before)
 buttonUp.addEventListener('click', moveUp);
 
 const clickDown = document.querySelector('.button-down'); // mover item está relacionado com a posição das childs nos nós
@@ -160,7 +160,21 @@ function moveDown() {
   const ol = document.querySelector('#lista-tarefas');
   const taskDown = document.querySelector('.selected');
   if (ol.lastChild !== taskDown && taskDown != null) { // aqui compara as childs da lista e o elemento selecionado
-    ol.insertBefore(taskDown.nextSibling, taskDown);
-  }
+    ol.insertBefore(taskDown.nextSibling, taskDown); // o if é para comparar os demais elementos da lista porque eles 
+  } // serão usados como parâmetro de inserção. O parâmetro de inserção "para baixo" é mover o elemento em relação a posição dos seus irmãos filhos da lista
 }
 buttonDown.addEventListener('click', moveDown);
+
+// Requisito 14
+
+const clickRemoveSelected = document.querySelector('.button-up');
+const buttonRemoveSelected = document.createElement('button');
+buttonRemoveSelected.innerHTML = 'Remover tarefa selecionada';
+clickRemoveSelected.appendChild(buttonRemoveSelected);
+buttonRemoveSelected.id = 'remover-selecionado';
+
+function removeTaskSelected() {
+  const taskSelectedToRemove = document.querySelector('.selected'); // aqui seleciona o elemento a ser limpo
+  taskSelectedToRemove.remove(); // The Element.remove() method removes the element from the tree it belongs to.
+}
+buttonRemoveSelected.addEventListener('click', removeTaskSelected);
