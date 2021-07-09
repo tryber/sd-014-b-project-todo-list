@@ -3,13 +3,18 @@ const lista = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const apagaFinalizados = document.querySelector('#remover-finalizados');
+const apagaSelecionado = document.querySelector('#remover-selecionado');
 
 function selectItem (event) {
   const itensTarefa = document.querySelectorAll('.tarefa');
-  for (const item of itensTarefa) {
-    item.classList.remove('selected');
+  if (event.target.classList.contains('selected')) {
+    event.target.classList.remove('selected');
+  } else {
+    for (const item of itensTarefa) {
+      item.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
   }
-  event.target.classList.add('selected');
 }
 
 function completeItem (event) {
@@ -45,9 +50,15 @@ function eraseCompleted() {
   }
 }
 
+function eraseSelected() {
+  const itemSelecionado = document.querySelector('.selected');
+  lista.removeChild(itemSelecionado);
+}
 
 createList.addEventListener('click', createItem);
 
 apagaTudo.addEventListener('click', eraseAll);
 
 apagaFinalizados.addEventListener('click', eraseCompleted);
+
+apagaSelecionado.addEventListener('click', eraseSelected);
