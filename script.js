@@ -8,6 +8,24 @@ buttonAdd.addEventListener('click', function() {
     if (inputText.value !== ''){
     childOfList.innerText = inputText.value;
     childOfList.className = 'listItemOfTask';
+    childOfList.addEventListener('click', function (event){
+        const currentColor = event.target.style.backgroundColor;
+        if (currentColor !== 'rgb(128, 128, 128)') {
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        }
+        else if (currentColor ==='rgb(128, 128, 128)') {
+            event.target.style.backgroundColor = 'white';
+        };
+        const currentItems = [];
+        for (let index =0; index < document.getElementsByTagName('li').length; index += 1) {
+            currentItems.push(document.getElementsByTagName('li')[index]);
+        }
+        for (let index =0; index < currentItems.length; index += 1) {
+            if(currentItems[index] !== event.target) {
+                currentItems[index].style.backgroundColor = 'white';
+            }
+        }
+    })
     fatherOfList.appendChild(childOfList);
     }
     inputText.value = '';
