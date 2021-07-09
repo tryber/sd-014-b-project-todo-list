@@ -1,10 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+header,
+h1,
+p,
+input,
+button,
+ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+li {
+  cursor: pointer;
+}
+
 .color {
   background-color: rgb(128, 128, 128);
+  color: white;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
-}
-#lista-tarefas {
-  cursor: pointer;
+  text-decoration: line-through;
 }
