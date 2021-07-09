@@ -7,8 +7,19 @@ button.id = 'criar-tarefa';
 toDoList.appendChild(button);
 
 button.addEventListener('click', function () {
-    let freshLi = document.createElement('li');
-    freshLi.innerText = input.value
-    toDoList.appendChild(freshLi);
-    input.value = '';
+  let riseMyGloriousCreation = document.createElement('li');
+  riseMyGloriousCreation.innerText = input.value;
+  riseMyGloriousCreation.classList.add('li');
+  toDoList.appendChild(riseMyGloriousCreation);
+  input.value = '';
 });
+
+toDoList.addEventListener('click', function (event) {
+  for (let value of toDoList.children) {
+    if (value.style.backgroundColor === 'rgb(128, 128, 128)') {
+      value.style.backgroundColor = 'white';
+    }
+  }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
+
