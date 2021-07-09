@@ -58,5 +58,51 @@
     opacity: 1;
     padding: 0 0 40px;
   }
-
+    
+  input {
+    background: rgba(255, 255, 255, 0.7);
+    border: 0;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 18px;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 10px;
+    position: relative;
+    transition: all linear 0.1s;
+    width: 440px;
+  }
   
+  #criar-tarefa {
+    font-family: 'poppins', sans-serif;
+    text-transform: uppercase;
+    background-color: indianred;
+    border-radius: 5px;
+    padding: 15px;
+    color: #fff;
+    opacity: 1;
+  }
+  
+  button {
+    background: transparent;
+    border: 0;
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.5;
+    margin: 5px 10px 5px 10px;
+    display: inline-block;
+    align-items: center;
+  }
+  
+  #botoes {
+  }
+  
+  #listagem {
+    margin-bottom: 30px;
+    margin-top: -15px;
+  }
