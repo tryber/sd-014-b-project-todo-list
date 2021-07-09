@@ -1,0 +1,17 @@
+https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript
+https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+http://jsfiddle.net/T6XjV/
+https://stackoverflow.com/questions/20673959/how-to-add-new-li-to-ul-onclick-with-javascript/20673977
+https://www.w3schools.com/Jsref/met_form_reset.asp
+https://github.com/tryber/sd-012-project-todo-list/blob/duribeiro-todo-list/script.js
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup
+https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
+https://github.com/tryber/sd-012-project-todo-list/blob/luciano-lanes-lopes-project-todo-list/script.js
+https://www.w3schools.com/jsref/event_onload.asp
+https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
+https://github.com/tryber/sd-012-project-todo-list/blob/caroline-benichio-todo-list/script.js
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
+https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
+https://stock.adobe.com/uk/images/to-do-list-background/78513559
