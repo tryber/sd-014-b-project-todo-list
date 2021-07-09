@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
 </head>
 <body>
     <main>
@@ -12,9 +13,20 @@
             <h1>Minha lista de tarefas</h1>
             <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
         </header>
-        <section id="addList">
-            <input type="text" id="texto-tarefa">
+        <section id="listArea">
+            <div id="inputArea">
+                <input type="text" id="texto-tarefa">
+                <button id="criar-tarefa">Adicionar</button>
+            </div>
             <ol id="lesta-tarefas"></ol>
+            <div id="btnsArea">
+                <button id="x" class="btn">X</button>
+                <button id="up" class="btn">Up</button>
+                <button id="bton" class="btn">Down</button>
+                <button id="clearDone" class="btn">Limpar Completos</button>
+                <button id="clearList" class="btn">Limpar Lista</button>
+                <button id="save" class="btn">Salvar Lista</button>
+            </div>
         </section>
     </main>
 </body>

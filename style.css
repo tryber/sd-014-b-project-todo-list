@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+}
+body {
+  background: rgb(128, 128, 128);
+}
+main {
+  background: white;
+  padding: 20px;
+  width: 80vw;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-family: sans-serif;
+  font-size: 2.1em;
+}
+
+header p {
+  font-family: sans-serif;
+  font-size: .8em;
+  color: darkgrey;
+}
+
+#listArea {
+  margin-top: 20px;
+}
+
+#btnsArea {
+  margin-top: 20px;
+  width: 70%;
+}
+
+#btnsArea .btn {
+  margin: 10px 10px 0 0;
+}
