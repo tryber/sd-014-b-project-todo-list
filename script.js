@@ -1,6 +1,7 @@
 const input = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
+const btnApagatudo = document.querySelector('#apaga-tudo');
 
 function addTarefa() {
   let itemTarefa = document.createElement('li');
@@ -28,7 +29,6 @@ lista.addEventListener('click', function (event) {
 
 function tarefaCompleta(event) {
   let verificador = event.target.className;
-  console.log(verificador);
   if (verificador === 'item-tarefa completed') {
     event.target.classList.remove('completed');
   } else {
@@ -36,3 +36,12 @@ function tarefaCompleta(event) {
   }
 }
 lista.addEventListener('dblclick', tarefaCompleta);
+
+function apagaLista() {
+// As long as <ol> has a child node, remove it
+// https://www.w3schools.com/jsref/met_node_removechild.asp
+  while (lista.hasChildNodes()) {  
+    lista.removeChild(lista.firstChild);
+  }
+}
+btnApagatudo.addEventListener('click', apagaLista);
