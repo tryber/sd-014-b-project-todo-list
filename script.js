@@ -177,4 +177,5 @@ function removeTaskSelected() {
 }
 buttonRemoveSelected.addEventListener('click', removeTaskSelected);
 
-Cypress.on('uncaught:exception', (err, runnable) => false);
+Cypress.on('uncaught:exception', (err, runnable) => false); // nao sei porque mas deu esse erro no test cypress
+// resolvido a partir deste link:https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
