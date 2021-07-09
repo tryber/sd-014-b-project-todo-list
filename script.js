@@ -3,6 +3,7 @@ window.onload = function () {
   const btnAddList = document.querySelector('#criar-tarefa');
   const todoList = document.querySelector('#lista-tarefas');
   const btnApagaTudo = document.querySelector('#apaga-tudo');
+  const btnClearFinalizados = document.querySelector('#remover-finalizados');
   function selectItem(event) {
     const itens = todoList.children;
     for (let index = 0; index < itens.length; index += 1) {
@@ -33,12 +34,19 @@ window.onload = function () {
     item.addEventListener('dblclick', taskCompleted);
   }
   function clearList() {
-    var fullList = document.querySelector('#lista-tarefas');
-    console.log(fullList);
+    let fullList = document.querySelector('#lista-tarefas');
     while (fullList.firstChild) {
       fullList.removeChild(fullList.firstChild);
     }
   }
+  function clearFinisheItens() {
+    let finalizados = document.querySelectorAll('.completed');
+    console.log(finalizados);
+    for (let index = 0; index < finalizados.length; index += 1) {
+     finalizados[index].remove();
+    }
+  }
   btnAddList.addEventListener('click', addList);
-  btnApagaTudo.addEventListener('click', clearList)
+  btnApagaTudo.addEventListener('click', clearList);
+  btnClearFinalizados.addEventListener('click', clearFinisheItens);
 };
