@@ -43,3 +43,19 @@ function clearList () {
   })
 }
 clearList();
+
+function clearFinalized () {
+  const clearFinalizedButton = document.createElement('button');
+  clearFinalizedButton.id = 'remover-finalizados';
+  clearFinalizedButton.innerText = 'Limpar Finalizados';
+  document.querySelector('.buttons').appendChild(clearFinalizedButton);
+  clearFinalizedButton.addEventListener('click', function () {
+    const orderList = document.querySelector('#lista-tarefas');
+    const allFinalizedItens = document.querySelectorAll('.completed');
+    for (let index = 0; index < allFinalizedItens.length; index += 1) {
+      let item = allFinalizedItens[index];
+      orderList.removeChild(item);
+    }
+  })
+}
+clearFinalized();
