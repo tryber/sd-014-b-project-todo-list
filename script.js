@@ -4,7 +4,7 @@ function createItem(){
     let li = document.createElement('li');
     li.innerText = input.value;
     ol.appendChild(li);
-
+    input.value = '';
     };
 
 let button = document.getElementById('criar-tarefa');
