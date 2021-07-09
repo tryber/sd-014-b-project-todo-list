@@ -7,6 +7,7 @@ function addTask() {
     const createLi = document.createElement('li');
     createLi.innerHTML = getInput.value;
     getOl.appendChild(createLi);
+    getInput.value = '';
   });
 }
 addTask();
