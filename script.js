@@ -1,4 +1,5 @@
 const addButton = document.getElementById('criar-tarefa');
+const clearListButton = document.getElementById('apaga-tudo');
 
 function generateTask(){
     const li = document.createElement('li');
@@ -37,12 +38,11 @@ function checkingTask(event){
         }
 }
 
-
-   /*  for(index = 0; index < liComplete.length; index += 1){
-        if(liComplete[index].className === "completed"){
-        liComplete[index].classList.remove('completed');
-        }else{
-            liComplete[index].classList.add('completed');
-        }
+function clearList(event){
+    const allLis = document.querySelectorAll('li');
+    for(index = 0; index < allLis.length; index += 1){
+        allLis[index].parentNode.removeChild(allLis[index]);
     }
- */
+}
+
+clearListButton.addEventListener('click', clearList);
