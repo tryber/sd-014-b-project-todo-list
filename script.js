@@ -26,3 +26,31 @@ function addTask(event){
 }
 
 addTask();
+
+// Requisito 7 - Alterar background da tarefa selecionada (apenas 1 por vez)
+
+  // 1 - Criar um for para add listener click nas tarefas
+  // 2 - Apagar a classe selected se houver em alguma li
+  // 3 - Adicionar a classe selected na tarefa clicada
+
+function addTaskColor (){
+  let taskList = document.querySelector('#lista-tarefas');
+
+  taskList.addEventListener('click', function(event){
+  let previousSelected = document.querySelector('.selected')
+  console.log(previousSelected)
+  let selectedTask = event.target
+  console.log(selectedTask)
+
+  
+  if (previousSelected === null){
+    selectedTask.classList.add('selected');
+  } else {
+    previousSelected.classList.remove('selected');
+    selectedTask.classList.add('selected');
+    }
+  })
+  
+}
+
+addTaskColor();
