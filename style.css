@@ -1,4 +1,8 @@
 li {
   width: 25%;
-  overflow: auto;
+  /* overflow: auto; */
+}
+
+.selected {
+  background-color: rgb(128,128,128);
 }
