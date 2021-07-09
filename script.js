@@ -3,6 +3,7 @@ const taskButton = document.querySelector('#criar-tarefa');
 const tasks = document.querySelector('#lista-tarefas');
 const btClearAll = document.querySelector('#apaga-tudo');
 const btClearCompleted = document.querySelector('#remover-finalizados');
+const btClearSelected = document.querySelector('#remover-selecionado');
 const btSaveTasks = document.querySelector('#salvar-tarefas');
 
 function createElement() {
@@ -26,22 +27,30 @@ taskButton.addEventListener('click', () => {
   createTask(inputTask.value);
 });
 
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('task')) {
-    for (const child of tasks.children) {
-      child.style.backgroundColor = '';
+function changeBackground() {
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('task')) {
+      for (const child of tasks.children) {
+        child.style.backgroundColor = '';
+        child.classList.remove('selected');
+      }
+      e.target.classList.add('selected');
+      e.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
-    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  }
-});
+  });
+}
+changeBackground();
 
-document.addEventListener('dblclick', (e) => {
-  if (e.target.classList.contains('completed')) {
-    e.target.classList.remove('completed');
-  } else {
-    e.target.classList.add('completed');
-  }
-});
+function setToCompleted() {
+  document.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('completed')) {
+      e.target.classList.remove('completed');
+    } else {
+      e.target.classList.add('completed');
+    }
+  });
+}
+setToCompleted();
 
 function clearAll() {
   btClearAll.addEventListener('click', () => {
@@ -63,13 +72,12 @@ function deleteTasksDone() {
 deleteTasksDone();
 
 function tasksToLocalStorage() {
+  localStorage.clear();
   const tasksToSave = tasks.querySelectorAll('.task');
   const taskList = [];
-  for (const task of tasksToSave) {
-    let taskText = task.innerText;
-    taskText = taskText.trim();
-    taskList.push(taskText);
-  }
+  tasksToSave.forEach((e) => {
+    taskList.push(e.innerText.trim());
+  });
   const tasksJSON = JSON.stringify(taskList);
   localStorage.setItem('tasks', tasksJSON);
 }
@@ -77,9 +85,10 @@ function tasksToLocalStorage() {
 function returnSavedTasks() {
   const localTasks = localStorage.getItem('tasks');
   const tasksList = JSON.parse(localTasks);
-  console.log(tasksList);
-  for (const task of tasksList) {
-    createTask(task);
+  if (localStorage.getItem('tasksList') !== null) {
+    tasksList.forEach((e) => {
+      createTask(e);
+    });
   }
 }
 returnSavedTasks();
