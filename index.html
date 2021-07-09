@@ -6,15 +6,17 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
-  <section class="addText">
-    <input type="text" id="texto-tarefa" class="input">
-    <button id="criar-tarefa" class="button">Adicionar</button>
+  <section class="block">
+    <header class="header">
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <section class="addText">
+      <input type="text" id="texto-tarefa" class="input">
+      <button id="criar-tarefa" class="button">Adicionar</button>
+    </section>
+    <ol id="lista-tarefas"></ol>
+    <script src="/script.js"></script>
   </section>
-  <ol id="lista-tarefas"></ol>
-  <script src="/script.js"></script>
 </body>
 </html>

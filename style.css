@@ -1,7 +1,13 @@
 body {
   margin-left: 20%;
   margin-right: 20%;
-  background-color: azure;
+  background-color: rgb(164, 143, 241);
+}
+
+.block {
+  margin-top: 10%;
+  background-color: rgb(233, 233, 233);
+  border-style: dashed;
 }
 
 .header {
