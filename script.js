@@ -67,3 +67,23 @@ function addTaskCompleted () {
 }
 
 addTaskCompleted ();
+
+// Requisito 10: Adiciona função de apagar a lista de tarefas
+
+function deleteTasks (){
+  let taskList = document.querySelector('#lista-tarefas').children;
+  let clearBtn = document.querySelector('#apaga-tudo');
+
+  clearBtn.addEventListener('click', function(event){
+    console.log(taskList)
+    if (taskList.length > 0) {
+      while (taskList.length > 0) {
+      taskList[0].remove();
+      }
+    } else {
+      alert('Você não tem tarefas')
+    }
+  })
+}
+
+deleteTasks();
