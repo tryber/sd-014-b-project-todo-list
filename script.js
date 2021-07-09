@@ -3,6 +3,8 @@ const addTarefasBtn = document.querySelector('#criar-tarefa');
 const deleteAllTasksBtn = document.querySelector('#apaga-tudo');
 const deleteCompletedBtn = document.querySelector('#remover-finalizados');
 const saveBtn = document.querySelector('#salvar-tarefas');
+const upBtn = document.querySelector('#mover-cima');
+const downBtn = document.querySelector('#mover-baixo');
 
 let data = null;
 let selectedTask = document.querySelector('.selected');
@@ -89,9 +91,25 @@ function recoverData() {
 	}
 }
 
+function moveUp(element) {
+	element = selectedTask;
+	if(element.previousElementSibling) {
+		element.parentNode.insertBefore(element, element.previousElementSibling);
+	}
+}
+
+function moveDown(element) {
+	element = selectedTask;
+	if (element.nextElementSibling) {
+		element.parentNode.insertBefore(element.nextElementSibling, element);
+	}
+}
+
 // Buttons
 
 addTarefasBtn.addEventListener('click', getTaskValue);
 deleteAllTasksBtn.addEventListener('click', deleteAllTasks);
 deleteCompletedBtn.addEventListener('click', deleteCompletedTasks);
 saveBtn.addEventListener('click', saveData);
+upBtn.addEventListener('click', moveUp);
+downBtn.addEventListener('click', moveDown);
