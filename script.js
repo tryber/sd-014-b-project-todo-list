@@ -10,12 +10,22 @@ function selectTask(event) {
     event.target.classList.add('selected');
 }
 
+function completeTask(event) {
+    const item = event.target;
+    if (item.className.includes('completed')) {
+        item.classList.remove('completed');
+    } else {
+        item.classList.add('completed');
+    }
+}
+
 function addListItem() {
     const listItem = document.createElement('li');
     listItem.innerText = input.value;
     list.appendChild(listItem);
     input.value = '';
     listItem.addEventListener('click', selectTask);
+    listItem.addEventListener('dblclick', completeTask);
 }
 
 submitBtn.addEventListener('click', addListItem);
