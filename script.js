@@ -1,6 +1,7 @@
 const inputTask = document.querySelector('#texto-tarefa');
 const taskButton = document.querySelector('#criar-tarefa');
 const tasks = document.querySelector('#lista-tarefas');
+const btClearAll = document.querySelector('#apaga-tudo');
 
 function createElement() {
   return document.createElement('li');
@@ -39,3 +40,12 @@ document.addEventListener('dblclick', (e) => {
     e.target.classList.add('completed');
   }
 });
+
+function clearAll() {
+  btClearAll.addEventListener('click', () => {
+    while (tasks.firstChild) {
+      tasks.removeChild(tasks.lastChild);
+    }
+  });
+}
+clearAll();
