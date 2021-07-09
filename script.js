@@ -18,3 +18,12 @@ function corDeFundoItemLista(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
+
+function completedTasks(event) {
+  if (event.target.classList === 'completed') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+listaTarefas.addEventListener('dblclick', completedTasks);
