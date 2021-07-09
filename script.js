@@ -12,7 +12,7 @@ function addTextRemove() {
   });
 }
 addTextRemove();
-
+clearAll();
 function colorizeText(event) {
   let itemSelected = document.querySelectorAll('li');
   itemSelected.forEach((element) => {
@@ -20,7 +20,6 @@ function colorizeText(event) {
   });
   event.target.classList.add('selectedItem');
 }
-
 function markAsCompleted(event) {
   const itemMarked = event.target.classList;
   console.log(itemMarked);
@@ -29,4 +28,15 @@ function markAsCompleted(event) {
   } else {
     event.target.classList.add('completed');
   }
+}
+function clearAll() {
+  let clearClick = document.getElementById('apaga-tudo');
+  clearClick.addEventListener('click', function () {
+    var rmvChild = document.getElementById('lista-tarefas');
+    // Referência de código retirada do site => "https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild"
+    while (rmvChild.firstChild) {
+      rmvChild.removeChild(rmvChild.firstChild);
+    }
+    // Fim da referência
+  });
 }
