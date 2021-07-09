@@ -1,0 +1,21 @@
+* {
+  background-color: #15151A;
+  color: #FFFFFF;
+  margin-left: 7px;
+}
+  #texto-tarefa {
+  margin-right: 20px;
+  background-color:gainsboro;
+  color: black;
+  padding: 4px;
+}
+
+#criar-tarefa{
+  color: dimgrey;
+  background-color: springgreen;
+  padding: 5px 10px 5px 10px;
+}
+
+#input-button {
+  display: inline-block;
+}
