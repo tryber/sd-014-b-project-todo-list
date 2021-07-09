@@ -4,6 +4,7 @@ window.onload = function (){
     let getList = document.querySelector('#lista-tarefas');
     let getInput = document.querySelector('#texto-tarefa');
     let newTask = document.querySelector('.newTask');
+    let getClearTasks = document.querySelector('#apaga-tudo');
 
     getButton.addEventListener('click', createNewTask);
 
@@ -45,7 +46,14 @@ window.onload = function (){
         }
     }
 
-    
+    function clearAll() {
+        getClearTasks.addEventListener('click', () => {
+          while (getList.firstChild) {
+            getList.removeChild(getList.firstChild);
+          }
+        });
+      }
+      clearAll();
     
 }
 

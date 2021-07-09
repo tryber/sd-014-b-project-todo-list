@@ -1,8 +1,12 @@
 #criar-tarefa{
     width: 80px;
     height: 20px;
-    border: solid purple 2px;
-    background-color: seagreen;
+    border: solid white 2px;
+    background-color:rgb(91, 149, 103);
+    display: inline;
+    margin-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 
 .completed{
