@@ -17,12 +17,8 @@ function adicionaTarefa () {
 function pintarSelecionado (event) {
     let listaTarefas = document.getElementsByClassName('lista')
     for (let index = 0; index < listaTarefas.length;index += 1) {
-
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
-
-    if(event.target.style.backgroundColor === 'rgb(12, 128, 128)') {
-        event.target.style.backgroundColor = 'white';
+    listaTarefas[index].style.backgroundColor = ''
     }
-    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 addItemList.addEventListener('click', pintarSelecionado)
