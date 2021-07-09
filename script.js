@@ -29,5 +29,13 @@ window.onload = function () {
         input.value = '';
     })
 
+    let buttonApagaTudo = document.querySelector('#apaga-tudo');
 
+    buttonApagaTudo.addEventListener('click', function () {
+        let lis = document.querySelectorAll('li');
+
+        for (let i = 0; i < lis.length; i += 1) {
+            listaOrdenada.removeChild(lis[i])
+        }
+    })
 }
