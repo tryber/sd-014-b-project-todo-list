@@ -11,3 +11,7 @@ header {
     font-style: italic;
     color: rgb(69, 71, 73);
 }
+
+#texto-tarefa {
+    background-color: rgb(234, 237, 241);
+}
