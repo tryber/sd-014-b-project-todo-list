@@ -1,0 +1,17 @@
+body {
+  background-color: gray;
+}
+
+.container {
+  width: 720px;
+  margin: 0 auto;
+  background-color: rgb(237 , 237 , 246);
+  border-radius: 1.5rem;
+  height: 500px;
+}
+
+h1 {
+  padding-top: 1.5rem;
+  text-align: center;
+  color: rgb(58 , 56 , 56);
+}
