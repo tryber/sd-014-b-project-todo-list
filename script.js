@@ -7,16 +7,24 @@ function removeInputText() {
 
 function changeColor (event) {
   let lis = document.getElementsByClassName('tarefa');
-  for (let index = 0; index <= lis.length; index += 1) {
+  for (let index of lis) {
+    index.style.backgroundColor = 'white';  
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    // lis[index].style.backgroundColor = 'white';
   }
 }
+
+// function teskDone(event) {
+//   let lis = document.getElementsByClassName('tarefa');
+//   for (let index = 0; index <= lis.length; index += 1) {
+//     event.target.classList.add('.completed');
+//   }
+// }
 
 function addTextList() {
   let input = document.querySelector('#texto-tarefa');
   let li = document.createElement('li');
   li.className = 'tarefa';
+  li.style.backgroundColor = 'white';
   li.innerHTML = input.value;
   document.querySelector('#lista-tarefas').appendChild(li);
   li.addEventListener('click', changeColor);
@@ -25,3 +33,8 @@ function addTextList() {
 
 let button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addTextList);
+
+// let lis = document.getElementsByClassName('tarefa');
+// for (let index of lis) {
+//   index.addEventListener('dblclick', teskDone);
+// }
