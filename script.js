@@ -1,4 +1,4 @@
-// Requisito 5: Criar função para adicionar tarefa com o botão Adicionar
+// Requisito 5 e 6: Criar função para adicionar tarefa com o botão Adicionar
 function addTask(event){
   let button = document.querySelector('#criar-tarefa');
   let taskList = document.querySelector('#lista-tarefas');
@@ -27,30 +27,43 @@ function addTask(event){
 
 addTask();
 
-// Requisito 7 - Alterar background da tarefa selecionada (apenas 1 por vez)
+// Requisito 7 e 8- Alterar background da tarefa selecionada (apenas 1 por vez)
 
-  // 1 - Criar um for para add listener click nas tarefas
-  // 2 - Apagar a classe selected se houver em alguma li
-  // 3 - Adicionar a classe selected na tarefa clicada
+  // 1 - Apagar a classe selected se houver em alguma li
+  // 2 - Adicionar a classe selected na tarefa clicada
 
 function addTaskColor (){
   let taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('click', function(event){
-  let previousSelected = document.querySelector('.selected')
-  console.log(previousSelected)
-  let selectedTask = event.target
-  console.log(selectedTask)
+    let previousSelected = document.querySelector('.selected')
+    let selectedTask = event.target
 
-  
-  if (previousSelected === null){
-    selectedTask.classList.add('selected');
-  } else {
-    previousSelected.classList.remove('selected');
-    selectedTask.classList.add('selected');
-    }
+    if (previousSelected === null){
+      selectedTask.classList.add('selected');
+    } else {
+        previousSelected.classList.remove('selected');
+        selectedTask.classList.add('selected');
+      }
   })
-  
+
 }
 
 addTaskColor();
+
+// Requisito 9: Double-click faz com que a tarefa seja riscada e adiciona a classe completed
+
+function addTaskCompleted () {
+  let taskList = document.querySelector('#lista-tarefas');
+
+  taskList.addEventListener('dblclick', function(event) {
+    if (event.target.classList.contains('completed') === false){
+      event.target.classList.add('completed');
+    } else {
+      event.target.classList.remove('completed')
+    }
+  })
+
+}
+
+addTaskCompleted ();
