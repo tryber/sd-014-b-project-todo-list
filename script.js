@@ -15,10 +15,7 @@ function criarItemTarefa() {
 }
 botaoTarefas.addEventListener('click', criarItemTarefa);
 
-// Requisito #7
-// listaOrdenada.addEventListener('click', function (event) {
-//   event.target.style.backgroundColor = 'rgb(128,128,128)';
-// });
+//Requisito #7
 function selecionaItem() {
   listaOrdenada.addEventListener('click', function (event) {
     event.target.style.backgroundColor = 'rgb(128,128,128)';
@@ -26,11 +23,22 @@ function selecionaItem() {
 }
 selecionaItem();
 
+// Requisito #8
 function removeSelecao(event) {
   const arrayLi = document.getElementsByClassName('li-tarefas');
   for (let index = 0; index < arrayLi.length; index += 1) {
     arrayLi[index].style.backgroundColor = '';
-  }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  } event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 listaOrdenada.addEventListener('click', removeSelecao);
+
+// Requisito #9
+function tachaItem(event) {
+  const arrayLi = document.getElementsByClassName('li-tarefas');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+listaOrdenada.addEventListener('dblclick', tachaItem);
