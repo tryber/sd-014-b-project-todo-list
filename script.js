@@ -1,4 +1,5 @@
 window.onload = function() {
+
   let addTask = document.getElementById('criar-tarefa');
   addTask.addEventListener('click', addTarefa);
 
@@ -10,6 +11,7 @@ window.onload = function() {
     newTask.className = 'tarefa';
     newTask.innerText = input.value;
     newTask.addEventListener('click', highlight);
+    newTask.addEventListener('dblclick', riskCompleted);
     position.appendChild(newTask);
   }
 
@@ -19,5 +21,14 @@ window.onload = function() {
     selectionedTask[0].classList.remove('selected');
     }
     selection.target.classList.add('selected');
+  }
+
+  function riskCompleted(selection) {
+    let classes = selection.target.classList;
+    if (classes.length === 2) {
+      classes.add('completed');
+    } else {
+      classes.remove('completed');
+    }
   }
 }
