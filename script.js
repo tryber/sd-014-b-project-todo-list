@@ -5,6 +5,8 @@ const botaoLimparLista = document.getElementById('apaga-tudo');
 const botaoRemoverFinalizadas = document.getElementById('remover-finalizados');
 let tarefaParaInserir = '';
 const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
+const botaoMoverCima = document.getElementById('mover-cima');
+const botaoMoverBaixo = document.getElementById('mover-baixo');
 
 function tarefaDigitada(event) {
   tarefaParaInserir = event.target.value;
@@ -97,9 +99,25 @@ function recuperarLista() {
   }
 }
 
+function moverTarefaCima() {
+  let posicaoSelecionado;
+  let posicaoAnteriorSelecionado;
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    if (listaTarefas.children[index].classList.contains('selected')) {
+      posicaoSelecionado = index;
+      posicaoAnteriorSelecionado = index - 1;
+    }
+  }
+  if (posicaoSelecionado != 0) {
+    listaTarefas.insertBefore(listaTarefas.children[posicaoSelecionado], listaTarefas.children[posicaoAnteriorSelecionado]);
+  }
+}
+
 inputTarefa.addEventListener('keyup', tarefaDigitada);
 botaoAdicionarTarefa.addEventListener('click', adicionarTarefa);
 botaoLimparLista.addEventListener('click', limparLista);
 botaoRemoverFinalizadas.addEventListener('click', removerTarefasFinalizadas);
 botaoSalvarTarefas.addEventListener('click', salvarLista);
 recuperarLista();
+botaoMoverCima.addEventListener('click', moverTarefaCima);
+botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
