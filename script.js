@@ -17,3 +17,27 @@ const task = document.querySelector('.task-list'); // seleciona o local de appen
 const taskList = document.createElement('ol');
 taskList.id = 'lista-tarefas';
 task.appendChild(taskList);
+
+// Requisito 5
+
+const button = document.querySelector('.button-input-task'); // seleciona o local de append child 
+const buttonInput = document.createElement('button');
+button.id = 'criar-tarefa';
+buttonInput.innerText = "Adicionar tarefa";
+button.appendChild(buttonInput);
+
+function addAnotherTask() {
+  const text = inputTask.value; // define uma variável para armazenar p valor do input 
+  if (text === '') {
+    alert('Insira uma tarefa!');
+  }
+  const ol = document.getElementById('lista-tarefas');
+  const li = document.createElement('li');
+  li.classList.add('taskItem');
+  li.id = 'task-item';
+  li.innerText = text; // aqui retorna o valor do input para adicionar na lista
+  ol.appendChild(li);
+  document.getElementById('myForm').reset(); // https://www.w3schools.com/Jsref/met_form_reset.asp
+}
+
+buttonInput.addEventListener('click', addAnotherTask);
