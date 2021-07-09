@@ -9,3 +9,7 @@
 #list-container {
   height: 120px;
 }
+
+button {
+  margin: 0 5px;
+}

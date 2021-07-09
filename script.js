@@ -74,3 +74,20 @@ function deleteAllTasks() {
 
 // Adiciona evento de clique ao botão que apaga todas as tarefas da lista
 btnDeleteTasks.addEventListener('click', deleteAllTasks);
+
+// Cria botão que apaga as tarefas marcadas como completa
+const btnDeleteCompletedTasks = document.createElement('button');
+btnDeleteCompletedTasks.id = 'remover-finalizados';
+btnDeleteCompletedTasks.innerText = 'Limpar Completos';
+buttonsContainer.appendChild(btnDeleteCompletedTasks);
+
+// Função que apaga as tarefas marcadas como completa
+function deleteCompletedTasks() {
+  const getCompletedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < getCompletedTasks.length; index += 1) {
+    getCompletedTasks[index].remove();
+  }
+}
+
+// Adiciona evento de clique ao botão que apaga as tarefas completadas
+btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
