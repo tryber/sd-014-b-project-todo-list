@@ -2,6 +2,7 @@ const addButton = document.getElementById('criar-tarefa');
 const clearListButton = document.getElementById('apaga-tudo');
 const removeCompletedTaskButton = document.getElementById('remover-finalizados');
 const saveListButton = document.getElementById('salvar-tarefas');
+const removeSelectedTaskButton = document.getElementById('remover-selecionado');
 let savedListItems = document.getElementById('lista-tarefas');
 savedListItems.innerHTML = localStorage.getItem('ol');
 
@@ -71,5 +72,18 @@ function saveList(event){
     localStorage.setItem('ol', document.getElementById('lista-tarefas').innerHTML);
 }
 
-
 saveListButton.addEventListener('click', saveList);
+
+
+function removeSelectedTask(){
+    const allLis = document.querySelectorAll('li');
+    for(let index = 0; index < allLis.length; index += 1){
+        if(allLis[index].style.backgroundColor === 'rgb(128, 128, 128)'){
+        allLis[index].parentNode.removeChild(allLis[index]);
+        }
+
+    }
+}
+
+
+removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
