@@ -38,4 +38,14 @@ window.onload = function () {
             listaOrdenada.removeChild(lis[i])
         }
     })
+
+    let buttonRemoveFinalizados = document.querySelector('#remover-finalizados')
+
+    buttonRemoveFinalizados.addEventListener('click', function() {
+        let completedTasks = document.querySelectorAll('.completed');
+
+        for (element of completedTasks) {
+            listaOrdenada.removeChild(element);
+        }
+    })
 }
