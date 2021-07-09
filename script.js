@@ -49,4 +49,12 @@ window.onload = function () {
 
   recuperar();
 
+    // Função RemoverSelecao
+    btnRemoveSelecao.addEventListener('click', () => {
+        const tarefaSelecionada = document.querySelectorAll('.selecionado');
+        for (let i = 0; i < tarefaSelecionada.length; i++) {
+          tarefaSelecionada[i].remove();
+        }
+      });
+
 }  
