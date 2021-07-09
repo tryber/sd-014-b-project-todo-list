@@ -34,11 +34,13 @@ body {
   border-radius: 20px;
   font-size: 20px;
   width: 8%;
+  margin-left: 3%;
+  
 }
 
 #criar-tarefa {
   background-color: #74a2dc;
-  margin-left: 3%;
+
 }
 
 #lista-tarefas {
@@ -63,12 +65,22 @@ body {
 
 #botoes-inferiores {
   display: flex;
-  justify-content: space-between;
   margin-left: 20%;
 }
 
 #apaga-tudo {
   background-color: red;
   color: white;
-  border: 1px black solid;
+
+}
+
+#remover-finalizados {
+  background-color: orange;
+  color: white;
+  text-decoration: line-through;
+}
+
+#remover-selecionado {
+  background-color: green;
+  color: white;
 }
