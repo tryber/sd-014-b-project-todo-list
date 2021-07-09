@@ -10,3 +10,6 @@ function adicionaTarefa () {
 }
 
 botao.addEventListener('click', adicionaTarefa);
+listaTarefas.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+});
