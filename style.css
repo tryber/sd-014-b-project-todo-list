@@ -1,6 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
+.container {
+  width: 95%;
+  height: 35rem;
+  margin-left: 15px;
+  padding: 10px;
+  padding-left: 20px;
+  background-color:azure;
+  border-radius: 5%;
+  text-align: center;
+}
+
+#lista-tarefas {
+  text-align: left;
 }
 
 .completed {

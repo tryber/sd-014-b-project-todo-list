@@ -34,3 +34,14 @@ listTarefas.addEventListener('dblclick', function (event) {
     event.target.removeAttribute('class');
   });
 });
+
+const getButtonClear = document.querySelector('#apaga-tudo');
+
+getButtonClear.addEventListener('click', function () {
+  const getLis = document.querySelectorAll('ol li');
+  if (getLis.length > 0){
+    for (let index = 0; index < getLis.length; index++) {
+      getLis[index].parentNode.removeChild(getLis[index]);
+    }
+  }
+});
