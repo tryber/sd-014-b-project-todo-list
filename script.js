@@ -31,16 +31,23 @@ listaTarefas.addEventListener('dblclick', completedTasks);
 function deleteAll() {
   listaTarefas.innerHTML = '';
 }
-let buttonDeleteAll = document.getElementById('apaga-tudo');
+const buttonDeleteAll = document.getElementById('apaga-tudo');
 buttonDeleteAll.addEventListener('click', deleteAll);
 
 function deleteCompleted() {
   const tarefas = document.getElementsByClassName('tarefa');
-  for (let i = 0; i < tarefas.length; i += 1) {
+  for (let i = tarefas.length -1; i >= 0; i -= 1) {
     if (tarefas[i].classList == 'tarefa completed') {
       listaTarefas.removeChild(tarefas[i]);
     }
   }
 }
-let deleteCompletedButton = document.getElementById('remover-finalizados');
+const deleteCompletedButton = document.getElementById('remover-finalizados');
 deleteCompletedButton.addEventListener('click', deleteCompleted);
+
+// function () {
+//   const tarefas = document.getElementsByClassName('tarefa');
+//   for (let i = 0 ; i < tarefas.length; i += 1) {
+//     localStorage.setItem('tarefas', tarefas[i].innerText).
+//   }
+// }
