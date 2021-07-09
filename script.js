@@ -11,6 +11,11 @@ function addTextRemove() {
   });
 }
 addTextRemove();
+
 function colorizeText(event) {
+  let itemSelected = document.querySelectorAll('li');
+  itemSelected.forEach((element) => {
+    element.classList.remove('selectedItem');
+  });
   event.target.classList.add('selectedItem');
 }
