@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    background: #3e4c77;
+    background: -webkit-linear-gradient(to right, #3e4c77, #3b90cd);
+    background: linear-gradient(to right, #3e4c77, #3b90cd);
+  }
+  
+  body {
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
