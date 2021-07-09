@@ -32,3 +32,15 @@ delButton.addEventListener('click', function(){
   const list = document.querySelector('#lista-tarefas');
   list.innerHTML = '';
 })
+
+const finishedClearButton = document.querySelector('#remover-finalizados');
+finishedClearButton.addEventListener('click', function (){
+  const listItem = document.querySelectorAll('li');
+  const list = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < listItem.length; index += 1){
+    if (listItem[index].className.includes('completed')){
+      list.removeChild(listItem[index])
+    }
+  }  
+})
+
