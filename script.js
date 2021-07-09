@@ -8,18 +8,22 @@ const color = (li) => {
   });
 };
 
-const clear = () => (selector('#lista-tarefas').innerHTML = '');
+const completed = (a) =>
+  a.addEventListener('dblclick', (e) => {
+    e.target.classList.add('completed');
+  });
 
-const ClearAll = () => selector('#apaga-tudo').addEventListener('click', clear);
+const clear = () => (selector('#lista-tarefas').innerHTML = '');
+const clearAll = () => selector('#apaga-tudo').addEventListener('click', clear);
 
 const todo = () => {
   const newI = document.createElement('li');
   color(newI);
-
+  completed(newI);
   newI.innerText = selector('#texto-tarefa').value;
   selector('#lista-tarefas').appendChild(newI);
   selector('#texto-tarefa').value = null;
 };
 
 selector('#criar-tarefa').addEventListener('click', todo);
-ClearAll();
+clearAll();
