@@ -4,22 +4,35 @@ const takeInput = document.querySelector('#texto-tarefa');
 
 function addLi() {
   const createLi = document.createElement('li');
-  takeOl.appendChild(createLi).innerText = takeInput.value;
+  const liBackgroundColor = takeOl.appendChild(createLi);
+  liBackgroundColor.innerText = takeInput.value;
+  liBackgroundColor.style.backgroundColor = 'transparent';
   takeInput.value = '';
 }
 
 takeButton.addEventListener('click', addLi);
 
 function toColoringGray(event) {
-  const evento = event;
+  const evnt = event;
   for (let index = 0; index < takeOl.children.length; index += 1) {
-    if (takeOl.children[index].classList.length === 1) {
-      evento.target.parentElement.children[index].classList.remove('selected');
+    if (evnt.target.parentElement.children[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      evnt.target.parentElement.children[index].style.backgroundColor = 'transparent';
     }
-    if (takeOl.children[index].classList.length === 0) {
-      evento.target.className = 'selected';
+    if (evnt.target.style.backgroundColor === 'transparent') {
+      evnt.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
   }
 }
 
 takeOl.addEventListener('click', toColoringGray);
+
+function toTachedText(event) {
+  const evento = event;
+  if (evento.target.classList.length === 1) {
+    evento.target.classList.remove('completed');
+  } else if (evento.target.classList.length === 0) {
+    evento.target.className = 'completed';
+  }
+}
+
+takeOl.addEventListener('dblclick', toTachedText);
