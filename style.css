@@ -24,5 +24,16 @@ h1 {
 
 #funcionamento:hover {
   text-decoration: line-through;
-  color: rgb(32, 178, 170);
+  color: rgb(29 , 167 , 160);
+}
+
+#texto-tarefa {
+  width: 15rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid lightgray;
+  margin-left: 2rem;
+  padding-left: 1rem;
+  color: dimgray;
+  font-size: 0.9rem;
 }
