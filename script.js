@@ -2,7 +2,7 @@
 // Requisito 2
 const instructions = document.createElement('p');
 instructions.id = 'funcionamento';
-instructions.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+instructions.innerText = '*Clique duas vezes em um item para marcá-lo como completo';
 document.getElementById('header').appendChild(instructions);
 
 // Requisito 3
@@ -10,8 +10,8 @@ document.getElementById('header').appendChild(instructions);
 const input = document.querySelector('.input-task'); // seleciona o local de append child
 const inputTask = document.createElement('input');
 inputTask.type = 'text';
-
 inputTask.id = 'texto-tarefa';
+inputTask.placeholder = '  Adicione aqui sua tarefa!';
 input.appendChild(inputTask);
 
 // Requisito 4
@@ -129,7 +129,7 @@ function retrieveTasks() {
 }
 
 window.onload = retrieveTasks(); // Execute a JavaScript immediately after a page has been loaded:
-buttonSave.addEventListener('click', saveTasks);
+buttonSave.addEventListener('click', saveTasks); // recupera os dados do localstorage
 
 // Quesito 13 - primeiro precisamos selecionar o elemento -> com a classe selected
 
@@ -140,7 +140,6 @@ clickUp.appendChild(buttonUp);
 buttonUp.id = 'mover-cima';
 
 function moveUp() { // referencia https://github.com/tryber/sd-012-project-todo-list/blob/caroline-benichio-todo-list/script.js
-  const ol = document.querySelector('#lista-tarefas');
   const taskUp = document.querySelector('.selected'); // aqui define qual elemento será movido
   if (ol.firstChild !== taskUp && taskUp != null) { // The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true
     ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
@@ -155,7 +154,6 @@ clickDown.appendChild(buttonDown);
 buttonDown.id = 'mover-baixo';
 
 function moveDown() {
-
   const taskDown = document.querySelector('.selected');
   if (ol.lastChild !== taskDown && taskDown != null) { // aqui compara as childs da lista e o elemento selecionado
     ol.insertBefore(taskDown.nextSibling, taskDown); // o if é para comparar os demais elementos da lista porque eles
@@ -165,7 +163,7 @@ buttonDown.addEventListener('click', moveDown);
 
 // Requisito 14
 
-const clickRemoveSelected = document.querySelector('.button-up');
+const clickRemoveSelected = document.querySelector('.remove-selected');
 const buttonRemoveSelected = document.createElement('button');
 buttonRemoveSelected.innerHTML = 'Remover tarefa selecionada';
 clickRemoveSelected.appendChild(buttonRemoveSelected);

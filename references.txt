@@ -14,3 +14,4 @@ https://github.com/tryber/sd-012-project-todo-list/blob/caroline-benichio-todo-l
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
 https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
 https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
+https://stock.adobe.com/uk/images/to-do-list-background/78513559
