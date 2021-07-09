@@ -31,6 +31,7 @@ function addEvent() {
   // eslint-disable-next-line no-restricted-syntax
   for (let item of lista) {
     item.addEventListener('click', becomeGrey);
+    item.addEventListener('dblclick', riscar);
   }
 }
 
@@ -38,10 +39,17 @@ function becomeGrey(event) {
   let lista = document.querySelectorAll('li');
   // eslint-disable-next-line no-restricted-syntax
   for (let item of lista) {
-    item.className = '';
+    item.classList.remove('cinza');
   }
-  event.target.className = 'cinza';
+  event.target.classList.add('cinza');
 }
+
+function riscar(event) {
+  if (event.target.classList[0] === 'completed' || event.target.classList[1] === 'completed') {
+    event.target.classList.remove('completed');
+  } else { event.target.classList.add('completed'); }
+}
+ 
 
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createItem);
