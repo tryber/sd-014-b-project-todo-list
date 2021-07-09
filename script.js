@@ -10,7 +10,7 @@ const eraseAllBtn = document.getElementById('apaga-tudo');
 function selectTask(event) {
   const selected = document.querySelector('.selected');
   if (selected !== null) {
-      selected.classList.remove('selected');
+    selected.classList.remove('selected');
   }
   event.target.classList.add('selected');
 }
@@ -20,29 +20,29 @@ function selectTask(event) {
 function completeTask(event) {
   const item = event.target;
   if (item.className.includes('completed')) {
-      item.classList.remove('completed');
+    item.classList.remove('completed');
   } else {
-      item.classList.add('completed');
+    item.classList.add('completed');
   }
 }
 
 // a função não espera nenhum parâmetro, ao iniciar ela cria uma lista (li), que é armazenada a uma variável. O texto a ser exibido será o mesmo valor do digitado no input. Após isso a lista será adicionada como filha da lisrItem e o valor do input é zerado. O list item que é nossa lista sera adicionado o evento no clique vai executar a funcao selectTask e depois no duplo clique a função completeTask;
 
 function addListItem() {
-    const listItem = document.createElement('li');
-    listItem.innerText = input.value;
-    list.appendChild(listItem);
-    input.value = '';
-    listItem.addEventListener('click', selectTask);
-    listItem.addEventListener('dblclick', completeTask);
+  const listItem = document.createElement('li');
+  listItem.innerText = input.value;
+  list.appendChild(listItem);
+  input.value = '';
+  listItem.addEventListener('click', selectTask);
+  listItem.addEventListener('dblclick', completeTask);
 }
 
 // a função não espera nenhum parâmetro, ao iniciar ela recupera todos os li e guarda numa variável e percorre essa lista removendo o nó filho a partir do último filho da nossa lista.
 
-function clearList(){
-  let listItens = document.querySelectorAll('li');
+function clearList() {
+  const listItens = document.querySelectorAll('li');
   for (let index = 0; index < listItens.length; index += 1) {
-      list.removeChild(list.lastChild);
+    list.removeChild(list.lastChild);
   }
 }
 
