@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Encontrei o parâmetro defer com uma googlada que me levou a esse link: -->
+    <!-- https://www.w3schools.com/tags/att_script_defer.asp -->
+    <!-- O parâmetro basicamente faz com que o script seja carregado somente depois que o browser termina de analizar e converter o HTML em uma árvore DOM-->
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>Minha Lista de Tarefas</header>
+    <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+    <input id='texto-tarefa'>
+    <button id='criar-tarefa'>Adicionar</button>
+    <button id='apaga-tudo'>Limpar Lista</button>
+    <button id='remover-finalizados'>Remover Finalizados</button>
+    <ol id='lista-tarefas'>
+    </ol>
+</body>
+</html>
