@@ -27,3 +27,10 @@ function alterBackgrountLi(event) {
 
 // Chamada de evento de click para selecionar elemento li
 listTarefas.addEventListener('click', alterBackgrountLi);
+
+listTarefas.addEventListener('dblclick', function (event) {
+  event.target.setAttribute('class', 'completed');
+  listTarefas.addEventListener('dblclick', function (event) {
+    event.target.removeAttribute('class');
+  });
+});
