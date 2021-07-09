@@ -1,6 +1,7 @@
-const button = document.getElementById('criar-tarefa')
-const listaTarefas = document.getElementById('lista-tarefas')
-const input = document.getElementById('texto-tarefa')
+const button = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
+const input = document.getElementById('texto-tarefa');
+const buttonApagaTudo = document.getElementById('apaga-tudo');
 
 
 
@@ -17,7 +18,6 @@ function linhaRiscada (event){
 
 }
 
-
 function trocarCor(event){
     let selected = document.querySelector('.selected')
     if (selected){
@@ -25,8 +25,6 @@ function trocarCor(event){
     }
         event.target.classList.add('selected');
     
-
-    //event.target.classList.add('selected');
 }
 
 
@@ -44,7 +42,10 @@ function criarTarefas(){
   // Trocar a cor de fundo 
 }
 
+function clearTarefas(){
+   let li = document.querySelector('ol')
+   li.innerHTML = "";
+}    
     
-    
-
+buttonApagaTudo.addEventListener('click',clearTarefas);
 
