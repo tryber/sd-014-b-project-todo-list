@@ -11,6 +11,10 @@ function addTarefaLista() {
 botaoCriarTarefa.addEventListener('click', addTarefaLista);
 
 function corDeFundoItemLista(event) {
+  const tarefas = document.getElementsByClassName('tarefa');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    tarefas[i].style.backgroundColor = '';
+  }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
