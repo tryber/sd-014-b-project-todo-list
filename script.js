@@ -27,3 +27,10 @@ function liGetColor(event) {
 }
 
 taskList.addEventListener('click', liGetColor);
+
+// riscar tarefa concluida
+function taskDone(event) {  // scratch
+  event.target.classList.toggle('completed');
+}
+
+taskList.addEventListener('dblclick', taskDone);

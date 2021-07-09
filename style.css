@@ -1,3 +1,9 @@
+/* classe criada para pintar tarefa selecionada */
 .colorGray {
   background-color: gray;
+}
+
+/* classe criada para ranhura da tarefa concluida */
+.completed {
+  text-decoration: line-through; /* scratch */
 }
