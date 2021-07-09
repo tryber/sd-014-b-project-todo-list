@@ -56,3 +56,21 @@ function createNewTask() {
 
 // Adiciona o evento de click ao botão de criar tarefas
 btnCreateTask.addEventListener('click', createNewTask);
+
+// Cria botão que apaga todas as tarefas
+const buttonsContainer = document.querySelector('#buttons-container');
+const btnDeleteTasks = document.createElement('button');
+btnDeleteTasks.id = 'apaga-tudo';
+btnDeleteTasks.innerText = 'Limpar Lista';
+buttonsContainer.appendChild(btnDeleteTasks);
+
+// Função que apaga todas as tarefas
+function deleteAllTasks() {
+  const getAllTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < getAllTasks.length; index += 1) {
+    getAllTasks[index].remove();
+  }
+}
+
+// Adiciona evento de clique ao botão que apaga todas as tarefas da lista
+btnDeleteTasks.addEventListener('click', deleteAllTasks);
