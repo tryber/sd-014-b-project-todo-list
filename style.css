@@ -25,3 +25,16 @@ body{
 .colorList{
   background-color: rgb(128, 128, 128);
 }
+
+.completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo{
+  background-color: rgba(36, 148, 212, 0.884);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 5px;
+  
+}

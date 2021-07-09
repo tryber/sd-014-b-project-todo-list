@@ -26,16 +26,41 @@ function createTask(){
 createTask()
 
 function changeColor(event){
-  const ol = document.querySelector('#lista-tarefas');
-  const background = 'whoneydew' 
-  neWbackground=  'rgb(128, 128, 128)'
-    for(index=0; index<ol.lenght; index +=1){
-      if(ol[index].style.backgroundColor != neWbackground) {
-        event.target.style.backgroundColor = 'rgb(128, 128, 128'
-      }      
-        
-    }
+  const li = document.getElementsByTagName('li')
+  for (let index = 0; index < li.length; index += 1) {
+    li[index].style.backgroundColor = 'honeydew';
   }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
 
-ol.addEventListener('click', changeColor)
+const list = document.getElementById('lista-tarefas');
+list.addEventListener('click', changeColor);
 
+function completed(event){
+  const li = document.getElementsByTagName('li')
+  if (event.target.className == 'completed') {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }  
+}
+
+list.addEventListener('dblclick', completed);
+
+
+function buttonDel(event){
+  const divButton2= document.getElementById('button-clean')
+  const button2= document.createElement('button');
+  button2.id= 'apaga-tudo'
+  button2.innerText= 'Deletar Tarefas';
+  divButton2.appendChild(button2);
+}
+buttonDel()
+
+function reset(event){    
+  const ol = document.getElementById('lista-tarefas')
+  event.target.ol.removeChild(li);
+}
+
+const button2= document.querySelector('#apaga-tudo');
+button2.addEventListener('dblclick', reset)
