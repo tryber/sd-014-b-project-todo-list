@@ -53,3 +53,7 @@ h1 {
 #criar-tarefa:hover {
   background-color: rgb(23 , 57 , 126);
 }
+
+.selected {
+  background-color: gray;
+}
