@@ -21,10 +21,19 @@ function changeColor(event) {
   event.target.style.setProperty('background-color', 'rgb(128, 128, 128)');
 }
 
+function tarefaCumprida (event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed')
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function aplicarCSSLista() {
   let itensListaTarefas = listaTarefas.children;
   for (let index = 0; index < itensListaTarefas.length; index += 1) {
     itensListaTarefas[index].addEventListener('click', changeColor);
+    itensListaTarefas[index].addEventListener('dblclick', tarefaCumprida);
   }
 }
 
