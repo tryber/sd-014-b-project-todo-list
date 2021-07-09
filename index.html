@@ -4,22 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>To Do List</title>
 </head>
 <body>
   <div class="container">
-    <header>Minha Lista de Tarefas</header>
+    <header class="center">Minha Lista de Tarefas</header>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
-    <ol id="lista-tarefas">
-    </ol>
-    <button id="mover-acima"></button>
-    <button id="mover-abaixo"></button>
-    <button id="criar-tarefa"></button>
-    <button id="remover-selecionado"></button>
-    <button id="apaga-tudo"></button>
-    <button id="remover-finalizados"></button>
-    <button id="salvar-tarefas"></button>
+    <input type="text" id="texto-tarefa" placeholder="O que você precisa lembrar?" value="teste">
+    <button id="criar-tarefa">Adicionar tarefa</button>
+    <section>
+      <ol id="lista-tarefas" class="list">
+        <li class="selected">Teste de tarefa</li>
+      </ol>
+    </section>
+    <button id="mover-acima">up</button>
+    <button id="mover-abaixo">down</button>
+    <button id="salvar-tarefas">Salvar tarefas</button>
+    <button id="remover-selecionado">Remover selecionado</button>
+    <button id="apaga-tudo">Apagar tudo</button>
+    <button id="remover-finalizados">Remover Finalizados</button>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
