@@ -14,7 +14,11 @@ function adicionaTarefa(){
 
 let botaoPintarOitem = document.querySelector('#lista-tarefas');
 botaoPintarOitem.addEventListener("click", pintaOItem);
-function pintaOItem(){
+function pintaOItem(){    
+    let itensLi = document.querySelectorAll('li');
+    for(index = 0; index <itensLi.length; index +=1){
+        itensLi[index].classList.remove('corDoItem')
+    }
     let itensDaLista = document.querySelector('.itensLista');;
     itensDaLista.className = 'corDoItem'
 }
