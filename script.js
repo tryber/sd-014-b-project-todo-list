@@ -2,7 +2,6 @@ function criaTarefa() {
   const receberInput = document.getElementById('texto-tarefa');
   const newElement = document.createElement('li');
   newElement.innerText = receberInput.value;
-
   const listaTarefas = document.getElementById('lista-tarefas');
   listaTarefas.appendChild(newElement);
   receberInput.value = '';
@@ -28,3 +27,10 @@ function sublinhar(event) {
   }
 }
 itemLista.addEventListener('dblclick', sublinhar);
+
+
+function apagando() {
+  itemLista.innerText = '';
+}
+const botaoApagar = document.getElementById('apaga-tudo');
+botaoApagar.addEventListener('click', apagando);
