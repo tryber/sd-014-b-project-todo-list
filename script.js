@@ -47,7 +47,21 @@ listaOrdenada.addEventListener('dblclick', tachaItem);
 // Source: https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
 const apagaTudo = document.getElementById('apaga-tudo');
 
-function apagaTarefas(event) {
+function apagaTarefas() {
   listaOrdenada.textContent = '';
 }
 apagaTudo.addEventListener('click', apagaTarefas);
+
+// Requisito #11
+const removeTarefa = document.getElementById('remover-finalizados');
+
+function removerTarefas() {
+  const arrayLi = document.querySelectorAll('.li-tarefas');
+
+  for (let index = 0; index < arrayLi.length; index += 1) {
+    if (arrayLi[index].classList.contains('completed')) {
+      arrayLi[index].remove();
+    }
+  }
+}
+removeTarefa.addEventListener('click', removerTarefas);
