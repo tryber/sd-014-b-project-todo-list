@@ -41,3 +41,18 @@ function addAnotherTask() {
 }
 
 buttonInput.addEventListener('click', addAnotherTask);
+
+// Quesito 7 // referencia https://github.com/tryber/sd-012-project-todo-list/blob/duribeiro-todo-list/script.js
+
+const ol = document.getElementById('lista-tarefas');
+
+function selectItem(event) {
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected !== null) {
+    itemSelected.classList.remove('selected');
+  }
+  event.target.classList.add('selected'); // note que o event está fora do if (passa pelo if primeiro a função)
+  paintTask();
+}
+ol.addEventListener('click', selectItem); 
+// depois alterar cor de classe(.selected) no css)
