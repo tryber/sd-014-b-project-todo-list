@@ -26,5 +26,4 @@ const todo = () => {
 
 q('#criar-tarefa').addEventListener('click', todo);
 
-bt();
-completed();
+bt(), completed();
