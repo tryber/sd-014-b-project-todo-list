@@ -4,6 +4,12 @@ const input = document.getElementById('texto-tarefa'); // #5
 const ol = document.getElementById('lista-tarefas'); // #5
 const resetButton = document.getElementById('apaga-tudo'); // #10
 const resetCompletedButton = document.getElementById('remover-finalizados'); // #10
+const saveButton = document.getElementById('salvar-tarefas'); // #12
+// Requisito 12 parte 2
+function storage() {
+  ol.innerHTML = localStorage.ol;
+}
+storage();
 
 // Requisito #7 #8
 function backgroundList(event) {
@@ -72,3 +78,12 @@ function resetCompleted() {
   }
 }
 resetCompletedButton.addEventListener('click', resetCompleted);
+
+// Requisito 12
+// salvar: document.getElementsByTagName('ol')[0].innerHTML
+// document.querySelector('ol').innerHTML
+function saveList() {
+  const dados = document.querySelector('ol').innerHTML;
+  localStorage.setItem('ol', dados);
+}
+saveButton.addEventListener('click', saveList);
