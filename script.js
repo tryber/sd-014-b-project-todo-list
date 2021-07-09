@@ -55,7 +55,7 @@ function selectItem(event) {
   event.target.classList.add('selected'); // note que o event está fora do if (passa pelo if primeiro a função)
   paintTask(); // funciona como um else esse event.target
 }
-ol.addEventListener('click', selectItem); 
+ol.addEventListener('click', selectItem);
 // depois alterar cor de classe(.selected) no css)
 
 // Requesito 8
@@ -132,3 +132,35 @@ function retrieveTasks() {
 
 window.onload = retrieveTasks(); // Execute a JavaScript immediately after a page has been loaded:
 buttonSave.addEventListener('click', saveTasks);
+
+// Quesito 13 - primeiro precisamos selecionar o elemento -> com a classe selected
+
+const clickUp = document.querySelector('.button-up'); 
+const buttonUp = document.createElement('button');
+buttonUp.innerHTML = 'Mover para cima';  
+clickUp.appendChild(buttonUp);
+buttonUp.id = 'mover-cima';
+
+function moveUp() { // referencia https://github.com/tryber/sd-012-project-todo-list/blob/caroline-benichio-todo-list/script.js
+  const ol = document.querySelector('#lista-tarefas');
+  const taskUp = document.querySelector('.selected'); // aqui define qual elemento será movido
+  if (ol.firstChild !== taskUp && taskUp != null) { // The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true 
+    ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+  } // !== null é quando a classe é a selected (o item clicado)
+}
+buttonUp.addEventListener('click', moveUp);
+
+const clickDown = document.querySelector('.button-down'); // mover item está relacionado com a posição das childs nos nós
+const buttonDown = document.createElement('button');
+buttonDown.innerHTML = 'Mover para baixo';
+clickDown.appendChild(buttonDown);
+buttonDown.id = 'mover-cima';
+
+function moveDown() {
+  const ol = document.querySelector('#lista-tarefas');
+  const taskDown = document.querySelector('.selected');
+  if (ol.lastChild !== taskDown && taskDown != null) { // aqui compara as childs da lista e o elemento selecionado
+    ol.insertBefore(taskDown.nextSibling, taskDown);
+  }
+}
+buttonDown.addEventListener('click', moveDown);
