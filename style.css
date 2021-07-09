@@ -2,3 +2,7 @@
   padding: 10px;
   margin: 10px;
 }
+
+.li-selected {
+  background-color: rgb(128, 128, 128);
+}
