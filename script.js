@@ -64,5 +64,13 @@ window.onload = function() {
       event.target.classList.add('selection')
     };
   })
+  olSelection.addEventListener('dblclick', function(event) {
+    if (event.target.classList[0] === 'completed') {
+      event.target.classList.remove('completed')  
+    }
+    else {
+      event.target.classList.add('completed')
+    }
+  })
 
 }
