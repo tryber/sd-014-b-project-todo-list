@@ -11,4 +11,9 @@ input {
   background-color: #BA0000;
   border-radius: 5px;
   border: none;
+  color: #E4E4E4;
+}
+
+.color-gray {
+  background-color: rgb(128, 128, 128);
 }

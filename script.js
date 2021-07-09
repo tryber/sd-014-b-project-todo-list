@@ -17,5 +17,11 @@ window.onload = function () {
     addlistaTarefa.innerText = textoTarefa.value;
     listaTarefa.appendChild(addlistaTarefa);
     textoTarefa.value = '';
+
+    addlistaTarefa.addEventListener('click', function (event){
+      event.target.classList.add('color-gray')
+      // addlistaTarefa.style.backgroundColor = "rgb(128, 128, 128)"
+      
+    })
   })
 }
