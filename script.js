@@ -13,6 +13,15 @@ window.onload = function () {
       event.target.classList.add('selected');
     }
   }
+  function taskCompleted(event) {
+    const toComplete = event.target;
+    const classes = toComplete.classList;
+    if (classes.contains('completed')) {
+      toComplete.classList.remove('completed');
+    } else {
+      toComplete.classList.add('completed');
+    }
+  }
   function addList() {
     const item = document.createElement('li');
     const inputValue = input.value;
@@ -20,7 +29,7 @@ window.onload = function () {
     todoList.appendChild(item);
     input.value = '';
     item.addEventListener('click', selectItem);
-    //item.addEventListener('dblclick', functionZ);
+    item.addEventListener('dblclick', taskCompleted);
   }
   btnAddList.addEventListener('click', addList);
 };
