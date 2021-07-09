@@ -37,3 +37,10 @@ section {
   border: 2px solid lightsalmon;
   height: 25px;
 }
+
+section ol li {
+  font-size: 14px;
+  color: black;
+  margin: 10px;
+
+}
