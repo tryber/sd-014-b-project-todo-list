@@ -35,7 +35,11 @@ function addEvent() {
 }
 
 function becomeGrey(event) {
-  console.log(event.target);
+  let lista = document.querySelectorAll('li');
+  // eslint-disable-next-line no-restricted-syntax
+  for (let item of lista) {
+    item.className = '';
+  }
   event.target.className = 'cinza';
 }
 
