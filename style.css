@@ -1,0 +1,7 @@
+li {
+	background-color: white;
+}
+
+.selected {
+	background-color: rgb(128, 128, 128);
+}

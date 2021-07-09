@@ -1,9 +1,12 @@
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 const addTarefasBtn = document.querySelector('#criar-tarefa');
+let selectedTask = document.querySelector('.selected');
 
 function addTaskToList(task) {
 	const li = document.createElement('li');
 	li.innerHTML = task;
+	li.classList.add('task');
+	li.addEventListener('click', setSelectedTask);
 	listaDeTarefas.appendChild(li);
 }
 
@@ -12,5 +15,24 @@ function getTaskValue() {
 	addTaskToList(inputText);
 	document.querySelector('#texto-tarefa').value = '';
 }
+
+function setSelectedTask(event) {
+	if (selectedTask !== null) {
+		selectedTask = document.querySelector('.selected');
+		selectedTask.classList.remove('selected');
+		const newTaskSelected = event.target;
+		newTaskSelected.classList.add('selected');
+		selectedTask = document.querySelector('.selected');
+	} else {
+		const newTaskSelected = event.target;
+		newTaskSelected.classList.add('selected');
+		selectedTask = document.querySelector('.selected');
+	}
+}
+
+
+
+
+// Buttons
 
 addTarefasBtn.addEventListener('click', getTaskValue);
