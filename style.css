@@ -1,5 +1,12 @@
+body {
+  background-color: #003049;
+  font-family: Arial, Helvetica, sans-serif;
+  color: antiquewhite;
+}
+
 #title {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
 }
 
 #texto-tarefa {
@@ -7,25 +14,31 @@
 }
 
 #criar-tarefa {
-  background-color: #1e6091;
-  color: white;
+  background-color: #118ab2;
+  color: black;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #1e6091;
+  border: 2px solid #118ab2;
   border-radius: 5px;
 }
 
 #apaga-tudo {
-  background-color: #e63946;
-  color: white;
+  background-color: #ef476f;
+  color: black;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #e63946;
+  border: 2px solid #ef476f;
   border-radius: 5px;
 }
 
 #remover-finalizados {
-  background-color: #76c893;
-  color: white;
+  background-color: #06d6a0;
+  color: black;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #76c893;
+  border: 2px solid #06d6a0;
   border-radius: 5px;
 }
+
+/* YELLOW #ffd166
+BLUE #118ab2
+GREEN #06d6a0
+RED #ef476f;
+BACK #073b4c */
