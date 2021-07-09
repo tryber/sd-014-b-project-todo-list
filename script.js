@@ -19,3 +19,12 @@ function MudaCor(event) {
 }
 const itemLista = document.getElementById('lista-tarefas');
 itemLista.addEventListener('click', MudaCor);
+
+function sublinhar(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+itemLista.addEventListener('dblclick', sublinhar);
