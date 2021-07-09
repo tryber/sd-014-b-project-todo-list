@@ -1,5 +1,5 @@
 body {
-  background-color: beige;
+  background-color: rgb(241, 240, 238);
   font-family: monospace;
   color: grey;
 }
@@ -10,7 +10,6 @@ h1 {
 
 aside {
   float: left;
-  height: 500px;
 }
 
 header {
@@ -18,4 +17,9 @@ header {
   float: right;
   margin-right: 650px;
   margin-top: 60px;
+}
+
+#texto-tarefa {
+  color: black;
+  background-color: beige;
 }
