@@ -17,6 +17,21 @@ btnCreateTask.id = 'criar-tarefa';
 btnCreateTask.innerText = 'Adicionar';
 inputContainer.appendChild(btnCreateTask);
 
+// Marca tarefa como completa
+function markAsCompleted(event) {
+  const getTaskClassList = event.target.classList;
+  let count = 0;
+  for (let index = 0; index < getTaskClassList.length; index += 1) {
+    if (getTaskClassList[index] === 'completed') {
+      event.target.classList.remove('completed');
+      count += 1;
+    }
+  }
+  if (count === 0) {
+    event.target.classList.add('completed');
+  }
+}
+
 // Função para criar e adicionar novas tarefas à lista ordenada
 function createNewTask() {
   const inputText = inputTask.value;
@@ -34,6 +49,9 @@ function createNewTask() {
     }
     event.target.classList.add('selected');
   });
+
+  // Adiciona evento de duplo clique que marca uma tarefa como completa
+  newTask.addEventListener('dblclick', markAsCompleted);
 }
 
 // Adiciona o evento de click ao botão de criar tarefas
