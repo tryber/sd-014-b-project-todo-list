@@ -7,6 +7,7 @@ function addTextRemove() {
     li.innerText = getText;
     getList.appendChild(li);
     getList.addEventListener('click', colorizeText);
+    getList.addEventListener('dblclick', markAsCompleted);
     document.getElementById('texto-tarefa').value = '';
   });
 }
@@ -18,4 +19,14 @@ function colorizeText(event) {
     element.classList.remove('selectedItem');
   });
   event.target.classList.add('selectedItem');
+}
+
+function markAsCompleted(event) {
+  const itemMarked = event.target.classList;
+  console.log(itemMarked);
+  if (itemMarked.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 }
