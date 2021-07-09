@@ -7,3 +7,12 @@ body {
   background-color: rgb(223 , 223 , 211);
 }
 
+li {
+  width: 400px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 2px;
+  text-align: center;
+  background-color: white;
+  list-style: none;
+}
