@@ -2,6 +2,6 @@
   background-color: gray; 
 }
 
-.completed {
+.cleared {
   text-decoration: line-through;
 }
