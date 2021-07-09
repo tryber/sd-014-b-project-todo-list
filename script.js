@@ -2,6 +2,7 @@ const input = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const btnApagatudo = document.querySelector('#apaga-tudo');
+const btnRemoverConcluidos = document.querySelector('#remover-finalizados');
 
 function addTarefa() {
   let itemTarefa = document.createElement('li');
@@ -40,8 +41,17 @@ lista.addEventListener('dblclick', tarefaCompleta);
 function apagaLista() {
 // As long as <ol> has a child node, remove it
 // https://www.w3schools.com/jsref/met_node_removechild.asp
-  while (lista.hasChildNodes()) {  
+  while (lista.hasChildNodes()) {
     lista.removeChild(lista.firstChild);
   }
 }
 btnApagatudo.addEventListener('click', apagaLista);
+
+function removerConcluidos() {
+  const tarefas = document.querySelector('.completed');
+  const tamanhoListaCompleta = document.querySelectorAll('.completed');
+  if (tarefas !== null) {
+    tarefas.parentNode.removeChild(tarefas);
+  }
+}
+btnRemoverConcluidos.addEventListener('click', removerConcluidos);
