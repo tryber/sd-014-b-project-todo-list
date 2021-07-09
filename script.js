@@ -8,6 +8,7 @@ button.addEventListener('click', function(){
   li.innerText = input.value;
   input.value = ""
   li.addEventListener('click', changeClass)
+  li.addEventListener('dblclick', completedTask)
 })
 
 function changeClass(event) {
@@ -17,4 +18,17 @@ function changeClass(event) {
     event.target.classList.add('selectedTask')
   }
 }
+//Referência do .includes ref: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"
+function completedTask (event) {
+  if (event.target.className.includes('completed')){
+    event.target.classList.remove('completed')
+  } else {
+    event.target.classList.add('completed')
+  }
+}
 
+const delButton = document.querySelector('#apaga-tudo');
+delButton.addEventListener('click', function(){
+  const list = document.querySelector('#lista-tarefas');
+  list.innerHTML = '';
+})
