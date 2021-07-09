@@ -26,13 +26,16 @@ lista.addEventListener('dblclick', function (event) { // adiciona o evento doubl
     }
     // se o texto derocation for igual `line-through solid rgb(0, 0, 0)` entao atribui ao text docoration `''`(vazio) e remove a classe `completed`. Se nao, adicionar ao text decoration `line-through solid rgb(0, 0, 0)` e adiciona a classe completed 
 })
-
-let botao2 = document.querySelector('#apaga-tudo').addEventListener ('click', apagar)
-
-    function apagar() {
-        const contador = lista.children.length
-          for (let index = 0; index < contador ; index +=1) {
-            lista.removeChild(document.querySelector('li'))
-            console.log(contador)
-        }
+document.querySelector('#apaga-tudo').addEventListener ('click', function() {
+    const contador = lista.children.length
+      for (let index = 0; index < contador ; index +=1) {
+        lista.removeChild(document.querySelector('li'))
     }
+})
+document.querySelector('#remover-finalizados').addEventListener ('click', function() {
+    const completos = document.querySelectorAll('.completed')
+    for (let index = 0; index < completos.length ; index +=1) {
+        lista.removeChild(document.querySelector('.completed'))
+    }
+})
+    
