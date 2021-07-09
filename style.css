@@ -1,0 +1,13 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+header {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#funcionamento {
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(69, 71, 73);
+}
