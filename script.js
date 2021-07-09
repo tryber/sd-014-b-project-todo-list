@@ -1,6 +1,15 @@
 let btnAddTask = document.querySelector('#criar-tarefa');
 btnAddTask.addEventListener('click', createTask);
 
+//Ao apertar ENTER, irá executar a função createTask
+//Gabriel Gartz - StackOverflow
+// 04/02/2014 - às 15:35
+let valueTxtTask = document.querySelector('#texto-tarefa');
+valueTxtTask.addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+        createTask();
+});
+
 //Cria os elementos li, dentro da lista
 function createTask() {
     //Faz a ligação da OL e do Input Text
@@ -48,5 +57,18 @@ function taskCompleted(evento) {
         itemClicked.classList.remove('completed')
     } else {
         itemClicked.classList.add('completed');
+    }
+}
+
+let btnClearTasks = document.querySelector('#apaga-tudo');
+btnClearTasks.addEventListener('click', clearTasks);
+
+function clearTasks() {
+    let listTask = document.querySelectorAll('.tasks');
+
+    for (let key of listTask) {
+        let task = key;
+    
+        task.parentNode.removeChild(task);
     }
 }
