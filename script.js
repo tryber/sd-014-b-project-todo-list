@@ -37,6 +37,7 @@ window.onload = function() {
     button.id = 'criar-tarefa'
     inputSelection.appendChild(button)
   }
+  
   headerCreation();
   paragraphCreation();
   inputContainerCreation();
@@ -52,6 +53,16 @@ window.onload = function() {
     listSelection.appendChild(listItem)
     inputSelection.value = ''
 
+  })
+  let olSelection = document.querySelector('ol')
+  olSelection.addEventListener('click', function(event) {
+    if (document.querySelector('.selection') === null) {
+      event.target.classList.add('selection')
+    } else {
+      let classSelection = document.querySelector('.selection')
+      classSelection.classList.remove('selection')
+      event.target.classList.add('selection')
+    };
   })
 
 }
