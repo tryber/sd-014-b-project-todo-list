@@ -7,6 +7,7 @@ function generateTask(){
     const deletedInput = document.getElementById('texto-tarefa');
     li.innerText = inputValue;
     li.addEventListener('click', selectLi);
+    li.addEventListener("dblclick", checkingTask);
     list.appendChild(li);
     const inputSection = document.getElementById('inputSection');
    inputSection.removeChild(deletedInput);
@@ -26,6 +27,22 @@ function selectLi(event){
         allLis[index].style.backgroundColor = 'rgb(255, 255, 255)';
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
-    
-
 }
+
+function checkingTask(event){
+    if(event.target.className === "completed"){
+        event.target.classList.remove('completed');
+        }else{
+            event.target.classList.add('completed');
+        }
+}
+
+
+   /*  for(index = 0; index < liComplete.length; index += 1){
+        if(liComplete[index].className === "completed"){
+        liComplete[index].classList.remove('completed');
+        }else{
+            liComplete[index].classList.add('completed');
+        }
+    }
+ */
