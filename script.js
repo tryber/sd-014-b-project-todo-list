@@ -1,11 +1,17 @@
 const takeButton = document.querySelector('#criar-tarefa');
-const takeLi = document.querySelector('#lista-tarefas');
+const takeOl = document.querySelector('#lista-tarefas');
 const takeInput = document.querySelector('#texto-tarefa');
 
 function addLi() {
   const createLi = document.createElement('li');
-  takeLi.appendChild(createLi).innerText = takeInput.value;
+  takeOl.appendChild(createLi).innerText = takeInput.value;
   takeInput.value = '';
 }
 
 takeButton.addEventListener('click', addLi);
+
+function toColoringGray(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+takeOl.addEventListener('click', toColoringGray);
