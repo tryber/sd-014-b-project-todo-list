@@ -26,4 +26,23 @@ body {
   margin-top: 10px;
   padding: 10px;
   width: 30%;
+  font-size: 17px;
+}
+
+#criar-tarefa {
+  padding: 10px;
+  background-color: #74A2dc;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-left: 3%;
+  width: 8%;
+}
+
+#lista-tarefas {
+  margin-left: 19%;
+}
+
+.tarefa {
+  font-size: 20px;
+  margin-top: 10px;
 }
