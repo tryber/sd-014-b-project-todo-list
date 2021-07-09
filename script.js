@@ -28,6 +28,16 @@ function setSelectedTask(event) {
 		newTaskSelected.classList.add('selected');
 		selectedTask = document.querySelector('.selected');
 	}
+	selectedTask.addEventListener('dblclick', setCompletedTask)
+}
+
+function setCompletedTask(event) {
+	const task = event.target;
+	if (task.classList.contains('completed')) {
+		task.classList.remove('completed');
+	} else {
+		task.classList.add('completed');
+	}
 }
 
 
