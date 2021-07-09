@@ -4,7 +4,7 @@ window.onload = function() {
   const addTaskButton = document.getElementById('criar-tarefa');
   addTaskButton.addEventListener('click', addTask);
 
-  const removeClearedButton = document.getElementById('remove-finalizados');
+  const removeClearedButton = document.getElementById('remover-finalizados');
   removeClearedButton.addEventListener('click', removeClearedTasks);
 
   const clearAllButton = document.getElementById('apaga-tudo');
