@@ -2,6 +2,7 @@ const inputTask = document.querySelector('#texto-tarefa');
 const taskButton = document.querySelector('#criar-tarefa');
 const tasks = document.querySelector('#lista-tarefas');
 const btClearAll = document.querySelector('#apaga-tudo');
+const btClearCompleted = document.querySelector('#remover-finalizados');
 
 function createElement() {
   return document.createElement('li');
@@ -49,3 +50,13 @@ function clearAll() {
   });
 }
 clearAll();
+
+function deleteTasksDone() {
+  btClearCompleted.addEventListener('click', () => {
+    const tasksDone = document.querySelectorAll('.completed');
+    tasksDone.forEach((task) => {
+      tasks.removeChild(task);
+    });
+  });
+}
+deleteTasksDone();
