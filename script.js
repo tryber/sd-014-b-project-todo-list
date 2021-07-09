@@ -6,12 +6,12 @@ function createItem() {
   ol.appendChild(li);
   input.value = '';
 }
-function apagaLista(){
-    let lista = document.querySelectorAll('li'); // apaga a lista;
-    let ol = document.querySelector('ol');
-    for (let item of lista){
-      ol.removeChild(item);
-    }
+function apagaLista() {
+  let lista = document.querySelectorAll('li'); // apaga a lista;
+  let ol = document.querySelector('ol');
+  for (let item of lista) {
+    ol.removeChild(item);
+  }
 }
 
 
@@ -26,8 +26,23 @@ function sortItens() {
   }
 }
 
-let button = document.getElementById('criar-tarefa');
+function addEvent() {
+  let lista = document.querySelectorAll('li');
+  // eslint-disable-next-line no-restricted-syntax
+  for (let item of lista) {
+    item.addEventListener('click', becomeGrey);
+  }
+}
+
+function becomeGrey(event) {
+  console.log(event.target);
+  event.target.className = 'cinza';
+}
+
+const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createItem);
-button.addEventListener('click', sortItens);
-//let h1 = document.querySelector('h1');
-//h1.addEventListener('click', sortItens);
+button.addEventListener('click', addEvent);
+
+// utton.addEventListener('click', sortItens);
+// let h1 = document.querySelector('h1');
+// h1.addEventListener('click', sortItens);
