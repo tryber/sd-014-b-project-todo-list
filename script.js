@@ -59,3 +59,14 @@ ol.addEventListener('click', selectItem);
 
 // Requesito 8
 // ja foi feito no 7
+
+// Requesito 9
+
+const completeOl = document.getElementById('lista-tarefas');
+
+function selectCompleted(event){
+let completedSelected = document.querySelector('.completed');
+event.target.classList.add('completed');   
+}
+completeOl.addEventListener('dblclick', selectCompleted);
+
