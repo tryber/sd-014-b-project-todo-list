@@ -1,23 +1,27 @@
-const q = document.querySelector.bind(document);
-//.completed
+const selector = document.querySelector.bind(document);
 
 const color = (li) => {
   li.addEventListener('click', (event) => {
-    if (q('.color')) q('.color').classList.remove('color');
+    if (selector('.color')) selector('.color').classList.remove('color');
     event.target.classList.add('color');
   });
 };
 
-const clear = () => (q('#lista-tarefas').innerHTML = '');
-const btn = () => q('#apaga-tudo').addEventListener('click', clear);
-const element = () => {
-  const newt = document.createElement('li');
-  color(newt);
-  newt.innerText = q('#texto-tarefa').value;
-  q('#lista-tarefas').appendChild(newt);
-  q('#texto-tarefa').value = null;
+const clear = () => {
+  selector('#lista-tarefas').innerHTML = '';
 };
 
-q('#criar-tarefa').addEventListener('click', element);
+const ClearAll = () => {
+  selector('#apaga-tudo').addEventListener('click', clear);
+};
 
-btn();
+const todo = () => {
+  const newI = document.createElement('li');
+  color(newI);
+  newI.innerText = selector('#texto-tarefa').value;
+  selector('#lista-tarefas').appendChild(newI);
+  selector('#texto-tarefa').value = null;
+};
+
+selector('#criar-tarefa').addEventListener('click', todo);
+ClearAll();
