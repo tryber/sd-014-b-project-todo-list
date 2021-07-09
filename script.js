@@ -34,11 +34,22 @@ function tarefaCumprida(event) {
   }
 }
 
+function itemSelecionado(event) {
+  const itensListaTarefas = listaTarefas.children;
+  for (let index = 0; index < itensListaTarefas.length; index += 1) {
+    if (itensListaTarefas[index].classList.contains('selected')) {
+      itensListaTarefas[index].classList.remove('selected');
+    }
+  }
+  event.target.classList.add('selected');
+}
+
 function aplicarCSSLista() {
   const itensListaTarefas = listaTarefas.children;
   for (let index = 0; index < itensListaTarefas.length; index += 1) {
     itensListaTarefas[index].addEventListener('click', changeColor);
     itensListaTarefas[index].addEventListener('dblclick', tarefaCumprida);
+    itensListaTarefas[index].addEventListener('click', itemSelecionado);
   }
 }
 
