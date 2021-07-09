@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   background-color: rgb(237 , 237 , 246);
   border-radius: 1.5rem;
-  height: 500px;
+  min-height: 400px;
 }
 
 h1 {
@@ -36,4 +36,20 @@ h1 {
   padding-left: 1rem;
   color: dimgray;
   font-size: 0.9rem;
+}
+
+#criar-tarefa {
+  width: 5rem;
+  height: 1.6rem;
+  border-radius: 3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(237 , 237 , 246);
+  background-color: rgb(47 , 90 , 178);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(23 , 57 , 126);
 }
