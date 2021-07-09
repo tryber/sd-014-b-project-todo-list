@@ -11,8 +11,19 @@ function addText() {
   const texto = textInput.value;
   const taskListItem = document.createElement('li');
   taskListItem.innerText = texto;
+  taskListItem.classList = 'task';
   textInput.value = null;
   taskList.appendChild(taskListItem);
 }
 
 addButton.addEventListener('click', addText);
+
+// Adiciona background-color na tarefa clicada.
+
+function oneClick(event) {
+  const insert = document.querySelector('.task');
+  insert.classList.remove('bgColor');
+  event.target.classList.add('bgColor');
+}
+
+taskList.addEventListener('click', oneClick);

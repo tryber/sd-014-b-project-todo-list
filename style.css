@@ -1,9 +1,16 @@
 body {
+  margin-left: 20%;
+  margin-right: 20%;
   background-color: #dff1fa;
 }
 
 .header {
+  text-align: center;
   font-family: monospace, sans-serif;
+}
+
+#funcionamento {
+  margin: 0;
 }
 
 .input {
@@ -14,4 +21,14 @@ body {
   border-radius: 10px;
   width: 80px;
   height: 20px;
+}
+
+.bgColor {
+  background-color: rgb(128, 128, 128);
+}
+
+.addText {
+  margin-top: 5%;
+  display: f;
+  margin-left: 25%;
 }
