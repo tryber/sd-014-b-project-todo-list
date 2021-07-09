@@ -31,3 +31,11 @@ document.addEventListener('click', (e) => {
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
+
+document.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');
+  }
+});
