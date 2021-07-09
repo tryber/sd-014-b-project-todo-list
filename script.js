@@ -1,6 +1,7 @@
 const inputTarefa = document.getElementById('texto-tarefa');
 const botaoAdicionarTarefa = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
+const botaoLimparLista = document.getElementById('apaga-tudo');
 
 function tarefaDigitada(event) {
   tarefaParaInserir = event.target.value;
@@ -48,7 +49,14 @@ function adicionarTarefa() {
   aplicarCSSLista();
 }
 
+function limparLista () {
+  while (listaTarefas.firstChild) {
+    listaTarefas.removeChild(listaTarefas.firstChild);
+  }
+}
+
 inputTarefa.addEventListener('keyup', tarefaDigitada);
 botaoAdicionarTarefa.addEventListener('click', adicionarTarefa);
+botaoLimparLista.addEventListener('click', limparLista);
 
 let tarefaParaInserir = '';
