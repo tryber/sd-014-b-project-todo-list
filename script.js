@@ -1,8 +1,8 @@
 const taskList = document.getElementById('lista-tarefas')
 const inputTask = document.getElementById('texto-tarefa')
 const btnCreateTask = document.getElementById('criar-tarefa')
+const btnDeleteAll = document.getElementById('apaga-tudo')
 let listItens = taskList.children
-
 btnCreateTask.addEventListener('click', addTask)
 function addTask(){
   let listItem = document.createElement('li')
@@ -42,3 +42,9 @@ function addTask(){
 function updateListItensReference(){
   listItens = taskList.children
 }
+
+btnDeleteAll.addEventListener('click', function(){
+  while(taskList.firstChild){
+    taskList.removeChild(taskList.lastChild)
+  }
+})
