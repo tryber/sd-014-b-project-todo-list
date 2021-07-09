@@ -9,13 +9,12 @@ function createTask() {
   let itemList = document.createElement("li");
   itemList.innerText = task;
   itemList.addEventListener("click", changeBackgroundColor);
+  itemList.addEventListener("dblclick", completedTask); 
   parentLis.appendChild(itemList);
   document.querySelector("#texto-tarefa").value = null;
 }
 
 // Ao clicar em uma tarefa, muda o background da mesma
-
-
 
 function changeBackgroundColor(event) {
   let list = document.querySelectorAll("li");
@@ -25,5 +24,8 @@ function changeBackgroundColor(event) {
     }
 }
 
+function completedTask(event) {
+  event.target.classList.toggle('completed')
+}
 
 
