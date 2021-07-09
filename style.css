@@ -9,10 +9,22 @@
   text-align: center;
 }
 
+header h1 {
+  font-family: 'EB Garamond', serif;
+}
+
 #lista-tarefas {
   text-align: left;
+  font-family: 'Yomogi', cursive;
+  font-size: 15px;
+  width: 20%;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#buttons button {
+  margin: 3px;
+  padding: 5px;
 }

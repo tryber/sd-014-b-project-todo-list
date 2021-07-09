@@ -2,6 +2,7 @@
 const listTarefas = document.querySelector('#lista-tarefas');
 const buttonNewTarefa = document.querySelector('#criar-tarefa');
 const inputText = document.querySelector('#texto-tarefa');
+const getSelectionButton = document.querySelector('#buttons');
 
 // Função cria elemento li com value digitado no input
 // e em seguida limpa o value do input;
@@ -29,19 +30,42 @@ function alterBackgrountLi(event) {
 listTarefas.addEventListener('click', alterBackgrountLi);
 
 listTarefas.addEventListener('dblclick', function (event) {
-  event.target.setAttribute('class', 'completed');
-  listTarefas.addEventListener('dblclick', function (event) {
-    event.target.removeAttribute('class');
-  });
+  if (event.target.className !== 'completed') {
+    event.target.setAttribute('class', 'completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+
 });
+
+const newButton = document.createElement('button');
+newButton.setAttribute('id', 'apaga-tudo');
+newButton.innerText = 'Limpar Tarefas';
+getSelectionButton.appendChild(newButton);
 
 const getButtonClear = document.querySelector('#apaga-tudo');
 
 getButtonClear.addEventListener('click', function () {
   const getLis = document.querySelectorAll('ol li');
-  if (getLis.length > 0){
+  if (getLis.length > 0) {
     for (let index = 0; index < getLis.length; index++) {
       getLis[index].parentNode.removeChild(getLis[index]);
+    }
+  }
+});
+
+const buttonNew = document.createElement('button');
+buttonNew.setAttribute('id', 'remover-finalizados');
+buttonNew.innerText = 'Finalizar Tarefa';
+getSelectionButton.appendChild(buttonNew);
+
+const getButtonFinishTask = document.querySelector('#remover-finalizados');
+
+getButtonFinishTask.addEventListener('click', function () {
+  const taskFinish = document.querySelectorAll('.completed');
+  if (taskFinish !== null) {
+    for (let index = 0; index < taskFinish.length; index += 1) {
+      taskFinish[index].parentElement.removeChild(taskFinish[index]);
     }
   }
 });
