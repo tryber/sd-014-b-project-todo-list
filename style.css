@@ -1,9 +1,9 @@
 * {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
 }
 
 body {
-  background-color: #31445C;
+  background-color: #31445c;
 }
 
 #container {
@@ -31,7 +31,7 @@ body {
 
 #criar-tarefa {
   padding: 10px;
-  background-color: #74A2dc;
+  background-color: #74a2dc;
   border-radius: 20px;
   font-size: 20px;
   margin-left: 3%;
@@ -45,4 +45,8 @@ body {
 .tarefa {
   font-size: 20px;
   margin-top: 10px;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
