@@ -15,7 +15,41 @@
         />
         <title>Minha lista de Tarefas</title>
       </head>
-<body>
+
+    <body>
+        <div id="caixa">
+          <header>
+            <h1>Minha lista de Tarefas</h1>
+            <p id="funcionamento">
+              Clique duas vezes em um item para marcá-lo como completo
+            </p>
+          </header>
     
-</body>
-</html>
+          <main>
+            <input id="texto-tarefa" name="tarefa" />
+            <button id="criar-tarefa" name="botaoPrincipal">
+              <i class="fa fa-plus-square-o" aria-hidden="true"></i> Criar Tarefa
+            </button>
+    
+            <h2>Lista de Tarefas</h2>
+            <div id="listagem"><ol id="lista-tarefas"></ol></div>
+    
+            <div id="botoes">
+              <button id="remover-selecionado">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              <button id="mover-cima">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+              </button>
+              <button id="mover-baixo">
+                <i class="fa fa-arrow-down" aria-hidden="true"></i></button
+              ><br />
+              <button id="remover-finalizados">Limpar tarefas concluídas</button>
+              <button id="salvar-tarefas">Salvar Lista</button>
+              <button id="apaga-tudo">Limpar tudo</button>
+            </div>
+          </main>
+        </div>
+        <script src="script.js"></script>
+      </body>
+    </html>
