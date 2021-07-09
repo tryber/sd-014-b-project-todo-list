@@ -1,5 +1,5 @@
 * {
-  font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  font-family: Impact, Haettenschweiler, Arial Bold, sans-serif;
 }
 
 body {
@@ -29,13 +29,16 @@ body {
   font-size: 17px;
 }
 
-#criar-tarefa {
+.botao {
   padding: 10px;
-  background-color: #74a2dc;
   border-radius: 20px;
   font-size: 20px;
-  margin-left: 3%;
   width: 8%;
+}
+
+#criar-tarefa {
+  background-color: #74a2dc;
+  margin-left: 3%;
 }
 
 #lista-tarefas {
@@ -45,12 +48,27 @@ body {
 .tarefa {
   font-size: 20px;
   margin-top: 10px;
+  width: fit-content;
+  border-radius: 7px;
+  padding: 3px;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#botoes-inferiores {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20%;
+}
+
+#apaga-tudo {
+  background-color: red;
+  color: white;
+  border: 1px black solid;
 }
