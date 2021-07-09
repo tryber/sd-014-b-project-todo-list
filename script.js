@@ -22,3 +22,11 @@ document.addEventListener('click', function (event) {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }, false);
+
+document.addEventListener('dblclick', function (event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else if (event.target.classList.contains('list-item')){
+    event.target.classList.add('completed');
+  }
+}, false);
