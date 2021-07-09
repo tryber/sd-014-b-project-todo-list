@@ -50,11 +50,23 @@ function riscar(event) {
   } else { event.target.classList.add('completed'); }
 }
  
-const buttonApaga = document.getElementById('apaga-tudo')
+function removeFinalizados(){
+  let ol = document.getElementById('lista-tarefas');
+  let lista = document.querySelectorAll('li');
+  for (let item of lista) {
+    if(item.classList[0] === 'completed' || item.classList[1] === ('completed') ) {
+      ol.removeChild(item);
+    }
+  }
+}
+
+const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
+const buttonApagaTudo = document.getElementById('apaga-tudo');
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createItem);
 button.addEventListener('click', addEvent);
-buttonApaga.addEventListener('click', apagaLista);
+buttonApagaTudo.addEventListener('click', apagaLista);
+buttonRemoveFinalizados.addEventListener('click', removeFinalizados);
 
 // utton.addEventListener('click', sortItens);
 // let h1 = document.querySelector('h1');
