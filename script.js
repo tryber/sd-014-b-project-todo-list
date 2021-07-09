@@ -2,6 +2,8 @@ const taskList = document.getElementById('lista-tarefas')
 const inputTask = document.getElementById('texto-tarefa')
 const btnCreateTask = document.getElementById('criar-tarefa')
 const btnDeleteAll = document.getElementById('apaga-tudo')
+const btnRemoveCompleted = document.getElementById('remover-finalizados')
+
 let listItens = taskList.children
 btnCreateTask.addEventListener('click', addTask)
 function addTask(){
@@ -46,5 +48,11 @@ function updateListItensReference(){
 btnDeleteAll.addEventListener('click', function(){
   while(taskList.firstChild){
     taskList.removeChild(taskList.lastChild)
+  }
+})
+btnRemoveCompleted.addEventListener('click', function(){
+  let completedTasks = document.querySelectorAll('.completed')
+  for (let task of completedTasks){
+    task.parentNode.removeChild(task)
   }
 })
