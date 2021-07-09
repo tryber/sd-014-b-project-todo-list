@@ -37,4 +37,13 @@ body {
 .tasks {
     width: 50%;
     padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+}
+
+.tasks:hover {
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
 }
