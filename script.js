@@ -36,4 +36,17 @@ window.onload = function () {
       tarefaCompleta[i].remove();
     }
   };
+  // Função Salvar
+  btnSalvar.addEventListener('click', () => {
+    const listagem = listaOrdenada.innerHTML;
+    localStorage.setItem('listaSalva', listagem);
+    alert('Sua lista foi salva!');
+  });
+
+  function recuperar() {
+    listaOrdenada.innerHTML = localStorage.getItem('listaSalva');
+  }
+
+  recuperar();
+
 }  
