@@ -20,10 +20,27 @@ function corDeFundoItemLista(event) {
 listaTarefas.addEventListener('click', corDeFundoItemLista);
 
 function completedTasks(event) {
-  if (event.target.classList === 'completed') {
+  if (event.target.classList == 'tarefa completed') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
 }
 listaTarefas.addEventListener('dblclick', completedTasks);
+
+function deleteAll() {
+  listaTarefas.innerHTML = '';
+}
+let buttonDeleteAll = document.getElementById('apaga-tudo');
+buttonDeleteAll.addEventListener('click', deleteAll);
+
+function deleteCompleted() {
+  const tarefas = document.getElementsByClassName('tarefa');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    if (tarefas[i].classList == 'tarefa completed') {
+      listaTarefas.removeChild(tarefas[i]);
+    }
+  }
+}
+let deleteCompletedButton = document.getElementById('remover-finalizados');
+deleteCompletedButton.addEventListener('click', deleteCompleted);
