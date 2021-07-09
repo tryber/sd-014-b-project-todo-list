@@ -1,0 +1,26 @@
+header {
+  background-color: black;
+  color: white;
+  padding: 5px 50px;
+  width: fit-content;
+}
+
+#criar-tarefa {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+#criar-tarefa:hover {
+  background-color: tomato;
+  color: black;
+}
+
+.selecionada {
+  background-color:  rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
