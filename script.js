@@ -4,6 +4,7 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const botaoLimparLista = document.getElementById('apaga-tudo');
 const botaoRemoverFinalizadas = document.getElementById('remover-finalizados');
 let tarefaParaInserir = '';
+const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
 
 function tarefaDigitada(event) {
   tarefaParaInserir = event.target.value;
@@ -17,7 +18,7 @@ function changeColor(event) {
   const itensListaTarefas = listaTarefas.children;
   for (let index = 0; index < itensListaTarefas.length; index += 1) {
     const corFundoItem = window.getComputedStyle(itensListaTarefas[index])
-    .getPropertyValue('background-color');
+      .getPropertyValue('background-color');
     if (corFundoItem === 'rgb(128, 128, 128)') {
       itensListaTarefas[index].style.setProperty('background-color', '');
     }
@@ -45,7 +46,7 @@ function adicionarTarefa() {
   if (tarefaParaInserir === '') {
     return;
   }
-  const itemListaTarefas = document.createElement('li');
+  let itemListaTarefas = document.createElement('li');
   itemListaTarefas.innerText = tarefaParaInserir;
   listaTarefas.appendChild(itemListaTarefas);
   apagarTextoInput();
@@ -58,8 +59,8 @@ function limparLista() {
   }
 }
 
-function removerTarefasFinalizadas () {
-  let itensListaTarefas = listaTarefas.children;
+function removerTarefasFinalizadas() {
+  const itensListaTarefas = listaTarefas.children;
   for (let index = 0; index < itensListaTarefas.length; index += 1) {
     if (itensListaTarefas[index].classList.contains('completed')) {
       itensListaTarefas[index].parentNode.removeChild(itensListaTarefas[index]);
@@ -68,7 +69,26 @@ function removerTarefasFinalizadas () {
   }
 }
 
+function salvarLista() {
+  localStorage.setItem('ol', document.getElementById('lista-tarefas').innerHTML);
+}
+
+function recuperarLista() {
+  if (typeof (Storage) != "undefined") {
+    if (localStorage.count !== undefined) {
+      listaTarefas.innerHTML = localStorage.getItem('ol');
+      aplicarCSSLista();
+    } else {
+      localStorage.count = 1;
+    }
+  } else {
+  document.write("Sem suporte para Web Storage");
+  }
+}
+
 inputTarefa.addEventListener('keyup', tarefaDigitada);
 botaoAdicionarTarefa.addEventListener('click', adicionarTarefa);
 botaoLimparLista.addEventListener('click', limparLista);
 botaoRemoverFinalizadas.addEventListener('click', removerTarefasFinalizadas);
+botaoSalvarTarefas.addEventListener('click', salvarLista);
+recuperarLista();
