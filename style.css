@@ -11,11 +11,12 @@
 }
 
 #criar-tarefa{
-  color: black;
-  background-color: springgreen;
+  color: whitesmoke;
+  background-color: dodgerblue;
   padding: 5px 10px;
   border-radius: 30px;
   padding: 10px 8px;
+  font-weight: bold;
 }
 
 #input-button {
@@ -34,19 +35,33 @@
   border-radius: 30px;
   line-height: 14px;
   margin-right: 10px;
+  font-weight: bold;
 }
 
 #remover-finalizados {
   background-color: rgba(255, 230, 0, 0.932);
   color: black;
-  padding: 14px 10px;
-  line-height: 23px;
+  padding: 10px 10px;
+  line-height: 14px;
   border-radius: 30px;
   vertical-align: bottom;
   font-size: 12px;
+  font-weight: 700;
+  width: 100px;
 }
 
 #buttons {
   vertical-align: top;
   margin-top: 50px;
+}
+
+#salvar-tarefas {
+  background-color: springgreen;
+  color: black;
+  font-weight: bold;
+  width: 82px;
+  padding: 10px 10px;
+  line-height: 14px;
+  border-radius: 30px;
+
 }

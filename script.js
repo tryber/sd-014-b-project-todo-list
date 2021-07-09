@@ -2,6 +2,7 @@ const buttonAddTask = document.querySelector('#criar-tarefa');
 const listParent = document.querySelector('#lista-tarefas');
 const eraseButton = document.querySelector('#apaga-tudo');
 const removeFinishedButton = document.querySelector('#remover-finalizados');
+const saveButton = document.querySelector('#salvar-tarefas');
 
 buttonAddTask.addEventListener('click', criarTarefa);
 
@@ -60,3 +61,36 @@ function removerTarefasFinalizadas() {
 }
 
 
+
+saveButton.addEventListener('click', salvarLocal)
+
+function salvarLocal() {
+  const listaDeTarefas = listParent.innerHTML;
+  localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas))
+}
+
+
+
+function renderizacaoInicial() {
+  if (localStorage.getItem('tarefas') === null) {
+    localStorage.setItem('tarefas', JSON.stringify());
+  } else {
+    inserirTarefasSalvasNaLista();
+  }
+}
+
+
+function inserirTarefasSalvasNaLista() {
+  const listaDeTarefas = JSON.parse(localStorage.getItem('tarefas'));
+  listParent.innerHTML = listaDeTarefas;
+  let tarefas = document.querySelectorAll('.list-item');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    tarefas[index].addEventListener('dblclick', mudarStatusDaTarefa);
+    tarefas[index].addEventListener('click', mudarCorDaTarefa);
+  }
+}
+
+
+window.onload = function () {
+  renderizacaoInicial();
+}
