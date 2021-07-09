@@ -49,10 +49,11 @@ function changeColor(evento) {
     };  
 } 
 
-function taskCompleted(evento) {
+function taskCompleted(evento) {    
     let itemClicked = evento.target;
     let searchClassCompleted = itemClicked.classList.contains('completed');
 
+    //Verifica se possui a classe 'completed', se sim, remove, se não, adiciona
     if (searchClassCompleted === true) {
         itemClicked.classList.remove('completed')
     } else {
@@ -71,4 +72,23 @@ function clearTasks() {
     
         task.parentNode.removeChild(task);
     }
+}
+
+let btnRemoveCompleted = document.querySelector('#remover-finalizados');
+btnRemoveCompleted.addEventListener('click', clearCompleted);
+
+function clearCompleted() {
+    let listTask = document.querySelectorAll('.tasks');
+
+    for (let key of listTask) {
+        let task = key;
+
+        //Retorna true se o elemento tiver a classe 'completed'
+        let searchClassCompleted = task.classList.contains('completed');
+        
+        //Se tiver, remove o elemento
+        if (searchClassCompleted === true) {
+            task.parentNode.removeChild(task);
+        };
+    };
 }
