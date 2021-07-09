@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-use-of-empty-return-value */
 // Requisito 2
 const instructions = document.createElement('p');
+instructions.id = 'funcionamento';
 instructions.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 document.getElementById('header').appendChild(instructions);
 
@@ -23,7 +24,7 @@ task.appendChild(taskList);
 
 const button = document.querySelector('.button-input-task'); // seleciona o local de append child
 const buttonInput = document.createElement('button');
-button.id = 'criar-tarefa';
+buttonInput.id = 'criar-tarefa';
 buttonInput.innerText = 'Adicionar tarefa';
 button.appendChild(buttonInput);
 
