@@ -1,4 +1,5 @@
 const createTodoButton = document.getElementById('criar-tarefa');
+const deleteAllButton = document.getElementById('apaga-tudo');
 const todoList = document.getElementById('lista-tarefas');
 const inputTodo = document.getElementById('texto-tarefa');
 
@@ -11,11 +12,10 @@ function selectItem(event) {
 }
 
 function completeTask(event) {
-  const classList = event.target.classList;
-  if (classList.contains('completed')) {
-    classList.remove('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
   } else {
-    classList.add('completed');
+    event.target.classList.add('completed');
   }
 }
 
@@ -27,4 +27,8 @@ createTodoButton.addEventListener('click', () => {
   item.addEventListener('dblclick', completeTask);
   todoList.appendChild(item);
   inputTodo.value = '';
+});
+
+deleteAllButton.addEventListener('click', () => {
+  todoList.innerHTML = '';
 });
