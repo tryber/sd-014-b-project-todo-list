@@ -43,5 +43,15 @@ window.onload = function() {
   inputCreation()
   buttonCreation()
   orderedListCreation();
+  let button = document.querySelector('#criar-tarefa');
+  button.addEventListener('click', function(event) {
+    let listSelection = document.querySelector('ol')
+    let inputSelection = document.querySelector('#texto-tarefa')
+    let listItem = document.createElement('li')
+    listItem.innerText = inputSelection.value 
+    listSelection.appendChild(listItem)
+    inputSelection.value = ''
+
+  })
 
 }
