@@ -2,8 +2,13 @@ const listaDeTarefas = document.querySelector('#lista-tarefas');
 const addTarefasBtn = document.querySelector('#criar-tarefa');
 const deleteAllTasksBtn = document.querySelector('#apaga-tudo');
 const deleteCompletedBtn = document.querySelector('#remover-finalizados');
+const saveBtn = document.querySelector('#salvar-tarefas');
 
+let data = null;
 let selectedTask = document.querySelector('.selected');
+
+window.onload = recoverData;
+
 
 function addTaskToList(task) {
 	const li = document.createElement('li');
@@ -62,8 +67,31 @@ function deleteCompletedTasks() {
 	}
 }
 
+function saveData() {
+	const data = listaDeTarefas.innerHTML;
+	localStorage.setItem('data', JSON.stringify(data));
+}
+
+function addListenerToRecoveredTasks(lis) {
+	for (let i = 0; i < lis.length; i += 1) {
+		const li = lis[i];
+		li.addEventListener('click', setSelectedTask);
+		li.classList.remove('selected');
+	}
+}
+
+function recoverData() {
+	if (window.localStorage.getItem('data')){
+		const data = JSON.parse(window.localStorage.getItem('data'));
+		listaDeTarefas.innerHTML = data;
+		const tasks = document.querySelectorAll('.task');
+		addListenerToRecoveredTasks(tasks);
+	}
+}
+
 // Buttons
 
 addTarefasBtn.addEventListener('click', getTaskValue);
 deleteAllTasksBtn.addEventListener('click', deleteAllTasks);
 deleteCompletedBtn.addEventListener('click', deleteCompletedTasks);
+saveBtn.addEventListener('click', saveData);
