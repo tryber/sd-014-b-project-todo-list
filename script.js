@@ -9,6 +9,14 @@ function changeColorToGray(event) {
  }
 }
 
+function completedListItem(event) {
+ if (event.target.classList.contains('completed')) {
+  event.target.classList.remove('completed')
+ } else {
+ event.target.classList.add('completed');
+}
+}
+
 function createListItem() {
  const button = document.getElementById('criar-tarefa');
  let input = document.getElementById('texto-tarefa');
@@ -18,6 +26,7 @@ function createListItem() {
   li.className = "listItem";
   li.innerHTML = input.value;
   li.addEventListener('click', changeColorToGray)
+  li.addEventListener('dblclick', completedListItem)
   ol.appendChild(li);
   input.value = '';
  })
