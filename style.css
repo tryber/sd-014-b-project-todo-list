@@ -6,3 +6,7 @@
     border-radius: 5px;
     background-color: cornflowerblue;
 }
+
+ol li {
+    margin-top: 7px;
+}

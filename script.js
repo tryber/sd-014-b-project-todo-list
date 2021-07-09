@@ -9,4 +9,11 @@ window.onload = function () {
         listaOrdenada.appendChild(li);
         input.value = '';
     })
+    
 }
+
+let listaOrdenada = document.querySelector('#lista-tarefas');
+
+listaOrdenada.addEventListener('click', function(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+})
