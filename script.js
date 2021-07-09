@@ -39,3 +39,14 @@ function cleanAll() {
     listas[i].remove();
   }
 }
+
+const botaoApagaFinalizados = document.querySelector('#remover-finalizados');
+botaoApagaFinalizados.addEventListener('click', removeFinalizados);
+function removeFinalizados() {
+  let listas = document.querySelectorAll('li');
+  for (i = 0; i < listas.length; i++) {
+    if (listas[i].style.textDecoration == 'line-through') {
+      listas[i].remove();
+    }
+  }
+}
