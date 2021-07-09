@@ -26,5 +26,14 @@ window.onload = function () {
     }
       event.target.classList.add('color-gray')
     })
+    
+    addlistaTarefa.addEventListener('dblclick', function (event) {
+      let addDecoration = document.querySelector('.completed');
+        event.target.classList.add('completed') 
+      addlistaTarefa.addEventListener('dblclick', function (){
+        event.target.classList.remove('completed')  
+      })
+          
+    })
   })   
 }
