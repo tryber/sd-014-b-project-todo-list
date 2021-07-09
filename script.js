@@ -21,9 +21,19 @@ inputContainer.appendChild(btnCreateTask);
 function createNewTask() {
   const inputText = inputTask.value;
   const newTask = document.createElement('li');
+  newTask.className = 'task';
   newTask.innerHTML = inputText;
   taskList.appendChild(newTask);
   inputTask.value = '';
+
+  // Adiciona evento de clique que seleciona uma tarefa
+  newTask.addEventListener('click', (event) => {
+    const selectedTask = document.querySelectorAll('.selected');
+    if (selectedTask.length !== 0) {
+      selectedTask[0].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
 
 // Adiciona o evento de click ao botão de criar tarefas
