@@ -1,7 +1,7 @@
 body {
   margin-left: 20%;
   margin-right: 20%;
-  background-color: #dff1fa;
+  background-color: azure;
 }
 
 .header {
@@ -24,11 +24,10 @@ body {
 }
 
 .bgColor {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 .addText {
   margin-top: 5%;
-  display: f;
   margin-left: 25%;
 }
