@@ -1,27 +1,28 @@
 //ajuda do meu amigo glauco para desenvolver o Script e Css.
-const q = document.querySelector.bind(document);
-const color = (l) => l.addEventListener('click', (e) => {
-  if (q('.color')) q('.color').classList.remove('color');
+const query = document.querySelector.bind(document);
+
+const color = (x) => x.addEventListener('click', (e) => {
+  if (query('.color')) query('.color').classList.remove('color');
   e.target.classList.add('color');
 });
-const task = (m) => {
-  m.addEventListener('dblclick', (e) => {
+const task = (y) => {
+  y.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('completed')) e.target.classList.remove('completed');
     else e.target.classList.add('completed');
   });
 }
 const todo = () => {
-  const newI = document.createElement('li');
-  color(newI), task(newI);
-  newI.innerText = q('#texto-tarefa').value;
-  q('#lista-tarefas').appendChild(newI);
-  q('#texto-tarefa').value = null;
+  const newItem = document.createElement('li');
+  color(newItem), task(newItem);
+  newItem.innerText = query('#texto-tarefa').value;
+  query('#lista-tarefas').appendChild(newItem);
+  query('#texto-tarefa').value = null;
 };
-q('#criar-tarefa').addEventListener('click', todo);
-const clear = () => (q('#lista-tarefas').innerHTML = '');
-q('#apaga-tudo').addEventListener('click', clear);
-const cleark = () => (q('.completed').remove());
-q('#remover-finalizados').addEventListener('click', cleark);
+query('#criar-tarefa').addEventListener('click', todo);
+const clear = () => (query('#lista-tarefas').innerHTML = '');
+query('#apaga-tudo').addEventListener('click', clear);
+const cleark = () => (query('.completed').remove());
+query('#remover-finalizados').addEventListener('click', cleark);
 
 
 
