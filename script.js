@@ -5,7 +5,12 @@ function addTask() {
   // eslint-disable-next-line prefer-arrow-callback
   getButtonTask.addEventListener('click', function () {
     const createLi = document.createElement('li');
+    createLi.className = 'task';
     createLi.innerHTML = getInput.value;
+    createLi.addEventListener('click', (event) => {
+      // eslint-disable-next-line no-param-reassign
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
     getOl.appendChild(createLi);
     getInput.value = '';
   });
