@@ -15,11 +15,25 @@ window.onload = function (){
         getInput.value = ''; // retorna o input para um valor vazio.
     }
 
-    function newColor(color){
-        color.target.setAttribute('style', 'background-color: rgb(128, 128, 128)'); // retirado de https://developer.mozilla.org/pt-BR/docs/Web/API/Element/setAttribute onde atribuo um novo valor para style background diretamente no meu arquivo html.
-    }
 
     getList.addEventListener ('click', newColor);
+
+    function newColor(color){
+       let setAttribute = color.target.setAttribute('style', 'background-color: rgb(128, 128, 128)'); // retirado de https://developer.mozilla.org/pt-BR/docs/Web/API/Element/setAttribute onde atribuo um novo valor para style background diretamente no meu arquivo html.
+    }
+
+
+    getList.addEventListener ('click', removeColor);
+
+    function removeColor(event){
+   
+    let arrayList = document.getElementsByClassName('newTask');
+        for(let index = 0; index < arrayList.length; index += 1){
+            arrayList[index].style.backgroundColor = '';
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+     
+    }
 }
 
 
