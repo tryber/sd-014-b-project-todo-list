@@ -75,10 +75,10 @@ function deleteTasks (){
   let clearBtn = document.querySelector('#apaga-tudo');
 
   clearBtn.addEventListener('click', function(event){
-    console.log(taskList)
+
     if (taskList.length > 0) {
       while (taskList.length > 0) {
-      taskList[0].remove();
+        taskList[0].remove();
       }
     } else {
       alert('Você não tem tarefas')
@@ -87,3 +87,26 @@ function deleteTasks (){
 }
 
 deleteTasks();
+
+// Requisito 11: Deleta as tarefas completadas
+
+function deleteCompletedTasks(){
+  let completedBtn = document.querySelector('#remover-finalizados');
+
+  completedBtn.addEventListener('click', function(event){
+    let completedTasks = document.querySelectorAll('.completed');
+    console.log(completedTasks);
+    for (let index = 0; index < completedTasks.length; index += 1){
+        completedTasks[index].remove();
+    }
+    // if (completedTasks.length > 0){
+    //   while (completedTasks.length > 0){
+    //     completedTasks[0].remove();
+    //   }
+    // } else {
+    //   alert('Não existem tarefas completadas')
+    // }
+  })
+}
+
+deleteCompletedTasks();
