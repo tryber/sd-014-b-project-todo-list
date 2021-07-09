@@ -1,0 +1,21 @@
+window.onload = function () {
+
+  // Criando botão
+
+  let textTarefa = document.getElementById('section');
+  
+  let buttonTarefa = document.createElement('button');
+  buttonTarefa.id = 'criar-tarefa';
+  buttonTarefa.innerHTML = "Adicionar";
+  textTarefa.appendChild(buttonTarefa)
+  
+  let textoTarefa = document.getElementById('texto-tarefa');
+  let listaTarefa = document.getElementById('lista-tarefas');
+  
+  buttonTarefa.addEventListener('click', function (){
+    let addlistaTarefa = document.createElement('li')
+    addlistaTarefa.innerText = textoTarefa.value;
+    listaTarefa.appendChild(addlistaTarefa);
+    textoTarefa.value = '';
+  })
+}

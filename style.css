@@ -1,0 +1,14 @@
+header {
+  text-align: center;
+}
+
+input {
+  margin: 30px;
+}
+
+#criar-tarefa {
+  display: inline;
+  background-color: #BA0000;
+  border-radius: 5px;
+  border: none;
+}
