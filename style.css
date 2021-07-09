@@ -4,3 +4,7 @@
     border: solid purple 2px;
     background-color: seagreen;
 }
+
+.completed{
+    text-decoration: line-through;
+}

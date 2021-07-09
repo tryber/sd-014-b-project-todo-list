@@ -34,6 +34,19 @@ window.onload = function (){
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
      
     }
+
+    getList.addEventListener('dblclick', clickCompleted);
+     
+        function clickCompleted(event){
+        if (event.target.classList.contains('completed')) {
+          event.target.classList.remove('completed');
+        } else {
+          event.target.classList.add('completed');
+        }
+    }
+
+    
+    
 }
 
 
