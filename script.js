@@ -6,10 +6,16 @@ function createElement() {
   return document.createElement('li');
 }
 
+function clearInput() {
+  inputTask.value = '';
+  inputTask.focus();
+}
+
 function createTask(input) {
   const newTask = createElement();
   newTask.innerText = input;
   tasks.appendChild(newTask);
+  clearInput();
 }
 
 taskButton.addEventListener('click', () => {
