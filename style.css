@@ -1,0 +1,18 @@
+header {
+  background-color: black;
+  color: white;
+  padding: 5px 50px;
+  width: fit-content;
+}
+
+#criar-tarefa {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+#criar-tarefa:hover {
+  background-color: tomato;
+  color: black;
+}
