@@ -1,6 +1,6 @@
 * {
-  background-color: #15151A;
-  color: #FFFFFF;
+  background-color: #15151a;
+  color: white;
   margin-left: 7px;
 }
   #texto-tarefa {
@@ -11,9 +11,9 @@
 }
 
 #criar-tarefa{
-  color: dimgrey;
+  color: black;
   background-color: springgreen;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
 }
 
 #input-button {
