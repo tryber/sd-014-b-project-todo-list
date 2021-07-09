@@ -34,6 +34,15 @@ function selectedTarefa() {
   }
 }
 
+function cleaTarefas() {
+  const listLi = document.querySelectorAll('li');
+  for (const liUnica of listLi) {
+    liUnica.parentElement.removeChild(liUnica);
+  }
+}
+
 const button = document.querySelector('#criar-tarefa');
+const buttonClear = document.querySelector('#apaga-tudo');
 
 button.addEventListener('click', selectedTarefa);
+buttonClear.addEventListener('click', cleaTarefas);
