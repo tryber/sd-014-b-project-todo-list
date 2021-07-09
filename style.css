@@ -63,11 +63,8 @@ section {
 /* Personalização seguindo este tutorial https://css-tricks.com/numbering-in-style/*/
 
 ol {
-  display: flex;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3em;
-  list-style-type: decimal;
-  align-items: initial;
 }
 
 li::marker {
@@ -76,16 +73,23 @@ li::marker {
   font-size: 2em;  
 }
 
-li {
-  
+li, li::marker {
+  margin-bottom: 10px;
 }
 
-.completed{
-  color: rgb(128, 128, 128);
+.list-item {
+  
 }
+/* .completed{
+  color: rgb(128, 128, 128);
+} */
 
 .selected {
   background-color: aqua;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 #texto-tarefa {
