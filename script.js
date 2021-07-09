@@ -11,8 +11,11 @@ const botaoAdicionar = document.getElementById('criar-tarefa');
 botaoAdicionar.addEventListener('click', criaTarefa);
 
 function MudaCor(event) {
-event.target.style.backgroundColor = 'rgb(128,128,128)'
-  
+  const corAtual = document.getElementsByClassName('fundo')[0];
+  if (corAtual !== undefined) {
+    corAtual.classList.remove('fundo');
+  }
+  event.target.classList.add('fundo');
 }
 const itemLista = document.getElementById('lista-tarefas');
-itemLista.addEventListener('click', MudaCor)
+itemLista.addEventListener('click', MudaCor);
