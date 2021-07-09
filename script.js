@@ -89,3 +89,16 @@ window.onload = function () {
     }
   });
 };
+
+// Função de mudar a cor ao clicar
+listaOrdenada.addEventListener('click', (event) => {
+    const selecao = document.querySelectorAll('.selecionado');
+    for (let i = 0; i < selecao.length; i++) {
+      selecao[i].classList.remove('selecionado');
+      selecao[i].style.backgroundColor = '';
+    }
+    event.target.classList.add('selecionado');
+    const cinza = document.querySelector('.selecionado');
+    cinza.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+  
