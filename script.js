@@ -26,7 +26,21 @@ buttonAdd.addEventListener('click', function() {
             }
         }
     })
+    childOfList.addEventListener('dblclick', function(event){
+        const currentSetItem = event.target.style.textDecoration;
+        if (currentSetItem !== 'line-through solid rgb(0, 0, 0)') {
+            event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+            event.target.classList.add('completed');
+        }
+        else if (currentSetItem === 'line-through solid rgb(0, 0, 0)'){
+            event.target.style.textDecoration = 'none';
+            event.target.classList.remove('completed');
+        }
+    })
     fatherOfList.appendChild(childOfList);
     }
     inputText.value = '';
-})
+});
+
+//---------------------------------------------------------------------------------------
+
