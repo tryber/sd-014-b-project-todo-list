@@ -12,6 +12,8 @@ color = 'grey';
 listaOrde.addEventListener('click', function(event) {
   let list = document.querySelectorAll('li');
   for (let index = 0; index < list.length; index += 1 ) {
+    list[index].style.background = 'white';
     event.target.style.background = color;
   }
 })
+
