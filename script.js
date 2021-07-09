@@ -50,7 +50,7 @@ function riscar(event) {
   } else { event.target.classList.add('completed'); }
 }
  
-function removeFinalizados(){
+function removeFinalizados() {
   let ol = document.getElementById('lista-tarefas');
   let lista = document.querySelectorAll('li');
   for (let item of lista) {
@@ -60,13 +60,42 @@ function removeFinalizados(){
   }
 }
 
+function salvarLista () {
+  localStorage.clear();
+  let lista = document.querySelectorAll('li');
+  for (let index = 0; index <= lista.length - 1; index += 1){
+    localStorage.setItem('lista' + index, lista[index].innerText);
+    for (let nome of lista[index].classList)
+    localStorage.setItem('classe' + nome + '.' + index, lista[index].classList[0] );
+  }
+}
+
+function ImprimirListaSalva() {
+  let ol = document.querySelector('ol');
+  for (let index = 0; index <= localStorage.length -1; index += 1) { // falta tornar o localStorage.leght = lista.lenght;
+    let valor = localStorage.getItem('lista' + index);
+    let li = document.createElement('li');
+    li.innerText = valor;
+    ol.appendChild(li);
+    if (localStorage.getItem('classecinza.' + index ) === 'cinza') {
+      ol.lastChild.classList.add('cinza');
+    }
+    if (localStorage.getItem('classecompleted.' + index) === 'completed') { 
+      ol.lastChild.classList.add('completed');
+    }
+  }
+}
+
 const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
 const button = document.getElementById('criar-tarefa');
+const buttonSalvar = document.getElementById('salvar-tarefas');
 button.addEventListener('click', createItem);
 button.addEventListener('click', addEvent);
 buttonApagaTudo.addEventListener('click', apagaLista);
 buttonRemoveFinalizados.addEventListener('click', removeFinalizados);
+buttonSalvar.addEventListener('click', salvarLista);
+
 
 // utton.addEventListener('click', sortItens);
 // let h1 = document.querySelector('h1');
