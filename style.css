@@ -23,8 +23,17 @@ header {
   color: black;
   background-color: beige;
   margin-left: 45px;
+  border-radius: 10px;
+  height: 20px;
 }
 
 section {
   margin-left: 250px;
+}
+
+#criar-tarefa {
+  border-radius: 10px;
+  background-color: lightsalmon;
+  border: 2px solid lightsalmon;
+  height: 25px;
 }
