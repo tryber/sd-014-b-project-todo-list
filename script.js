@@ -8,6 +8,7 @@ createList.addEventListener('click', function () {
   novaTarefa.innerText = textoTarefa;
   novaTarefa.classList.add('tarefa');
   novaTarefa.addEventListener('click', selectItem);
+  novaTarefa.addEventListener('dblclick', completeItem);
   lista.appendChild(novaTarefa);
   input.value = '';
 });
@@ -19,3 +20,12 @@ function selectItem (event) {
   }
 event.target.classList.add('selected');
 }
+
+function completeItem (event) {
+  if (event.target.classList.contains('completed')) { // .contains estudada a partir da documentação https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList
+    event.target.classList.remove('completed')
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
