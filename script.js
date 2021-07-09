@@ -50,10 +50,11 @@ function riscar(event) {
   } else { event.target.classList.add('completed'); }
 }
  
-
+const buttonApaga = document.getElementById('apaga-tudo')
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createItem);
 button.addEventListener('click', addEvent);
+buttonApaga.addEventListener('click', apagaLista);
 
 // utton.addEventListener('click', sortItens);
 // let h1 = document.querySelector('h1');
