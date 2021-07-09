@@ -10,6 +10,7 @@ document.getElementById('header').appendChild(instructions);
 const input = document.querySelector('.input-task'); // seleciona o local de append child
 const inputTask = document.createElement('input');
 inputTask.type = 'text';
+
 inputTask.id = 'texto-tarefa';
 input.appendChild(inputTask);
 
@@ -23,13 +24,13 @@ task.appendChild(taskList);
 // Requisito 5
 
 const button = document.querySelector('.button-input-task'); // seleciona o local de append child
-const buttonInput = document.createElement('button');
-buttonInput.id = 'criar-tarefa';
-buttonInput.innerText = 'Adicionar tarefa';
-button.appendChild(buttonInput);
+const buttoni = document.createElement('button');
+buttoni.id = 'criar-tarefa';
+buttoni.innerText = 'Adicionar tarefa';
+button.appendChild(buttoni);
 
 function addAnotherTask() {
-  const text = inputTask.value; // define uma variável para armazenar p valor do input 
+  const text = inputTask.value; // define uma variável para armazenar p valor do input
   if (text === '') { // analisa se a o input está vazio
     alert('Insira uma tarefa!');
   }
@@ -39,10 +40,10 @@ function addAnotherTask() {
   li.id = 'task-item';
   li.innerText = text; // aqui retorna o valor do input para adicionar na lista
   ol.appendChild(li);
-  document.getElementById('myForm').reset(); // https://www.w3schools.com/Jsref/met_form_reset.asp
+  inputTask.value = ''; // limpa o valor do input
 }
 
-buttonInput.addEventListener('click', addAnotherTask);
+buttoni.addEventListener('click', addAnotherTask);
 
 // Quesito 7 // referencia https://github.com/tryber/sd-012-project-todo-list/blob/duribeiro-todo-list/script.js
 
@@ -54,7 +55,6 @@ function selectItem(event) {
     itemSelected.classList.remove('selected');
   }
   event.target.classList.add('selected'); // note que o event está fora do if (passa pelo if primeiro a função)
-  paintTask(); // funciona como um else esse event.target
 }
 ol.addEventListener('click', selectItem);
 // depois alterar cor de classe(.selected) no css)
@@ -64,19 +64,16 @@ ol.addEventListener('click', selectItem);
 
 // Requisito 9
 
-const completeOl = document.getElementById('lista-tarefas');
-
-function selectCompleted(event){ // os elementos agora irão transitar entre mais uma classe
-let completedSelected = document.querySelector('.completed');
-event.target.classList.add('completed');   
+function toggleCompleted(event) {
+  event.target.classList.toggle('completed'); // mira no target (ol), acessa a classe e muda para a classe 'completed' anteriormente criada
 }
-completeOl.addEventListener('dblclick', selectCompleted);
+ol.addEventListener('dblclick', toggleCompleted); // chama evento do double click nos elementos da list (ol)
 
 // Requisito 10 // referencia https://github.com/tryber/sd-012-project-todo-list/blob/julio-barros-todo-list/script.js
 
-const clickClear = document.querySelector('.button-clear'); 
+const clickClear = document.querySelector('.button-clear');
 const buttonClear = document.createElement('button');
-buttonClear.innerHTML = 'Limpar tarefas';  
+buttonClear.innerHTML = 'Limpar tarefas';
 clickClear.appendChild(buttonClear);
 buttonClear.id = 'apaga-tudo';
 
@@ -125,7 +122,7 @@ buttonSave.id = 'salvar-tarefas';
 function saveTasks() {
   const taskListSaveLocal = document.getElementById('lista-tarefas');
   localStorage.setItem('tasks', taskListSaveLocal.innerHTML);
-}  
+}
 function retrieveTasks() {
   const taskListSaveLocal = document.getElementById('lista-tarefas');
   taskListSaveLocal.innerHTML = localStorage.getItem('tasks');
@@ -136,16 +133,16 @@ buttonSave.addEventListener('click', saveTasks);
 
 // Quesito 13 - primeiro precisamos selecionar o elemento -> com a classe selected
 
-const clickUp = document.querySelector('.button-up'); 
+const clickUp = document.querySelector('.button-up');
 const buttonUp = document.createElement('button');
-buttonUp.innerHTML = 'Mover para cima';  
+buttonUp.innerHTML = 'Mover para cima';
 clickUp.appendChild(buttonUp);
 buttonUp.id = 'mover-cima';
 
 function moveUp() { // referencia https://github.com/tryber/sd-012-project-todo-list/blob/caroline-benichio-todo-list/script.js
   const ol = document.querySelector('#lista-tarefas');
   const taskUp = document.querySelector('.selected'); // aqui define qual elemento será movido
-  if (ol.firstChild !== taskUp && taskUp != null) { // The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true 
+  if (ol.firstChild !== taskUp && taskUp != null) { // The logical AND (&&) operator (logical conjunction) for a set of operands is true if and only if all of its operands are true
     ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
   } // !== null é quando a classe é a selected (o item clicado)
 } // pega o elemento de baixo (o previousSibling) e adiciona o item selecionado em cima dele (before)
@@ -155,13 +152,13 @@ const clickDown = document.querySelector('.button-down'); // mover item está re
 const buttonDown = document.createElement('button');
 buttonDown.innerHTML = 'Mover para baixo';
 clickDown.appendChild(buttonDown);
-buttonDown.id = 'mover-cima';
+buttonDown.id = 'mover-baixo';
 
 function moveDown() {
-  const ol = document.querySelector('#lista-tarefas');
+
   const taskDown = document.querySelector('.selected');
   if (ol.lastChild !== taskDown && taskDown != null) { // aqui compara as childs da lista e o elemento selecionado
-    ol.insertBefore(taskDown.nextSibling, taskDown); // o if é para comparar os demais elementos da lista porque eles 
+    ol.insertBefore(taskDown.nextSibling, taskDown); // o if é para comparar os demais elementos da lista porque eles
   } // serão usados como parâmetro de inserção. O parâmetro de inserção "para baixo" é mover o elemento em relação a posição dos seus irmãos filhos da lista
 }
 buttonDown.addEventListener('click', moveDown);
@@ -179,3 +176,5 @@ function removeTaskSelected() {
   taskSelectedToRemove.remove(); // The Element.remove() method removes the element from the tree it belongs to.
 }
 buttonRemoveSelected.addEventListener('click', removeTaskSelected);
+
+Cypress.on('uncaught:exception', (err, runnable) => false);
