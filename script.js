@@ -1,25 +1,28 @@
-const selector = document.querySelector.bind(document);
+//Esse script foi desenvolvido colaborativamente com Sam!
 
-const color = (li) => {
-  li.addEventListener('click', (event) => {
-    if (selector('.color')) selector('.color').classList.remove('color');
-    event.target.classList.add('color');
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
+const color = (x) =>
+  x.addEventListener('click', (e) => {
+    if (query('.color')) query('.color').classList.remove('color');
+    e.target.classList.add('color');
+  });
+const task = (y) => {
+  y.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('completed'))
+      e.target.classList.remove('completed');
+    else e.target.classList.add('completed');
   });
 };
-
-const clear = () => {
-  selector('#lista-tarefas').innerHTML = '';
-};
-
-const ClearAll = () => selector('#apaga-tudo').addEventListener('click', clear);
-
 const todo = () => {
-  const newI = document.createElement('li');
-  color(newI);
-  newI.innerText = selector('#texto-tarefa').value;
-  selector('#lista-tarefas').appendChild(newI);
-  selector('#texto-tarefa').value = null;
+  const newItem = document.createElement('li');
+  color(newItem), task(newItem);
+  newItem.innerText = query('#texto-tarefa').value;
+  query('#lista-tarefas').appendChild(newItem);
+  query('#texto-tarefa').value = null;
 };
-
-selector('#criar-tarefa').addEventListener('click', todo);
-ClearAll();
+query('#criar-tarefa').addEventListener('click', todo);
+const clear = () => (query('#lista-tarefas').innerHTML = '');
+query('#apaga-tudo').addEventListener('click', clear);
+const cleark = () => query('.completed').remove();
+query('#remover-finalizados').addEventListener('click', cleark);
