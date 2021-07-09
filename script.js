@@ -14,8 +14,10 @@ function corDeFundoItemLista(event) {
   const tarefas = document.getElementsByClassName('tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].style.backgroundColor = '';
+    tarefas[i].removeAttribute('id');
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.id = 'selected';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
 
@@ -45,9 +47,19 @@ function deleteCompleted() {
 const deleteCompletedButton = document.getElementById('remover-finalizados');
 deleteCompletedButton.addEventListener('click', deleteCompleted);
 
-// function () {
-//   const tarefas = document.getElementsByClassName('tarefa');
-//   for (let i = 0 ; i < tarefas.length; i += 1) {
-//     localStorage.setItem('tarefas', tarefas[i].innerText).
-//   }
-// }
+function saveTasks() {
+  const tarefas = document.getElementsByClassName('tarefa');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    localStorage.setItem('tarefas', tarefas[i].innerHTML);
+  }
+}
+
+const buttonSaveTasks = document.getElementById('salvar-tarefas');
+buttonSaveTasks.addEventListener('click', saveTasks);
+
+function removeSelected() {
+  const selectedTask = document.getElementById('selected');
+  listaTarefas.removeChild(selectedTask);
+}
+const removeSelectedButton = document.getElementById('remover-selecionado');
+removeSelectedButton.addEventListener('click', removeSelected);
