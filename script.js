@@ -12,21 +12,36 @@ window.onload = function() {
     pCreation.id = 'funcionamento';
     bodySelection.appendChild(pCreation);
   }
-  function inputCreation() {
+  function inputContainerCreation() {
     let bodySelection = document.querySelector('body');
-    let inputCreation = document.createElement('input')
-    inputCreation.id = 'texto-tarefa';
-    bodySelection.appendChild(inputCreation);
+    let divCreation = document.createElement('div');
+    divCreation.id = 'inputAndButtonContainer';
+    bodySelection.appendChild(divCreation);
   }
-  function unorderedListCreation() {
+  function inputCreation() {
+    let divSelection = document.querySelector('#inputAndButtonContainer');
+    let input = document.createElement('input');
+    input.id = 'texto-tarefa';
+    divSelection.appendChild(input);
+  }
+  function orderedListCreation() {
     let bodySelection = document.querySelector('body');
-    let ulCreation = document.createElement('ul')
+    let ulCreation = document.createElement('ol')
     ulCreation.id = 'lista-tarefas';
     bodySelection.appendChild(ulCreation);
   }
+  function buttonCreation() {
+    let inputSelection = document.querySelector('#inputAndButtonContainer')
+    let button = document.createElement('button')
+    button.innerText = 'Adicionar'
+    button.id = 'criar-tarefa'
+    inputSelection.appendChild(button)
+  }
   headerCreation();
   paragraphCreation();
-  inputCreation();
-  unorderedListCreation();
+  inputContainerCreation();
+  inputCreation()
+  buttonCreation()
+  orderedListCreation();
 
 }
