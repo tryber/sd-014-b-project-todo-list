@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <!-- Abaixo seguem fontes do GoogleFonts e AwesomeIcons-->
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,800;1,400;1,600&family=Poppins:wght@200;800&display=swap");
+        </style>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <title>Minha lista de Tarefas</title>
+      </head>
+
+    <body>
+        <div id="caixa">
+          <header>
+            <h1>Minha lista de Tarefas</h1>
+            <p id="funcionamento">
+              Clique duas vezes em um item para marcá-lo como completo
+            </p>
+          </header>
+    
+          <main>
+            <input id="texto-tarefa" name="tarefa" />
+            <button id="criar-tarefa" name="botaoPrincipal">
+              <i class="fa fa-plus-square-o" aria-hidden="true"></i> Criar Tarefa
+            </button>
+    
+            <h2>Lista de Tarefas</h2>
+            <div id="listagem"><ol id="lista-tarefas"></ol></div>
+    
+            <div id="botoes">
+              <button id="remover-selecionado">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              <button id="mover-cima">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+              </button>
+              <button id="mover-baixo">
+                <i class="fa fa-arrow-down" aria-hidden="true"></i></button
+              ><br />
+              <button id="remover-finalizados">Limpar tarefas concluídas</button>
+              <button id="salvar-tarefas">Salvar Lista</button>
+              <button id="apaga-tudo">Limpar tudo</button>
+            </div>
+          </main>
+        </div>
+        <script src="script.js"></script>
+      </body>
+    </html>
