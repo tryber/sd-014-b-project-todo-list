@@ -2,6 +2,7 @@ const listaDeTarefas = document.querySelector('#lista-tarefas');
 const addTarefasBtn = document.querySelector('#criar-tarefa');
 const deleteAllTasksBtn = document.querySelector('#apaga-tudo');
 const deleteCompletedBtn = document.querySelector('#remover-finalizados');
+const deleteSelectedBtn = document.querySelector('#remover-selecionado');
 const saveBtn = document.querySelector('#salvar-tarefas');
 const upBtn = document.querySelector('#mover-cima');
 const downBtn = document.querySelector('#mover-baixo');
@@ -69,6 +70,15 @@ function deleteCompletedTasks() {
 	}
 }
 
+function deleteSelectedTask() {
+	if (selectedTask !== null) {
+		const task = selectedTask;
+		task.classList.remove('selected');
+		listaDeTarefas.removeChild(task);
+		selectedTask = null;
+	}
+}
+
 function saveData() {
 	const data = listaDeTarefas.innerHTML;
 	localStorage.setItem('data', JSON.stringify(data));
@@ -91,17 +101,23 @@ function recoverData() {
 	}
 }
 
+// Parte do Codigo foi retirado do stackoverflow: https://stackoverflow.com/a/34914096
+
 function moveUp(element) {
 	element = selectedTask;
-	if(element.previousElementSibling) {
-		element.parentNode.insertBefore(element, element.previousElementSibling);
+	if (element !== null){
+		if(element.previousElementSibling) {
+			element.parentNode.insertBefore(element, element.previousElementSibling);
+		}	
 	}
 }
 
 function moveDown(element) {
 	element = selectedTask;
-	if (element.nextElementSibling) {
-		element.parentNode.insertBefore(element.nextElementSibling, element);
+	if (element !== null){
+		if (element.nextElementSibling) {
+			element.parentNode.insertBefore(element.nextElementSibling, element);
+		}	
 	}
 }
 
@@ -110,6 +126,7 @@ function moveDown(element) {
 addTarefasBtn.addEventListener('click', getTaskValue);
 deleteAllTasksBtn.addEventListener('click', deleteAllTasks);
 deleteCompletedBtn.addEventListener('click', deleteCompletedTasks);
+deleteSelectedBtn.addEventListener('click', deleteSelectedTask);
 saveBtn.addEventListener('click', saveData);
 upBtn.addEventListener('click', moveUp);
 downBtn.addEventListener('click', moveDown);
