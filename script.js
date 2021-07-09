@@ -11,4 +11,9 @@ inputTask.type = 'text';
 inputTask.id = 'texto-tarefa';
 input.appendChild(inputTask);
 
-//
+// Requisito 4
+
+const task = document.querySelector('.task-list'); // seleciona o local de append child 
+const taskList = document.createElement('ol');
+taskList.id = 'lista-tarefas';
+task.appendChild(taskList);
