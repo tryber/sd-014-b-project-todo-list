@@ -10,10 +10,17 @@ window.onload = function () {
         input.value = '';
     })
     
+    listaOrdenada.addEventListener('click', function(event) {
+
+        for (let element of listaOrdenada.children) {
+            if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+                element.style.backgroundColor = 'white';
+            }
+        }
+
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
+
+
 }
 
-let listaOrdenada = document.querySelector('#lista-tarefas');
-
-listaOrdenada.addEventListener('click', function(event) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-})
