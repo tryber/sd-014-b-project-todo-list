@@ -21,3 +21,11 @@ input {
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#apaga-tudo {
+  display: block;
+  background-color: #323232;
+  border-radius: 5px;
+  border: none;
+  color: #E4E4E4;
+}
