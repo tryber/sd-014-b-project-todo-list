@@ -11,7 +11,15 @@ function addLi() {
 takeButton.addEventListener('click', addLi);
 
 function toColoringGray(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const evento = event;
+  for (let index = 0; index < takeOl.children.length; index += 1) {
+    if (takeOl.children[index].classList.length === 1) {
+      evento.target.parentElement.children[index].classList.remove('selected');
+    }
+    if (takeOl.children[index].classList.length === 0) {
+      evento.target.className = 'selected';
+    }
+  }
 }
 
 takeOl.addEventListener('click', toColoringGray);
