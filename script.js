@@ -23,7 +23,7 @@ task.appendChild(taskList);
 const button = document.querySelector('.button-input-task'); // seleciona o local de append child 
 const buttonInput = document.createElement('button');
 button.id = 'criar-tarefa';
-buttonInput.innerText = "Adicionar tarefa";
+buttonInput.innerText = 'Adicionar tarefa';
 button.appendChild(buttonInput);
 
 function addAnotherTask() {
@@ -56,3 +56,6 @@ function selectItem(event) {
 }
 ol.addEventListener('click', selectItem); 
 // depois alterar cor de classe(.selected) no css)
+
+// Requesito 8
+// ja foi feito no 7
