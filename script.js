@@ -37,15 +37,15 @@ window.onload = function() {
   function riskCleared(selection) {
     let classes = selection.target.classList;
     if (classes.length === 2) {
-      classes.add('cleared');
+      classes.add('completed');
     } else {
-      classes.remove('cleared');
+      classes.remove('completed');
     }
   }
 
   // Remove as tarefas realizadas da lista
   function removeClearedTasks() {
-    let clearedTasks = document.querySelectorAll('.cleared');
+    let clearedTasks = document.querySelectorAll('.completed');
     let taskList = document.getElementById('lista-tarefas');
     for(let i = 0; i < clearedTasks.length; i ++) {
       taskList.removeChild(clearedTasks[i]);
