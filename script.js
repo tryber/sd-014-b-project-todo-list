@@ -15,8 +15,19 @@ window.onload = function () {
             }
         })
 
+        li.addEventListener('dblclick', function () {
+            if (li.className === 'completed') {
+                li.classList.remove('completed')
+            } else {
+                li.classList.add('completed')
+            }
+        })
+
+
         li.innerText = input.value;
         listaOrdenada.appendChild(li);
         input.value = '';
     })
+
+
 }
