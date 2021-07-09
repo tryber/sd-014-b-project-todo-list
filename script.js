@@ -1,6 +1,10 @@
 const addButton = document.getElementById('criar-tarefa');
 const clearListButton = document.getElementById('apaga-tudo');
 const removeCompletedTaskButton = document.getElementById('remover-finalizados');
+const saveListButton = document.getElementById('salvar-tarefas');
+let savedListItems = document.getElementById('lista-tarefas');
+savedListItems.innerHTML = localStorage.getItem('ol');
+
 
 
 function generateTask(){
@@ -40,7 +44,7 @@ function checkingTask(event){
         }
 }
 
-function clearList(event){
+function clearList(){
     const allLis = document.querySelectorAll('li');
     for(index = 0; index < allLis.length; index += 1){
         allLis[index].parentNode.removeChild(allLis[index]);
@@ -61,3 +65,11 @@ function removeCompletedTasks(event){
 }    
 
 removeCompletedTaskButton.addEventListener('click', removeCompletedTasks);
+
+
+function saveList(event){
+    localStorage.setItem('ol', document.getElementById('lista-tarefas').innerHTML);
+}
+
+
+saveListButton.addEventListener('click', saveList);
