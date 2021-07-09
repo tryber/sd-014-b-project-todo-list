@@ -1,0 +1,21 @@
+body {
+  background-color: beige;
+  font-family: monospace;
+  color: grey;
+}
+
+h1 {
+  color: rgb(248, 147, 52);
+}
+
+aside {
+  float: left;
+  height: 500px;
+}
+
+header {
+  margin: 20px;
+  float: right;
+  margin-right: 650px;
+  margin-top: 60px;
+}
