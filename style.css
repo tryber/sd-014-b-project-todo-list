@@ -14,3 +14,49 @@
     padding: 20px;
     -webkit-font-smoothing: antialiased;
   }
+
+  body,
+  button,
+  input {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.2;
+  }
+
+  li {
+    background-color: none;
+    text-align: left;
+  }
+  
+  .completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+  }
+  
+  #caixa {
+    position: absolute;
+    text-align: center;
+    left: 30%;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    max-width: 440px;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  h1,
+  h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 420px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 32px;
+    opacity: 1;
+    padding: 0 0 40px;
+  }
+
+  
