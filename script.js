@@ -19,9 +19,12 @@ window.onload = function () {
     textoTarefa.value = '';
 
     addlistaTarefa.addEventListener('click', function (event){
+      // event.target.classList.add('color-gray')
+    let colorSelect = document.querySelector('.color-gray')
+      if (colorSelect) {
+      colorSelect.classList.remove('color-gray');
+    }
       event.target.classList.add('color-gray')
-      // addlistaTarefa.style.backgroundColor = "rgb(128, 128, 128)"
-      
     })
-  })
+  })   
 }
