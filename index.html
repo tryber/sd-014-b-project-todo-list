@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Projeto Todo List</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header>
+			<!-- 1 - Adiciona à lista o título "Minha Lista de Tarefas" -->
+			<h1>Minha Lista de Tarefas</h1>
+			<!-- 2 - Adiciona abaixo do título um parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo" -->
+			<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+		</header>
+		<!-- 3 - Adiciona um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista -->
+		<input type="text" id="texto-tarefa" placeholder="Adicione aqui sua tarefa">
+		<!-- 5 - Adiciona botão com id="criar-tarefa" que ao click, um novo item será criado ao final da lista e o texto do input é limpo -->
+		<button id="criar-tarefa">Criar tarefa</button>
+
+		<!-- 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas" -->
+		<ol id="lista-tarefas"></ol>
+
+		<script src="script.js"></script>
+	</body>
+</html>
