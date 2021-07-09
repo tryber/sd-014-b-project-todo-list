@@ -1,3 +1,4 @@
+//ajuda do meu amigo glauco
 const selector = document.querySelector.bind(document);
 
 const color = (li) => {
@@ -7,17 +8,14 @@ const color = (li) => {
   });
 };
 
-const clear = () => {
-  selector('#lista-tarefas').innerHTML = '';
-};
+const clear = () => (selector('#lista-tarefas').innerHTML = '');
 
-const ClearAll = () => {
-  selector('#apaga-tudo').addEventListener('click', clear);
-};
+const ClearAll = () => selector('#apaga-tudo').addEventListener('click', clear);
 
 const todo = () => {
   const newI = document.createElement('li');
   color(newI);
+
   newI.innerText = selector('#texto-tarefa').value;
   selector('#lista-tarefas').appendChild(newI);
   selector('#texto-tarefa').value = null;
