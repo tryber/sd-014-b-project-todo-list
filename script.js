@@ -60,7 +60,7 @@ ol.addEventListener('click', selectItem);
 // Requesito 8
 // ja foi feito no 7
 
-// Requesito 9
+// Requisito 9
 
 const completeOl = document.getElementById('lista-tarefas');
 
@@ -70,3 +70,23 @@ event.target.classList.add('completed');
 }
 completeOl.addEventListener('dblclick', selectCompleted);
 
+// Requisito 10 // referencia https://github.com/tryber/sd-012-project-todo-list/blob/julio-barros-todo-list/script.js
+
+const clickClear = document.querySelector('.button-clear'); 
+const buttonClear = document.createElement('button');
+buttonClear.innerHTML = 'Limpar tarefas';  
+clickClear.appendChild(buttonClear);
+buttonClear.id = 'apaga-tudo';
+
+function clearBox() { // https://github.com/tryber/sd-012-project-todo-list/blob/julio-barros-todo-list/script.js
+  const itemsToClear = document.getElementsByTagName('li'); // cria um array de elementos
+  const list = document.querySelector('#lista-tarefas'); // define o node da lista
+  if (itemsToClear.length > 0) {
+    while (list.firstChild) { // enquanto a lista tiver uma child o código será executado
+      list.removeChild(list.firstChild);
+    }
+  } else {
+    alert('A lista está vazia!');
+  }
+}
+buttonClear.addEventListener('click', clearBox);
