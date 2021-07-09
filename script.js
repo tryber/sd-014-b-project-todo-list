@@ -14,6 +14,11 @@ addListItem();
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('list-item')) {
+    const allListItens = document.querySelectorAll('.list-item');
+    for (let index = 0; index < allListItens.length; index += 1) {
+      let item = allListItens[index]
+      item.style.backgroundColor = 'white';
+    }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }, false);
