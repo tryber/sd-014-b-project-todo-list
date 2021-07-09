@@ -1,1 +1,6 @@
- 
+ /* When clicked on, add a background color and strike out text */
+ ol li.checked {
+    background: ;
+    color:;
+    text-decoration: line-through;
+  }
