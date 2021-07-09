@@ -25,6 +25,9 @@ taskButton.addEventListener('click', () => {
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('task')) {
+    for (const child of tasks.children) {
+      child.style.backgroundColor = '';
+    }
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
