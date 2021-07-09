@@ -38,5 +38,18 @@ function addTextList() {
   removeInputText();
 }
 
-let button = document.getElementById('criar-tarefa');
-button.addEventListener('click', addTextList);
+let buttonAdd = document.getElementById('criar-tarefa');
+buttonAdd.addEventListener('click', addTextList);
+
+function removeList() {
+  let lis = document.getElementsByClassName('tarefa');
+  console.log(lis);
+  while (lis.length > 0) {
+    for (let index of lis) {
+      index.parentNode.removeChild(index);
+    }
+  }
+}
+
+let buttonRemoveAll = document.getElementById('apaga-tudo');
+buttonRemoveAll.addEventListener('click', removeList);
