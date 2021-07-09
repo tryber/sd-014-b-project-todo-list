@@ -9,3 +9,10 @@ function criaTarefa() {
 }
 const botaoAdicionar = document.getElementById('criar-tarefa');
 botaoAdicionar.addEventListener('click', criaTarefa);
+
+function MudaCor(event) {
+event.target.style.backgroundColor = 'rgb(128,128,128)'
+  
+}
+const itemLista = document.getElementById('lista-tarefas');
+itemLista.addEventListener('click', MudaCor)
