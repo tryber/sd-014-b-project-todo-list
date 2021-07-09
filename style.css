@@ -10,3 +10,7 @@
 ol li {
     margin-top: 7px;
 }
+
+.completed {
+    text-decoration: line-through;
+}
