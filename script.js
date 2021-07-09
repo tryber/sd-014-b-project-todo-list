@@ -11,14 +11,12 @@ addTaskButton.addEventListener('click', function () {
 
 const clearButton = document.querySelector('#apaga-tudo');
 clearButton.addEventListener('click', function () {
-  const tasks = document.getElementById('lista-tarefas').querySelectorAll('li');
-  tasks.remove();
+  const tasks = document.getElementById('lista-tarefas');
+  taskList.removeChild(tasks);
 });
 
-
-
-
+///
 // const clearButton = document.querySelector('#apaga-tudo');
 // clearButton.addEventListener('click', function () {
-//   taskList.removeChild(taskList.childNodes);
+//   taskList.removeChild(taskList.childNodes[]);
 // });

@@ -1,3 +1,31 @@
 #title {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+#texto-tarefa {
+  min-height: 25px;
+}
+
+#criar-tarefa {
+  background-color: #1e6091;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #1e6091;
+  border-radius: 5px;
+}
+
+#apaga-tudo {
+  background-color: #e63946;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #e63946;
+  border-radius: 5px;
+}
+
+#remover-finalizados {
+  background-color: #76c893;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #76c893;
+  border-radius: 5px;
+}
