@@ -24,8 +24,15 @@ function changeBackgroundColor(event) {
     }
 }
 
+// Dois cliques risca a palavra e mais 2 clique retira o risco
 function completedTask(event) {
   event.target.classList.toggle('completed')
 }
 
+let buttonClear = document.querySelector("#apaga-tudo");
+buttonClear.addEventListener("click", clearList);
 
+function clearList() {
+  let list = document.querySelector("#lista-tarefas");
+  list.innerHTML = '';
+}
