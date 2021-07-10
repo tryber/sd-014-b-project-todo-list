@@ -21,7 +21,7 @@ function pintaOItem(evento){
         document.querySelector('.corDoItem').classList.remove('corDoItem') 
     }
     let eventoClique = evento.srcElement
-    eventoClique.className = 'corDoItem'
+    eventoClique.classList.add('corDoItem')
 }
 
 let botaoRiscarOItem = document.querySelector('#lista-tarefas');
@@ -30,8 +30,8 @@ function riscaOItem(evento){
         let clicado = evento.srcElement
         if(clicado === document.querySelector('.completed')){
             clicado.classList.remove('completed')
-        }
-       clicado.className = 'completed'          
+        }else{
+       clicado.classList.add('completed')}     
 }
 
    
