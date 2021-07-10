@@ -3,7 +3,6 @@ const findList = document.querySelector('#lista-tarefas');
 const button = document.querySelector("#criar-tarefa");
 const inputValue = document.querySelector("#texto-tarefa");
 const childItens = findList.childNodes;
-var selected;
 
 function addItemInList() {
   let createLi = document.createElement('li')
@@ -11,11 +10,12 @@ function addItemInList() {
   findList.appendChild(createLi);
   inputValue.value = "";
   changeColor();
-  lineThrough();
+  // risca as lis
+  createLi.addEventListener('dblclick', lineCompleted)
 }
 button.addEventListener('click', addItemInList);
 
-// 7.
+// 7 e 8.
 
 function changeColor() {findList.addEventListener('click', function(event) {
     let list = document.querySelectorAll('#lista-tarefas>li');
@@ -30,25 +30,11 @@ function changeColor() {findList.addEventListener('click', function(event) {
 };
 changeColor();
 
-// 8.
-
-/* function handleChangeColor(event) {
-  const colorElement = document.querySelector('.completed');
-  colorElement.classList.remove('selected');
-  event.target.classList.add('selected');
-} */
-
 // 9.
-function lineThrough(){
-  findList.addEventListener('dblclick', function(event) {
-    if (event.target.className === 'completed') {
-      event.target.classList.remove("completed")
-      event.target.style.textDecoration = 'none';
-    } else {
-      event.target.classList.add("completed")
-      event.target.backgroundColor = 'white';
-      event.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    }
-  })
+function lineCompleted(event) {
+  if (document.querySelector('.completed')) {
+    event.target.classList.remove("completed")
+  } else {
+    event.target.classList.add('completed')
+  }
 }
-
