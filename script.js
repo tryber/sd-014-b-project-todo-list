@@ -3,7 +3,7 @@ const buttonDeleteAll = document.querySelector('#apaga-tudo');
 const Itenslist = document.querySelector('#lista-tarefas');
 
 function addItemList(item) {
-  const list = document.querySelector('#lista-tarefas');
+  const list = Itenslist;
   const li = document.createElement('li');
 
   li.innerText = item;
@@ -40,7 +40,7 @@ Itenslist.addEventListener('dblclick', (item) => {
 });
 
 function removeAllItemsList() {
-  const listItems = document.querySelector('#lista-tarefas');
+  const listItems = Itenslist;
   listItems.innerHTML = '';
 }
 
