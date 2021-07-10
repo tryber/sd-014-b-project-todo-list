@@ -4,6 +4,9 @@ const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
+const btnMoveUp = document.getElementById('mover-cima')
+const btnMoveDown = document.getElementById('mover-baixo')
+const btnRemoveSelected = document.getElementById('remover-selecionado')
 let listItens = taskList.children;
 
 btnCreateTask.addEventListener('click', addTask);
@@ -20,15 +23,18 @@ function addTask(parameter) {
 
 function addListItemListeners(listItem) {
     listItem.addEventListener('click', function (event) {
-      if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+      if (event.target.classList.contains('selected')) {
         event.target.style.backgroundColor = 'white';
+        event.target.classList.remove('selected');
       } else {
         for (let item of taskList.children) {
-          if ((item.style.backgroundColor = 'rgb(128, 128, 128)')) {
+          if (item.classList.contains('selected')) {
             item.style.backgroundColor = 'white';
+            item.classList.remove('selected');
           }
         }
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        event.target.classList.add('selected');
       }
     });
 
@@ -58,9 +64,7 @@ btnRemoveCompleted.addEventListener('click', function () {
   }
 });
 
-btnSaveTasks.addEventListener('click', saveInLocalStorage);
-
-function saveInLocalStorage() {
+btnSaveTasks.addEventListener('click', function () {
   let arrayOfTasks = [];
   localStorage.clear();
   if (listItens.length > 0) {
@@ -75,7 +79,38 @@ function saveInLocalStorage() {
     }
     localStorage.setItem('tasks', JSON.stringify(arrayOfTasks));
   }
-}
+})
+
+btnMoveUp.addEventListener('click', function(){
+  let selectedItem = document.getElementsByClassName('selected')[0]
+  let listNode;
+  if(selectedItem){
+    listNode = selectedItem.parentNode
+    if(selectedItem.previousElementSibling){ //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
+      listNode.insertBefore(selectedItem, selectedItem.previousSibling) 
+      // a linha acima insere selectedItem antes do elemento passado como referencia, no caso selectedItem.previousSibling que é o elemento logo acima, o if verifica se há um elemento acima 
+    }
+  }
+})
+
+btnMoveDown.addEventListener('click', function(){
+  let selectedItem = document.getElementsByClassName('selected')[0]
+  let listNode;
+  if(selectedItem){
+    listNode = selectedItem.parentNode
+    if(selectedItem.nextElementSibling){ //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
+      listNode.insertBefore(selectedItem.nextElementSibling, selectedItem) 
+      //dessa vez foi preciso inverter. a linha acima insere selectedItem.nextElementSibling(elemento abaixo) depois do elemento passado como referencia, no caso selectedItem que é o elemento selecionado, o if verifica se há um elemento abaixo 
+    }
+  }
+})
+
+btnRemoveSelected.addEventListener('click', function() {
+  let selectedItem = document.getElementsByClassName('selected')[0]
+  if(selectedItem){
+    taskList.removeChild(selectedItem)
+  }
+})
 
 function getLocalStorage() {
   let tasksStorage = JSON.parse(localStorage.getItem('tasks'));
