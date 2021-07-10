@@ -19,7 +19,6 @@ const todo = () => {
   query('#texto-tarefa').value = null;
 };
 query('#criar-tarefa').addEventListener('click', todo);
-const clear = () => (query('#lista-tarefas').innerHTML = '');
-query('#apaga-tudo').addEventListener('click', clear);
-const cleark = () => (query('.completed').remove());
-query('#remover-finalizados').addEventListener('click', cleark);
+
+query('#apaga-tudo').addEventListener('click', () => (query('#lista-tarefas').innerHTML = ''));
+query('#remover-finalizados').addEventListener('click', () => (query('.completed').remove()));
