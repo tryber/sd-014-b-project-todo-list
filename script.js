@@ -16,8 +16,19 @@ function addTask() {
 getButton.addEventListener("click", addTask);
 
 function changeBkg(event){
-    event.target.style.backgroundColor = "green";
+    let getSelected = document.querySelector(".selected");
+    if(getSelected === null){
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+        event.target.classList.add("selected"); 
+    } else  {
+        console.log(getSelected);
+        getSelected.style.backgroundColor = "";
+        getSelected.classList.remove("selected");
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+        event.target.classList.add("selected");
+    }
 }
+
 
 
  
