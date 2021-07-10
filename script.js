@@ -66,3 +66,34 @@ const buttonClear = document.getElementById('apaga-tudo');
 buttonClear.addEventListener('click', () => {
   listOfTasks.innerHTML = '';
 });
+
+// 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista.
+
+const buttonClearSelected = document.getElementById('remover-finalizados');
+
+function apagaFinalizados() {
+  const childs = document.getElementsByClassName('completed');
+  for (let index = 0; index < childs.length; index += 0) {
+    const childsIndex = childs[index];
+    childsIndex.remove();
+  }
+}
+buttonClearSelected.addEventListener('click', apagaFinalizados);
+
+// 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava.
+
+const buttonSave = document.getElementById('salvar-tarefas');
+
+buttonSave.addEventListener('click', () => {
+  const save = listOfTasks.innerHTML;
+  localStorage.setItem('luizsmatos', save);
+});
+
+function autoSave() {
+  const openSave = localStorage.getItem('luizsmatos');
+  const listTask = document.getElementById('lista-tarefas');
+  listTask.innerHTML = openSave;
+}
+window.onload = () => {
+  autoSave();
+};
