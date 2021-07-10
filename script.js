@@ -43,8 +43,7 @@ buttonAdd.addEventListener('click', addTextList);
 
 function removeList() {
   let lis = document.getElementsByClassName('tarefa');
-  console.log(lis);
-  while (lis.length > 0) {
+  while (lis.length > 0) { // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while
     for (let index of lis) {
       index.parentNode.removeChild(index);
     }
@@ -53,3 +52,17 @@ function removeList() {
 
 let buttonRemoveAll = document.getElementById('apaga-tudo');
 buttonRemoveAll.addEventListener('click', removeList);
+
+function removeCheck() {
+  let lis = document.getElementsByClassName('tarefa');
+  for (let index = lis.length - 1; index >= 0; index -= 1) {
+    console.log(lis.length);
+    console.log(lis[index].classList.value);
+    if (lis[index].classList.value === 'tarefa completed') {
+      lis[index].parentNode.removeChild(lis[index]);
+    }
+  }
+}
+
+let buttonRemoveCheck = document.getElementById('remover-finalizados');
+buttonRemoveCheck.addEventListener('click', removeCheck);
