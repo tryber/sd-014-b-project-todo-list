@@ -11,7 +11,7 @@ h1 {
 }
 
 p {
-  font-family: 'lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 20px;
 }
@@ -38,7 +38,6 @@ p {
 }
 
 .input {
-  border: none;
   border-radius: 5px;
   border: 2px solid rgb(76 , 89 , 115);
   width: 250px;
@@ -58,11 +57,11 @@ p {
 
 .bgColor {
   width: 500px;
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .task {
-  font-family: 'lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 500;
   margin-top: 5px;
   margin-bottom: 5px;
