@@ -1,0 +1,11 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+li {
+  background-color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+}
