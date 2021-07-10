@@ -17,8 +17,8 @@ function clearInput() {
 
 function createTask(input) {
   const newTask = createElement();
-  newTask.className = 'task';
   newTask.innerText = input;
+  newTask.className = 'task';
   tasks.appendChild(newTask);
   clearInput();
 }
@@ -71,12 +71,24 @@ function deleteTasksDone() {
 }
 deleteTasksDone();
 
+function createTaskByList(input, value) {
+  const classes = value.trim().split(' ');
+  if (classes) {
+    const newTask = createElement();
+    classes.forEach((c) => {
+      newTask.classList.add(c);
+    });
+    newTask.innerText = input;
+    tasks.appendChild(newTask);
+  }
+}
+
 function tasksToLocalStorage() {
   localStorage.clear();
-  const tasksToSave = tasks.querySelectorAll('.task');
+  const tasksToSave = tasks.querySelectorAll('li');
   const taskList = [];
   tasksToSave.forEach((e) => {
-    taskList.push(e.innerText.trim());
+    taskList.push(`${e.innerText}|${e.classList}`);
   });
   const tasksJSON = JSON.stringify(taskList);
   localStorage.setItem('tasks', tasksJSON);
@@ -85,9 +97,10 @@ function tasksToLocalStorage() {
 function returnSavedTasks() {
   const localTasks = localStorage.getItem('tasks');
   const tasksList = JSON.parse(localTasks);
-  if (localStorage.getItem('tasksList') !== null) {
+  if (localStorage.getItem('tasks') !== null) {
     tasksList.forEach((e) => {
-      createTask(e);
+      const names = e.split('|');
+      createTaskByList(names[0], names[1]);
     });
   }
 }
