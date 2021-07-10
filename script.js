@@ -70,12 +70,22 @@ getButton3.addEventListener("click", emptyDone);
 let getButton4 = document.getElementById("salvar-tarefas");
 
 function saveTasks(){
-    let getOl = document.getElementById("lista-tarefas");
-    getOlAll = getOl.innerHTML
-    localStorage.setItem("ol",getOlAll);
-    
+    let getLis = document.querySelectorAll(".itens-lista");
+    for (index = 0; index < getLis.length; index +=1){
+        localStorage.setItem("intem[index]","getLis[index]");
+    }
 }
 getButton4.addEventListener("click", saveTasks);
+
+// Requisito 14let getButton4 = document.getElementById("salvar-tarefas");
+let getButton5 = document.getElementById("remover-selecionado");
+
+function emptySelected (){
+    let getSelected = document.querySelector(".selected");
+       getOl.removeChild(getSelected);
+}
+getButton5.addEventListener("click",emptySelected);
+
 
 
 
