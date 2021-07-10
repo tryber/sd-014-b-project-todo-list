@@ -1,5 +1,36 @@
+body {
+  background-color:rgb(214, 214, 214);
+}
 
+header h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+#funcionamento {
+  margin-left: 20px;
+  margin-top: 60px;
+  font-size: 20px;
+}
+
+.addList {
+  display: inline-block;
+}
+  
 input {
-  width:400px;
-  height: 40px;
+  vertical-align: top;
+  width:450px;
+  height:40px;
+  border-radius: 5px;
+  border:solid 2px blue;
+}
+
+button {
+  vertical-align: top;
+  margin-left: 50px;
+  width:100px;
+  height:40px;
+  border-radius:5px;
+  border:solid 2px blue;
 }
