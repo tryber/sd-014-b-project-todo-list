@@ -4,7 +4,7 @@ function createTask() {
   const task = document.createElement('li');
   task.innerHTML = input;
   task.style.backgroundColor = '';
-  if (document.querySelector('#texto-tarefa').value !== '') {
+  if (input !== '') {
     taskList.appendChild(task);
   }
   document.querySelector('#texto-tarefa').value = '';
@@ -33,13 +33,12 @@ list.addEventListener('dblclick', finishTask);
 list.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
 
 function clearTasks() {
-  const taskList = document.querySelector('#lista-tarefas');
-  while (taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
   }
 }
 
-const completedTasks = document.querySelector('#lista-tarefas').childNodes;
+const completedTasks = list.childNodes;
 
 function removeCompletedTasks() {
   const finalIndex = completedTasks.length;
