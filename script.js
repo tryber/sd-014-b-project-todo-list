@@ -8,10 +8,11 @@ insert.addEventListener('click', function(){
     task = document.getElementById('lista-tarefas').appendChild(li);
     //update color
     task.addEventListener('click', updateColor);
+    //toggle line through
     task.addEventListener('dblclick', doubleClick);
     document.getElementById('texto-tarefa').value = '';
 });
-
+//update color
 function updateColor(event){
     selected = document.querySelectorAll('li');
     selected.forEach(element => {
@@ -19,7 +20,16 @@ function updateColor(event){
     });
     event.target.classList.add('selected');
 };
-function doubleClick(event) { 
+//toggle line through
+function doubleClick(event){ 
     event.target.classList.toggle('completed');
-    console.log(event.target);
 };
+
+//delete all tasks
+let del = document.getElementById('apaga-tudo');
+del.addEventListener('click', function () {
+    let tasks = document.querySelectorAll('li');
+    tasks.forEach(element => {
+        element.remove();
+    });
+});
