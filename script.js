@@ -18,12 +18,12 @@ function addText() {
 
 addButton.addEventListener('click', addText);
 
-// Adiciona background-color na tarefa clicada.
+// Remove background-color da tarefa que estava selecionada
 
-function oneClick(event) {
-  const insert = document.querySelector('.task');
-  insert.classList.remove('bgColor');
+function addColor(event) {
+  const taskClass = document.querySelector('.task');
+  taskClass.classList.remove('bgColor');
   event.target.classList.add('bgColor');
 }
 
-taskList.addEventListener('click', oneClick);
+taskList.addEventListener('click', addColor);
