@@ -108,8 +108,8 @@ function moverTarefaCima() {
       posicaoAnteriorSelecionado = index - 1;
     }
   }
-  if (posicaoSelecionado != 0) {
-    listaTarefas.insertBefore(listaTarefas.children[posicaoSelecionado], 
+  if (posicaoSelecionado !== 0) {
+    listaTarefas.insertBefore(listaTarefas.children[posicaoSelecionado],
       listaTarefas.children[posicaoAnteriorSelecionado]);
   }
 }
@@ -118,12 +118,14 @@ function moverTarefaBaixo() {
   let posicaoSelecionado;
   let posicaoPosteriorSelecionado;
   for (let index = 0; index < listaTarefas.children.length; index += 1) {
-    if (listaTarefas.children[index].classList.contains('selected')) {
+    if (listaTarefas.children[index].classList.contains('selected')
+        && listaTarefas.children[index].classList.contains('selected')
+        < listaTarefas.children.length) {
       posicaoSelecionado = index;
       posicaoPosteriorSelecionado = index + 1;
     }
   }
-  if (posicaoPosteriorSelecionado <= listaTarefas.children.length) {
+  if (posicaoSelecionado < listaTarefas.children.length - 1) {
     listaTarefas.children[posicaoPosteriorSelecionado]
       .insertAdjacentElement('afterend', listaTarefas.children[posicaoSelecionado]);
   }
