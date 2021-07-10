@@ -6,12 +6,20 @@ insert.addEventListener('click', function(){
     li.innerText = document.getElementById('texto-tarefa').value;
     document.getElementById('lista-tarefas').appendChild(li);
     task = document.getElementById('lista-tarefas').appendChild(li);
+    //update color
     task.addEventListener('click', updateColor);
+    task.addEventListener('dblclick', doubleClick);
     document.getElementById('texto-tarefa').value = '';
 });
 
 function updateColor(event){
-    
+    selected = document.querySelectorAll('li');
+    selected.forEach(element => {
+        element.classList.remove('selected');
+    });
     event.target.classList.add('selected');
+};
+function doubleClick(event) { 
+    event.target.classList.toggle('completed');
     console.log(event.target);
-}
+};
