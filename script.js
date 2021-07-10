@@ -27,3 +27,11 @@ function addColor(event) {
 }
 
 taskList.addEventListener('click', addColor);
+
+// Risca tarefas concluídas
+
+function textCompleted(event) {
+  event.target.classList.add('completed')
+}
+
+taskList.addEventListener('dblclick', textCompleted);
