@@ -29,12 +29,3 @@ function colorItemList() {
   });
 }
 colorItemList();
-
-let selectList = document.querySelector('#lista-tarefas');
-  selectList.addEventListener('dblclick', riscaItemList);
-  
-  function riscaItemList(event) {
-    event.target.classList.toggle('completed');
-  }
-riscaItemList();
-  
