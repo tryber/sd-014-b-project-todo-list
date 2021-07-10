@@ -1,5 +1,8 @@
  /* When clicked on, add a background color and strike out text */
  ol li.checked {
     text-decoration: line-through;
+    weight: bold;
+    background:"red";
+    color: #fff;
   }
   

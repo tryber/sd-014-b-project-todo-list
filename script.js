@@ -19,4 +19,16 @@ function newTask() {
   document.getElementById('texto-tarefa').value = ''; // Limpar texto do input
 }
 
+// 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
+function checkTask(event) {
+  event.target.classList.toggle('checked');
+  console.log(event.target);
+}
+const dbClickTask = document.querySelector('ol');
+dbClickTask.addEventListener('dblclick', checkTask);
+
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+
+function removeAll() {
+  let remove;
+}
