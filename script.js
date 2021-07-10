@@ -46,8 +46,21 @@ concluidas.addEventListener("click", tarefasConcluidas);
 
 function tarefasConcluidas() {
   let listTasks = document.querySelectorAll(".completed");
-    for (let index = 0; index < listTasks.length; index += 1) {
+    for (let index = listTasks.length - 1; index >= 0; index -= 1) {
       listTasks[index].remove();
   }
-  console.log("tests")
+}
+
+// Função para remover a tarefa selecionada 
+
+let buttonX = document.querySelector("#remover-selecionado");
+buttonX.addEventListener("click", removeTask);
+
+function removeTask(event) {
+  let list = document.querySelectorAll("li");
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].style.backgroundColor == 'rgb(128, 128, 128)') {
+      list[index].remove();
+    }
+  }
 }

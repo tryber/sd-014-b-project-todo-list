@@ -76,3 +76,21 @@ footer {
   margin-top: 300px;
   text-align: center;
 }
+
+#remover-selecionado {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(135, 255, 209);
+  background-color: rgb(135, 255, 209);
+  font-weight: bold;
+}
+
+#salvar-tarefas {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(255, 135, 229);
+  background-color: rgb(255, 135, 229);
+  font-weight: bold;
+}
