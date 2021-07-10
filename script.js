@@ -36,3 +36,26 @@ function completion(elemento) {
   }
 }
 
+// Req 10 - pulei o 10 sem querer
+const buttonClearAll = document.querySelector('#apaga-tudo');
+buttonClearAll.addEventListener('click', clearAll);
+
+function clearAll () {
+  let allTasks = document.getElementsByClassName('task');
+  const manyTask = allTasks.length;
+  for (index = 0; index < manyTask; index += 1) {
+    taskList.removeChild(allTasks[0]); 
+  }
+}
+
+// Req 11 - Botão deletar
+const buttonClearCompleted = document.querySelector('#remover-finalizados');
+buttonClearCompleted.addEventListener('click', clearCompleted);
+
+function clearCompleted () {
+  let killTask = document.getElementsByClassName('completed');
+  const aux = killTask.length;
+  for (let index = 0; index < aux; index += 1) {
+    killTask[0].remove();
+  }
+}
