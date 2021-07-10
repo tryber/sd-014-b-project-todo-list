@@ -1,0 +1,117 @@
+body {
+  background-color: #391463;
+}
+
+button {
+  margin: 80px;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 20px;
+  margin-bottom: 100px;
+  color: darkgrey;
+}
+
+#criar-tarefa:hover {
+  font-size: 150%;
+  color: white;
+  background-color: #fca311;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+#apaga-tudo:hover {
+  font-size: 150%;
+  color: white;
+  background-color: #fe5d26;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+#remover-finalizados:hover {
+  font-size: 150%;
+  color: white;
+  background-color: #5fad41;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+#salvar-tarefas:hover {
+  font-size: 150%;
+  color: white;
+  background-color: blue;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+#remover-selecionado:hover {
+  font-size: 150%;
+  color: white;
+  background-color: #d1462f;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: Courier New, Courier, monospace;
+  color: #f49d37;
+  background-color: #151515;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  padding: 40px;
+  border-radius: 50px;
+  margin-top: 50px;
+  margin-bottom: 130px;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-size: 30px;
+  margin-left: 5%;
+}
+
+#texto-tarefa {
+  font-size: 25px;
+  margin-left: 5%;
+  padding: 10px;
+  font-style: italic;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+#list {
+  background-color: #151515;
+  padding: 20px;
+  border-radius: 30px;
+  width: 1600px;
+  margin-left: 5%;
+}
+
+#lista-tarefas {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Courier New, Courier, monospace;
+  margin-left: 5%;
+  font-style: italic;
+  color: #4b4a88;
+}
+
+#salvar-tarefas {
+  margin-left: 5%;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.selected {
+  background-color: gray;
+}
+
+li:hover {
+  font-size: 110%;
+  color: #f49d37;
+}
