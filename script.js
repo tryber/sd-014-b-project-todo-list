@@ -16,6 +16,7 @@ function addTask() {
   } else {
     const task = document.createElement('li');
     task.addEventListener('click', selectItem); // Monitoria da Fernanda
+    task.addEventListener('dblclick', completeTask);
     task.innerText = inputValue;
     task.className = 'list-item';
     listToDo.appendChild(task);
@@ -30,7 +31,6 @@ function selectItem(event) {
   }
   event.target.classList.add('selected');
 }
-
 
 // evento para adicionar quando clicar no botão de criar tarefa
 addBtn.addEventListener('click', addTask);
@@ -50,6 +50,9 @@ eraseBtn.addEventListener('click', deleteAll);
 // evento para deletar apenas selecionado
 eraseTaskBtn.addEventListener('click', deleteSelected);
 
+// evento que deleta APENAS os finalizados
+eraseFinishTask.addEventListener('click', deleteCompleted);
+
 // Deleta todas as tarefas
 function deleteAll() {
   let listItem = document.querySelectorAll('.list-item');
@@ -58,8 +61,32 @@ function deleteAll() {
   }
 }
 
+// deleta uma tarefa selecionada
 function deleteSelected() {
   let listItem = document.querySelector('.selected');
   listItem.remove('list-item');
 }
 
+// função de clique duplo, para tarefa ser cumprida
+function completeTask(event) {
+  const taskItem = document.querySelector('.completed');
+  // if (taskItem) {
+  //   taskItem.classList.remove('completed');
+  // }
+  event.target.classList.add('completed');
+}
+
+function selectItem(event) {
+  const taskItem = document.querySelector('.selected');
+  if (taskItem) {
+    taskItem.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+
+function deleteCompleted() {
+  let listItem = document.querySelectorAll('.completed');
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].remove();
+  }
+}
