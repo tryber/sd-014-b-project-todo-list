@@ -30,9 +30,7 @@ addItemList.addEventListener('click', pintarSelecionado)
 /* toggle -> https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList */
 let teste = document.getElementById('lista-tarefas');
 teste.addEventListener('dblclick', riscarSelecionado);
-
 function riscarSelecionado (event) {
-    document.getElementsByClassName('lista');
     event.target.classList.toggle('completed')
     }
 
@@ -47,8 +45,40 @@ function apagaTudo() {
     }
 }
 
+/* Gambiarra é o que vemos aqui meu caro amigo */
+/* Requisito 11 */
+let botaoClear = document.getElementById('remover-finalizados')
+botaoClear.addEventListener('click', apagaFinalizados)
+let paisao = document.getElementById('lista-tarefas').children
+function apagaFinalizados() {
+    for(let index of paisao) {
+        console.log(index)
+        if(index.classList.contains('completed')){
+            index.remove(index)
+        }
+    }
 
+repeteApaga();
+} 
+function repeteApaga () {
+    for(let index of paisao) {
+        console.log(index)
+        if(index.classList.contains('completed')){
+            index.remove(index)
+        }
+    }
+repeteApaga2();
+}
+function repeteApaga2 () {
+    for(let index of paisao) {
+        console.log(index)
+        if(index.classList.contains('completed')){
+            index.remove(index)
+        }
+    }
+}
 
-
-
-
+/* Requisito 12 */
+function salvarTarefas() {
+    localStorage.setItem(document.getElementById('lista-tarefas'))
+}
