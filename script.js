@@ -57,7 +57,7 @@ function createNewTask() {
 // Adiciona o evento de click ao botão de criar tarefas
 btnCreateTask.addEventListener('click', createNewTask);
 
-// Cria botão que apaga todas as tarefas
+// Cria o botão que apaga todas as tarefas
 const buttonsContainer = document.querySelector('#buttons-container');
 const btnDeleteTasks = document.createElement('button');
 btnDeleteTasks.id = 'apaga-tudo';
@@ -92,7 +92,7 @@ function deleteCompletedTasks() {
 // Adiciona evento de clique ao botão que apaga as tarefas completadas
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
 
-// Cria botão que salva a lista de tarefas
+// Cria o botão que salva a lista de tarefas
 const btnSaveList = document.createElement('button');
 btnSaveList.id = 'salvar-tarefas';
 btnSaveList.innerText = 'Salvar Lista';
@@ -116,3 +116,18 @@ function loadSavedList() {
 }
 
 loadSavedList();
+
+// Cria o botão que apaga a tarefa selecionada
+const btnDeleteSelectedTask = document.createElement('button');
+btnDeleteSelectedTask.id = 'remover-selecionado';
+btnDeleteSelectedTask.innerText = 'Excluir';
+buttonsContainer.insertBefore(btnDeleteSelectedTask, buttonsContainer.firstChild);
+
+// Função que apaga a tarefa selecionada
+function deleteSelectedTask() {
+  const getSelectedTask = document.querySelector('.selected');
+  getSelectedTask.remove();
+}
+
+// Adiciona evento de clique ao botão que apaga a tarefa selecionada
+btnDeleteSelectedTask.addEventListener('click', deleteSelectedTask);
