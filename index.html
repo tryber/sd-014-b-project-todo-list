@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="script.js" async></script>
   <title>To do List Project</title>
 </head>
 <body>
@@ -12,9 +12,12 @@
     <h1>Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
-  <main>
-    <input id="texto-tarefa" type="text" placeholder="Adicione uma Tarefa">
+  <section>
+    <input id="texto-tarefa" type="text" placeholder="Adicione uma Tarefa" required>
+    <button id="criar-tarefa" type="submit">Adicionar</button>
+  </section>
+  <section>
     <ol id="lista-tarefas"></ol>
-  </main>
+  </section>
 </body>
 </html>
