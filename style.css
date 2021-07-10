@@ -2,7 +2,7 @@ body {
   background-color: #391463;
 }
 
-button  {
+button {
   margin: 80px;
   padding: 15px;
   border-radius: 30px;
@@ -53,7 +53,7 @@ button  {
 
 h1 {
   font-size: 50px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier New, Courier, monospace;
   color: #f49d37;
   background-color: #151515;
   text-align: center;
@@ -93,7 +93,7 @@ h1 {
   text-decoration: none;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier New, Courier, monospace;
   margin-left: 5%;
   font-style: italic;
   color: #4b4a88;
@@ -104,11 +104,11 @@ h1 {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 li:hover {
