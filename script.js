@@ -10,10 +10,10 @@ function addNewTarefa() {
   addInputBotton.addEventListener('click' , function() { // adicionado uma  função toda vez que o evento click é executado no botão
     let newTarefa = document.createElement('li'); // lista é criada é atribuída a variavél newTarefa
     newTarefa.innerText = addTextTarefa.value; // newTarefa recebe do valor digitado no input addTextTarefa 
-    newTarefa.classList.add('teste'); 
+    newTarefa.classList.add('teste');
     addListTarefa.appendChild(newTarefa); //adiciona o filho nova tarefa a lista de tarefas na lista ol.
     addTextTarefa.value = '';  //comando limpa o input após a execução
-  })
+  });
 }
 addNewTarefa();
 
@@ -30,13 +30,4 @@ function colorItemList() {
 }
 colorItemList();
 
-  let selectList = document.querySelector('#lista-tarefas');
-  selectList.addEventListener('dblclick', riscaItemList);
   
-  function riscaItemList(event) {
-    document.getElementsByClassName('teste');
-    event.target.classList.toggle('completed');
-  }
-riscaItemList();
-
-
