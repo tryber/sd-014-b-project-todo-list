@@ -1,13 +1,11 @@
 // [Requisito 7]
-function markText(text) {
-  const item = text;
-  item.addEventListener('click', () => {
-    if (item.style.backgroundColor === 'rgb(255, 255, 255)') {
-      item.style.backgroundColor = 'rgb(128, 128, 128)';
-    } else {
-      item.style.backgroundColor = 'rgb(255, 255, 255)';
-    }
+function markText(event) {
+  const task = event.target;
+  document.querySelectorAll('li').forEach((element) => {
+    const li = element;
+    li.style.backgroundColor = 'white';
   });
+  task.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 // [Requisito 5]
@@ -16,7 +14,7 @@ function addTaskToList() {
   addTask.addEventListener('click', () => {
     const task = document.querySelector('#texto-tarefa');
     const item = document.createElement('li');
-    markText(item);
+    item.addEventListener('click', markText);
     item.innerHTML = task.value;
     task.value = '';
     document.querySelector('#lista-tarefas').appendChild(item);
