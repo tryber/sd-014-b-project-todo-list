@@ -1,13 +1,10 @@
-let input = document.querySelector(criar-tarefa);
-let list = document.querySelector(lista-tarefas);
-let btn = document.querySelector('#criar-tarefa');
-btn.addEventListener('click', addTask);
+let listaTarefas = document.querySelector('#lista-tarefas');
+let botao = document.querySelector('#criar-tarefa');
+let tarefa = document.querySelector('#texto-tarefa');
 
-function addTask() {
-  let input = document.querySelector('#texto-tarefa');
-  let list = document.querySelector('#lista-tarefas');
-  let li = document.createElement('li');
-  list.appendChild(li);
-  li.innerText = input.value;
-  input.value = '';
+function adicionaTarefa () {
+  let aux = document.createElement('li');
+  aux.innerText = tarefa.value;
+  listaTarefas.appendChild(aux);
+  tarefa.value = '';
 }

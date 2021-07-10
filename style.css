@@ -41,12 +41,6 @@ body {
   background-color: rgb(199, 201, 202);
  }
  
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-}
-
 ol {
   padding: 15px;
 }
