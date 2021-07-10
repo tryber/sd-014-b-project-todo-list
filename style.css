@@ -40,40 +40,20 @@ header {
 body {
   background-color: rgb(199, 201, 202);
  }
-.container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  background-color: bisque;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0, 1);
-  width: 460px;
-  right: 600px;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+ 
 * {
   margin: 0;
   padding: 0;
   outline: 0;
 }
-li {
-  list-style: none;
-  padding: 10px 5px;
-  background-color: gray;
-  margin: 12px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0, 1);
-  border-radius: 3px;
-  transition: .4s;
-}
+
 ol {
   padding: 15px;
 }
 button:hover {
   background-color: gray;
 }
-li:hover {
-  background-color: gray;
-}
+
 #btnsArea {
   margin-top: 20px;
   width: 70%;
