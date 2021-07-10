@@ -14,13 +14,13 @@ body {
 .container {
   width: 80%;
   height: 80%;
+  margin-top: 10%;
   background-color: rgb(255, 255, 255);
   display: block;
   margin-left: auto; 
   margin-right: auto;
   border-radius: 25px;
   padding: 40px;
-  
 }
 
 .center {
@@ -40,59 +40,147 @@ header {
 
 input {
   padding: 10px;
+  margin-right: 10px;
   font-size: 1.2em;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 button {
   cursor: pointer;
+  transition-duration: 0.3s; /* https://www.w3schools.com/css/css3_buttons.asp */
   padding: 10px;
+  margin-right: 10px;
   font-size: 0.9em;
   border-radius: 15px;
   border: none;
+  height: 48px;
 }
 
 button:hover{
   background-color: rgba(199, 16, 16, 0.5);
+  box-shadow: 0 5px 16px 0 rgba(0,0,0,0.20), 0 6px 16px 0 rgba(0,0,0,0.19);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* dica da documentação */
+button:nth-child(n+1):hover {
+  color:rgb(247, 255, 224);
+  background-color: rgba(151, 10, 10, 0.5);
 }
 
 section {
   width: 40%;
-  margin: 20px 0 20px 20px;
+  height: 30%;
+  margin: 20px 20px 0 0;
 }
 /* Personalização seguindo este tutorial https://css-tricks.com/numbering-in-style/*/
 
 ol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3em;
+  padding: 0;
 }
 
 li::marker {
   color: brown;
   font-weight: 700;
-  font-size: 2em;  
+  font-size: 1.7em;  
 }
 
 li, li::marker {
+  vertical-align: middle;
+  padding-left: 10px;
   margin-bottom: 10px;
 }
 
+/* a base da idéia veio aqui https://stackoverflow.com/questions/45451748/align-li-inside-ul-to-the-bottom/45451792 */ 
 .list-item {
-
+  list-style-position: inside;
 }
-/* .completed{
-  color: rgb(128, 128, 128);
-} */
 
+/* Depois de completo e entregue, tirar a gambiarra do marcador e fazer a linha inteira ficar com background cinza, junto com o ::marker */
 .selected {
   color:rgb(255, 255, 255);
   background-color: rgb(128, 128, 128);
 }
 
+.selected::marker {
+  color:rgb(255, 255, 255);  
+}
+
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+  color: rgb(98, 98, 98);
+}
+
+.completed::marker {
+  color: rgb(192, 192, 192);
+  text-decoration: none;
+}
+
+
+/* Personalização dos botões do forumlário */
+
+#criar-tarefa {
+  color: rgb(247, 255, 224);
+  background-color: rgb(122, 165, 3);
+}
+
+#criar-tarefa:hover {
+  color: rgb(95, 129, 3);
+  background-color: rgba(154, 209, 4, 0.5);
+}
+
+#salvar-tarefas {
+  color: rgb(247, 255, 224);
+  background-color: rgb(122, 165, 3);
+}
+
+#salvar-tarefas:hover {
+  color: rgb(95, 129, 3);
+  background-color: rgba(154, 209, 4, 0.5);
 }
 
 #texto-tarefa {
+  font-size: 1.2em;
+  border: 2px solid gray;
+}
 
+#mover-cima {
+  color: rgb(225, 255, 141);
+  background-color: rgb(24, 172, 5);
+  width: 7%;
+  font-size: 1.1em;
+}
+
+#mover-cima:hover {
+  color: rgb(95, 129, 3);
+  background-color: rgba(130, 253, 119, 0.5);
+}
+
+#mover-baixo {
+  color: rgb(163, 88, 3);
+  background-color: rgba(255, 138, 3, 0.5);
+  font-size: 1.1em;
+  width: 7%;
+  padding: 0;
+}
+
+#mover-baixo:hover {
+  color: rgb(250, 218, 182);
+  background-color: rgba(228, 123, 4, 0.822);
+}
+
+#apaga-tudo {
+  color: rgb(255, 255, 255);
+  background-color: rgba(228, 123, 4, 0.822);
+}
+
+#apaga-tudo:hover {
+  color: rgb(92, 49, 0);
+  background-color: rgba(255, 167, 66, 0.822);
 }

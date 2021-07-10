@@ -17,6 +17,7 @@ function addTask() {
     const task = document.createElement('li');
     task.addEventListener('click', selectItem); // Monitoria da Fernanda
     task.addEventListener('dblclick', completeTask);
+    task.addEventListener('onfocus', deleteSelected); // na teoria, isto vai deletar o que estiver selecionado
     task.innerText = inputValue;
     task.className = 'list-item';
     listToDo.appendChild(task);
@@ -90,3 +91,23 @@ function deleteCompleted() {
     listItem[i].remove();
   }
 }
+
+function deleteSelected() {
+  let listItem = document.querySelector('.selected');
+  listItem.remove();
+  // for (let i = 0; i < listItem.length; i += 1) {
+  //   listItem[i].remove();
+  // }
+}
+
+function upItem() {
+
+}
+
+function downItem() {
+
+}
+
+// window.onload {
+
+// }
