@@ -10,6 +10,7 @@ function createTask() {
   itemList.innerText = task;
   itemList.addEventListener("click", changeBackgroundColor);
   itemList.addEventListener("dblclick", completedTask); 
+  localStorage.setItem(task,task);
   parentLis.appendChild(itemList);
   document.querySelector("#texto-tarefa").value = null;
 }
@@ -64,3 +65,6 @@ function removeTask(event) {
     }
   }
 }
+
+// Função para salvar tarefas mesmo na página
+

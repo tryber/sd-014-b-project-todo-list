@@ -10,12 +10,13 @@ h1 {
 
 aside {
   float: left;
+  margin-top: 60px;
 }
 
 header {
   margin: 20px;
   float: right;
-  margin-right: 650px;
+  margin-right: 610px;
   margin-top: 60px;
 }
 
@@ -46,7 +47,7 @@ section ol li {
 }
 
 #button-align {
-  margin-left: 285px;
+  margin-left: 300px;
   margin-top: 50px;
 }
 
