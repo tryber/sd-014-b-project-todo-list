@@ -4,14 +4,14 @@ let tarefaParaAdicionar = document.querySelector('#texto-tarefa');
 let valor = tarefaParaAdicionar.nodeValue
 botaoAdicionar.addEventListener("click", adicionaTarefa);
 function adicionaTarefa(){
-    tarefaParaAdicionar = document.querySelector('#texto-tarefa');
-    let criandoItem = document.createElement('li');
-    criandoItem.className = 'itensLista';
-    criandoItem.innerHTML = tarefaParaAdicionar.value; //copiando o valor da caixa tarefa adc e passando para a li
-    listaDeTarefas.appendChild(criandoItem);
-    tarefaParaAdicionar.value = ''; //apagando o valor da caixa
+tarefaParaAdicionar = document.querySelector('#texto-tarefa');
+let criandoItem = document.createElement('li');
+criandoItem.className = 'itensLista';
+criandoItem.innerHTML = tarefaParaAdicionar.value; //copiando o valor da caixa tarefa adc e passando para a li
+listaDeTarefas.appendChild(criandoItem);
+tarefaParaAdicionar.value = ''; //apagando o valor da caixa
 }
-
+  
 let botaoPintarOitem = document.querySelector('#lista-tarefas');
 botaoPintarOitem.addEventListener("click", pintaOItem);
 function pintaOItem(evento){    
@@ -22,21 +22,18 @@ function pintaOItem(evento){
     }
     let eventoClique = evento.srcElement
     eventoClique.className = 'corDoItem'
+}
 
-    }
-
-   let botaoRiscarOItem = document.querySelector('#lista-tarefas');
-    botaoRiscarOItem.addEventListener('dblclick', riscaOItem);
-    function riscaOItem(evento){
-
+let botaoRiscarOItem = document.querySelector('#lista-tarefas');
+botaoRiscarOItem.addEventListener('dblclick', riscaOItem);
+function riscaOItem(evento){
         let clicado = evento.srcElement
-       
         if(clicado === document.querySelector('.completed')){
             clicado.classList.remove('completed')
         }
-       
-            clicado.className = 'completed'       
-        
-    }
+       clicado.className = 'completed'          
+}
+
+   
 
     
