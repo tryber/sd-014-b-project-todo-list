@@ -1,1 +1,18 @@
 
+body {
+  background-color: rgb(88, 32, 32);
+}
+
+section {
+  background-color: rgb(190, 132, 121);
+  width: 80%;
+  height: 400px;
+  text-align: center;
+  border-radius: 20px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.changeBg {
+  background-color: rgb(128,128,128);
+}
