@@ -91,3 +91,28 @@ function deleteCompletedTasks() {
 
 // Adiciona evento de clique ao botão que apaga as tarefas completadas
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTasks);
+
+// Cria botão que salva a lista de tarefas
+const btnSaveList = document.createElement('button');
+btnSaveList.id = 'salvar-tarefas';
+btnSaveList.innerText = 'Salvar Lista';
+buttonsContainer.appendChild(btnSaveList);
+
+// Função que salva a lista de tarefas no Local Storage
+function saveList() {
+  const getCurrentTaskList = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('taskList', getCurrentTaskList);
+}
+
+// Adiciona evento de clique ao botão que salva a lista de tarefas
+btnSaveList.addEventListener('click', saveList);
+
+// Função que carrega a lista de tarefas salva ao recarregar a página
+function loadSavedList() {
+  const savedList = localStorage.getItem('taskList');
+  if (savedList !== null || undefined) {
+    taskList.innerHTML = savedList;
+  }
+}
+
+loadSavedList();
