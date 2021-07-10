@@ -24,12 +24,12 @@ function addTask(parameter) {
 function addListItemListeners(listItem) {
     listItem.addEventListener('click', function (event) {
       if (event.target.classList.contains('selected')) {
-        event.target.style.backgroundColor = 'white';
+        event.target.style.backgroundColor = '';
         event.target.classList.remove('selected');
       } else {
         for (let item of taskList.children) {
           if (item.classList.contains('selected')) {
-            item.style.backgroundColor = 'white';
+            item.style.backgroundColor = '';
             item.classList.remove('selected');
           }
         }

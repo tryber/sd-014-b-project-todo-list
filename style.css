@@ -1,0 +1,92 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  background: rgb(31, 10, 46);
+  color: rgb(230, 189, 201);
+}
+
+main {
+  padding: 30px;
+  width: 600px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+header{
+  font-family: 'Roboto', sans-serif;
+  font-style: bold;
+  font-size: 40px;
+}
+p{
+  font-size: 15px;
+}
+li{
+  width: 400px;
+  user-select: none;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+input{
+  padding: 10px;
+  background-color: rgb(80, 23, 80);
+  border: 0px;
+  color: rgb(233, 221, 221);
+  font-size: 12px;
+  border-radius: 1px;
+}
+input:focus{
+  background-color: rgb(119, 68, 119);
+  outline-width: 3px;
+  outline-offset: 0px;
+  outline-style:solid;
+  outline-color: rgba(182, 175, 185, 0.842);
+}
+button{
+  background-color: #DA4167;
+  width: auto;
+  padding: 10px;
+  margin: 3px;
+  color: rgb(31, 2, 11);
+  font-family: 'ABeeZee', sans-serif;
+  border: 0px;
+  border-radius: 3px;
+}
+
+button:hover{
+  background-color: #c4224a;
+}
+
+button:active{
+  background-color: #dd6784;
+}
+.completed{
+  background: rgb(77, 35, 105);
+}
+
+#salvar-tarefas{
+  background-color: #3caa41;
+}
+#salvar-tarefas:hover{
+  background-color: #71c775;
+}
+#apaga-tudo{
+  background-color: #ee4444;
+}
+#apaga-tudo:hover{
+  background-color: #dd6f6f;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-size: 16px;
+  display: inline-block;
+  padding: 7px;
+  margin-bottom: 1px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
