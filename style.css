@@ -18,3 +18,7 @@ li {
   margin: 0 auto;
   margin-bottom: 2px;
 }
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
