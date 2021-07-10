@@ -12,7 +12,7 @@ function addNewTarefa() {
     newTarefa.innerText = addTextTarefa.value;
 
     addListTarefa.appendChild(newTarefa);
-    value = '';
+    addTextTarefa.value = '';
   })
 }
 addNewTarefa();
