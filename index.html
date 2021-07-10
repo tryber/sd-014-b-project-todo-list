@@ -1,32 +1,34 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
-  <link rel='stylesheet' href='style.css'>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/JavaScript" src="script.js"></script>
+    <title>To do List</title>
 </head>
 <body>
-  <div class='container'>
-    <header>Minha Lista de Tarefas</header>
-    <p id="funcionamento">"Clique duas vezes em um item para marcá-lo como completo"</p>
-    <input id='texto-tarefa'>
-    <br>
-    <br>
-<button id='criar-tarefa'>Adicionar</button>
-<button id="apaga-tudo">Limpar</button>
-<button id='remover-finalizados'>Remover finalizados</button>
-<div class='Todo'>
-  <ol id='lista-tarefas'></ol>
-<div class="to-do-list-box"></div>
-</div>
-<br>
- <li>Estudar</li> 
- <li>Trabalho</li>
- <li>Academia</li>
- <li>Leitura</li>
-</ul>
-<script src="script.js"></script>
+    <main>
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+        </header>
+        <section id="listArea">
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <div id="inputArea">
+                <input type="text" id="texto-tarefa">
+                <button id="criar-tarefa">Adicionar</button>
+            </div>
+            <ol id="lista-tarefas"></ol>
+            <li>Estudar</li>
+            <li>Trabalhar</li>
+            <li>Leitura</li>
+            <li>Academia</li>
+            <div id="btnsArea">
+                <button id="remover-finalizados" class="btn">Limpar Completos</button>
+                <button id="apaga-tudo" class="btn">Limpar Lista</button>
+            </div>
+        </section>
+    </main>
 </body>
-</html>
+</html> 

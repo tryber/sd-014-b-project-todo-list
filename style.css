@@ -74,3 +74,7 @@ button:hover {
 li:hover {
   background-color: rgb(128, 128, 128);
 }
+#btnsArea {
+  margin-top: 20px;
+  width: 70%;
+}
