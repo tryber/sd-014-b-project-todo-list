@@ -120,4 +120,4 @@ botaoRemoverFinalizadas.addEventListener('click', removerTarefasFinalizadas);
 botaoSalvarTarefas.addEventListener('click', salvarLista);
 recuperarLista();
 botaoMoverCima.addEventListener('click', moverTarefaCima);
-botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
+// botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
