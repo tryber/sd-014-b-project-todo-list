@@ -3,6 +3,8 @@ const inputText = document.getElementById('texto-tarefa');
 const addBtn = document.getElementById('criar-tarefa');
 const listToDo = document.getElementById('lista-tarefas');
 const eraseBtn = document.getElementById('apaga-tudo');
+const eraseTaskBtn = document.getElementById('remover-selecionado');
+const eraseFinishTask = document.getElementById('remover-finalizados');
 
 // função para adicionar na lista um novo item, capturado pelo input
 // aqui preciso do localStorage, pois ao final da inserção de dados, eles estejam lá para quando o usuário abrir novamente, ele ver a lista dele novamente.
@@ -13,12 +15,22 @@ function addTask() {
     alert('Você precisa inserir uma tarefa');
   } else {
     const task = document.createElement('li');
+    task.addEventListener('click', selectItem); // Monitoria da Fernanda
     task.innerText = inputValue;
     task.className = 'list-item';
     listToDo.appendChild(task);
     inputText.value = '';
   }
 }
+
+function selectItem(event) {
+  const taskItem = document.querySelector('.selected');
+  if (taskItem) {
+    taskItem.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
+
 
 // evento para adicionar quando clicar no botão de criar tarefa
 addBtn.addEventListener('click', addTask);
@@ -35,23 +47,14 @@ inputText.addEventListener('keyup', (enter) => {
 // evento para deletar todas as tarefas
 eraseBtn.addEventListener('click', deleteAll);
 
-listToDo.innerHTML.addEventListener('click', selectItem);
+// evento para deletar apenas selecionado
+eraseTaskBtn.addEventListener('click', deleteSelected);
 
+// Deleta todas as tarefas
 function deleteAll() {
   let listItem = document.querySelectorAll('.list-item');
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].remove();
-  }
-}
-
-function selectItem(event) {
-  event.target.classList.add('selected');
-  console.log('clicou');
-  let selected = document.querySelectorAll('.selected');
-  event.target.classList.add('selected');
-
-  if (selected === "") {
-
   }
 }
 

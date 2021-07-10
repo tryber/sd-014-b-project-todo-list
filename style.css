@@ -78,14 +78,15 @@ li, li::marker {
 }
 
 .list-item {
-  
+
 }
 /* .completed{
   color: rgb(128, 128, 128);
 } */
 
 .selected {
-  background-color: aqua;
+  color:rgb(255, 255, 255);
+  background-color: rgb(128, 128, 128);
 }
 
 .completed {
