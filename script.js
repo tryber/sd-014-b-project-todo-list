@@ -7,6 +7,7 @@ const resetCompletedButton = document.getElementById('remover-finalizados'); // 
 const saveButton = document.getElementById('salvar-tarefas'); // #12
 const paraCimaButton = document.getElementById('mover-cima'); // #13
 const paraBaixoButton = document.getElementById('mover-baixo'); // #13
+const removerSelecionadoButton = document.getElementById('remover-selecionado'); // #14
 const rgb = 'rgb(128, 128, 128)';
 
 // Requisito 12 parte 2
@@ -127,3 +128,10 @@ function paraBaixo() {
   }
 }
 paraBaixoButton.addEventListener('click', paraBaixo);
+
+// Requisito 14
+function removeSelected() {
+  const selected = document.querySelector('.select');
+  ol.removeChild(selected);
+}
+removerSelecionadoButton.addEventListener('click', removeSelected);
