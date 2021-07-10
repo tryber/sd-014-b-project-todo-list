@@ -32,7 +32,8 @@ listOfTasks.addEventListener('click', (event) => {
 });
 
 // Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item.
-// Consegui resolver, apos ajuda do 
+// Consegui resolver, apos ajuda do Lucas Alves e Henrique Almeida.
+
 function createClass(event) {
   const classCompleted = 'completed';
   if (event.target.classList.contains(classCompleted)) {
@@ -57,4 +58,11 @@ buttonCreateTask.addEventListener('click', () => {
     alert('Insira sua Tarefa!');
   }
   colorTasks();
+});
+
+// Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista.
+const buttonClear = document.getElementById('apaga-tudo');
+
+buttonClear.addEventListener('click', () => {
+  listOfTasks.innerHTML = '';
 });
