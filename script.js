@@ -57,10 +57,12 @@ function buttonDel(event){
 }
 buttonDel()
 
-function reset(event){    
-  const ol = document.getElementById('lista-tarefas')
-  event.target.ol.removeChild(li);
-}
+
+function reset(){       
+  const ol = document.getElementById('lista-tarefas') 
+  ol.innerHTML= '';
+} 
 
 const button2= document.querySelector('#apaga-tudo');
-button2.addEventListener('dblclick', reset)
+button2.addEventListener('click', reset);
+
