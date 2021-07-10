@@ -2,10 +2,12 @@ const root = document.querySelector('.root');
 const toDoList = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const taskDone = document.querySelector('.completed');
+const buttonContainer = document.querySelector('.button-container');
 
 let button = document.createElement('button');
+button.innerText = 'add';
 button.id = 'criar-tarefa';
-toDoList.appendChild(button);
+buttonContainer.appendChild(button);
 
 button.addEventListener('click', function () {
   let riseMyGloriousCreation = document.createElement('li');
@@ -16,7 +18,7 @@ button.addEventListener('click', function () {
 });
 
 toDoList.addEventListener('click', function (event) {
-  for (let value of toDoList.children) {
+  for (let value of toDoList.querySelectorAll('.li')) {
     if (value.style.backgroundColor === 'rgb(128, 128, 128)') {
       value.style.backgroundColor = 'white';
     }
@@ -25,9 +27,42 @@ toDoList.addEventListener('click', function (event) {
 });
 
 toDoList.addEventListener('dblclick', function (event) {
+  if (event.target.classList.contains('li')) {
     if (event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed');
+      event.target.classList.remove('completed');
     } else {
-    event.target.classList.add('completed');
+      event.target.classList.add('completed');
     }
+  }
 });
+
+function clearList() {
+  for (let li of toDoList.querySelectorAll('.li')) {
+    li.remove();
+  }
+}
+
+function addsEraseButton() {
+  let eraseAllButton = document.createElement('button');
+  eraseAllButton.innerText = 'clear';
+  eraseAllButton.id = 'apaga-tudo';
+  buttonContainer.appendChild(eraseAllButton);
+  eraseAllButton.addEventListener('click', clearList);
+}
+addsEraseButton();
+
+function clearCompletedTasks() {
+  for (let li of toDoList.querySelectorAll('.completed')) {
+    li.remove();
+  }
+}
+
+function addClearCompletedTasksButton() {
+  let clearCompletedButton = document.createElement('button');
+  clearCompletedButton.innerText = 'done';
+  clearCompletedButton.id = 'remover-finalizados';
+  buttonContainer.appendChild(clearCompletedButton);
+  clearCompletedButton.addEventListener('click', clearCompletedTasks);
+}
+addClearCompletedTasksButton();
+
