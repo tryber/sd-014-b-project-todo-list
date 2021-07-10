@@ -17,3 +17,8 @@ listaOrde.addEventListener('click', function(event) {
   }
 })
 
+
+listaOrde.addEventListener('dblclick', function(event) {
+  let list = document.querySelectorAll('li');
+  event.target.classList.toggle('completed');
+})
