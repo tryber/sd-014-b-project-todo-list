@@ -1,0 +1,12 @@
+#selected {
+  background-color: rgb(128,128,128);
+}
+
+li {
+  padding: 0.5rem;
+  list-style: inside decimal;
+  font-size: large;
+  width: fit-content;
+  border: solid thin black;
+  border-radius: 25%;
+}
