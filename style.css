@@ -45,6 +45,13 @@
   margin-left: 10px;
 }
 
+#remover-finalizados {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin-left: 10px;
+}
+
 #listBox {
   margin: 30px auto;
   display: flex;

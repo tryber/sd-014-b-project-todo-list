@@ -2,6 +2,7 @@ const list = document.querySelector('#lista-tarefas');
 const addList = document.querySelector('#criar-tarefa');
 const addInput = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
+const clearDone = document.querySelector('#remover-finalizados');
 
 // Cria os elementos da lista de tarefas!
 const createTask = () => {
@@ -35,13 +36,24 @@ const lineThrough = (event) => {
 list.addEventListener('dblclick', lineThrough);
 
 // Apaga todas as tarefas!
-const clear = () => {
-  const itemList = document.querySelectorAll('.tasksToDo');
+const clearAll = () => {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
 };
-clearButton.addEventListener('click', clear);
+clearButton.addEventListener('click', clearAll);
+
+// Apaga as tarefas concluídas!
+const clearFinished = () => {
+  const itemList = document.getElementsByClassName('tasksToDo');
+  const itemListLength = itemList.length;
+  for (let i = itemListLength - 1; i >= 0; i -= 1) {
+    if (itemList[i].classList.contains('completed')) {
+      list.removeChild(itemList[i]);
+    }
+  }
+};
+clearDone.addEventListener('click', clearFinished);
 
 // Impede seleção dentro da área da lista - por motivos estéticos
 list.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
