@@ -32,9 +32,3 @@ function colorItemList() {
 colorItemList();
 
 
-function riscaItemList(event) {
-  addListTarefa.addEventListener('dblclick', riscaItemList);
-  
-    event.target.classList.toggle('completed');
-  }
-riscaItemList();
