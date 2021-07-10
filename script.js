@@ -20,8 +20,6 @@ function pintaOItem(evento){
     if (document.querySelector('.corDoItem')) { // Ajuda pelo slack do Victor Martins
         document.querySelector('.corDoItem').classList.remove('corDoItem') 
     }
-     
-    
     let eventoClique = evento.srcElement
     eventoClique.className = 'corDoItem'
 
@@ -30,7 +28,15 @@ function pintaOItem(evento){
    let botaoRiscarOItem = document.querySelector('#lista-tarefas');
     botaoRiscarOItem.addEventListener('dblclick', riscaOItem);
     function riscaOItem(evento){
-        let eventoClique = evento.srcElement;
-        eventoClique.classList.add('completed')
+
+        let clicado = evento.srcElement
+       
+        if(clicado === document.querySelector('.completed')){
+            clicado.classList.remove('completed')
+        }
+       
+            clicado.className = 'completed'       
+        
     }
+
     
