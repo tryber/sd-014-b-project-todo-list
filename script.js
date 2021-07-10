@@ -14,11 +14,23 @@ function adicionaTarefa(){
 
 let botaoPintarOitem = document.querySelector('#lista-tarefas');
 botaoPintarOitem.addEventListener("click", pintaOItem);
-function pintaOItem(){    
-    let itensLi = document.querySelectorAll('li');
-    for(index = 0; index <itensLi.length; index +=1){
-        itensLi[index].classList.remove('corDoItem')
+function pintaOItem(evento){    
+    console.log(evento.srcElement)  // olhando o inspecionar, vi que o src era o elemento 
+    let tamanhoLista = document.getElementsByClassName('itensLista');
+    if (document.querySelector('.corDoItem')) { // Ajuda pelo slack do Victor Martins
+        document.querySelector('.corDoItem').classList.remove('corDoItem') 
     }
-    let itensDaLista = document.querySelector('.itensLista');;
-    itensDaLista.className = 'corDoItem'
-}
+     
+    
+    let eventoClique = evento.srcElement
+    eventoClique.className = 'corDoItem'
+
+    }
+
+   let botaoRiscarOItem = document.querySelector('#lista-tarefas');
+    botaoRiscarOItem.addEventListener('dblclick', riscaOItem);
+    function riscaOItem(evento){
+        let eventoClique = evento.srcElement;
+        eventoClique.classList.add('completed')
+    }
+    
