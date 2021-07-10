@@ -47,3 +47,13 @@ function toClearList() {
 }
 
 takeClearButton.addEventListener('click', toClearList);
+
+const takeClear = document.querySelector('#remover-finalizados');
+function toClearCompleted() {
+  const takeClassCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < takeClassCompleted.length; index += 1) {
+    takeClassCompleted[index].remove();
+  }
+}
+
+takeClear.addEventListener('click', toClearCompleted);
