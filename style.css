@@ -4,9 +4,21 @@
   margin-left: 15px;
   padding: 10px;
   padding-left: 20px;
-  background-color:azure;
+  background-image: url('http://cdn26.us1.fansshare.com/photo/wallpaperwhite/white-wood-wallpaper-white-background-1184313043.jpg');
+  opacity: 0.8;
+  background-size: 100%;
   border-radius: 5%;
   text-align: center;
+}
+
+header {
+  background-color: #463f3a;
+  padding: 20px;
+  border-radius: 10px;
+  color: #f4f3ee;
+  width: 60%;
+  margin-left: 180px;
+  margin-top: 15px;
 }
 
 header h1 {
