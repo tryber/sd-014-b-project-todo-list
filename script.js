@@ -87,7 +87,7 @@ function salvarLista() {
 }
 
 function recuperarLista() {
-  if (typeof (Storage) != "undefined") {
+  if (typeof (Storage) !== 'undefined') {
     if (localStorage.count !== undefined) {
       listaTarefas.innerHTML = localStorage.getItem('ol');
       aplicarCSSLista();
@@ -95,7 +95,7 @@ function recuperarLista() {
       localStorage.count = 1;
     }
   } else {
-  document.write("Sem suporte para Web Storage");
+    document.write('Sem suporte para Web Storage');
   }
 }
 
@@ -109,7 +109,23 @@ function moverTarefaCima() {
     }
   }
   if (posicaoSelecionado != 0) {
-    listaTarefas.insertBefore(listaTarefas.children[posicaoSelecionado], listaTarefas.children[posicaoAnteriorSelecionado]);
+    listaTarefas.insertBefore(listaTarefas.children[posicaoSelecionado], 
+      listaTarefas.children[posicaoAnteriorSelecionado]);
+  }
+}
+
+function moverTarefaBaixo() {
+  let posicaoSelecionado;
+  let posicaoPosteriorSelecionado;
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    if (listaTarefas.children[index].classList.contains('selected')) {
+      posicaoSelecionado = index;
+      posicaoPosteriorSelecionado = index + 1;
+    }
+  }
+  if (posicaoPosteriorSelecionado <= listaTarefas.children.length) {
+    listaTarefas.children[posicaoPosteriorSelecionado]
+      .insertAdjacentElement('afterend', listaTarefas.children[posicaoSelecionado]);
   }
 }
 
@@ -120,4 +136,4 @@ botaoRemoverFinalizadas.addEventListener('click', removerTarefasFinalizadas);
 botaoSalvarTarefas.addEventListener('click', salvarLista);
 recuperarLista();
 botaoMoverCima.addEventListener('click', moverTarefaCima);
-// botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
+botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
