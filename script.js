@@ -30,12 +30,19 @@ function teste(){listaOrdenada.addEventListener('click',function(event){
 teste()
 
 //Requisito 9:
+//erro ao dar o segundo cuplo click a classe não é removida
 listaOrdenada.addEventListener('dblclick',function(event){
-  let lista = document.querySelectorAll('#lista-tarefas>li')
-  for(let valor of lista){
-    if(valor.className === 'completed'){
-      valor.classList.remove('completed');
+  let lista = document.querySelectorAll('li')
+  console.log(lista)
+  //o for garante que apenas um elemento tenha a classe .completed
+  for(let index=0;index<lista.length; index+=1){
+    if(lista[index].className === 'completed'){
+      console.log('oi');
+      lista[index].classList.remove('completed');
     }
   }
-  event.target.classList.add('completed');
+    event.target.classList.add('completed');
+    listaOrdenada.addEventListener('dblclick', function(){
+      event.target.classList.remove('completed')
+    })
 })
