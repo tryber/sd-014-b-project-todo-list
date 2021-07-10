@@ -1,4 +1,5 @@
 const input = document.querySelector('#texto-tarefa');
+const inputLocalStorage = document.getElementById('texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const btnApagatudo = document.querySelector('#apaga-tudo');
@@ -11,7 +12,15 @@ function addTarefa() {
   lista.appendChild(itemTarefa);
   input.value = '';
 }
-btnCriarTarefa.addEventListener('click', addTarefa);
+
+function addTarefaToLocalStorage() {
+  const oldList = JSON.parse(localStorage.getItem('tarefas'));
+  const tarefasText = inputLocalStorage.value;
+  oldList.push(tarefasText);
+  localStorage.setItem('tarefas', JSON.stringify(oldList));
+  addTarefa();
+}
+btnCriarTarefa.addEventListener('click', addTarefaToLocalStorage);
 
 function limparLinha() {
   const tarefas = document.querySelectorAll('.item-tarefa');
@@ -58,3 +67,24 @@ function removerConcluidos() {
   }
 }
 btnRemoverConcluidos.addEventListener('click', removerConcluidos);
+
+// Inicialização do Local Storage
+// Verifica se já existe um array criado, caso tenha carrega a lista
+// caso não tenha, cria a chave de inicialização
+function initialRenderization() {
+  if (localStorage.getItem('tarefas') === null) {
+    localStorage.setItem('tarefas', JSON.stringify([]));
+  } else {
+    const tarefasList = JSON.parse(localStorage.getItem('tarefas'));
+    const listLength = tarefasList.length - 1;
+    for (let index = 0; index <= listLength; index += 1) {
+      const listElement = document.createElement('li');
+      listElement.innerText = tarefasList[index];
+      lista.appendChild(listElement);
+    }
+  }
+}
+
+window.onload = function() {
+  initialRenderization();
+};
