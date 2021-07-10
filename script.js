@@ -29,10 +29,25 @@ function completedTask(event) {
   event.target.classList.toggle('completed')
 }
 
+// Função para limpar a lista
+
 let buttonClear = document.querySelector("#apaga-tudo");
 buttonClear.addEventListener("click", clearList);
 
 function clearList() {
   let list = document.querySelector("#lista-tarefas");
   list.innerHTML = '';
+}
+
+//Função para retirar da lista as tarefas já marcadas como concluídas
+
+let concluidas = document.querySelector("#remover-finalizados");
+concluidas.addEventListener("click", tarefasConcluidas);
+
+function tarefasConcluidas() {
+  let listTasks = document.querySelectorAll(".completed");
+    for (let index = 0; index < listTasks.length; index += 1) {
+      listTasks[index].remove();
+  }
+  console.log("tests")
 }
