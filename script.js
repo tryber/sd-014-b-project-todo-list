@@ -4,13 +4,11 @@ function createTask() {
   const task = document.createElement('li');
   task.innerHTML = input;
   task.style.backgroundColor = '';
-  if (task !== '') {
+  if (document.querySelector('#texto-tarefa').value !== '') {
     taskList.appendChild(task);
   }
   document.querySelector('#texto-tarefa').value = '';
 }
-
-const list = document.querySelector('#lista-tarefas');
 
 function changeColor(event) {
   const evento = event;
@@ -23,15 +21,52 @@ function changeColor(event) {
   }
 }
 
+const list = document.querySelector('#lista-tarefas');
 list.addEventListener('click', changeColor);
 
 function finishTask(event) {
-  const listItem = document.querySelectorAll('#lista-tarefas li');
   const evento = event;
-  // for (let index = 0; index < listItem.length; index += 1) {
-    evento.target.classList.toggle('completed');
-  // }
+  evento.target.classList.toggle('completed');
 }
 
 list.addEventListener('dblclick', finishTask);
 list.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
+
+function clearTasks() {
+  const taskList = document.querySelector('#lista-tarefas');
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
+const completedTasks = document.querySelector('#lista-tarefas').childNodes;
+
+// function removeCompletedTasks() {
+//   const allTasks = document.querySelector('#lista-tarefas');
+//   for (let index = 0; index < completedTasks.length; index += 1) {
+//     if (completedTasks[index].className === 'completed') {
+//       allTasks.removeChild(completedTasks[index]);
+//     }
+//   }
+// }
+
+function removeCompletedTasks() {
+  const allTasks = document.querySelector('#lista-tarefas');
+  let index = 0;
+  const finalIndex = completedTasks.length;
+  while (index < finalIndex) {
+    if (completedTasks[index].className === 'completed') {
+      allTasks.removeChild(completedTasks[index]);
+    } else {
+      index += 1;
+    }
+  }
+}
+
+const removeCompleted = document.getElementById('remover-finalizados');
+for (let index = 0; index < completedTasks.length; index += 1) {
+  removeCompleted.addEventListener('click', removeCompletedTasks);
+}
+
+createTask();
+clearTasks();
