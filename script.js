@@ -52,11 +52,7 @@ function getTaskValue() {
 }
 
 function deleteAllTasks() {
-	const tasks = document.querySelectorAll('.task');
-	for (let i = tasks.length - 1; i >= 0; i -= 1) {
-		const task = listaDeTarefas.children[i];
-		listaDeTarefas.removeChild(task);
-	}
+	listaDeTarefas.innerHTML = '';
 }
 
 function deleteCompletedTasks() {
