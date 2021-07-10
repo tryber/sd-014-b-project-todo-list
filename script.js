@@ -117,6 +117,50 @@ function loadSavedList() {
 
 loadSavedList();
 
+// Cria o botão que move a tarefa selecionada para baixo
+const btnMoveTaskDown = document.createElement('button');
+btnMoveTaskDown.id = 'mover-baixo';
+btnMoveTaskDown.innerHTML = '&#8681';
+buttonsContainer.insertBefore(btnMoveTaskDown, buttonsContainer.firstElementChild);
+
+// Função que move a tarefa selecionada para baixo
+function moveSelectedTaskDown() {
+  const getSelectedTask = document.querySelector('.selected');
+  if (getSelectedTask !== null) {
+    const getNextTask = getSelectedTask.nextElementSibling;
+    if (getNextTask !== null) {
+      const fragment = document.createDocumentFragment();
+      fragment.appendChild(getNextTask);
+      getSelectedTask.parentElement.insertBefore(fragment, getSelectedTask);
+    }
+  }
+}
+
+// Adiciona evento de clique ao botão que move a tarefa selecionada para baixo
+btnMoveTaskDown.addEventListener('click', moveSelectedTaskDown);
+
+// Cria o botão que move a tarefa selecionada para cima
+const btnMoveTaskUp = document.createElement('button');
+btnMoveTaskUp.id = 'mover-cima';
+btnMoveTaskUp.innerHTML = '&#8679';
+buttonsContainer.insertBefore(btnMoveTaskUp, buttonsContainer.firstElementChild);
+
+// Função que move a tarefa selecionada para cima
+function moveSelectedTaskUp() {
+  const getSelectedTask = document.querySelector('.selected');
+  if (getSelectedTask !== null) {
+    const getPreviousTask = getSelectedTask.previousElementSibling;
+    if (getPreviousTask !== null) {
+      const fragment = document.createDocumentFragment();
+      fragment.appendChild(getPreviousTask);
+      getSelectedTask.parentElement.insertBefore(fragment, getSelectedTask.nextSibling);
+    }
+  }
+}
+
+// Adiciona evento de clique ao botão que move a tarefa selecionada para cima
+btnMoveTaskUp.addEventListener('click', moveSelectedTaskUp);
+
 // Cria o botão que apaga a tarefa selecionada
 const btnDeleteSelectedTask = document.createElement('button');
 btnDeleteSelectedTask.id = 'remover-selecionado';
@@ -131,3 +175,10 @@ function deleteSelectedTask() {
 
 // Adiciona evento de clique ao botão que apaga a tarefa selecionada
 btnDeleteSelectedTask.addEventListener('click', deleteSelectedTask);
+
+/*
+Referências consultadas:
+DocumentFragment => https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
+insertBefore => https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+localStorage => https://tableless.com.br/guia-f%C3%A1cil-sobre-usar-localstorage-com-javascript/
+*/
