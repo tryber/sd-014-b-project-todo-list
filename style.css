@@ -13,6 +13,15 @@ section {
   padding-top: 10px;
 }
 
+li {
+  list-style-position: inside;
+  width: 50%;
+}
+
 .changeBg {
   background-color: rgb(128,128,128);
+}
+
+.completed {
+  text-decoration: line-through;
 }
