@@ -48,10 +48,13 @@ function apagaLista() {
 btnApagatudo.addEventListener('click', apagaLista);
 
 function removerConcluidos() {
-  const tarefas = document.querySelector('.completed');
   const tamanhoListaCompleta = document.querySelectorAll('.completed');
-  if (tarefas !== null) {
-    tarefas.parentNode.removeChild(tarefas);
+  if (tamanhoListaCompleta.length !== 0) {
+    for (let i = tamanhoListaCompleta.length; i > 0; i -= 1) {
+      lista.removeChild(document.querySelector('.completed'));
+    }
+  } else {
+    console.log("Não existe nenhuma tarefa concluída!");
   }
 }
 btnRemoverConcluidos.addEventListener('click', removerConcluidos);
