@@ -54,6 +54,22 @@ h1 {
   background-color: rgb(23 , 57 , 126);
 }
 
+#apaga-tudo {
+  width: 8rem;
+  height: 1.6rem;
+  border-radius: 3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(237 , 237 , 246);
+  background-color: rgb(165 , 0 , 0);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#apaga-tudo:hover {
+  background-color: rgb(145 , 1 , 1);
+}
+
 .selected {
   background-color: gray;
 }

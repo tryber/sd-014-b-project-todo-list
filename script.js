@@ -1,4 +1,5 @@
 const buttonCreate = document.querySelector('#criar-tarefa');
+const buttonDeleteAll = document.querySelector('#apaga-tudo');
 const Itenslist = document.querySelector('#lista-tarefas');
 
 function addItemList(item) {
@@ -36,4 +37,13 @@ Itenslist.addEventListener('dblclick', (item) => {
   } else {
     itemList.classList.add('completed');
   }
+});
+
+function removeAllItemsList() {
+  const listItems = document.querySelector('#lista-tarefas');
+  listItems.innerHTML = '';
+}
+
+buttonDeleteAll.addEventListener('click', () => {
+  removeAllItemsList();
 });
