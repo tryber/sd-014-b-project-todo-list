@@ -36,6 +36,18 @@ function riscarSelecionado (event) {
     event.target.classList.toggle('completed')
     }
 
+/* Requisito 10 */
+
+/* Pesquisei e encontrei várias alternativas de como apagar os nós, inclusive no proprio corse, pos você acredita que eu coloquei a função no botão errado? kkk mas deu certo, o link de onde eu peguei é esse aqui -> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild */
+let elemento = document.querySelector('#lista-tarefas');
+function apagaTudo() {
+    let elemento = document.getElementById('lista-tarefas');
+    while (elemento.firstChild) {
+        elemento.removeChild(elemento.firstChild);
+    }
+}
+
+
 
 
 
