@@ -38,10 +38,18 @@
   background-color: orangered;
 }
 
+#apaga-tudo {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin-left: 10px;
+}
+
 #listBox {
-  margin: 0 auto;
+  margin: 30px auto;
   display: flex;
   justify-content: center;
+  line-height: 45px;
 }
 
 .selected {
@@ -49,6 +57,6 @@
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
