@@ -15,21 +15,11 @@ const task = (y) => {
 //cria as tarefas e atrela elas as duas primeiras funções
 q('#criar-tarefa').addEventListener('click', () => {
   const newItem = document.createElement('li');
-  color(newItem), task(newItem);
+  color(newItem);
+  task(newItem);
   newItem.innerText = q('#texto-tarefa').value;
   q('#lista-tarefas').appendChild(newItem), q('#texto-tarefa').value = null;
 });
 //apaga tudo e remove os finalizados
 q('#apaga-tudo').addEventListener('click', () => (q('#lista-tarefas').innerHTML = ''));
 q('#remover-finalizados').addEventListener('click', () => (q('.completed').remove()));
-
-
-
-
-
-
-
-
-
-
-
