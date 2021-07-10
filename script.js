@@ -12,14 +12,14 @@ const task = (y) => {
     else e.target.classList.add('completed');
   });
 }
-const todo = () => {
+const todoList = () => {
   const newItem = document.createElement('li');
   color(newItem), task(newItem);
   newItem.innerText = query('#texto-tarefa').value;
   query('#lista-tarefas').appendChild(newItem);
   query('#texto-tarefa').value = null;
 };
-query('#criar-tarefa').addEventListener('click', todo);
+query('#criar-tarefa').addEventListener('click', todoList);
 
 query('#apaga-tudo').addEventListener('click', () => (query('#lista-tarefas').innerHTML = ''));
 query('#remover-finalizados').addEventListener('click', () => {
