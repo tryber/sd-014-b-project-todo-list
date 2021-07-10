@@ -1,5 +1,6 @@
 //ajuda do meu amigo glauco para desenvolver o Script e Css.
 const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
 const color = (x) => x.addEventListener('click', (e) => {
   if (query('.color')) query('.color').classList.remove('color');
@@ -21,4 +22,6 @@ const todo = () => {
 query('#criar-tarefa').addEventListener('click', todo);
 
 query('#apaga-tudo').addEventListener('click', () => (query('#lista-tarefas').innerHTML = ''));
-query('#remover-finalizados').addEventListener('click', () => (query('.completed').remove()));
+query('#remover-finalizados').addEventListener('click', () => {
+  for (const markedItem of queryAll('.completed')) markedItem.remove();
+});
