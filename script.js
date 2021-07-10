@@ -66,6 +66,18 @@ function emptyDone(){
 } 
 getButton3.addEventListener("click", emptyDone);
 
+// Requisito 12
+let getButton4 = document.getElementById("salvar-tarefas");
+
+function saveTasks(){
+    let getOl = document.getElementById("lista-tarefas");
+    getOlAll = getOl.innerHTML
+    localStorage.setItem("ol",getOlAll);
+    
+}
+getButton4.addEventListener("click", saveTasks);
+
+
 
 
  
