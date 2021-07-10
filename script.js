@@ -41,32 +41,17 @@ function clearTasks() {
 
 const completedTasks = document.querySelector('#lista-tarefas').childNodes;
 
-// function removeCompletedTasks() {
-//   const allTasks = document.querySelector('#lista-tarefas');
-//   for (let index = 0; index < completedTasks.length; index += 1) {
-//     if (completedTasks[index].className === 'completed') {
-//       allTasks.removeChild(completedTasks[index]);
-//     }
-//   }
-// }
-
 function removeCompletedTasks() {
-  const allTasks = document.querySelector('#lista-tarefas');
-  let index = 0;
   const finalIndex = completedTasks.length;
-  while (index < finalIndex) {
-    if (completedTasks[index].className === 'completed') {
-      allTasks.removeChild(completedTasks[index]);
-    } else {
-      index += 1;
+  for (let index = finalIndex - 1; index >= 0; index -= 1) {
+    if (completedTasks[index].classList.contains('completed')) {
+      list.removeChild(completedTasks[index]);
     }
   }
 }
 
 const removeCompleted = document.getElementById('remover-finalizados');
-for (let index = 0; index < completedTasks.length; index += 1) {
-  removeCompleted.addEventListener('click', removeCompletedTasks);
-}
+removeCompleted.addEventListener('click', removeCompletedTasks);
 
 createTask();
 clearTasks();
