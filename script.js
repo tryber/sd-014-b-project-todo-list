@@ -2,7 +2,7 @@
 const q = document.querySelector.bind(document);
 //função da cor cinza
 const color = (x) => x.addEventListener('click', (e) => {
-  if (query('.color')) q('.color').classList.remove('color');
+  if (q('.color')) q('.color').classList.remove('color');
   e.target.classList.add('color');
 });
 //marca e desmarca as tarefas
