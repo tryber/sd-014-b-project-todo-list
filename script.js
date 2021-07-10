@@ -17,7 +17,7 @@ function corDeFundoItemLista(event) {
     tarefas[i].removeAttribute('id');
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  event.target.id = 'selected';
+  event.target.classList.add('selected');
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
 
@@ -57,13 +57,45 @@ function saveTasks() {
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 buttonSaveTasks.addEventListener('click', saveTasks);
 
+// let array = document.getElementsByClassName('tarefa');
+// let selected = document.querySelector('.tarefa .selected');
 function moveUp() {
-  const tarefas = document.getElementsByClassName('tarefa');
-  const selectedTask = document.querySelector('#selected');
-  console.log(selectedTask.indexOf());
+  const array = document.getElementsByClassName('tarefa');
+  const selected = document.querySelector('.tarefa .selected');
+  for (let iTrocado = array.indexOf(selected) - 1; iTrocado >= 0; iTrocado -= 1) {
+    for (let iTroca = array.indexOf(selected); iTroca >= 0; iTroca -= 1) {
+      if (iTrocado < array.indexOf(selected)) {
+        const position = array[iTrocado];
+        array[iTrocado] = array[array.indexOf(selected)];
+        array[iTroca] = position;
+        break;
+      }
+    }
+    break;
+  }
+  console.log(array);
 }
 const buttonUp = document.getElementById('mover-cima');
 buttonUp.addEventListener('click', moveUp);
+
+function moveDown () {
+  const array = document.getElementsByClassName('tarefa');
+  const selected = document.querySelector('.selected');
+  for (let iTrocado = array.indexOf(selected) + 1; iTrocado < array.length; iTrocado += 1) {
+    for (let iTroca = array.indexOf(selected); iTroca < array.length; iTroca += 1) {
+      if (iTrocado > array.indexOf(selected)) {
+        const position = array[iTrocado];
+        array[iTrocado] = array[array.indexOf(selected)];
+        array[iTroca] = position;
+        break;
+      }
+    }
+    break;
+  }
+  console.log(array);
+}
+const buttonDown = document.getElementById('mover-baixo');
+buttonDown.addEventListener('click', moveDown);
 
 function removeSelected() {
   const selectedTask = document.getElementById('selected');
