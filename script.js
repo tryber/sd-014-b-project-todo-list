@@ -2,15 +2,17 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const cleanEveryone = document.querySelector('#apaga-tudo');
 const cleanCompleted = document.querySelector('#remover-finalizados');
+const save = document.querySelector('#salvar-tarefas');
 
 // Requisito 5 e 6
 button.addEventListener('click', () => {
   const answer = document.querySelector('#texto-tarefa');
   const newtask = document.createElement('li');
+  newtask.className = 'item';
 
   // Requisito 7 e 8
   newtask.addEventListener('click', () => {
-    // eslint-disable-next-line no-restricted-syntax
+  // eslint-disable-next-line no-restricted-syntax
     for (const index of list.children) {
       if (index.className === 'item changeBg') {
         index.classList.remove('changeBg');
@@ -18,7 +20,6 @@ button.addEventListener('click', () => {
       newtask.classList.add('changeBg');
     }
   });
-  newtask.className = 'item';
   newtask.innerText = answer.value;
   list.appendChild(newtask);
   answer.value = '';
@@ -45,3 +46,14 @@ cleanCompleted.addEventListener('click', () => {
     removeCompleted[index].remove();
   }
 });
+
+// Requisito 12
+save.addEventListener('click', () => {
+  const listHtml = list.innerHTML;
+  localStorage.setItem('list', listHtml);
+});
+
+window.onload = () => {
+  const saves = localStorage.getItem('list');
+  list.innerHTML = saves;
+};
