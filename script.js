@@ -2,13 +2,12 @@
 let insert = document.getElementById('criar-tarefa');
 insert.addEventListener('click', function(){
     let li = document.createElement('li');
-    //li.id('tasks');
     li.innerText = document.getElementById('texto-tarefa').value;
     document.getElementById('lista-tarefas').appendChild(li);
     task = document.getElementById('lista-tarefas').appendChild(li);
-    //update color
+    //update color + function bellow
     task.addEventListener('click', updateColor);
-    //toggle line through
+    //toggle line through + function bellow
     task.addEventListener('dblclick', doubleClick);
     document.getElementById('texto-tarefa').value = '';
 });
@@ -30,6 +29,15 @@ let del = document.getElementById('apaga-tudo');
 del.addEventListener('click', function () {
     let tasks = document.querySelectorAll('li');
     tasks.forEach(element => {
+        element.remove();
+    });
+});
+
+//delete complete tasks
+let delCompleted = document.getElementById('remover-finalizados');
+delCompleted.addEventListener('click', function() {
+    let completedTasks = document.querySelectorAll('.completed');
+    completedTasks.forEach(element => {
         element.remove();
     });
 });
