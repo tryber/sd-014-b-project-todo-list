@@ -34,3 +34,17 @@ function taskDone(event) {  // scratch
 }
 
 taskList.addEventListener('dblclick', taskDone);
+
+// botao apagar tudo
+function allGone() {
+  const classLi = document.querySelectorAll('.classLi');
+  
+  for (index = 0; index < classLi.length; index += 1) {
+    console.log(classLi[index]);
+    classLi[index].remove('li');
+  };
+}
+
+const deleteAll = document.querySelector('#apaga-tudo');
+deleteAll.addEventListener('click', allGone);
+
