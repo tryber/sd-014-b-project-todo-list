@@ -41,7 +41,6 @@ function riskTask(event){
 
 // Requisito 10
 let getButton2 = document.getElementById("apaga-tudo");
-console.log(getButton2);
 
 function emptyList(){
    let getLis = document.querySelectorAll(".itens-lista");
@@ -52,6 +51,21 @@ function emptyList(){
 
 }
 getButton2.addEventListener("click",emptyList);
+
+// Requisito 11
+let getButton3 = document.getElementById("remover-finalizados");
+
+function emptyDone(){
+    let getLis = document.querySelectorAll(".itens-lista");
+    for (index = 0; index < getLis.length; index +=1){
+        if(getLis[index].classList.contains("completed")){
+            getOl.removeChild(getLis[index]);
+        }
+    }
+     
+} 
+getButton3.addEventListener("click", emptyDone);
+
 
 
  
