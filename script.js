@@ -1,4 +1,4 @@
-const takeButton = document.querySelector('#criar-tarefa');
+const takeCreateButton = document.querySelector('#criar-tarefa');
 const takeOl = document.querySelector('#lista-tarefas');
 const takeInput = document.querySelector('#texto-tarefa');
 
@@ -10,7 +10,7 @@ function addLi() {
   takeInput.value = '';
 }
 
-takeButton.addEventListener('click', addLi);
+takeCreateButton.addEventListener('click', addLi);
 
 function toColoringGray(event) {
   const evnt = event;
@@ -36,3 +36,14 @@ function toTachedText(event) {
 }
 
 takeOl.addEventListener('dblclick', toTachedText);
+
+// a iteração dentro do for a seguir foi consultada na seguinte página do StackOverflow, numa resposta para uma dificuldade semelhante a que eu estava tendo com a iteração da remoção dos meus li's. O usuário se chama 'jfriend00' e o link para a página é: https://stackoverflow.com/questions/28316289/javascript-remove-not-removing-all-elements
+
+const takeClearButton = document.querySelector('#apaga-tudo');
+function toClearList() {
+  for (let index = takeOl.children.length - 1; index >= 0; index -= 1) {
+    takeOl.children[index].remove();
+  }
+}
+
+takeClearButton.addEventListener('click', toClearList);
