@@ -38,7 +38,7 @@ buttonDeleteAll.addEventListener('click', deleteAll);
 
 function deleteCompleted() {
   const tarefas = document.getElementsByClassName('tarefa');
-  for (let i = tarefas.length -1; i >= 0; i -= 1) {
+  for (let i = tarefas.length - 1; i >= 0; i -= 1) {
     if (tarefas[i].classList == 'tarefa completed') {
       listaTarefas.removeChild(tarefas[i]);
     }
@@ -56,6 +56,14 @@ function saveTasks() {
 
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 buttonSaveTasks.addEventListener('click', saveTasks);
+
+function moveUp() {
+  const tarefas = document.getElementsByClassName('tarefa');
+  const selectedTask = document.querySelector('#selected');
+  console.log(selectedTask.indexOf());
+}
+const buttonUp = document.getElementById('mover-cima');
+buttonUp.addEventListener('click', moveUp);
 
 function removeSelected() {
   const selectedTask = document.getElementById('selected');
