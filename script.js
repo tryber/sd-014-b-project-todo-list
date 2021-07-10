@@ -30,4 +30,12 @@ function colorItemList() {
 }
 colorItemList();
 
+let selectList = document.querySelector('#lista-tarefas');
+  selectList.addEventListener('dblclick', riscaItemList);
+  
+  function riscaItemList(event) {
+    document.getElementsByClassName('teste');
+    event.target.classList.toggle('completed');
+  }
+riscaItemList();
   
