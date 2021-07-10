@@ -3,8 +3,7 @@ function createTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const task = document.createElement('li');
   task.innerHTML = input;
-  task.classList.add('selected');
-  task.style.backgroundColor = 'white';
+  task.style.backgroundColor = '';
   if (task !== '') {
     taskList.appendChild(task);
   }
@@ -15,9 +14,24 @@ const list = document.querySelector('#lista-tarefas');
 
 function changeColor(event) {
   const evento = event;
-  const taskItem = document.querySelectorAll('.selected');
-  for (let index = 0; index < taskItem.length; index += 1) {
-    evento.target.style.backgroundColor = 'grey';
+  const listItem = document.querySelectorAll('#lista-tarefas li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    if (listItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      listItem[index].style.backgroundColor = '';
+    }
+    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
+
 list.addEventListener('click', changeColor);
+
+function finishTask(event) {
+  const listItem = document.querySelectorAll('#lista-tarefas li');
+  const evento = event;
+  // for (let index = 0; index < listItem.length; index += 1) {
+    evento.target.classList.toggle('completed');
+  // }
+}
+
+list.addEventListener('dblclick', finishTask);
+list.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
