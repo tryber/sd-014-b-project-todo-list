@@ -1,7 +1,7 @@
 const olPath = document.querySelector('#lista-tarefas');
 const inputPath = document.querySelector('#texto-tarefa');
 
-// * Requisitos - 5, 6
+// * Requisitos - 5, 6 e 7
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
   const tarefaLi = document.createElement('li');
@@ -11,11 +11,12 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
     alert('Adicione uma tarefa!');
   }
   inputPath.value = '';
-
+  
   tarefaLi.addEventListener('click', addRemoveSelected);
-
+  
   tarefaLi.addEventListener('dblclick', addRemoveCompleted);
 });
+
 // 1. Bernardo Salgueiro salvador do requisito 7!!! Atribuir o evento logo após criar a Li, resolve a questão de não conseguir percorrer o array vazio de li's.
 // 2. Alternativa do Luiz Gustavo
 
@@ -73,5 +74,27 @@ window.onload = () => {
 };
 
 // * Requisito - 13
+
+document.querySelector('#mover-cima').addEventListener('click', () => {
+  const liSelected = document.querySelector('.selected');
+  if (liSelected === olPath.firstElementChild) {
+    alert('Não é possível subir mais!');
+  } else if (liSelected) {
+    liSelected.parentElement.insertBefore(liSelected, liSelected.previousElementSibling);
+  }
+});
+
+document.querySelector('#mover-baixo').addEventListener('click', () => {
+  const liSelected = document.querySelector('.selected');
+  if (liSelected === olPath.lastElementChild) {
+    alert('Não é possível descer mais!');
+  } else if (liSelected) {
+    liSelected.parentElement.insertBefore(liSelected.nextElementSibling, liSelected);
+  }
+});
+
 // li.parentNode.insertBefore(li, li.previousSibling);
 // li.parentNode.insertBefore(li.nextSibling, li);
+// Dica do Igor Marinho
+
+// Lembrete: Refatorar o código para adicionar o evento direto do array das classes, porque o localStorage faz com o que os elementos percam o eventListener.
