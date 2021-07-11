@@ -10,17 +10,16 @@ const mark = (y) => {
     else e.target.classList.add('completed');
   });
 }
-query('#criar-tarefa').addEventListener('click', () => {
+const newTask = () => {
   const newItem = document.createElement('li');
   grey(newItem), mark(newItem);
   newItem.innerText = query('#texto-tarefa').value;
   query('#lista-tarefas').appendChild(newItem);
   query('#texto-tarefa').value = null;
-});
-query('#apaga-tudo').addEventListener('click', () => (query('#lista-tarefas').innerHTML = ''));
+}
+query('#criar-tarefa').addEventListener('click', newTask);
+query('#apaga-tudo').addEventListener('click', () => queryAll('#lista-tarefas').forEach((element) => element.remove()));
 query('#remover-finalizados').addEventListener('click', () => {
-  for (const markedItem of queryAll('.completed')) markedItem.remove();
+  queryAll('.completed').forEach((element) => element.remove());
 });
-
-
 //ajuda do meu amigo Glauco, outras refs estão no projeto de pixel art.
