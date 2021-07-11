@@ -82,7 +82,7 @@ function salvaLista() {
 }
 
 
-/* Requisito 13 */
+/* Requisito 13  --> referencia https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript/34914096#34914096*/ 
 let moveUp = document.getElementById('mover-cima');
 let moveDown = document.getElementById('mover-baixo');
 
