@@ -1,20 +1,63 @@
+//---------------------------------------------------------------------
+let caixaTexto = document.getElementById("texto-tarefa");
+let btnAdiciona = document.querySelector('#criar-tarefa');
+let listagem = document.querySelector('#lista-tarefas');
+let liLocal = document.getElementsByTagName('li');
+//---------------------------------------------------------------------
+
 function adicionar() {
-    let tar = document.getElementById('texto-tarefa').value;
-    let lista = document.getElementById('lista-tarefas').innerHTML;
-    lista += "<li class='list' onclick='blk()'>" + tar + "</li>";
+    let item = document.createElement('li');
+    let inserirValor = document.principal.texto.value;
+    let inserirTexto = document.createTextNode(inserirValor);
 
-    document.getElementById('lista-tarefas').innerHTML = lista
-    document.getElementById('texto-tarefa').value = ''
-}
+    item.appendChild(inserirTexto);
+    listagem.appendChild(item);
+    document.principal.texto.value = "";
 
-function blk() {
-    let allPixels = document.querySelectorAll('.list');
+};
 
-    for (let index = 0; index < allPixels.length; index++) {
-        // allPixels[index].addEventListener('click', function() 
-        if (allPixels[index].style.backgroundColor != 'rgb(128, 128, 128)') {
-            allPixels[index].style.backgroundColor = 'rgb(128, 128, 128)';
-        };
+//---------------------------------------------------------------------
+
+listagem.addEventListener('click', function(event) {
+
+    for (let index = 0; index < liLocal.length; index += 1) {
+        liLocal[index].style.backgroundColor = '';
 
     }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
+
+//---------------------------------------------------------------------
+
+listagem.addEventListener('dblclick', function(event) {
+
+
+    if (event.target.className === "completed") {
+        event.target.className = "";
+    } else { event.target.className += "completed"; }
+
+});
+
+//---------------------------------------------------------------------
+let umaLista = document.getElementsByTagName('ol')[0];
+let umItem = umaLista.getElementsByTagName('li');
+
+function apagaTudo() {
+    for (index = liLocal.length - 1; index >= 0; index -= 1) {
+        umaLista.removeChild(umItem[index]);
+
+    }
+
 }
+
+//---------------------------------------------------------------------
+let localizaRiscados = umaLista.getElementsByClassName('completed');
+
+function apagaFinalizados() {
+    for (index = localizaRiscados.length - 1; index >= 0; index -= 1) {
+        umaLista.removeChild(localizaRiscados[index]);
+
+    }
+
+}
+//---------------------------------------------------------------------
