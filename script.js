@@ -1,3 +1,9 @@
+window.onload = () => {
+    let listaSalva = localStorage.getItem('Lista')
+    let savedList = document.getElementById('lista-tarefas');
+    savedList.innerHTML = listaSalva;
+}
+
 /* Criando uma adição na lista */
 let addItemList = document.querySelector('#lista-tarefas');
 function adicionaTarefa () {
@@ -32,7 +38,7 @@ let teste = document.getElementById('lista-tarefas');
 teste.addEventListener('dblclick', riscarSelecionado);
 function riscarSelecionado (event) {
     event.target.classList.toggle('completed')
-    }
+}
 
 /* Requisito 10 */
 
@@ -51,34 +57,19 @@ let botaoClear = document.getElementById('remover-finalizados')
 botaoClear.addEventListener('click', apagaFinalizados)
 let paisao = document.getElementById('lista-tarefas').children
 function apagaFinalizados() {
-    for(let index of paisao) {
-        console.log(index)
-        if(index.classList.contains('completed')){
-            index.remove(index)
+    let classeCompleted = document.getElementsByClassName('completed')
+    for(let index = 0; index < classeCompleted.length; index += 0) {
+        if(classeCompleted[index].classList.contains('completed')){
+            classeCompleted[index].remove()
         }
     }
-
-repeteApaga();
 } 
-function repeteApaga () {
-    for(let index of paisao) {
-        console.log(index)
-        if(index.classList.contains('completed')){
-            index.remove(index)
-        }
-    }
-repeteApaga2();
-}
-function repeteApaga2 () {
-    for(let index of paisao) {
-        console.log(index)
-        if(index.classList.contains('completed')){
-            index.remove(index)
-        }
-    }
-}
 
 /* Requisito 12 */
-function salvarTarefas() {
-    localStorage.setItem(document.getElementById('lista-tarefas'))
+
+let salvarLista = document.getElementById('salvar-tarefas');
+salvarLista.addEventListener('click', salvaLista);
+
+function salvaLista() {
+    let setItem = localStorage.setItem('Lista', document.getElementById('lista-tarefas').innerHTML)
 }
