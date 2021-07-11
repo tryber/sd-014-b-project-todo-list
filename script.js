@@ -70,19 +70,21 @@ function salvarLista () {
   }
 }
 
-function ImprimirListaSalva() {
+function imprimirListaSalva() {
   let ol = document.querySelector('ol');
-  let contador = 0;
-  for (let index in localStorage.getItem('lista' + index)) { // Ta errado :(
+ /*  let contador = 0;
+ for (let index in localStorage.getItem('lista' + index)) { 
     if (.includes('lista') === true){
       contador += 1;
-    }
-  }
-  for (let index = 0; index <= contador; index += 1) { // falta tornar o localStorage.leght = lista.lenght;
+    } 
+  } */
+  for (let index = 0; index <= localStorage.leght - 1; index += 1) { // falta tornar o localStorage.leght = lista.lenght;
     let valor = localStorage.getItem('lista' + index);
+   // if (valor !== null) {
     let li = document.createElement('li');
     li.innerText = valor;
     ol.appendChild(li);
+   // }
     if (localStorage.getItem('classecinza.' + index ) === 'cinza') {
       ol.lastChild.classList.add('cinza');
     }
@@ -101,6 +103,7 @@ button.addEventListener('click', addEvent);
 buttonApagaTudo.addEventListener('click', apagaLista);
 buttonRemoveFinalizados.addEventListener('click', removeFinalizados);
 buttonSalvar.addEventListener('click', salvarLista);
+imprimirListaSalva();
 
 
 // utton.addEventListener('click', sortItens);
