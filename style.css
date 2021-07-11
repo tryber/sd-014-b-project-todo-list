@@ -1,19 +1,20 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  background: rgb(31, 10, 46);
+  background: rgb(17, 17, 17);
   color: rgb(230, 189, 201);
 }
 
 main {
+  background: rgb(31, 10, 46);
   padding: 30px;
-  width: 600px;
+  width: 550px;
   margin: auto;
   border-radius: 20px;
 }
 
 header{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-style: bold;
   font-size: 40px;
 }
@@ -33,7 +34,7 @@ input{
   background-color: rgb(80, 23, 80);
   border: 0px;
   color: rgb(233, 221, 221);
-  font-size: 12px;
+  font-size: 17px;
   border-radius: 1px;
 }
 input:focus{
@@ -44,7 +45,8 @@ input:focus{
   outline-color: rgba(182, 175, 185, 0.842);
 }
 button{
-  background-color: #DA4167;
+  background: rgb(136, 72, 179);
+  /* background-color: #DA4167; */
   width: auto;
   padding: 10px;
   margin: 3px;
@@ -55,27 +57,30 @@ button{
 }
 
 button:hover{
-  background-color: #c4224a;
+  background: rgb(80, 29, 114);
 }
 
 button:active{
-  background-color: #dd6784;
+  background-color: #a867dd;
 }
 .completed{
   background: rgb(77, 35, 105);
+}
+.selected{
+  border:3px solid  rgb(136, 72, 179);
 }
 
 #salvar-tarefas{
   background-color: #3caa41;
 }
 #salvar-tarefas:hover{
-  background-color: #71c775;
+  background-color: #338337;
 }
 #apaga-tudo{
   background-color: #ee4444;
 }
 #apaga-tudo:hover{
-  background-color: #dd6f6f;
+  background-color: #9c3e3e;
 }
 .material-icons {
   font-family: 'Material Icons';

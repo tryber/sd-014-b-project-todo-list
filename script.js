@@ -78,6 +78,13 @@ btnSaveTasks.addEventListener('click', function () {
       arrayOfTasks.push({ task: item.innerText, completed: isCompleted });
     }
     localStorage.setItem('tasks', JSON.stringify(arrayOfTasks));
+    let main = document.getElementsByTagName('main')[0];
+    let pElement = document.createElement('li');
+    pElement.innerText = "Tarefas salvas com sucesso!"
+    pElement.style.color = "#3caa41"
+    pElement.style.fontSize = "16px"
+    main.appendChild(pElement);
+    setTimeout(function(){ main.removeChild(pElement);}, 5000);
   }
 })
 
