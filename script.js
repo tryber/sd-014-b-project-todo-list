@@ -1,10 +1,9 @@
 const buttonCreate = document.querySelector('#criar-tarefa');
 const buttonRemoveFinished = document.querySelector('#remover-finalizados');
 const buttonDeleteAll = document.querySelector('#apaga-tudo');
-const Itenslist = document.querySelector('#lista-tarefas');
+const list = document.querySelector('#lista-tarefas');
 
 function addItemList(item) {
-  const list = Itenslist;
   const li = document.createElement('li');
 
   li.innerText = item;
@@ -25,13 +24,13 @@ function removeSelectedItemList() {
   }
 }
 
-Itenslist.addEventListener('click', (item) => {
+list.addEventListener('click', (item) => {
   const itemList = item.target;
   removeSelectedItemList();
   itemList.classList.add('selected');
 });
 
-Itenslist.addEventListener('dblclick', (item) => {
+list.addEventListener('dblclick', (item) => {
   const itemList = item.target;
   if (itemList.classList.contains('completed')) {
     itemList.classList.remove('completed');
@@ -41,7 +40,7 @@ Itenslist.addEventListener('dblclick', (item) => {
 });
 
 function removeAllItemsList() {
-  const listItems = Itenslist;
+  const listItems = list;
   listItems.innerHTML = '';
 }
 
@@ -50,7 +49,7 @@ buttonDeleteAll.addEventListener('click', () => {
 });
 
 function removeItemsFinished() {
-  const itemsList = Itenslist.childNodes;
+  const itemsList = list.childNodes;
   for (let i = 0; i < itemsList.length; i += 1) {
     if (itemsList[i].classList.contains('completed')) {
       itemsList[i].remove();
