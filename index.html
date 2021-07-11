@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project todo list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="color">
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <form name="principal">
+                <input type="text" name="texto" id="texto-tarefa" placeholder="insira um item">
+                <button type="button" onclick="adicionar()" id="criar-tarefa">Adiciona</button>
+            </form>
+            <ol id="lista-tarefas"></ol>
+            <button type="button" onclick="apagaTudo()" id="apaga-tudo">Apaga tudo</button>
+            <button type="button" onclick="apagaFinalizados()" id="remover-finalizados">Apaga riscados</button>
+            <button id="salvar-tarefas">Salvar Tarefas</button>
+            <button id="mover-cima" onclick="moveUp()">↑</button>
+            <button id="mover-baixo">↓</button>
+        </header>
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
