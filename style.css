@@ -4,20 +4,20 @@
 }
 
 body {
-  background-image: linear-gradient()
+  background-color:rgba(122, 187, 240, 0.822)
 }
 
 #container {
   border: 1px solid;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: white;
   padding: 30px;
   width: 600px;
   height: 250px;
   position: absolute;
   top: calc(50% - 200px);
   left: calc(50% - 300px);
-} 
+}
 
 #title {
   text-align: center;
@@ -35,7 +35,7 @@ body {
   margin-top: 10px;
 }
 
-.botton {
+.button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -48,6 +48,6 @@ body {
 }
 
 #criar-tarefa:hover {
-  background-color: rgba(81, 192, 236, 0.822);
+  background-color: rgba(81 , 192 , 236 , 0.822);
   transition-duration: 0.5s;
 }
