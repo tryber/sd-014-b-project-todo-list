@@ -1,5 +1,6 @@
 let taskList = document.getElementById('lista-tarefas');
 let inputTask = document.getElementById('texto-tarefa');
+let main = document.getElementsByTagName('main')[0];
 const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
@@ -33,7 +34,7 @@ function addListItemListeners(listItem) {
             item.classList.remove('selected');
           }
         }
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        event.target.style.backgroundColor = 'rgb(30, 11, 43);';
         event.target.classList.add('selected');
       }
     });
@@ -51,10 +52,34 @@ function addListItemListeners(listItem) {
 }
 
 btnDeleteAll.addEventListener('click', function () {
-  while (taskList.firstChild) {
-    taskList.removeChild(taskList.lastChild);
+  if(listItens.length > 0){
+    let div = document.createElement('div');
+    let pElement = document.createElement('p')
+    pElement.innerText = 'Você tem certeza que quer apagar todas as tarefas?'
+    div.appendChild(pElement)
+    let yesButton = document.createElement('button')
+    yesButton.innerText = "sim"
+    yesButton.style.backgroundColor = "#3caa41"
+    yesButton.style.display = 'inline'
+    let noButton = document.createElement('button')
+    noButton.innerText = "não"
+    noButton.style.backgroundColor = "#ee4444"
+    noButton.style.display = 'inline'
+    div.appendChild(yesButton)
+    div.appendChild(noButton)
+    main.appendChild(div)
+    yesButton.addEventListener('click',function(e) {
+      while (taskList.firstChild) {
+        taskList.removeChild(taskList.lastChild);
+      }
+      localStorage.clear();
+    })
+  
+    noButton.addEventListener('click',function(e) {
+      main.removeChild(div)
+    })
+    setTimeout(function(){ main.removeChild(div);}, 10000);
   }
-  localStorage.clear();
 });
 
 btnRemoveCompleted.addEventListener('click', function () {
@@ -78,7 +103,6 @@ btnSaveTasks.addEventListener('click', function () {
       arrayOfTasks.push({ task: item.innerText, completed: isCompleted });
     }
     localStorage.setItem('tasks', JSON.stringify(arrayOfTasks));
-    let main = document.getElementsByTagName('main')[0];
     let pElement = document.createElement('li');
     pElement.innerText = "Tarefas salvas com sucesso!"
     pElement.style.color = "#3caa41"
