@@ -126,3 +126,14 @@ moveDown.addEventListener('click', function () {
         }
     }
 })
+//Del Selected
+let delSelected = document.getElementById('remover-selecionado');
+delSelected.addEventListener('click', function () {
+    let tasks = document.querySelectorAll('li');
+    tasks.forEach(element => {
+        if(element.classList.contains('selected')) {
+          element.remove();  
+        }
+    });
+
+})
