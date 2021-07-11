@@ -4,6 +4,10 @@ const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const btnApagatudo = document.querySelector('#apaga-tudo');
 const btnRemoverConcluidos = document.querySelector('#remover-finalizados');
+const btnSalvarTarefa = document.querySelector('#salvar-tarefas');
+const moverParaCima = document.querySelector('#mover-cima');
+const moverParaBaixo = document.querySelector('mover-baixo');
+const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
 
 function addTarefa() {
   let itemTarefa = document.createElement('li');
@@ -12,15 +16,7 @@ function addTarefa() {
   lista.appendChild(itemTarefa);
   input.value = '';
 }
-
-function addTarefaToLocalStorage() {
-  const oldList = JSON.parse(localStorage.getItem('tarefas'));
-  const tarefasText = inputLocalStorage.value;
-  oldList.push(tarefasText);
-  localStorage.setItem('tarefas', JSON.stringify(oldList));
-  addTarefa();
-}
-btnCriarTarefa.addEventListener('click', addTarefaToLocalStorage);
+btnCriarTarefa.addEventListener('click', addTarefa);
 
 function limparLinha() {
   const tarefas = document.querySelectorAll('.item-tarefa');
@@ -68,6 +64,27 @@ function removerConcluidos() {
 }
 btnRemoverConcluidos.addEventListener('click', removerConcluidos);
 
+function addTarefaToLocalStorage() {
+  const oldList = JSON.parse(localStorage.getItem('tarefas'));
+  const tarefasText = inputLocalStorage.value;
+  oldList.push(tarefasText);
+  localStorage.setItem('tarefas', JSON.stringify(oldList));
+}
+btnSalvarTarefa.addEventListener('click', addTarefaToLocalStorage);
+
+//PRECISA DAR UMA OLHADA EM COMO RESOLVER ISSO
+function removeConcluidosLocalStorage(event) {
+  const tarefasConcluidas = document.querySelectorAll('.completed');
+  const listaLocalStorage = localStorage.getItem('tarefas');
+  const itemASerRemovido = event.target.innerText;
+  console.log(itemASerRemovido);
+/*   for (let i = 0; i > listaLocalStorage.length; i += 1) {
+
+  }  */
+}
+//btnRemoverConcluidos.addEventListener('click', removerConcluidos);
+//btnRemoverConcluidos.addEventListener('click', removeConcluidosLocalStorage);
+
 // Inicialização do Local Storage
 // Verifica se já existe um array criado, caso tenha carrega a lista
 // caso não tenha, cria a chave de inicialização
@@ -80,6 +97,7 @@ function initialRenderization() {
     for (let index = 0; index <= listLength; index += 1) {
       const listElement = document.createElement('li');
       listElement.innerText = tarefasList[index];
+      listElement.classList.add('item-tarefa');
       lista.appendChild(listElement);
     }
   }
