@@ -2,6 +2,7 @@ window.onload = () => {
     let listaSalva = localStorage.getItem('Lista')
     let savedList = document.getElementById('lista-tarefas');
     savedList.innerHTML = listaSalva;
+    pintarSelecionado()
 }
 
 /* Criando uma adição na lista */
@@ -14,21 +15,26 @@ function adicionaTarefa () {
         addItemList.appendChild(criaItem)
     }
     document.getElementById('texto-tarefa').value = ""
+    pintarSelecionado();
 }
 
 /* Obtive ajuda no Stackoverflow no link https://pt.stackoverflow.com/questions/455158/estou-treinando-o-b%c3%a1sico-do-javascript-e-preciso-de-ajuda-numa-to-do-list */
 
 /* Requisito 7 / 8*/
 /* Ajudinha do colega Esdras da turma 14 tribo B */
-function pintarSelecionado (event) {
-    let listaTarefas = document.getElementsByClassName('lista')
-    for (let index = 0; index < listaTarefas.length;index += 1) {
-    listaTarefas[index].style.backgroundColor = ''
+function pintarSelecionado () {
+    for (let index = 0; index < paisao.length;index += 1) {
+    paisao[index].addEventListener('click', (event) => {
+        for(let index2 = 0; index2 < paisao.length; index2 += 1) {
+            paisao[index2].classList.remove('selecionado')
+            event.target.classList.add('selecionado')
+            
+        }
+    })
     }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    event.target.classList.add('selecionado')
+    
 }
-addItemList.addEventListener('click', pintarSelecionado)
+
 
 
 
@@ -75,6 +81,34 @@ function salvaLista() {
     let setItem = localStorage.setItem('Lista', document.getElementById('lista-tarefas').innerHTML)
 }
 
+
+/* Requisito 13 */
+let moveUp = document.getElementById('mover-cima');
+let moveDown = document.getElementById('mover-baixo');
+
+moveUp.addEventListener('click', () => {
+    let elementoMove = document.querySelector('.selecionado')
+    
+        if(elementoMove !== null) {
+            if (elementoMove === paisao[0]) {
+                alert ('Chegou ao topo da lista')
+            } else {
+                elementoMove.parentNode.insertBefore(elementoMove, elementoMove.previousElementSibling)
+
+            }
+        }
+  
+})
+moveDown.addEventListener('click', () => {
+    let elementoDown = document.querySelector('.selecionado')
+    if(elementoDown !== null) {
+        if(elementoDown.nextElementSibling === null) {
+            alert('Chegou ao fim da lista')
+        } else {
+        elementoDown.parentNode.insertBefore(elementoDown, elementoDown.nextElementSibling.nextElementSibling)
+        }
+    }
+})
 
 
 
