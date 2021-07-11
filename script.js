@@ -19,8 +19,10 @@ function greyPainter(event) {
   const listItens = document.getElementsByTagName('li');
   for (let index = 0; index < listItens.length; index += 1) {
     listItens[index].style.backgroundColor = null;
+    listItens[index].classList.remove('cinza');
   }
   cinza.style.backgroundColor = 'grey';
+  cinza.classList.add('cinza');
 }
 
 olGray.addEventListener('click', greyPainter);
@@ -57,3 +59,12 @@ function finishedRemover() {
 }
 
 finishedItens.addEventListener('click', finishedRemover);
+
+//remover o selecionado
+const selectedRemover = document.querySelector('#remover-selecionado');
+
+function cinzaRemover() {
+  document.getElementsByClassName('cinza')[0].remove();
+}
+
+selectedRemover.addEventListener('click', cinzaRemover);
