@@ -86,6 +86,22 @@ h1 {
   background-color: rgb(145 , 1 , 1);
 }
 
+#salvar-tarefas {
+  width: 8rem;
+  height: 1.6rem;
+  border-radius: 3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(237 , 237 , 246);
+  background-color: rgb(0 , 131 , 70);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#salvar-tarefas:hover {
+  background-color: rgb(0 , 94 , 71);
+}
+
 #lista-tarefas {
   width: 40rem;
   cursor: pointer;
@@ -106,9 +122,4 @@ h1 {
 
 .completed {
   text-decoration: line-through;
-  color: rgb(98 , 153 , 84);
-}
-
-.completed.selected {
-  color: rgb(58 , 56 , 56);
 }
