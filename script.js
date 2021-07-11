@@ -1,4 +1,5 @@
 const buttonCreate = document.querySelector('#criar-tarefa');
+const buttonRemoveFinished = document.querySelector('#remover-finalizados');
 const buttonDeleteAll = document.querySelector('#apaga-tudo');
 const Itenslist = document.querySelector('#lista-tarefas');
 
@@ -46,4 +47,18 @@ function removeAllItemsList() {
 
 buttonDeleteAll.addEventListener('click', () => {
   removeAllItemsList();
+});
+
+function removeItemsFinished() {
+  const itemsList = Itenslist.childNodes;
+  for (let i = 0; i < itemsList.length; i += 1) {
+    if (itemsList[i].classList.contains('completed')) {
+      itemsList[i].remove();
+    }
+  }
+}
+
+buttonRemoveFinished.addEventListener('click', () => {
+  removeItemsFinished();
+  removeItemsFinished();
 });

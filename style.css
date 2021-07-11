@@ -54,6 +54,22 @@ h1 {
   background-color: rgb(23 , 57 , 126);
 }
 
+#remover-finalizados {
+  width: 7rem;
+  height: 1.6rem;
+  border-radius: 3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(237 , 237 , 246);
+  background-color: rgb(247 , 50 , 3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#remover-finalizados:hover {
+  background-color: rgb(247 , 0 , 0);
+}
+
 #apaga-tudo {
   width: 8rem;
   height: 1.6rem;
