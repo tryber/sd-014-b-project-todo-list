@@ -1,3 +1,30 @@
+body {
+  max-width: 430px;
+}
+
 .completed {
   text-decoration: line-through solid rgb(0,0,0);
+}
+
+header, p, input {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  font-size: 30px;
+  background-color: green;
+  padding: 30px;
+}
+
+button {
+  border-radius: 15%;
+  font-size: 15px;
+  font-weight: bold;
+  display: flexbox;
+}
+
+nav{
+  margin-top: 35px;
 }
