@@ -12,12 +12,9 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
   }
   inputPath.value = '';
 
-  tarefaLi.addEventListener('click', function(event) {
-    addRemoveSelected(event)
-  })
-  tarefaLi.addEventListener('dblclick', function(event) {
-    addRemoveCompleted(event)
-  })
+  tarefaLi.addEventListener('click', addRemoveSelected)
+  
+  tarefaLi.addEventListener('dblclick', addRemoveCompleted)
 
 })
 // 1. Bernardo Salgueiro salvador do requisito 7!!! Atribuir o evento logo após criar a Li, resolve a questão de não conseguir percorrer o array vazio de li's.
@@ -44,3 +41,13 @@ function addRemoveCompleted (event) {
     event.target.classList.add('completed');
   }
 }
+
+// * Requisito - 10
+
+document.querySelector('#apaga-tudo').addEventListener('click', function () {
+  olPath.innerHTML = '';
+})
+
+// * Requisito - 13
+// li.parentNode.insertBefore(li, li.previousSibling);
+// li.parentNode.insertBefore(li.nextSibling, li);
