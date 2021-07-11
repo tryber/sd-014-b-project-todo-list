@@ -1,3 +1,4 @@
+// cria a tarefa
 const addTask = document.querySelector('#criar-tarefa');
 
 function taskCreator() {
@@ -8,6 +9,7 @@ function taskCreator() {
   document.getElementById('texto-tarefa').value = '';
 }
 
+// coloca a cor cinza na tarefa selecionada
 addTask.addEventListener('click', taskCreator);
 
 const olGray = document.getElementById('lista-tarefas');
@@ -22,3 +24,24 @@ function greyPainter(event) {
 }
 
 olGray.addEventListener('click', greyPainter);
+
+// coloca a classe selected ao dbclick
+function lineThrough(event) {
+  const lineItem = event.target;
+  if (lineItem.classList.contains('completed') === true) {
+    lineItem.classList.remove('completed');
+  } else {
+    lineItem.classList.add('completed');
+  }
+}
+
+olGray.addEventListener('dblclick', lineThrough);
+
+// botão de apagar tudo
+const clearbutton = document.querySelector('#apaga-tudo');
+
+function clearList() {
+  document.getElementById('lista-tarefas').innerHTML = '';
+}
+
+clearbutton.addEventListener('click', clearList);

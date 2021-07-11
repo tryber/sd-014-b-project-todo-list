@@ -9,3 +9,7 @@
 body {
   background-color: palegoldenrod;
 }
+
+.completed {
+    text-decoration: line-through;
+}
