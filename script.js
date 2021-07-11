@@ -16,15 +16,28 @@ function addTask() {
 }
 button.addEventListener('click', addTask);
 let taskList = document.querySelector('#lista-tarefas');
-function changeColor (event) {
+function changeColor(event) {
     const list = document.querySelectorAll('li');
-    for (let i = 0; i < list.length; i +=1) {
+    for (let i = 0; i < list.length; i += 1) {
         list[i].classList.remove('color');
     }
     event.target.classList.add('color');
-    
+
 }
 taskList.addEventListener('click', changeColor);
+
+function checkItem(event) {
+    const list = document.querySelectorAll('li');
+    const itemClass = 'completed'
+    for (let i = 0; i < list.length; i += 1) {
+        event.target.classList.toggle('completed')
+        /* referencia: https://www.w3schools.com/jsref/prop_element_classlist.asp */
+    }
+    
+}
+taskList.addEventListener('dblclick', checkItem);
+
+
 
 
 
