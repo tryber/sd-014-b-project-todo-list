@@ -17,7 +17,7 @@ function corDeFundoItemLista(event) {
     tarefas[i].removeAttribute('id');
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  event.target.classList.add('selected');
+  event.target.id = 'selected';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
 
@@ -57,6 +57,7 @@ function saveTasks() {
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 buttonSaveTasks.addEventListener('click', saveTasks);
 
+//
 // let array = document.getElementsByClassName('tarefa');
 // let selected = document.querySelector('.tarefa .selected');
 function moveUp() {
@@ -97,6 +98,7 @@ function moveDown () {
 }
 const buttonDown = document.getElementById('mover-baixo');
 buttonDown.addEventListener('click', moveDown);
+//
 
 function removeSelected() {
   const selectedTask = document.getElementById('selected');
