@@ -3,6 +3,11 @@ let getButton = document.getElementById("criar-tarefa");
 let getOl = document.getElementById("lista-tarefas");
 let getInput = document.getElementById("texto-tarefa");
 
+function storage() {
+    getOl.innerHTML = localStorage.getItem("list") 
+  }
+  storage();
+
 function addTask() {
     let newLi = document.createElement("li");
     newLi.innerHTML = getInput.value;
@@ -70,14 +75,18 @@ getButton3.addEventListener("click", emptyDone);
 let getButton4 = document.getElementById("salvar-tarefas");
 
 function saveTasks(){
-    let getLis = document.querySelectorAll(".itens-lista");
-    for (index = 0; index < getLis.length; index +=1){
-        localStorage.setItem("intem[index]","getLis[index]");
-    }
+    getOl2 = document.querySelector("#lista-tarefas").innerHTML;
+    localStorage.setItem('list', getOl2);
+    
 }
 getButton4.addEventListener("click", saveTasks);
 
-// Requisito 14let getButton4 = document.getElementById("salvar-tarefas");
+
+
+// Requisito 13
+
+
+// Requisito 14
 let getButton5 = document.getElementById("remover-selecionado");
 
 function emptySelected (){
