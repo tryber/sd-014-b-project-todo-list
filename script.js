@@ -1,6 +1,6 @@
 function createListItem(text) {
   const listItem = document.createElement('li');
-  listItem.className = 'listItem';
+  // listItem.className = '';
   listItem.innerText = text;
   return listItem;
 }
@@ -11,12 +11,16 @@ function textListItem() {
 }
 
 function addIdStyle() {
-  const listedItem = document.querySelectorAll('.listItem');
-  for (const index of listedItem) {
-    index.addEventListener('click', () => {
-      for (const indexIn of listedItem) { indexIn.id = ''; }
-      index.id = 'selected';
-    });
+  const listedItem = document.querySelectorAll('li');
+  for (const indexIn of listedItem) { indexIn.id = ''; }
+  this.id = 'selected';
+}
+
+function addClassStyle() {
+  if (this.className === 'completed') {
+    this.classList.remove('completed');
+  } else {
+    this.classList.add('completed');
   }
 }
 
@@ -26,9 +30,10 @@ function addListItem() {
     const ordList = document.getElementById('lista-tarefas');
     const currentInput = document.getElementById('texto-tarefa');
     const currentItem = createListItem(textListItem());
+    currentItem.addEventListener('click', addIdStyle);
+    currentItem.addEventListener('dblclick', addClassStyle);
     ordList.appendChild(currentItem);
     currentInput.value = '';
-    addIdStyle();
   });
 }
 

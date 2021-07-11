@@ -1,12 +1,16 @@
 #selected {
-  background-color: rgb(128,128,128);
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 li {
   padding: 0.5rem;
-  list-style: inside decimal;
   font-size: large;
   width: fit-content;
   border: solid thin black;
   border-radius: 25%;
+  user-select: none;
 }
