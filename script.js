@@ -19,9 +19,9 @@ let taskList = document.querySelector('#lista-tarefas');
 function changeColor(event) {
     const list = document.querySelectorAll('li');
     for (let i = 0; i < list.length; i += 1) {
-        list[i].classList.remove('color');
+        list[i].style.backgroundColor = '';
     }
-    event.target.classList.add('color');
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
 
 }
 taskList.addEventListener('click', changeColor);

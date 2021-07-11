@@ -1,6 +1,11 @@
-.color {
-    background-color: rgb(128,128,128);
-}
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+#cabecalho {
+    background-color: #FE7F2D;
+    padding: 14px;
+    
+}
+body {
+    background-color: #FCCA46;
 }
