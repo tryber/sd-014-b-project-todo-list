@@ -57,6 +57,19 @@ orderedList.addEventListener('click', (event)=>{
   }
 });
 
+orderedList.addEventListener('dblclick', (event)=>{
+  let listItem = document.querySelectorAll('.list-item');
+  for (let i = 0; i < listItem.length; i++) {
+    if (listItem[i] === event.target){
+      if (!listItem[i].classList.contains('completed')){
+        listItem[i].classList.add('completed');
+      } else if (listItem[i].classList.contains('completed')){
+        listItem[i].classList.remove('completed');
+      }
+    }
+  }
+});
+
 clearButton.addEventListener('click', (event)=>{
   eraseListItems();
 });
