@@ -5,25 +5,32 @@ const buttonCriar = document.getElementById('criar-tarefa');
 
 // lista de tarefas que serão adicionadas
 // armazenar o texto captrado como tarefa numa variavel
-let list;
+let list = [];
 
 // função para alterar a cor de fundo
 
 function listBackground(event) { // seguindo a recomendação do Linter a função tem que ficar aqui em cima antes dela ser invocada na criação das li
+  for (let i = 0; i < list.length; i += 1) {
+
+  }
+
   event.target.classList.add('cinza');// criando o evendo para adicionar a classe no novo elemento
+
 }
 
-function capturarTarefa() {
+
+function capturarTarefa(event) {
   // capturar e guardar, na variavel, o value (texto) digitado
   const tarefa = inputTarefa.value;
-  list = tarefa;
+  list.push(tarefa);
   inputTarefa.value = null; // atribuindo o valor null para limpar o campo de digitação
   const liTarefa = document.createElement('li');
   liTarefa.className = 'atividade-adicionada';
-  liTarefa.innerText = list;
+  liTarefa.innerText = list[list.length - 1];
   liTarefa.addEventListener('click', listBackground);
-  console.log(liTarefa);
+  console.log(list);
   listaOrdenada.appendChild(liTarefa);
 }
 // evento no botão que ao receber um click ele execulta a função addTarefas
 buttonCriar.addEventListener('click', capturarTarefa);
+
