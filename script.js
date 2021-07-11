@@ -26,6 +26,7 @@ function pintarSelecionado (event) {
     listaTarefas[index].style.backgroundColor = ''
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selecionado')
 }
 addItemList.addEventListener('click', pintarSelecionado)
 
@@ -72,4 +73,15 @@ salvarLista.addEventListener('click', salvaLista);
 
 function salvaLista() {
     let setItem = localStorage.setItem('Lista', document.getElementById('lista-tarefas').innerHTML)
+}
+
+
+
+
+/* Requisito 14 */
+
+let botaoRemoveSelected = document.getElementById('remover-selecionado');
+botaoRemoveSelected.addEventListener('click', removerSelecionado);
+function removerSelecionado() {
+    document.querySelector('.selecionado').remove();
 }
