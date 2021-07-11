@@ -45,9 +45,13 @@ buttonApagaTudo.addEventListener('click', apagaTudo);
 
 // apagar finalizados
 function apagarFinalizados() {
-  const listaConcluida = document.getElementsByClassName('completed');  
-  for (const i of listaConcluida) {
-   i.remove()
+  const listaAdicionadas = document.getElementsByClassName('atividade-adicionada');
+  let atividadesConcluidas = [];
+  for (const i of listaAdicionadas){  
+    if (i.classList.contains('completed')) {
+      listaOrdenada.removeChild(i)
+    }
   }
+  console.log(listaAdicionadas)
 }
 buttonApagaFinalizados.addEventListener('click', apagarFinalizados);
