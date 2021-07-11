@@ -2,6 +2,8 @@ const novaTarefa = document.getElementById('texto-tarefa');
 const botaoAdicionar = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 const tarefasConcluidas = document.getElementsByClassName('riscado');
+const botaoApagar = document.getElementById('apaga-tudo');
+const removerConcluidas = document.getElementById('remover-finalizados');
 
 botaoAdicionar.addEventListener('click', () => {
   const novoItem = document.createElement('li');
@@ -28,3 +30,19 @@ function riscarSelecionado(riscar) {
 }
 
 listaTarefas.addEventListener('dblclick', riscarSelecionado);
+
+botaoApagar.addEventListener('click', () => {
+  listaTarefas.innerHTML = '';
+})
+
+removerConcluidas.addEventListener('click', () => {
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    const current = listaTarefas.children[index];
+    if (current.classList.contains('completed')) {
+      listaTarefas.removeChild(current);
+      index -= 1;
+    }
+  }
+});
+
+
