@@ -38,9 +38,6 @@ buttonCriar.addEventListener('click', capturarTarefa);
 
 // apagar todos elementos filhos de <ol>
 function apagaTudo() {
-  let listaTarefas = document.getElementsByClassName('atividade-adicionada');
-  for (let item of listaTarefas) {
-   listaOrdenada.removeChild(item);
- }
+    listaOrdenada.innerText = ''; // substitiu o texto da <ol>, no caso colocando vazio substitiu todas as <li> pela string vazia 
 }
 buttonApagaTudo.addEventListener('click', apagaTudo);
