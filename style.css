@@ -16,10 +16,11 @@ header {
   font-size: 30px;
   background-color: green;
   padding: 30px;
+  border-radius: 50%;
+  border: 2px solid black;
 }
 
 button {
-  border-radius: 15%;
   font-size: 15px;
   font-weight: bold;
   display: flexbox;
