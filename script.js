@@ -11,6 +11,7 @@ let addInputBotton = document.querySelector('#criar-tarefa');
 let addListTarefa = document.querySelector('#lista-tarefas');
 
 
+
 //Requisito 5 e 6 campo input terá a tarefa digitada pelo usuário e ao clicar no botão irá jogar o valor para dentro da lista ordenada
 
 function addNewTarefa() {
@@ -38,6 +39,10 @@ colorItemList();
 
 // Requisito 9
 
+//Pesquisado externamente a função toggle, que funciona como um interruptor, quando clicado ativa a função e quando clicado novamente a função é desativada;
+//link:https://www.w3schools.com/howto/howto_js_toggle_class.asp
+//link: https://tableless.com.br/manipulando-o-uso-de-classes-com-classlist-api/
+
 
 function riscaItemCompleto() {
   addListTarefa.addEventListener('dblclick',function(event){
@@ -47,3 +52,13 @@ function riscaItemCompleto() {
 });
 }
 riscaItemCompleto();
+
+
+//Requisito 10
+function apagaTudo(){
+  let apagaTudoButton = document.querySelector('#apaga-tudo');
+  apagaTudoButton.addEventListener('click', function(){
+    addListTarefa.innerText = '';
+  });
+  }
+  apagaTudo();
