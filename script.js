@@ -45,3 +45,15 @@ function clearList() {
 }
 
 clearbutton.addEventListener('click', clearList);
+
+// botão apagar finalizados
+const finishedItens = document.querySelector('#remover-finalizados');
+
+function finishedRemover() {
+  const completedlist = document.getElementsByClassName('completed');
+  for (let index = completedlist.length - 1; index >= 0; index -= 1) {
+    completedlist[index].remove();
+  }
+}
+
+finishedItens.addEventListener('click', finishedRemover);
