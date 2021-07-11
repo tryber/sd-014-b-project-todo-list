@@ -5,6 +5,7 @@ window.onload = function (){
     let getInput = document.querySelector('#texto-tarefa');
     let newTask = document.querySelector('.newTask');
     let getClearTasks = document.querySelector('#apaga-tudo');
+    let buttonRemoveTasks = document.querySelector('#remover-finalizados');
 
     getButton.addEventListener('click', createNewTask);
 
@@ -54,6 +55,23 @@ window.onload = function (){
         });
       }
       clearAll();
+
+    
+
+    buttonRemoveTasks.addEventListener('click', removeTasks);
+
+   
+   
+
+    function removeTasks(){
+
+      let getTasksCompleted = document.querySelectorAll('.completed');
+      
+      for(let task of getTasksCompleted){
+        task.parentNode.removeChild(task)
+      }
+      }
+      removeTasks();
     
 }
 
