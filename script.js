@@ -27,15 +27,13 @@ function changeColor(event) {
 taskList.addEventListener('click', changeColor);
 
 function checkItem(event) {
-    const list = document.querySelectorAll('li');
-    for (let i = 0; i < list.length; i += 1) {
-        if (event.target.classList.contains('completed')) {
-            event.target.classList.remove('completed');
-        } else {
-            event.target.classList.add('completed');
-        }
+    if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+    } else {
+        event.target.classList.add('completed');
     }
-}  
+
+}
 taskList.addEventListener('dblclick', checkItem);
 
 
