@@ -60,39 +60,40 @@ buttonSaveTasks.addEventListener('click', saveTasks);
 // let array = document.getElementsByClassName('tarefa');
 // let selected = document.querySelector('.tarefa .selected');
 function moveUp() {
-  const array = document.getElementsByClassName('tarefa');
-  const selected = document.querySelector('.tarefa .selected');
+  const array = document.querySelectorAll('li');
+  const selected = document.querySelector('.selected');
   for (let iTrocado = array.indexOf(selected) - 1; iTrocado >= 0; iTrocado -= 1) {
     for (let iTroca = array.indexOf(selected); iTroca >= 0; iTroca -= 1) {
       if (iTrocado < array.indexOf(selected)) {
         const position = array[iTrocado];
         array[iTrocado] = array[array.indexOf(selected)];
-        array[iTroca] = position;
+        array[array.indexOf(selected)] = position;
         break;
       }
     }
     break;
   }
-  console.log(array);
 }
 const buttonUp = document.getElementById('mover-cima');
 buttonUp.addEventListener('click', moveUp);
 
+// const array = document.querySelectorAll('li');
+// const selected = document.querySelector('.selected');
+
 function moveDown () {
-  const array = document.getElementsByClassName('tarefa');
+  const array = document.querySelectorAll('li');
   const selected = document.querySelector('.selected');
   for (let iTrocado = array.indexOf(selected) + 1; iTrocado < array.length; iTrocado += 1) {
     for (let iTroca = array.indexOf(selected); iTroca < array.length; iTroca += 1) {
       if (iTrocado > array.indexOf(selected)) {
         const position = array[iTrocado];
         array[iTrocado] = array[array.indexOf(selected)];
-        array[iTroca] = position;
+        array[array.indexOf(selected)] = position;
         break;
       }
     }
     break;
   }
-  console.log(array);
 }
 const buttonDown = document.getElementById('mover-baixo');
 buttonDown.addEventListener('click', moveDown);
