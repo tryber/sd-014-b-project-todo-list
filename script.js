@@ -1,9 +1,9 @@
 // cria a tarefa
 const addTask = document.querySelector('#criar-tarefa');
+const existingList = document.querySelector('#lista-tarefas');
 
 function taskCreator() {
   const itemCreator = document.createElement('li');
-  const existingList = document.querySelector('#lista-tarefas');
   existingList.appendChild(itemCreator);
   itemCreator.innerText = document.querySelector('#texto-tarefa').value;
   document.getElementById('texto-tarefa').value = '';
@@ -11,8 +11,6 @@ function taskCreator() {
 
 // coloca a cor cinza na tarefa selecionada
 addTask.addEventListener('click', taskCreator);
-
-const olGray = document.getElementById('lista-tarefas');
 
 function greyPainter(event) {
   const cinza = event.target;
@@ -25,7 +23,7 @@ function greyPainter(event) {
   cinza.classList.add('cinza');
 }
 
-olGray.addEventListener('click', greyPainter);
+existingList.addEventListener('click', greyPainter);
 
 // coloca a classe selected ao dbclick
 function lineThrough(event) {
@@ -37,13 +35,13 @@ function lineThrough(event) {
   }
 }
 
-olGray.addEventListener('dblclick', lineThrough);
+existingList.addEventListener('dblclick', lineThrough);
 
 // botão de apagar tudo
 const clearbutton = document.querySelector('#apaga-tudo');
 
 function clearList() {
-  document.getElementById('lista-tarefas').innerHTML = '';
+  existingList.innerHTML = '';
 }
 
 clearbutton.addEventListener('click', clearList);
@@ -73,14 +71,14 @@ selectedRemover.addEventListener('click', cinzaRemover);
 const salvaStorage = document.querySelector('#salvar-tarefas');
 
 function salva() {
-  const listSaver = document.querySelector('#lista-tarefas').innerHTML;
+  const listSaver = existingList.innerHTML;
   localStorage.setItem('tarefas', listSaver);
 }
 
 salvaStorage.addEventListener('click', salva);
 
 function loader() {
-  document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('tarefas');
+  existingList.innerHTML = localStorage.getItem('tarefas');
 }
 
 window.onload = loader;
