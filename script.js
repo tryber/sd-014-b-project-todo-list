@@ -2,12 +2,13 @@
 const listaOrdenada = document.getElementById('lista-tarefas');
 const inputTarefa = document.getElementById('texto-tarefa');
 const buttonCriar = document.getElementById('criar-tarefa');
+const buttonApagaTudo = document.getElementById('apaga-tudo');
 
 // função para alterar a cor de fundo (selecionar a tarefa)
 function listBackground(event) {
   // seguindo a recomendação do Linter a função tem que ficar aqui em cima antes dela ser invocada na criação das li
   const tarefaCinza = document.getElementsByClassName('cinza');
-  for (let item of tarefaCinza) {
+  for (const item of tarefaCinza) {
     item.classList.remove('cinza');
   }
   event.target.classList.add('cinza'); // criando o evendo para adicionar a classe no novo elemento
@@ -20,6 +21,8 @@ function completed(event) {
     event.target.classList.add('completed');
   }
 }
+// criar a lista de tarefas
+//para isso a função vai criar o elemento <li> que vai ser filho do elemento <ol> e tabém vai receber os escutadores para acontecer outras funções quando solicitado por eventos de disparo
 function capturarTarefa() {
   const tarefa = inputTarefa.value; // capturar e guardar, na variavel, o value (texto) digitado
   inputTarefa.value = null; // atribuindo o valor null para limpar o campo de digitação
@@ -32,3 +35,12 @@ function capturarTarefa() {
 }
 // evento no botão que ao receber um click ele execulta a função addTarefas
 buttonCriar.addEventListener('click', capturarTarefa);
+
+// apagar todos elementos filhos de <ol>
+function apagaTudo() {
+  let listaTarefas = document.getElementsByClassName('atividade-adicionada');
+  for (let item of listaTarefas) {
+   listaOrdenada.removeChild(item);
+ }
+}
+buttonApagaTudo.addEventListener('click', apagaTudo);
