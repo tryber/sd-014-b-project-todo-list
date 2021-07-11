@@ -62,28 +62,31 @@ function removerConcluidos() {
     console.log("Não existe nenhuma tarefa concluída!");
   }
 }
-btnRemoverConcluidos.addEventListener('click', removerConcluidos);
+//btnRemoverConcluidos.addEventListener('click', removerConcluidos);
 
 function addTarefaToLocalStorage() {
-  const oldList = JSON.parse(localStorage.getItem('tarefas'));
-  const tarefasText = inputLocalStorage.value;
-  oldList.push(tarefasText);
-  localStorage.setItem('tarefas', JSON.stringify(oldList));
+  let tarefas = document.querySelectorAll('.item-tarefa');
+  let tarefasStorage = [];
+  for (let i = 0; i < tarefas.length; i += 1) {
+    tarefasStorage.push(tarefas[i].innerText);
+  }
+  localStorage.setItem('tarefas', JSON.stringify(tarefasStorage));
 }
 btnSalvarTarefa.addEventListener('click', addTarefaToLocalStorage);
 
 //PRECISA DAR UMA OLHADA EM COMO RESOLVER ISSO
-function removeConcluidosLocalStorage(event) {
+function removeConcluidosLocalStorage() {
   const tarefasConcluidas = document.querySelectorAll('.completed');
-  const listaLocalStorage = localStorage.getItem('tarefas');
-  const itemASerRemovido = event.target.innerText;
-  console.log(itemASerRemovido);
-/*   for (let i = 0; i > listaLocalStorage.length; i += 1) {
-
-  }  */
+  const listaLocalStorage = localStorage.getItem('tarefas');//Preciso descobrir como pegar esse valor
+  console.log(listaLocalStorage); // como saber o tamanho do array gravado no localStorage?
+  for (let i = 0; i > tarefasConcluidas.length; i += 1) {
+    for (let ii = 0; ii > tarefasConcluidas.length; ii += 1) {
+      console.log(ii);
+    }
+  } 
 }
 //btnRemoverConcluidos.addEventListener('click', removerConcluidos);
-//btnRemoverConcluidos.addEventListener('click', removeConcluidosLocalStorage);
+btnRemoverConcluidos.addEventListener('click', removeConcluidosLocalStorage);
 
 // Inicialização do Local Storage
 // Verifica se já existe um array criado, caso tenha carrega a lista
