@@ -30,11 +30,3 @@ function markCompleted(event) {
   event.target.classList.add('completed');
 }
 taskList.addEventListener('dblclick', markCompleted);
-
-// Limpar Lista
-
-function clearList() {
-  taskList = null;
-}
-
-clearButton.addEventListener('click', clearList);
