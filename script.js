@@ -2,6 +2,8 @@ const button = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas')
 const item = document.querySelectorAll('li')
 const inputValue = document.querySelector('input');
+const clearAllTasks = document.querySelector('#apaga-tudo');
+
 
 button.addEventListener('click', () => {
   const inputValue = document.querySelector('input');
@@ -33,6 +35,10 @@ button.addEventListener('click', () => {
     } else {
       event.target.classList.add('completed');
     }
+  });
+  // Requisito 10
+  clearAllTasks.addEventListener('click', () => {
+    taskList.innerHTML = '';
   });
   
 });
