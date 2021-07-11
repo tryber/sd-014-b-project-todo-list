@@ -1,0 +1,110 @@
+body {
+    font-family: Ubuntu, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .cabecalho {
+    background-color: #2fc18c;
+    color: rgb(253 , 255 , 252);
+    padding: 30px 100px;
+    width: 100%;
+  }
+  
+  .titulo {
+    font-size: 2.7em;
+    width: 90%;
+  }
+  
+  ol{
+    list-style-type: none;
+  }
+
+  .function {
+    color: rgb(231 , 29 , 54);
+    font-size: 1.3em;
+  }
+  
+  .container {
+    background-color: rgb(243 , 243 , 243);
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin: 50px auto;
+    min-height: 400px;
+    padding: 50px;
+    width: calc(90% - 60px);
+  }
+  
+  .form {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100px;
+  }
+  
+  .task-list {
+    color: #2fc18c;
+    font-size: 1.5em;
+    margin-left: 50px;
+    min-height: 100px;
+  }
+  
+  .input-large {
+    border: solid 3px whitesmoke;
+    border-radius: 20px;
+    color: rgb(1 , 22 , 39);
+    font-size: 1em;
+    height: 20px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 500px;
+  }
+  
+  .btn-large {
+    background-color: #2fc18c;
+    border-radius: 20px;
+    border: whitesmoke;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    height: 40px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 180px;
+  }
+  
+  .btn-large:hover {
+    background-color: #0aad72;
+  }
+  
+  .btn-small {
+    background-color: #2fc18c;
+    border: whitesmoke;
+    border-radius: 20px;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    height: 40px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 100px;
+  }
+  
+  .btn-small:hover {
+    background-color: #0aad72;
+  }
+  
+  .brackets {
+    color: yellow;
+  }
+  
+  .selected {
+    background-color: #0aad72;
+  }
+  
+  .completed {
+    text-decoration: line-through solid whitesmoke;
+  }
