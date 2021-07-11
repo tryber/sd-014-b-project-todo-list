@@ -69,3 +69,27 @@ getButtonFinishTask.addEventListener('click', function () {
     }
   }
 });
+
+const newButtonSalve = document.createElement('button');
+newButtonSalve.setAttribute('id', 'salvar-tarefas');
+newButtonSalve.innerText = 'Salvar Tarefas';
+getSelectionButton.appendChild(newButtonSalve);
+
+// Remover tarefa selecionada;
+function removeLiSelected() {
+  const lisSelect = document.querySelectorAll('li');
+
+  for (let index = 0; index < lisSelect.length; index += 1) {    
+    if (lisSelect[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      lisSelect[index].parentNode.removeChild(lisSelect[index]);
+    }
+  }
+}
+
+const newButtonRemove = document.createElement('button');
+newButtonRemove.setAttribute('id', 'remover-selecionado');
+newButtonRemove.innerText = 'X';
+getSelectionButton.appendChild(newButtonRemove);
+
+const buttonRemove = document.querySelector('#remover-selecionado');
+buttonRemove.addEventListener('click', removeLiSelected);
