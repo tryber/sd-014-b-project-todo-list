@@ -1,35 +1,39 @@
-// Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128).
-
-// document.getElementsByClassName('task')[0].style.backgroundColor = 'red';
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
+const color = 'rgb(128, 128, 128)';
 
-function colorTasks() {
-  const task = document.querySelectorAll('li');
-  for (let index = 0; index < task.length; index += 1) {
-    const taskIndex = task[index];
-    taskIndex.addEventListener('click', (event) => {
-      const setNewColor = 'rgb(128,128,128)';
-      // eslint-disable-next-line no-param-reassign
-      event.target.style.backgroundColor = setNewColor;
-    });
+// Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
+
+buttonCreateTask.addEventListener('click', () => {
+  const input = document.getElementById('texto-tarefa');
+  const addTask = document.createElement('li');
+  if (input.value !== '') {
+    listOfTasks.appendChild(addTask);
+    addTask.classList.add('task');
+    addTask.innerHTML = input.value;
+    input.value = '';
+  } else {
+    alert('Insira sua Tarefa!');
   }
-}
+  addTask.addEventListener('click', selected);
+  addTask.addEventListener('dblclick', createClass);
+});
 
 // Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
-// Ajuda do Leonardo (Eli) dos Santos;
-listOfTasks.addEventListener('click', (event) => {
-  const color = 'rgb(128, 128, 128)';
-  const listChildren = listOfTasks.children;
-  for (let index = 0; index < listChildren.length; index += 1) {
-    const childrenIndex = listChildren[index];
-    if (childrenIndex.style.backgroundColor === color) {
+
+function selected(event) {
+  const evento = event.target;
+  const classTask = document.querySelectorAll('li');
+  for (let index = 0; index < classTask.length; index += 1) {
+    const childrenIndex = classTask[index];
+    const indexClass = childrenIndex.classList;
+    if (childrenIndex.style.backgroundColor === color && indexClass.contains('selected')) {
       childrenIndex.style.backgroundColor = 'white';
-    }
-    // eslint-disable-next-line no-param-reassign
-    event.target.style.backgroundColor = color;
+      childrenIndex.classList.remove('selected');
+    } evento.style.backgroundColor = color;
+    evento.classList.add('selected');
   }
-});
+}
 
 // Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item.
 // Consegui resolver, apos ajuda do Lucas Alves e Henrique Almeida.
@@ -42,29 +46,13 @@ function createClass(event) {
     event.target.classList.add(classCompleted);
   }
 }
-listOfTasks.addEventListener('dblclick', createClass);
-
-// Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
-
-buttonCreateTask.addEventListener('click', () => {
-  const input = document.getElementById('texto-tarefa');
-  if (input.value !== '') {
-    const addTask = document.createElement('li');
-    listOfTasks.appendChild(addTask);
-    addTask.classList.add('task');
-    addTask.innerHTML = input.value;
-    input.value = '';
-  } else {
-    alert('Insira sua Tarefa!');
-  }
-  colorTasks();
-});
 
 // Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista.
 const buttonClear = document.getElementById('apaga-tudo');
 
 buttonClear.addEventListener('click', () => {
   listOfTasks.innerHTML = '';
+  localStorage.clear('luizsmatos');
 });
 
 // 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista.
@@ -97,3 +85,12 @@ function autoSave() {
 window.onload = () => {
   autoSave();
 };
+
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas.
+
+// const buttonUpper = document.getElementById('mover-cima');
+// const buttonLower = document.getElementById('mover-baixo');
+
+// buttonUpper.addEventListener('click', () => {
+//  const
+// })

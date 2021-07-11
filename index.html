@@ -10,28 +10,42 @@
 </head>
 
 <body>
-  <header id = hero>
-    <h1 id = title>
+  <header id=hero>
+    <h1 id=title>
       Minha Lista de Tarefas
     </h1>
-    <p id = funcionamento>Clique duas vezes em um item para marcá-lo como completo!</p>
-    <input type="text" id = texto-tarefa placeholder="Digite sua Tarefa!">
+    <p id=funcionamento>Clique duas vezes em um item para marcá-lo como completo!</p>
   </header>
-  <section id = tasks>
-    <button id = criar-tarefa>
-      <span>Adicionar Tarefa!</span>
-    </button>
-    <button id = apaga-tudo>
-      <span>Limpar TODAS Tarefas!</span>
-    </button>
-    <button id = remover-finalizados>
-      <span>Limpar Tarefas Selecionadas!</span>
-    </button>
-    <button id = salvar-tarefas>
-      <span>Salvar Tarefas!</span>
-    </button>
-    <ol id = lista-tarefas>
-    </ol>
+  <section id=functions>
+    <div class="container-task">
+      <input type="text" id=texto-tarefa placeholder="Digite sua Tarefa!">
+      <button id=criar-tarefa>
+        <span>Adicionar</span>
+      </button>
+      <button id=salvar-tarefas>
+        <span>Salvar</span>
+      </button>
+    </div>
+    <div class="container-functions">
+      <button id=apaga-tudo>
+        <span>Limpar Tarefas</span>
+      </button>
+      <button id=remover-finalizados>
+        <span>Limpar Tarefas Selecionadas</span>
+      </button>
+      <button id=mover-cima>
+        <span>&#8679;</span>
+      </button>
+      <button id=mover-baixo>
+        <span>&#8681;</span>
+      </button>
+    </div>
+  </section>
+  <section id=tasks>
+    <div class="container-listtask">
+      <ol id=lista-tarefas>
+      </ol>
+    </div>
   </section>
 
 

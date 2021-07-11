@@ -7,23 +7,47 @@ body {
   background-color: rgb(223 , 223 , 211);
 }
 
-li {
+#title {
+  font-weight: 400;
+}
+
+.container-functions {
+  left: 0 auto;
+  margin-top: 10px;
+}
+
+#texto-tarefa {
+  width: 263px;
+}
+
+.task {
   width: 400px;
   height: 50px;
-  vertical-align: middle;
-  border: 1px solid black;
+  border-style: none;
   border-radius: 10px;
   text-align: center;
   background-color: white;
   list-style: none;
-  margin: 0 auto;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .completed {
   text-decoration: line-through solid black;
 }
 
-#tasks {
-  margin-top: 5px;
+button {
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#mover-cima {
+  width: 50px;
+  font-weight: 900;
+  color: green;
+}
+
+#mover-baixo {
+  width: 50px;
+  color: red;
 }
