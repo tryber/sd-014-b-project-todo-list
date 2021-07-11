@@ -76,7 +76,7 @@ window.onload = () => {
 // Requisito 13
 // element.insertbefore() que usei para resolver os requisitos 13
 // Referências https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript/34914096#34914096
-// Documentação do element.insert.before()
+// Documentação do MDN do element.insert.before() https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
 moveUp.addEventListener('click', () => {
   const selected = document.querySelector('.selected');
