@@ -21,7 +21,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
 
 // document.querySelector('#texto-tarefa').addEventListener('keydown', (event) => {
 //   if (event.keyCode == 13) {
-    
+
 //   }
 // })
 
@@ -60,6 +60,17 @@ document.querySelector('#remover-finalizados').addEventListener('click', () => {
     arrayCompleted[index].remove();
   }
 });
+
+// * Requisito - 12
+
+document.querySelector('#salvar-tarefas').addEventListener('click', () => {
+  const olInnerHtml = olPath.innerHTML;
+  localStorage.setItem('olInfo', olInnerHtml);
+});
+
+window.onload = () => {
+  olPath.innerHTML = localStorage.getItem('olInfo');
+};
 
 // * Requisito - 13
 // li.parentNode.insertBefore(li, li.previousSibling);
