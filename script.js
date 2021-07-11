@@ -10,21 +10,23 @@ function updateColor(event) {
 function doubleClick(event) {
   event.target.classList.toggle('completed');
 }
-
+function initTasks() {
+  const li = document.createElement('li');
+  const tasks = document.getElementById('lista-tarefas').appendChild(li);
+  return tasks;
+}
 function init() {
   if (JSON.parse(localStorage.getItem('li'))) {
     const text = JSON.parse(localStorage.getItem('li'));
     text.forEach((element) => {
       if (element.style) {
-        const li = document.createElement('li');
-        const tasks = document.getElementById('lista-tarefas').appendChild(li);
+        const tasks = initTasks();
         tasks.innerText = element.text;
         tasks.classList.add('completed');
         tasks.addEventListener('click', updateColor); // update color + function bellow
         tasks.addEventListener('dblclick', doubleClick);// toggle line through + function bellow
       } else {
-        const li = document.createElement('li');
-        const tasks = document.getElementById('lista-tarefas').appendChild(li);
+        const tasks = initTasks();
         tasks.innerText = element.text;
         tasks.addEventListener('click', updateColor);// update color + function bellow
         tasks.addEventListener('dblclick', doubleClick);// toggle line through + function bellow
@@ -38,7 +40,6 @@ const insert = document.getElementById('criar-tarefa');
 insert.addEventListener('click', () => {
   const li = document.createElement('li');
   li.innerText = document.getElementById('texto-tarefa').value;
-  document.getElementById('lista-tarefas').appendChild(li);
   const task = document.getElementById('lista-tarefas').appendChild(li);
   // update color + function bellow
   task.addEventListener('click', updateColor);
@@ -101,7 +102,7 @@ saveTasks.addEventListener('click', () => {
 //     }
 //   }
 // });
-// move up.função insert before adquirida do site: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore 
+// move up.função insert before adquirida do site: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 const moveUp = document.getElementById('mover-cima');
 moveUp.addEventListener('click', () => {
   const containsSel = document.getElementsByClassName('selected').length;
@@ -116,7 +117,7 @@ moveDown.addEventListener('click', () => {
   const containsSel = document.getElementsByClassName('selected').length;
   const queryLi = document.querySelectorAll('li');
   const liLength = queryLi.length - 1;
-  if (containsSel === 1 && !document.querySelectorAll('li')[liLength].classList.contains('selected')) {
+  if (containsSel === 1 && !queryLi[liLength].classList.contains('selected')) {
     const li = document.querySelector('.selected');
     li.parentNode.insertBefore(li.nextElementSibling, li);
   }
