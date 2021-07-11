@@ -1,0 +1,108 @@
+
+body {
+  background-image: url('background.jpg');
+  background-size: 1720px;
+  margin: 0;
+  height: 100%;
+  padding: 100px;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.274);
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 1px 10px black;
+  margin: 5% 25%;
+  padding: 5%;
+  display: inline-block;
+  border-radius: 30px;
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+}
+
+h1 {
+  font-size: 30px;
+  /* https://cssgradient.io/blog/css-gradient-text/ */
+  background: -webkit-linear-gradient(45deg, #FA91C9, #FAC85F, #6EFA6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#funcionamento {
+  margin: 30px 0px;
+}
+
+ol {
+  background-color: rgba(0, 0, 0, 0.171);
+  padding: 5%;
+  border-radius: 30px;
+}
+
+li {
+  background: linear-gradient(45deg, #6EFA6B, #fac95f);
+  box-shadow: 1px 1px 1px black;
+  color: black;
+  font-size: 16px;
+  margin: 5% 0px;
+  padding: 10px;
+  border-radius: 30px;
+  list-style: none;
+}
+
+li:hover {
+  box-shadow: 1px 1px 20px greenyellow;
+}
+
+#criar-tarefa {
+  background: linear-gradient(#9244E3, #446CE3);
+  border: unset;
+  color: white;
+  border-radius: 20px;
+}
+
+#texto-tarefa {
+  border-radius: 20px;
+  width: 150px;
+  border: 2px solid grey;
+  padding: 8px 30px;
+}
+
+#apaga-tudo {
+  background: linear-gradient(#9244E3, #446CE3);
+  border-radius: 20px;
+  border: unset;
+  color: white;
+}
+
+#remover-finalizados {
+  background: linear-gradient(45deg, #e34444, #b61515);
+  border-radius: 20px;
+  border: unset;
+  color: white;
+}
+
+#salvar-tarefas {
+  background: linear-gradient(45deg, #44e344, #15b61d);
+  border-radius: 20px;
+  border: unset;
+  color: white;
+}
+
+.button {
+  font-weight: bold;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.button:hover {
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.274);
+}
+
+.selected {
+  background: grey;
+  border: 1px solid blue;
+}
+
+.completed {
+  text-decoration: line-through;
+}
