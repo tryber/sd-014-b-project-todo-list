@@ -12,8 +12,12 @@ function textListItem() {
 
 function addIdStyle() {
   const listedItem = document.querySelectorAll('li');
-  for (const indexIn of listedItem) { indexIn.id = ''; }
-  this.id = 'selected';
+  if (this.id === 'selected') {
+    this.removeAttribute('id');
+  } else {
+    for (const indexIn of listedItem) { indexIn.id = ''; }
+    this.setAttribute('id', 'selected');
+  }
 }
 
 function addClassStyle() {
@@ -37,6 +41,17 @@ function addListItem() {
   });
 }
 
+function eraseList() {
+  const ordList = document.getElementById('lista-tarefas');
+  ordList.innerHTML = '';
+}
+
+function eraseButton() {
+  const eraseAll = document.getElementById('apaga-tudo');
+  eraseAll.addEventListener('click', eraseList);
+}
+
 window.onload = () => {
   addListItem();
+  eraseButton();
 };
