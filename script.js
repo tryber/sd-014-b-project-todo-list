@@ -64,7 +64,7 @@ let lista = document.querySelectorAll('li');
 for (let index = 0; index <= lista.length - 1; index += 1){
 localStorage.setItem('lista' + index, lista[index].innerText);
 for (let nome of lista[index].classList)
-localStorage.setItem('classe' + nome + '.' + index, lista[index].classList[0] );
+localStorage.setItem('classe' + nome + '.' + index, nome );
 }
 }
 
@@ -80,11 +80,12 @@ ol.appendChild(li);
 if (localStorage.getItem('classecinza.' + index ) === 'cinza') {
 ol.lastChild.classList.add('cinza');
 }
-if (localStorage.getItem('classecompleted.' + index) === 'completed') { 
+if (localStorage.getItem('classecompleted.' + index) === 'completed') {  // Essa linha não esta funcionando 
 ol.lastChild.classList.add('completed');
 }
 }
 }
+
 
 const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
@@ -95,6 +96,13 @@ button.addEventListener('click', addEvent);
 buttonApagaTudo.addEventListener('click', apagaLista);
 buttonRemoveFinalizados.addEventListener('click', removeFinalizados);
 buttonSalvar.addEventListener('click', salvarLista);
+imprimirListaSalva();
+addEvent();
+
+
+
+
+
 
 // utton.addEventListener('click', sortItens);
 // let h1 = document.querySelector('h1');
