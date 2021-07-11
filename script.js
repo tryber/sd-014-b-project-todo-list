@@ -28,13 +28,14 @@ taskList.addEventListener('click', changeColor);
 
 function checkItem(event) {
     const list = document.querySelectorAll('li');
-    const itemClass = 'completed'
     for (let i = 0; i < list.length; i += 1) {
-        event.target.classList.toggle('completed')
-        /* referencia: https://www.w3schools.com/jsref/prop_element_classlist.asp */
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+            event.target.classList.add('completed');
+        }
     }
-    
-}
+}  
 taskList.addEventListener('dblclick', checkItem);
 
 
