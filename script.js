@@ -9,3 +9,11 @@ function taskCreator() {
 }
 
 addTask.addEventListener('click', taskCreator);
+
+const olGray = document.getElementById('lista-tarefas');
+
+function greyPainter(event) {
+  event.target.style.backgroundColor = 'grey';
+}
+
+olGray.addEventListener('click', greyPainter);
