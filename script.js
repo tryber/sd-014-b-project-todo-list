@@ -8,32 +8,28 @@ const clearButton = document.querySelector('#apaga-tudo');
 // Conteúdo do Course [5.2] Parte II Criando Elementos
 // Exercício de fixação - Spotrybefy - link para meu repositório https://github.com/oelithon/other-activities/pull/2
 
-addButton.addEventListener('click', function() {
+function addText() {
   const texto = textInput.value;
   const taskListItem = document.createElement('li');
   taskListItem.innerText = texto;
   textInput.value = null;
   taskList.appendChild(taskListItem);
-});
+}
+addButton.addEventListener('click', addText);
 
 // Adiciona background-color da tarefa clicada
 
-taskList.addEventListener('click', function(event) {
+function addBackground(event) {
   event.target.classList.add('bgColor');
-});
+}
+taskList.addEventListener('click', addBackground);
 
 // Risca tarefas concluídas
 
-taskList.addEventListener('dblclick', function(event) {
+function markCompleted(event) {
   event.target.classList.add('completed');
-});
-
-taskList.addEventListener('dblclick', function(event) {
-  const theTask = document.querySelector('#lista-tarefas');
-  if (theTask.classList.contains('completed')) {
-    event.classList.remove('completed');
-  }
-});
+}
+taskList.addEventListener('dblclick', markCompleted);
 
 // Limpar Lista
 
