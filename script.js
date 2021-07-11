@@ -3,6 +3,7 @@ const listaOrdenada = document.getElementById('lista-tarefas');
 const inputTarefa = document.getElementById('texto-tarefa');
 const buttonCriar = document.getElementById('criar-tarefa');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
+const buttonApagaFinalizados = document.getElementById('remover-finalizados');
 
 // função para alterar a cor de fundo (selecionar a tarefa)
 function listBackground(event) {
@@ -22,7 +23,7 @@ function completed(event) {
   }
 }
 // criar a lista de tarefas
-//para isso a função vai criar o elemento <li> que vai ser filho do elemento <ol> e tabém vai receber os escutadores para acontecer outras funções quando solicitado por eventos de disparo
+// para isso a função vai criar o elemento <li> que vai ser filho do elemento <ol> e tabém vai receber os escutadores para acontecer outras funções quando solicitado por eventos de disparo
 function capturarTarefa() {
   const tarefa = inputTarefa.value; // capturar e guardar, na variavel, o value (texto) digitado
   inputTarefa.value = null; // atribuindo o valor null para limpar o campo de digitação
@@ -38,6 +39,15 @@ buttonCriar.addEventListener('click', capturarTarefa);
 
 // apagar todos elementos filhos de <ol>
 function apagaTudo() {
-    listaOrdenada.innerText = ''; // substitiu o texto da <ol>, no caso colocando vazio substitiu todas as <li> pela string vazia 
+  listaOrdenada.innerText = '';// substitiu o texto da <ol>, no caso colocando vazio substitiu todas as <li> pela string vazia
 }
 buttonApagaTudo.addEventListener('click', apagaTudo);
+
+// apagar finalizados
+function apagarFinalizados() {
+  const listaConcluida = document.getElementsByClassName('completed');  
+  for (const i of listaConcluida) {
+   i.remove()
+  }
+}
+buttonApagaFinalizados.addEventListener('click', apagarFinalizados);
