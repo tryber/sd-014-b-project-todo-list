@@ -2,6 +2,8 @@
 const listaOrdenada = document.getElementById('lista-tarefas');
 const inputTarefa = document.getElementById('texto-tarefa');
 const buttonCriar = document.getElementById('criar-tarefa');
+const buttonApagaTudo = document.getElementById('apaga-tudo');
+const buttonApagaFinalizados = document.getElementById('remover-finalizados');
 
 // lista de tarefas que serão adicionadas
 // armazenar o texto captrado como tarefa numa variavel
