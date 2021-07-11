@@ -60,7 +60,7 @@ function finishedRemover() {
 
 finishedItens.addEventListener('click', finishedRemover);
 
-//remover o selecionado
+// remover o selecionado
 const selectedRemover = document.querySelector('#remover-selecionado');
 
 function cinzaRemover() {
@@ -68,3 +68,45 @@ function cinzaRemover() {
 }
 
 selectedRemover.addEventListener('click', cinzaRemover);
+
+// salva lista no localStorage
+const salvaStorage = document.querySelector('#salvar-tarefas');
+
+function salva() {
+  const listSaver = document.querySelector('#lista-tarefas').innerHTML;
+  localStorage.setItem('tarefas', listSaver);
+}
+
+salvaStorage.addEventListener('click', salva);
+
+function loader() {
+  document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('tarefas');
+}
+
+window.onload = loader;
+
+// move up e down
+// referência da função insert before adquirida em: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+// e funciona da seguinte maneira: navega-se até o elemento pai do nó que queremos mudar, aplicamos o insertBefore com dois parâmetros sendo o primeiro o elemento novo ou que se quer inserir, coloca-se a vírgula e por último a posição que se quer colocar
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
+
+function up() {
+  const li = document.querySelector('.cinza');
+  const liAll = document.querySelectorAll('.cinza');
+  if (liAll.length > 0 && !document.querySelectorAll('li')[0].classList.contains('cinza')) {
+    li.parentNode.insertBefore(li, li.previousSibling);
+  }
+}
+
+function down() {
+  const li = document.querySelector('.cinza');
+  const liAll = document.querySelectorAll('.cinza');
+  const liLength = document.querySelectorAll('li').length - 1;
+  if (liAll.length > 0 && !document.querySelectorAll('li')[liLength].classList.contains('cinza')) {
+    li.parentNode.insertBefore(li.nextSibling, li);
+  }
+}
+
+upButton.addEventListener('click', up);
+downButton.addEventListener('click', down);
