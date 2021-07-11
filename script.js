@@ -3,6 +3,7 @@ const taskList = document.querySelector('#lista-tarefas')
 const item = document.querySelectorAll('li')
 const inputValue = document.querySelector('input');
 const clearAllTasks = document.querySelector('#apaga-tudo');
+const clearCompleted = document.querySelector('#remover-finalizados');
 
 
 button.addEventListener('click', () => {
@@ -20,12 +21,12 @@ button.addEventListener('click', () => {
   inputValue.value = '';
 
   // Requisito 07 e 08
-  listItem.addEventListener('click', () => {
+  listItem.addEventListener('click', (event) => {
     for (let value of taskList.children) {
-      if (value.className === 'item selected') {
+      if (value.classList.contains('selected')) {
         value.classList.remove('selected')
       }
-      listItem.classList.add('selected')
+      event.target.classList.add('selected')
     };
   });
   // Requisito 09
@@ -40,5 +41,12 @@ button.addEventListener('click', () => {
   clearAllTasks.addEventListener('click', () => {
     taskList.innerHTML = '';
   });
-  
+  // Requisito 11
+  clearCompleted.addEventListener('click', () => {
+    for (let tasks of taskList.children) {
+      if (tasks.classList.contains('completed')) {
+        tasks.remove();
+      }
+    }
+  });
 });
