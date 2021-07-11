@@ -9,6 +9,7 @@ const moveUp = document.querySelector('#mover-cima'); /* Botão requisito 13 */
 const moveDown = document.querySelector('#mover-baixo'); /* Botão requisito 13 */
 const removeSelected = document.querySelector('#remover-selecionado'); /* Botão requisito 14 */
 
+// Requisito 7 e 8
 function enableSelection() {
   for (let i = 0; i < allTasks.length; i += 1) {
     allTasks[i].addEventListener('click', (event) => {
@@ -25,18 +26,26 @@ function enableSelection() {
 function createTask() {
   const createLi = document.createElement('li');
   createLi.setAttribute('class', 'task');
-  taskList.appendChild(createLi);
-  createLi.innerText = input.value;
-  input.value = '';
+  if (input.value !== '') {
+    taskList.appendChild(createLi);
+    createLi.innerText = input.value;
+    input.value = '';
+  } else {
+    alert('Insira um texto');
+  }
   enableSelection();
 }
 
 button.addEventListener('click', createTask);
 
 // Requisito 9
-// Referência classList.toggle
+// Referencia do "ClassList.toggle()" https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+
 function markCompleted(event) {
   event.target.classList.toggle('completed');
+  if (taskList.classList.contains('completed')) {
+    taskList.classList.remove('completed');
+  }
 }
 
 taskList.addEventListener('dblclick', markCompleted);
@@ -80,7 +89,8 @@ window.onload = () => {
 
 moveUp.addEventListener('click', () => {
   const selected = document.querySelector('.selected');
-  if (selected !== null) {
+  if (selected) {
+    // Recomendação do Victor Martins, esse "if(selected)" já retorna um booleano.
     if (selected === allTasks[0]) {
       alert('Não pode mais subir');
     } else {
@@ -91,7 +101,8 @@ moveUp.addEventListener('click', () => {
 
 moveDown.addEventListener('click', () => {
   const selected = document.querySelector('.selected');
-  if (selected !== null) {
+  if (selected) {
+  // Recomendação do Victor Martins, esse "if(selected)" já retorna um booleano.
     if (selected.nextElementSibling === null) {
       alert('Não pode mais descer');
     } else {
