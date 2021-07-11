@@ -33,15 +33,20 @@ function eraseListItem(listElement) {
 // EVENT LISTENERS:
 
 newTaskButton.addEventListener('click', (event)=>{
-  // while (inputWindow.value === null) {
-  //   window.alert('DIGITE ALGO')
-  // }
+  if (inputWindow.value === '') {
+    alert('Digite algo!');
+    return
+  }
   addToList(getInput());
   eraseInput();
 });
 
 inputWindow.addEventListener('keypress', (event)=>{
   if (event.key === 'Enter'){
+    if (inputWindow.value === '') {
+      alert('Digite algo!');
+      return
+    }
     addToList(getInput());
     eraseInput();
   }
@@ -97,6 +102,7 @@ removeSelectedButton.addEventListener('click', (event)=>{
     }
   }
 });
+
 // REFERÊNCIAS:
 
 // [1]: appendChild() method: w3schools.com/jsref/met_node_appendchild.asp
