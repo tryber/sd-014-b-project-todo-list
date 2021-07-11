@@ -1,7 +1,8 @@
 .container {
-  width: 95%;
+  width: 90%;
   height: 35rem;
-  margin-left: 15px;
+  margin-left: 35px;
+  margin-top: 20px;
   padding: 10px;
   padding-left: 20px;
   background-image: url('http://cdn26.us1.fansshare.com/photo/wallpaperwhite/white-wood-wallpaper-white-background-1184313043.jpg');
@@ -11,14 +12,18 @@
   text-align: center;
 }
 
+body {
+  background-color: #ffffff;
+}
+
 header {
   background-color: #463f3a;
   padding: 20px;
   border-radius: 10px;
   color: #f4f3ee;
   width: 60%;
-  margin-left: 180px;
-  margin-top: 15px;
+  margin-left: 155px;
+  margin-top: 20px;
 }
 
 header h1 {
@@ -28,8 +33,10 @@ header h1 {
 #lista-tarefas {
   text-align: left;
   font-family: 'Yomogi', cursive;
-  font-size: 15px;
+  font-size: 20px;
   width: 20%;
+  color: #463f3a;
+  font-weight: bold;
 }
 
 .completed {
@@ -39,4 +46,15 @@ header h1 {
 #buttons button {
   margin: 3px;
   padding: 5px;
+}
+
+button {
+  background-color: gray;
+  color: #f4f3ee;
+  font-weight: bold;
+}
+
+li {
+  padding: 5px;
+  margin-left: 10px;
 }
