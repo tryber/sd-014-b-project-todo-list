@@ -9,3 +9,11 @@ botaoAdicionar.addEventListener('click', () => {
   listaTarefas.appendChild(novoItem);
   novaTarefa.value = '';
 });
+
+function pintarSelecionado(paint) {
+  const itemClicado = document.querySelector('.selected');
+  itemClicado.classList.remove('selected');
+  paint.target.classList.add('selected');
+}
+
+listaTarefas.addEventListener('click', pintarSelecionado);
