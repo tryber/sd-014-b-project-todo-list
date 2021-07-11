@@ -86,10 +86,29 @@ h1 {
   background-color: rgb(145 , 1 , 1);
 }
 
+#lista-tarefas {
+  width: 40rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0;
+  margin-left: 40px;
+}
+
+#lista-tarefas li {
+  padding: 0.2rem 0.5rem;
+}
+
 .selected {
   background-color: gray;
+  border-radius: 1rem;
 }
 
 .completed {
   text-decoration: line-through;
+  color: rgb(98 , 153 , 84);
+}
+
+.completed.selected {
+  color: rgb(58 , 56 , 56);
 }
