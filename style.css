@@ -2,11 +2,11 @@ body {
     font-family: Ubuntu, sans-serif;
     margin: 0;
     padding: 0;
-    text-transform: lowercase;
+    
   }
   
   .cabecalho {
-    background-color: rgb(1 , 22 , 39);
+    background-color: #2fc18c;
     color: rgb(253 , 255 , 252);
     padding: 30px 100px;
     width: 100%;
@@ -17,6 +17,10 @@ body {
     width: 90%;
   }
   
+  ol{
+    list-style-type: none;
+  }
+
   .function {
     color: rgb(231 , 29 , 54);
     font-size: 1.3em;
@@ -42,14 +46,14 @@ body {
   }
   
   .task-list {
-    color: rgb(231 , 29 , 54);
+    color: #2fc18c;
     font-size: 1.5em;
     margin-left: 50px;
     min-height: 100px;
   }
   
   .input-large {
-    border: solid 3px rgb(1 , 22 , 39);
+    border: solid 3px whitesmoke;
     border-radius: 20px;
     color: rgb(1 , 22 , 39);
     font-size: 1em;
@@ -60,8 +64,9 @@ body {
   }
   
   .btn-large {
-    background-color: rgb(1 , 22 , 39);
+    background-color: #2fc18c;
     border-radius: 20px;
+    border: whitesmoke;
     color: white;
     font-size: 1em;
     font-weight: 600;
@@ -72,11 +77,12 @@ body {
   }
   
   .btn-large:hover {
-    background-color: rgb(61 , 90 , 128);
+    background-color: #0aad72;
   }
   
   .btn-small {
-    background-color: rgb(1 , 22 , 39);
+    background-color: #2fc18c;
+    border: whitesmoke;
     border-radius: 20px;
     color: white;
     font-size: 1em;
@@ -84,11 +90,11 @@ body {
     height: 40px;
     margin-right: 10px;
     padding: 10px;
-    width: 70px;
+    width: 100px;
   }
   
   .btn-small:hover {
-    background-color: rgb(61 , 90 , 128);
+    background-color: #0aad72;
   }
   
   .brackets {
@@ -96,9 +102,9 @@ body {
   }
   
   .selected {
-    background-color: gray;
+    background-color: #0aad72;
   }
   
   .completed {
-    text-decoration: line-through solid black;
+    text-decoration: line-through solid whitesmoke;
   }
