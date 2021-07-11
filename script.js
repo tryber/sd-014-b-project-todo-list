@@ -88,3 +88,41 @@ saveTasks.addEventListener('click', function () {
     });
     localStorage.setItem('li', JSON.stringify(li));
 })
+
+//move up
+let moveUp = document.getElementById('mover-cima');
+moveUp.addEventListener('click', function () {
+    let tasks = document.querySelectorAll('li');
+    console.log(tasks);
+    if( tasks.length > 1)
+    {
+        for (let count = 1; count < tasks.length; count++) {
+                if(tasks[count].classList.contains('selected')) {
+                    tasks[count].classList.remove('selected');
+                    let above = tasks[count-1].innerText;
+                    tasks[count-1].innerText = tasks[count].innerText;
+                    tasks[count].innerText = above;
+                    tasks[count-1].classList.add('selected');
+            }
+        }
+    }
+})
+
+//move Down
+let moveDown = document.getElementById('mover-baixo');
+moveDown.addEventListener('click', function () {
+    let tasks = document.querySelectorAll('li');
+    console.log(tasks);
+    if( tasks.length > 1)
+    {
+        for (let count = tasks.length-2; count >= 0; count--) {
+                if(tasks[count].classList.contains('selected')) {
+                    tasks[count].classList.remove('selected');
+                    let above = tasks[count+1].innerText;
+                    tasks[count+1].innerText = tasks[count].innerText;
+                    tasks[count].innerText = above;
+                    tasks[count+1].classList.add('selected');
+            }
+        }
+    }
+})
