@@ -18,25 +18,21 @@ function adicionar() {
 
 //---------------------------------------------------------------------
 
-listagem.addEventListener('click', function(event) {
-
-    for (let index = 0; index < liLocal.length; index += 1) {
-        liLocal[index].style.backgroundColor = '';
-
+listagem.addEventListener('click', (event) => {
+    const preSelected = document.querySelector('.selected');
+    if (preSelected != null) {
+        preSelected.style.backgroundColor = '';
+        preSelected.classList.remove('selected');
     }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
 });
 
 //---------------------------------------------------------------------
 
-listagem.addEventListener('dblclick', function(event) {
-
-
-    if (event.target.className === "completed") {
-        event.target.className = "";
-    } else { event.target.className += "completed"; }
-
+listagem.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
 });
+
 
 //---------------------------------------------------------------------
 let umaLista = document.getElementsByTagName('ol')[0];
@@ -61,3 +57,13 @@ function apagaFinalizados() {
 
 }
 //---------------------------------------------------------------------
+const saveBtn = document.getElementById('salvar-tarefas');
+
+saveBtn.addEventListener('click', function() {
+    localStorage.setItem('List', listagem.innerHTML);
+})
+listagem.innerHTML = localStorage.getItem('List');
+//---------------------------------------------------------------------
+// Fonte de pesquisa variada!!!
+// Sites recomendados e adicionais no Google!
+// Projeto foi reformulado uma porrada de vez kkkkk
