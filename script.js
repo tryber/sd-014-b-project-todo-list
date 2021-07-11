@@ -5,6 +5,7 @@ const inputWindow = document.querySelector('#texto-tarefa');
 const orderedList = document.querySelector('#lista-tarefas')
 const clearButton = document.querySelector('#apaga-tudo');
 const removeButton = document.querySelector('#remover-finalizados');
+const removeSelectedButton = document.querySelector('#remover-selecionado');
 
 
 // FUNCTIONS:
@@ -32,6 +33,9 @@ function eraseListItem(listElement) {
 // EVENT LISTENERS:
 
 newTaskButton.addEventListener('click', (event)=>{
+  // while (inputWindow.value === null) {
+  //   window.alert('DIGITE ALGO')
+  // }
   addToList(getInput());
   eraseInput();
 });
@@ -85,6 +89,14 @@ removeButton.addEventListener('click', (event)=>{
   }
 });
 
+removeSelectedButton.addEventListener('click', (event)=>{
+  let listItem = document.querySelectorAll('.list-item');
+  for (let i = 0; i < listItem.length; i++) {
+    if (listItem[i].classList.contains('selected')){
+      eraseListItem(listItem[i]);
+    }
+  }
+});
 // REFERÊNCIAS:
 
 // [1]: appendChild() method: w3schools.com/jsref/met_node_appendchild.asp

@@ -17,15 +17,22 @@ header {
   background-color: green;
   padding: 30px;
   border-radius: 50%;
-  border: 2px solid black;
+  box-shadow: 2px -2px 2px black;
+}
+
+button, header {
+border: 2px solid black;
 }
 
 button {
   font-size: 15px;
-  font-weight: bold;
   display: flexbox;
 }
 
 nav{
   margin-top: 35px;
+}
+
+button:hover {
+  font-weight: bold;
 }
