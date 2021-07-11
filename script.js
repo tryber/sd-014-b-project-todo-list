@@ -1,3 +1,6 @@
+/* Várias funções nesse projeto tiveram como fonte o projeto do aluno Leomar Linhares
+fonte: https://github.com/tryber/sd-014-b-project-todo-list/pull/79/files */
+
 const novaTarefa = document.getElementById('texto-tarefa');
 const botaoAdicionar = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
