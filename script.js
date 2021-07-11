@@ -1,13 +1,18 @@
-window.onload
+
 
 document.querySelector('h1').innerText = "Minha Lista de Tarefas";
 document.querySelector('#funcionamento').innerText = "Clique duas vezes em um item para marcá-lo como completo";
+document.querySelector('#apaga-tudo').innerText = "Apaga tudo";
+document.querySelector('#criar-tarefa').innerText = "Criar tarefa";
+
 
 let addTextTarefa = document.querySelector('#texto-tarefa');
 let addInputBotton = document.querySelector('#criar-tarefa');
 let addListTarefa = document.querySelector('#lista-tarefas');
 
+
 //Requisito 5 e 6 campo input terá a tarefa digitada pelo usuário e ao clicar no botão irá jogar o valor para dentro da lista ordenada
+
 function addNewTarefa() {
   addInputBotton.addEventListener('click' , function() { // adicionado uma  função toda vez que o evento click é executado no botão
     let newTarefa = document.createElement('li'); // lista é criada é atribuída a variavél newTarefa
@@ -21,7 +26,7 @@ addNewTarefa();
 // Requisito 7 e 8 Deixa cinza o background dos itens da lista quando clicados, deixando apenas o ultimo click com o background cinza
 
 function colorItemList() {
-  addListTarefa.addEventListener('click', function (event) { // adicionado a função alvo, toda vez que é executado o evento click na lista de tarefas(addListTarefa)
+  addListTarefa.addEventListener('click', function(event) { // adicionado a função alvo, toda vez que é executado o evento click na lista de tarefas(addListTarefa)
   let itemList = document.querySelectorAll('.backColorCinza');//variável recebe a classe backcolor , adicionada no css
   for (let index = 0; index < itemList.length; index += 1) {
     itemList[index].classList.remove('backColorCinza');
@@ -31,4 +36,14 @@ function colorItemList() {
 }
 colorItemList();
 
+// Requisito 9
 
+
+function riscaItemCompleto() {
+  addListTarefa.addEventListener('dblclick',function(event){
+  if (event.target.localName === 'li') {
+    event.target.classList.toggle('completed');
+  }
+});
+}
+riscaItemCompleto();
