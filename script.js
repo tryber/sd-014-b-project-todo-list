@@ -27,8 +27,8 @@ function selectedTarefa() {
     olPai.appendChild(li);
     li.className = 'li-tarefa';
     document.querySelector('#texto-tarefa').value = '';
-    li.addEventListener('click', function () { changeBackground(li); });
-    li.addEventListener('dblclick', function () { finishTarefa(li); });
+    li.addEventListener('click', () => changeBackground(li));
+    li.addEventListener('dblclick', () => finishTarefa(li));
   } else {
     alert('Não foi digitada nenhuma tarefa!');
   }
@@ -36,13 +36,22 @@ function selectedTarefa() {
 
 function cleaTarefas() {
   const listLi = document.querySelectorAll('li');
-  for (const liUnica of listLi) {
-    liUnica.parentElement.removeChild(liUnica);
-  }
+  listLi.forEach((li) => {
+    li.parentElement.removeChild(li);
+  });
+}
+
+function delAllFinishLi() {
+  const finishLi = document.querySelectorAll('.completed');
+  finishLi.forEach((el) => {
+    el.parentElement.removeChild(el);
+  });
 }
 
 const button = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
+const buttonDelFinishLis = document.querySelector('#remover-finalizados');
 
 button.addEventListener('click', selectedTarefa);
 buttonClear.addEventListener('click', cleaTarefas);
+buttonDelFinishLis.addEventListener('click', delAllFinishLi);
