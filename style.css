@@ -11,6 +11,7 @@ main {
   width: 550px;
   margin: auto;
   border-radius: 10px;
+  user-select: none;
 }
 
 header{
@@ -43,8 +44,10 @@ input:focus{
   outline-offset: 0px;
   outline-style:solid;
   outline-color: rgba(182, 175, 185, 0.842);
+  transition-duration: .3s;
 }
 button{
+  user-select: none;
   background: rgb(136, 72, 179);
   /* background-color: #DA4167; */
   width: auto;
@@ -57,7 +60,8 @@ button{
 }
 
 button:hover{
-  background: rgb(80, 29, 114);
+  background: rgb(93, 37, 131);
+  transition-duration: .3s;
 }
 
 button:active{
@@ -65,9 +69,11 @@ button:active{
 }
 .completed{
   background: rgb(77, 35, 105);
+  transition-duration: .2s;
 }
 .selected{
-  border:3px solid  rgb(136, 72, 179);
+  border:2px solid  rgb(136, 72, 179);
+  transition-duration: .3s;
 }
 
 #salvar-tarefas{
@@ -78,6 +84,7 @@ button:active{
 }
 #apaga-tudo{
   background-color: #ee4444;
+
 }
 #apaga-tudo:hover{
   background-color: #9c3e3e;
