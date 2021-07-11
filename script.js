@@ -4,6 +4,8 @@ const newTaskButton = document.querySelector('#criar-tarefa');
 const inputWindow = document.querySelector('#texto-tarefa');
 const orderedList = document.querySelector('#lista-tarefas')
 const clearButton = document.querySelector('#apaga-tudo');
+const removeButton = document.querySelector('#remover-finalizados');
+
 
 // FUNCTIONS:
 
@@ -23,11 +25,8 @@ function addToList(input) { // REF. [1]
   orderedList.appendChild(liNode); // Aloca o li na ol
 }
 
-function eraseListItems() {
-  let listItem = document.querySelectorAll('.list-item');
-  for (let i=0; i < listItem.length; i++) {
-    orderedList.removeChild(listItem[i]); // REF. [2]
-  }
+function eraseListItem(listElement) {
+  orderedList.removeChild(listElement); // REF. [2]
 }
 
 // EVENT LISTENERS:
@@ -71,7 +70,19 @@ orderedList.addEventListener('dblclick', (event)=>{
 });
 
 clearButton.addEventListener('click', (event)=>{
-  eraseListItems();
+  let listItem = document.querySelectorAll('.list-item');
+    for (let i=0; i < listItem.length; i++) {
+    eraseListItem(listItem[i]);
+    }
+});
+
+removeButton.addEventListener('click', (event)=>{
+  let listItem = document.querySelectorAll('.list-item');
+  for (let i = 0; i < listItem.length; i++) {
+    if (listItem[i].classList.contains('completed')){
+      eraseListItem(listItem[i]);
+    }
+  }
 });
 
 // REFERÊNCIAS:
