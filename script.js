@@ -1,6 +1,7 @@
-const novaTarefa = document.getElementById("texto-tarefa");
-const botaoAdicionar = document.getElementById("criar-tarefa");
-const listaTarefas = document.getElementById("lista-tarefas");
+const novaTarefa = document.getElementById('texto-tarefa');
+const botaoAdicionar = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
+const tarefasConcluidas = document.getElementsByClassName('riscado');
 
 botaoAdicionar.addEventListener('click', () => {
   const novoItem = document.createElement('li');
@@ -17,3 +18,13 @@ function pintarSelecionado(paint) {
 }
 
 listaTarefas.addEventListener('click', pintarSelecionado);
+
+function riscarSelecionado(riscar) {  
+  if (riscar.target.classList.contains('completed')) {
+    riscar.target.classList.remove('completed');
+  } else {
+    riscar.target.classList.add('completed');
+  }
+}
+
+listaTarefas.addEventListener('dblclick', riscarSelecionado);
