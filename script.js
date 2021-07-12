@@ -1,9 +1,9 @@
-let textoTarefa = document.querySelector('#texto-tarefa');
-let btnCriarTarefa = document.querySelector('#criar-tarefa');
-let listaTarefas = document.querySelector('#lista-tarefas');
-let listas = document.querySelectorAll('.listas');
+const textoTarefa = document.querySelector('#texto-tarefa');
+const btnCriarTarefa = document.querySelector('#criar-tarefa');
+const listaTarefas = document.querySelector('#lista-tarefas');
+const listas = document.querySelectorAll('.listas');
 let tarefa = '';
-let currentElement
+
 // Limpa o input depois que o botão é clicado
 function limparInput() {
   textoTarefa.value = '';
