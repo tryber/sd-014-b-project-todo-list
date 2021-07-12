@@ -1,7 +1,5 @@
 // OK - 1 - Adicione à sua lista o título "Minha Lista de Tarefas" em uma tag
-
 // OK - 2 - Adicione abaixo do título um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
-
 // OK - 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
 
 // 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
@@ -29,6 +27,14 @@ dbClickTask.addEventListener('dblclick', checkTask);
 
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 
+
+
+const apagarTudo = document.getElementById('apaga-tudo');
+apagarTudo.addEventListener('click', removeAll);
+
 function removeAll() {
-  let remove;
+  const taskList = document.querySelector('#lista-tarefas'); 
+  while(taskList.lastElementChild != null) {
+    taskList.removeChild(taskList.lastElementChild);
+  }
 }
