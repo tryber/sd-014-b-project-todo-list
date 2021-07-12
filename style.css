@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 } */
+
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: black solid line-through;
 }

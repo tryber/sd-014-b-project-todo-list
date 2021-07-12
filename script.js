@@ -27,3 +27,10 @@ listTask.addEventListener('click', (event) => {
 listTask.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
+
+// Apaga todos os itens da lista
+// Ref.: https://catalin.red/removing-an-element-with-plain-javascript-remove-method/
+const clear = document.querySelector('#apaga-tudo');
+clear.addEventListener('click', () => {
+  listTask.parentNode.removeChild(listTask);
+});
