@@ -1,6 +1,5 @@
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
-const color = 'rgb(128, 128, 128)';
 const childrenList = listOfTasks.children;
 
 // Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
@@ -11,14 +10,13 @@ function selected(event) {
   for (let index = 0; index < classTask.length; index += 1) {
     const childrenIndex = classTask[index];
     const indexClass = childrenIndex.classList;
-    if (childrenIndex.style.backgroundColor === color && indexClass.contains('selected')) {
-      childrenIndex.style.backgroundColor = 'white';
-      childrenIndex.classList.remove('selected');
-    } evento.style.backgroundColor = color;
+    if (indexClass.contains('selected')) {
+      indexClass.remove('selected');
+    }
     evento.classList.add('selected');
   }
 }
-
+listOfTasks.addEventListener('click', selected);
 // Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item.
 // Consegui resolver, apos ajuda do Lucas Alves e Henrique Almeida.
 
@@ -30,11 +28,11 @@ function createClass(event) {
     event.target.classList.add(classCompleted);
   }
 }
-
+listOfTasks.addEventListener('dblclick', createClass);
 // Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
 // Ajuda do Colega Victor Martins.
 
-buttonCreateTask.addEventListener('click', () => {
+function createNewTask() {
   const input = document.getElementById('texto-tarefa');
   const addTask = document.createElement('li');
   if (input.value !== '') {
@@ -45,9 +43,9 @@ buttonCreateTask.addEventListener('click', () => {
   } else {
     alert('Insira sua Tarefa!');
   }
-  addTask.addEventListener('click', selected);
-  addTask.addEventListener('dblclick', createClass);
-});
+}
+
+buttonCreateTask.addEventListener('click', createNewTask);
 
 // Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista.
 const buttonClear = document.getElementById('apaga-tudo');
