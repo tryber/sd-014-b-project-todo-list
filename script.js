@@ -20,11 +20,10 @@ listTask.addEventListener('click', (event) => {
   for (let key = 0; key < listItem.length; key += 1) {
     listItem[key].style.backgroundColor = 'white';
   }
-  // event.target.classList.add('selected');
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 });
 
 // Quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo.
-// const selectColor = document.querySelectorAll('.selected');
-// const gray = window.getComputedStyle(selectColor).getPropertyValue('background-color');
-// listTask.classList.toggle('.selected', gray);
+listTask.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
+});
