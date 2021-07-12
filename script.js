@@ -1,3 +1,4 @@
+// Requisito 5 e 6
 function listaDeTarefa() {
     const paiDaLi = document.querySelector('#lista-tarefas')
     const listaDeTarefa = document.createElement('li');
@@ -8,3 +9,16 @@ function listaDeTarefa() {
 }
 const button = document.querySelector('button');
 button.addEventListener('click', listaDeTarefa);
+
+//Requisito 7
+
+const listaOrdenada = document.querySelector('ol');
+
+function colorirLista(event) {
+    const listItem = document.querySelectorAll('li');
+    for (let index of listItem) {
+        index.style.backgroundColor = 'white';
+    }
+    event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
+listaOrdenada.addEventListener('click', colorirLista)
