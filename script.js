@@ -6,11 +6,19 @@ function createNewTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const createTask = document.createElement('li');
   createTask.innerText = inputTask.value;
-  createTask.addEventListener('click', changeBackgroundColor);
+  createTask.addEventListener('click', listBackgroundColor);
   taskList.appendChild(createTask);
   inputTask.value = '';
 }
 
-function changeBackgroundColor(Event) {
-  Event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function listBackgroundColor(Event) {
+  const selectedList = document.querySelectorAll('li');
+  const color = 'rgb(128, 128, 128)';
+  for (let index = 0; index < selectedList.length; index += 1) {
+    if (selectedList[index].style.backgroundColor === color) {
+      selectedList[index].style.backgroundColor = '';
+    } else {
+      Event.target.style.backgroundColor = color;
+    }
+  }
 }
