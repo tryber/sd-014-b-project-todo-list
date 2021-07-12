@@ -1,12 +1,10 @@
 function highlightItem(element) {
-  const item = element;
-  item.addEventListener('click', () => 
-  {
-    if (item.style.backgroundColor === 'rgb(255, 255, 255)')
-      item.style.backgroundColor = 'rgb(128, 128, 128)';
-    else
-      item.style.backgroundColor = 'rgb(255, 255, 255)';
+  const item = element.target;
+  document.querySelectorAll('li').forEach((element) => {
+    const li = element;
+    li.style.backgroundColor = 'rgb(255, 255, 255)';
   });
+  item.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function addToList() {
@@ -14,10 +12,10 @@ function addToList() {
   const text = inputBox.value;
   const list = document.getElementById('lista-tarefas');
   const item = document.createElement('li');
-  highlightItem(item);
+  item.addEventListener('click', highlightItem);
   item.innerHTML = text;
   list.appendChild(item);
-  inputBox.value = "";
+  inputBox.value = '';
 }
 
 function Main() {
