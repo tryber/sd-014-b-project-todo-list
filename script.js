@@ -31,6 +31,10 @@ window.onload = function () {
       event.target.classList.add('completed');
     }
   }
+  const buttonToRemoveList = document.querySelector('#apaga-tudo');
+  function removeAllList() {
+    const clearAllList = document.querySelector('#lista-tarefas');
+    clearAllList.innerHTML = '';
+  }
+  buttonToRemoveList.addEventListener('click', removeAllList);
 }
-
-
