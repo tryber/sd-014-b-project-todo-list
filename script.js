@@ -1,6 +1,11 @@
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const botaoTarefas = document.querySelector('#criar-tarefa');
 const inputTarefas = document.querySelector('#texto-tarefa');
+const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
+
+window.onload = function() {
+  listaOrdenada.innerHTML = localStorage.getItem('list');
+}
 
 // Requisitos #5 e #6
 // Source: https://www.w3schools.com/jsref/prop_text_value.asp
@@ -65,3 +70,9 @@ function removerTarefas() {
   }
 }
 removeTarefa.addEventListener('click', removerTarefas);
+
+// Requisito #12
+function salvarTarefas() {
+  localStorage.setItem('list', listaOrdenada.innerHTML);
+}
+botaoSalvarTarefas.addEventListener('click', salvarTarefas);
