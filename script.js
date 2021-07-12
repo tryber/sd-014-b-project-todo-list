@@ -1,5 +1,6 @@
 const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
+const btnApagarTudo = document.querySelector('#apaga-tudo');
 const listaTarefas = document.querySelector('#lista-tarefas');
 let tarefa = '';
 
@@ -32,6 +33,11 @@ function marcarItemCompleto(itemCompleto) {
     itemCompleto.target.classList.add('completed');
   }
 }
+
+// Evento de clique para apagar todas as tarefas da lista
+btnApagarTudo.addEventListener('click', () => {
+  listaTarefas.innerHTML = '';
+})
 
 // Cria um evento de clique para quando o botão é pressionado
 btnCriarTarefa.addEventListener('click', criarTarefa);
