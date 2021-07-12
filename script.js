@@ -27,10 +27,10 @@ function mudarCorDaTarefa(mouse) {
     if (listItem[index] === mouse.target) {
       if (mouse.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
         mouse.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      } else {
+      } /* else {
         mouse.target.style.backgroundColor = '#15151a';
 
-      }
+      } */
     } else {
       listItem[index].style.backgroundColor = '#15151a';
     }
@@ -46,7 +46,7 @@ eraseButton.addEventListener('click', apagaTodasTarefas);
 function apagaTodasTarefas() {
   let tarefas = document.querySelectorAll('.list-item');
   let tarefasParent = document.querySelector('#lista-tarefas');
-  for (index = 0; index < tarefas.length; index += 1) {
+  for (let index = 0; index < tarefas.length; index += 1) {
     tarefasParent.removeChild(tarefas[index]);
   }
 }
@@ -56,7 +56,7 @@ removeFinishedButton.addEventListener('click', removerTarefasFinalizadas);
 function removerTarefasFinalizadas() {
   let tarefas = document.querySelectorAll('.list-item');
   let tarefasParent = document.querySelector('#lista-tarefas');
-  for (index = 0; index < tarefas.length; index += 1) {
+  for (let index = 0; index < tarefas.length; index += 1) {
     if (tarefas[index].className === 'list-item completed') {
       tarefasParent.removeChild(tarefas[index]);
     }
@@ -103,37 +103,10 @@ upButton.addEventListener('click', moverTarefaPraCima);
 
 downButton.addEventListener('click', moverTarefaPraBaixo);
 
-// Funções comentadas que funcionam sem ter que clicar toda vez ao mover a tarefa
-/* function moverTarefaPraCima() {
-  let tarefas = document.querySelectorAll('.list-item');
-  for (let index = 1; index < tarefas.length; index += 1) {
-    if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      let tarefaAtual = tarefas[index].outerHTML;
-      tarefas[index].outerHTML = tarefas[index - 1].outerHTML;
-      tarefas[index - 1].outerHTML = tarefaAtual;
-    }
-  }
-  adicionarEvents()
-}
-
-function moverTarefaPraBaixo() {
-  let tarefas = document.querySelectorAll('.list-item');
-  for (let index = (tarefas.length - 2); index >= 0; index -= 1) {
-    if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      let tarefaAtual = tarefas[index].outerHTML;
-      tarefas[index].outerHTML = tarefas[index + 1].outerHTML;
-      tarefas[index + 1].outerHTML = tarefaAtual;
-    }
-
-    adicionarEvents()
-  }
-} */
-
 function moverTarefaPraCima() {
   let tarefas = document.querySelectorAll('.list-item');
   for (let index = 1; index < tarefas.length; index += 1) {
     if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      tarefas[index].style.backgroundColor = 'rgb(21, 21, 26)';
       let tarefaAtual = tarefas[index].outerHTML;
       tarefas[index].outerHTML = tarefas[index - 1].outerHTML;
       tarefas[index - 1].outerHTML = tarefaAtual;
@@ -146,7 +119,6 @@ function moverTarefaPraBaixo() {
   let tarefas = document.querySelectorAll('.list-item');
   for (let index = (tarefas.length - 2); index >= 0; index -= 1) {
     if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      tarefas[index].style.backgroundColor = 'rgb(21, 21, 26)';
       let tarefaAtual = tarefas[index].outerHTML;
       tarefas[index].outerHTML = tarefas[index + 1].outerHTML;
       tarefas[index + 1].outerHTML = tarefaAtual;
@@ -155,6 +127,8 @@ function moverTarefaPraBaixo() {
     adicionarEvents()
   }
 }
+
+
 
 function adicionarEvents() {
   let tarefas = document.querySelectorAll('.list-item');
