@@ -1,7 +1,57 @@
+body{
+  margin: 0;
+  background-color: #004643;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main{
+  background-color: #e8e4e6;
+  color: #001e1d;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+}
+
+button{
+  background-color: #009b9d;
+  color: #e8e4e6;
+  padding: 5px 20px;
+  margin-left: 5px;
+  border-radius: 20px;
+  border: 0;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #006774;
+}
+
+input{
+  border: 0;
+  border-radius: 20px;
+  padding: 5px 20px;
+  outline: none;
+  color: #e8e4e6;
+  background-color: #009b9d;
+}
+
+input::placeholder {
+  color: #e8e4e6;
+}
+
+#funcionamento{
+ color: #595959;
+}
+
+.titulo{
+  text-align: center;
+  color: #fffffe;
+}
+
 .selecionado{
   background-color: rgb(128, 128, 128);
 }
 
 .completed{
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
