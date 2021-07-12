@@ -5,15 +5,15 @@ const inputPath = document.querySelector('#texto-tarefa');
 
 document.querySelector('#criar-tarefa').addEventListener('click', () => {
   const tarefaLi = document.createElement('li');
-  if (inputPath.value != '') {
+  if (inputPath.value !== '') {
     olPath.appendChild(tarefaLi).innerText = inputPath.value;
   } else {
     alert('Adicione uma tarefa!');
   }
   inputPath.value = '';
-  
+
   tarefaLi.addEventListener('click', addRemoveSelected);
-  
+
   tarefaLi.addEventListener('dblclick', addRemoveCompleted);
 });
 
@@ -22,7 +22,6 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
 
 // document.querySelector('#texto-tarefa').addEventListener('keydown', (event) => {
 //   if (event.keyCode == 13) {
-
 //   }
 // })
 
