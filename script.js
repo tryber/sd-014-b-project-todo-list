@@ -10,7 +10,7 @@ function listaDeTarefa() {
 const button = document.querySelector('button');
 button.addEventListener('click', listaDeTarefa);
 
-//Requisito 7
+//Requisito 7 e 8
 
 const listaOrdenada = document.querySelector('ol');
 
@@ -21,4 +21,11 @@ function colorirLista(event) {
     }
     event.target.style.backgroundColor = 'rgb(128,128,128)'
 }
-listaOrdenada.addEventListener('click', colorirLista)
+listaOrdenada.addEventListener('click', colorirLista);
+
+//Requisito 9
+// Uso do .toggle (Bel Alburquerque, 2021)
+function riscado(event) {
+    event.target.classList.toggle('completed');
+}
+listaOrdenada.addEventListener('dblclick', riscado);
