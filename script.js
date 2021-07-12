@@ -1,6 +1,6 @@
 const inputText = document.querySelector('#texto-tarefa');
 const buttonAdd = document.querySelector('#criar-tarefa');
-const fatherOfList = document.getElementById('lista-tarefas');
+let fatherOfList = document.getElementById('lista-tarefas');
 
 
 buttonAdd.addEventListener('click', function() {
@@ -8,6 +8,7 @@ buttonAdd.addEventListener('click', function() {
     if (inputText.value !== ''){
     childOfList.innerText = inputText.value;
     childOfList.className = 'listItemOfTask';
+    childOfList.style.fontSize = '12px';
     childOfList.addEventListener('click', function (event){
         const currentColor = event.target.style.backgroundColor;
         if (currentColor !== 'rgb(128, 128, 128)') {
@@ -43,4 +44,21 @@ buttonAdd.addEventListener('click', function() {
 });
 
 //---------------------------------------------------------------------------------------
+
+const divInput = document.getElementById('inputAndButton');
+
+function createButton () {
+    const buttonCreated = document.createElement('button');
+    buttonCreated.innerText = 'Apagar todos os itens da lista';
+    buttonCreated.id = 'apaga-tudo';
+    divInput.appendChild(buttonCreated);
+    buttonCreated.addEventListener('click', function () {
+    let deleteWithClick = document.querySelectorAll('.listItemOfTask');
+        for (let index = 0; index < deleteWithClick.length; index += 1){
+            deleteWithClick[index].parentNode.removeChild(deleteWithClick[index]);
+            }
+    })
+}
+createButton();
+
 
