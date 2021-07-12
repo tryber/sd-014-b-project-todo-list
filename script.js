@@ -18,18 +18,17 @@ function criarTarefa() {
 }
 
 // Alterar a cor para cinza quando um item da lista for clicado
-function mudarCorSelecionado() {
+function mudarCorSelecionado(cor) {
   const itemClicado = document.querySelector('.selecionado');
   itemClicado.classList.remove('selecionado');
-  event.target.classList.add('selecionado');
+  cor.target.classList.add('selecionado');
 }
 
 // Riscar o item quando o mesmo for receber um duplo clique
 function marcarItemCompleto(itemCompleto) {
   if (itemCompleto.target.classList.contains('completed')) {
     itemCompleto.target.classList.remove('completed');
-  }
-  else {
+  } else {
     itemCompleto.target.classList.add('completed');
   }
 }
