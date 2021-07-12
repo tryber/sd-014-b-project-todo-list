@@ -1,12 +1,16 @@
 // CONSTANTS:
 
-const newTaskButton = document.querySelector('#criar-tarefa');
-const inputWindow = document.querySelector('#texto-tarefa');
-const orderedList = document.querySelector('#lista-tarefas')
-const clearButton = document.querySelector('#apaga-tudo');
-const removeButton = document.querySelector('#remover-finalizados');
-const removeSelectedButton = document.querySelector('#remover-selecionado');
-
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document); // REF. [3]
+const newTaskButton = query('#criar-tarefa');
+const inputWindow = query('#texto-tarefa');
+const orderedList = query('#lista-tarefas')
+const clearButton = query('#apaga-tudo');
+const removeButton = query('#remover-finalizados');
+const removeSelectedButton = query('#remover-selecionado');
+const saveTasks = query('#salvar-tarefas');
+const moveUpButton = query('#mover-cima')
+const moveDownButton = query('#mover-baixo')
 
 // FUNCTIONS:
 
@@ -15,7 +19,7 @@ function getInput() {
 }
 
 function eraseInput() { 
-  inputWindow.value = null;
+  inputWindow.value = '';
 }
 
 function addToList(input) { // REF. [1]
@@ -53,7 +57,7 @@ inputWindow.addEventListener('keypress', (event)=>{
 });
 
 orderedList.addEventListener('click', (event)=>{
-  let listItem = document.querySelectorAll('.list-item');
+  let listItem = queryAll('.list-item');
   for (let i=0; i < listItem.length; i++) {
     if (listItem[i].classList.contains('selected')) {
       listItem[i].classList.remove('selected');
@@ -66,7 +70,7 @@ orderedList.addEventListener('click', (event)=>{
 });
 
 orderedList.addEventListener('dblclick', (event)=>{
-  let listItem = document.querySelectorAll('.list-item');
+  let listItem = queryAll('.list-item');
   for (let i = 0; i < listItem.length; i++) {
     if (listItem[i] === event.target){
       if (!listItem[i].classList.contains('completed')){
@@ -79,14 +83,14 @@ orderedList.addEventListener('dblclick', (event)=>{
 });
 
 clearButton.addEventListener('click', (event)=>{
-  let listItem = document.querySelectorAll('.list-item');
+  let listItem = queryAll('.list-item');
     for (let i=0; i < listItem.length; i++) {
     eraseListItem(listItem[i]);
     }
 });
 
 removeButton.addEventListener('click', (event)=>{
-  let listItem = document.querySelectorAll('.list-item');
+  let listItem = queryAll('.list-item');
   for (let i = 0; i < listItem.length; i++) {
     if (listItem[i].classList.contains('completed')){
       eraseListItem(listItem[i]);
@@ -95,7 +99,7 @@ removeButton.addEventListener('click', (event)=>{
 });
 
 removeSelectedButton.addEventListener('click', (event)=>{
-  let listItem = document.querySelectorAll('.list-item');
+  let listItem = queryAll('.list-item');
   for (let i = 0; i < listItem.length; i++) {
     if (listItem[i].classList.contains('selected')){
       eraseListItem(listItem[i]);
@@ -103,7 +107,61 @@ removeSelectedButton.addEventListener('click', (event)=>{
   }
 });
 
+saveTasks.addEventListener('click', (event)=>{
+  window.alert('Lista salva');
+});
+
+function moveUp() {
+  moveUpButton.addEventListener('click', () => {
+    if (!query('.selected')) {
+      return; // Se nada selecionado, termina a função
+    }
+    if (query('.selected').previousElementSibling) { // Se houver anterior
+        query('.selected').parentNode.insertBefore(
+        query('.selected'),
+        query('.selected').previousElementSibling, // Explicação: 1
+      );
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  moveDownButton.addEventListener('click', () => {
+    if (!query('.selected')) {
+      return; // Se nada selecionado, termina a função
+    }
+    if (query('.selected').nextElementSibling) { // Se houver próximo
+        query('.selected').parentNode.insertBefore(
+        query('.selected').nextElementSibling,
+        query('.selected'),
+      );
+    }
+  });
+}
+moveDown();
+
 // REFERÊNCIAS:
 
-// [1]: appendChild() method: w3schools.com/jsref/met_node_appendchild.asp
-// [2]: removeChild() method: geeksforgeeks.org/how-to-remove-an-html-element-using-javascript/
+// [1]: appendChild() method: 
+//w3schools.com/jsref/met_node_appendchild.asp
+// [2]: removeChild() method: 
+//geeksforgeeks.org/how-to-remove-an-html-element-using-javascript/
+// [3]: A ideia de mudar querySelector para query e o norte 
+//para fazer as funções moveUp e moveDown vieram do código do 
+//colega Glauco Lombeira
+
+// EXPLICAÇÕES
+
+// 1 - parentNode.insertBefore(arg1, arg2);
+// 'Por que usar parentNode?' Porque essa é a notação da função.
+// É assim que chama ela.
+// Arg1 = argumento 1: O que você quer mudar de lugar
+// Arg2 = argumento 2: O node, nó, elemento anterior ao arg1
+// Seja a lista: 1.a 2.b 3.c
+// Você quer que ela seja: 1.b 2.a 3.c
+// Você quer, então, trocar a e b.
+// arg1 é b, arg2 é a, porque você quer colocar b no lugar do que vem antes de, a
+// Seja a lista: 1.a 2.b 3.c
+// Você quer que ela seja: 1.a 2.c 3.b
+// arg1 é c e arg2 é b, porque você quer colocar c no lugar do b
