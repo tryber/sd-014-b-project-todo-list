@@ -33,9 +33,9 @@ function endTask() {
     const element = li[i];
     element.addEventListener('dblclick', function risca(event) {
       if (element.classList.length === 2) {
-        event.target.classList.remove('riscado');
+        event.target.classList.remove('completed');
       } else {
-        event.target.classList.add('riscado');
+        event.target.classList.add('completed');
       }
     });
   }
