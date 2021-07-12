@@ -8,12 +8,10 @@ body {
 }
 
 #container {
-  border: 1px solid;
   border-radius: 12px;
   background-color: white;
   padding: 30px;
   width: 600px;
-  height: 250px;
   position: absolute;
   top: calc(50% - 200px);
   left: calc(50% - 300px);
@@ -35,6 +33,23 @@ body {
   margin-top: 10px;
 }
 
+#texto-tarefa {
+  width: 300px;
+  padding: 6px;
+  border-radius: 10px;
+  border: 2px solid black;
+  outline: none;
+}
+
+#texto-tarefa:focus {
+  border: 2px solid rgb(45, 126, 126);
+}
+
+#lista-tarefas {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
 .button {
   border: none;
   border-radius: 10px;
@@ -42,12 +57,68 @@ body {
 }
 
 #criar-tarefa {
-  background-color: cyan;
+  background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
   margin-left: 10px;
   padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
 }
 
 #criar-tarefa:hover {
-  background-color: rgba(81 , 192 , 236 , 0.822);
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  }
+
+#apaga-tudo {
+  /* background-color: rgb(236, 31, 31); */
+  background-image: linear-gradient(to right, #ee0979 0%, #ff6a00  51%, #ee0979  100%);
+  padding: 10px;
+  margin-left: 200px;
+  margin-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+#apaga-tudo:hover {
+  background-position: right center;
+  color: #fff;
   transition-duration: 0.5s;
+}
+
+#remover-finalizados {
+  background-image: linear-gradient(to right, #AA076B 0%, #61045F  51%, #AA076B  100%);
+  margin-left: 10px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+#remover-finalizados:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
