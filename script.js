@@ -1,6 +1,11 @@
 const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const inputTextoTarefa = document.getElementById('texto-tarefa');
-let listaTarefas = document.getElementById('lista-tarefas');
+const listaTarefas = document.getElementById('lista-tarefas');
+
+window.onload = function() {
+  listaTarefas.innerHTML = localStorage.getItem('list');
+};
+
 function addTarefaLista() {
   const tarefa = document.createElement('li');
   listaTarefas.appendChild(tarefa);
@@ -48,10 +53,7 @@ const deleteCompletedButton = document.getElementById('remover-finalizados');
 deleteCompletedButton.addEventListener('click', deleteCompleted);
 
 function saveTasks() {
-  const tarefas = document.getElementsByClassName('tarefa');
-  for (let i = 0; i < tarefas.length; i += 1) {
-    localStorage.setItem('tarefas', tarefas[i].innerHTML);
-  }
+  localStorage.setItem('list', listaTarefas.innerHTML);
 }
 
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
