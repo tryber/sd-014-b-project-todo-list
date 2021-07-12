@@ -32,7 +32,11 @@ function endTask() {
   for (let i = 0; i < li.length; i++) {
     const element = li[i];
     element.addEventListener('dblclick', function risca(event) {
-      event.target.classList.add('riscado');
+      if (element.classList.length === 2) {
+        event.target.classList.remove('riscado');
+      } else {
+        event.target.classList.add('riscado');
+      }
     });
   }
 }
