@@ -1,3 +1,5 @@
+// Usei o repositório de Natália Martins como consulta para resolver alguns requisitos, segue o link do repositório => https://github.com/tryber/sd-014-b-project-todo-list/pull/86/files
+
 const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const btnApagarTudo = document.querySelector('#apaga-tudo');
