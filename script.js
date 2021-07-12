@@ -89,7 +89,7 @@ orderedList.addEventListener('click', (event)=>{
     listItem[i].classList.remove('selected');
   }
   event.target.classList.add('selected');
-})
+}) // REF. [4]
 
 
 orderedList.addEventListener('dblclick', (event)=>{
@@ -147,6 +147,7 @@ window.onload = () => {
 // [3]: A ideia de mudar querySelector para query e o norte 
 //para fazer as funções moveUp e moveDown vieram do código do 
 //colega Glauco Lombeira
+// [4]: Ajuda direta do colega Henrique Almeida para debugar o código
 
 // EXPLICAÇÕES
 // 1 - parentNode.insertBefore(arg1, arg2);
