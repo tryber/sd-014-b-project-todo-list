@@ -24,6 +24,18 @@ function mudarCorSelecionado() {
   event.target.classList.add('selecionado');
 }
 
+// Riscar o item quando o mesmo for receber um duplo clique
+function marcarItemCompleto(itemCompleto) {
+  if (itemCompleto.target.classList.contains('completed')) {
+    itemCompleto.target.classList.remove('completed');
+  }
+  else {
+    itemCompleto.target.classList.add('completed');
+  }
+}
+
 // Cria um evento de clique para quando o botão é pressionado
 btnCriarTarefa.addEventListener('click', criarTarefa);
 listaTarefas.addEventListener('click', mudarCorSelecionado);
+// Evento de duplo clique para marcar o elemento como completado
+listaTarefas.addEventListener('dblclick', marcarItemCompleto);
