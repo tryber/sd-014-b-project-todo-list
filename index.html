@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header id=hero>
+    <h1 id=title>
+      Minha Lista de Tarefas
+    </h1>
+    <p id=funcionamento>Clique duas vezes em um item para marcá-lo como completo!</p>
+  </header>
+  <section id=functions>
+    <div class="container-task">
+      <input type="text" id=texto-tarefa placeholder="Digite sua Tarefa!">
+      <button id=criar-tarefa>
+        <span>Adicionar</span>
+      </button>
+      <button id=salvar-tarefas>
+        <span>Salvar</span>
+      </button>
+    </div>
+    <div class="container-functions">
+      <button id=apaga-tudo>
+        <span>Limpar Tarefas</span>
+      </button>
+      <button id=remover-finalizados>
+        <span>Limpar Tarefas Concluidas</span>
+      </button>
+      <button id=remover-selecionado>
+        <span>Limpar Tarefa Selecionada</span>
+      </button>
+      <button id=mover-cima>
+        <span>&#11014;</span>
+      </button>
+      <button id=mover-baixo>
+        <span>&#8681;</span>
+      </button>
+    </div>
+  </section>
+  <section id=tasks>
+    <div class="container-listtask">
+      <ol id=lista-tarefas>
+      </ol>
+    </div>
+  </section>
+  <script src='script.js'></script>
+</body>
+
+</html>
