@@ -5,6 +5,8 @@ const removeFinishedButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
+const deleteButton = document.querySelector('#remover-selecionado');
+
 buttonAddTask.addEventListener('click', criarTarefa);
 
 function criarTarefa() {
@@ -131,5 +133,16 @@ function moverTarefaPraBaixo() {
     for (let index = 0; index < tarefas.length; index += 1) {
       tarefas[index].addEventListener('dblclick', mudarStatusDaTarefa);
       tarefas[index].addEventListener('click', mudarCorDaTarefa);
+    }
+  }
+
+  deleteButton.addEventListener('click', removerSelecionado);
+
+  function removerSelecionado() {
+    let tarefas = document.querySelectorAll('.list-item');
+    for (let index = 0; index < tarefas.length; index += 1) {
+      if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listParent.removeChild(tarefas[index])
+      }
     }
   }
