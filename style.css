@@ -1,0 +1,13 @@
+li {
+  width: 25%;
+
+  /* overflow: auto; */
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
