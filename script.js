@@ -5,11 +5,6 @@ const buttonCriar = document.getElementById('criar-tarefa');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
 const buttonApagaFinalizados = document.getElementById('remover-finalizados');
 
-
-// lista de tarefas que serão adicionadas
-// armazenar o texto captrado como tarefa numa variavel
-let list = [];
-
 // função para alterar a cor de fundo
 function listBackground(event) {
   // seguindo a recomendação do Linter a função tem que ficar aqui em cima antes dela ser invocada na criação das li
@@ -35,7 +30,6 @@ function capturarTarefa() {
   const liTarefa = document.createElement('li');
   liTarefa.className = 'atividade-adicionada';
   liTarefa.innerText = tarefa;
-  list.push(liTarefa);
   liTarefa.addEventListener('click', listBackground);
   liTarefa.addEventListener('dblclick', completed);
   listaOrdenada.appendChild(liTarefa);
@@ -51,7 +45,7 @@ buttonApagaTudo.addEventListener('click', apagaTudo);
 
 // apagar finalizados
 function apagarFinalizados() {
-  const listaAdicionadas = document.querySelectorAll('.completed');
+  const listaAdicionadas = document.querySelectorAll('.completed');// importante trabalhar com Nodeparents para poder utilizar o indice como array. pos isso usar o querySelectorAll
   for (const i of listaAdicionadas) {
     if (i.classList.contains('completed')) {
       listaOrdenada.removeChild(i);
@@ -59,6 +53,4 @@ function apagarFinalizados() {
   }
   console.log(listaAdicionadas);
 }
-
-
 buttonApagaFinalizados.addEventListener('click', apagarFinalizados);
