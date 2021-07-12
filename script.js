@@ -3,7 +3,8 @@ const listParent = document.querySelector('#lista-tarefas');
 const eraseButton = document.querySelector('#apaga-tudo');
 const removeFinishedButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
-
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
 buttonAddTask.addEventListener('click', criarTarefa);
 
 function criarTarefa() {
@@ -64,6 +65,7 @@ function removerTarefasFinalizadas() {
 
 saveButton.addEventListener('click', salvarLocal)
 
+// Retirado de uma thread do slack, onde o Bernardo deu a dica
 function salvarLocal() {
   const listaDeTarefas = listParent.innerHTML;
   localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas))
@@ -94,3 +96,40 @@ function inserirTarefasSalvasNaLista() {
 window.onload = function () {
   renderizacaoInicial();
 }
+
+upButton.addEventListener('click', moverTarefaPraCima);
+
+downButton.addEventListener('click', moverTarefaPraBaixo);
+
+function moverTarefaPraCima() {
+  let tarefas = document.querySelectorAll('.list-item');
+  for (let index = 0; index < tarefas.length; index += 1) {
+    if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      let tarefaAtual = tarefas[index].outerHTML
+      tarefas[index].outerHTML = tarefas[index - 1].outerHTML
+      tarefas[index - 1].outerHTML = tarefaAtual;
+    }
+  }
+  adicionarEvents()
+}
+
+function moverTarefaPraBaixo() {
+  let tarefas = document.querySelectorAll('.list-item');
+  for (let index = (tarefas.length - 1); index >= 0; index -= 1) {
+    if (tarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      let tarefaAtual = tarefas[index].outerHTML
+      tarefas[index].outerHTML = tarefas[index + 1].outerHTML
+      tarefas[index + 1].outerHTML = tarefaAtual;
+    }
+
+    adicionarEvents()
+  }
+}
+
+  function adicionarEvents() {
+    let tarefas = document.querySelectorAll('.list-item');
+    for (let index = 0; index < tarefas.length; index += 1) {
+      tarefas[index].addEventListener('dblclick', mudarStatusDaTarefa);
+      tarefas[index].addEventListener('click', mudarCorDaTarefa);
+    }
+  }

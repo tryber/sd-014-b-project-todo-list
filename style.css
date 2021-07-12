@@ -34,7 +34,7 @@
   padding: 10px 3px;
   border-radius: 30px;
   line-height: 14px;
-  margin-right: 10px;
+  margin-right: 5px;
   font-weight: bold;
 }
 
@@ -48,6 +48,7 @@
   font-size: 12px;
   font-weight: 700;
   width: 100px;
+  margin-right:5px;
 }
 
 #buttons {
@@ -63,5 +64,22 @@
   padding: 10px 10px;
   line-height: 14px;
   border-radius: 30px;
+}
 
+#mover-cima {
+  font-size: 30px;
+  vertical-align: bottom;
+  background-color: white;
+  color: black;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+
+#mover-baixo {
+  font-size: 30px;
+  vertical-align: bottom;
+  background-color: white;
+  color: black;
+  padding: 7px 10px;
+  border-radius: 10px;
 }
