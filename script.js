@@ -20,6 +20,13 @@ function addTask() {
       event.target.classList.add('selected');
       // eslint-disable-next-line no-param-reassign
     });
+    createLi.addEventListener('dblclick', (event) => {
+      if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+    });
     getOl.appendChild(createLi);
     getInput.value = '';
   });
