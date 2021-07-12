@@ -1,0 +1,15 @@
+body{
+    margin: 20px;
+    text-align: left;
+}
+.cor-de-fundo{
+    background-color: rgb(128, 128, 128);
+}
+#criar-tarefa{
+    color: white;
+    margin: auto;
+    background-color: red;
+    padding: 5px;
+    border-radius: 15%;
+    width: 100px;
+}
