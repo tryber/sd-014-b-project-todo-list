@@ -30,11 +30,16 @@ function marcarItemCompleto(itemCompleto) {
 
 // Cria um evento de clique para quando o botão criar tarefa é pressionado
 btnCriarTarefa.addEventListener('click', () => {
-  tarefa = document.createElement('li');
-  tarefa.innerText = textoTarefa.value;
-  tarefa.className = 'tarefa';
-  listaTarefas.appendChild(tarefa);
-  limparInput();
+  if (textoTarefa.value === '') {
+    alert('Por favor, digite uma tarefa para inserir na sua lista');
+  }else {
+    tarefa = document.createElement('li');
+    tarefa.innerText = textoTarefa.value;
+    tarefa.className = 'tarefa';
+    listaTarefas.appendChild(tarefa);
+    limparInput();
+  }
+  
 });
 
 // Evento de clique para apagar todas as tarefas da lista
