@@ -1,3 +1,4 @@
+// Ajuda do Sam na reducao de linhas https://github.com/samsantosb
 const query = document.querySelector.bind(document);
 const queryAll = document.querySelectorAll.bind(document);
 
