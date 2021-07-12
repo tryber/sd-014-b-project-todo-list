@@ -1,10 +1,13 @@
 window.onload = function (){
+  getLocalStorage();
+}
 
     let getButton = document.querySelector('#criar-tarefa');
     let getList = document.querySelector('#lista-tarefas');
     let getInput = document.querySelector('#texto-tarefa');
     let getClearTasks = document.querySelector('#apaga-tudo');
     let buttonRemoveTasks = document.querySelector('#remover-finalizados');
+    
 
     getButton.addEventListener('click', createNewTask);
 
@@ -119,8 +122,53 @@ window.onload = function (){
         }
       });
 
-    
+let saveButton = document.getElementById('salvar-tarefas');
+const selectedItens = getList.children;
+
+saveButton.addEventListener('click', saveList);
+
+function saveList (){
+  
+  let arrayTasks = [];
+  localStorage.clear();
+
+  if (selectedItens.length > 0){
+    for (item of selectedItens){
+      let tasksCompleted;
+        if (item.classList.contains('completed')){
+          tasksCompleted = true;
+        } else {
+          tasksCompleted = false;
+        }
+        arrayTasks.push ({ task: item.innerText, completed: tasksCompleted});
+    }
+    localStorage.setItem('tasks', JSON.stringify(arrayTasks));
+  }
 }
+
+function getLocalStorage() {
+  let tasksStorage = JSON.parse(localStorage.getItem('tasks'));
+  if (tasksStorage !== null) {
+    for (let task of tasksStorage) {
+      let selectedItem = document.createElement('li');
+      selectedItem.innerText = task.task;
+      getList.appendChild(selectedItem);
+      if (task.completed == true) {
+        console.log(selectedItem);
+        getList.lastChild.classList.add('completed');
+        getList.lastChild.style.textDecoration =
+          'line-through solid rgb(0, 0, 0)';
+      }
+    }
+  }
+}
+      
+ 
+
+
+
+
+  
 
 
 
