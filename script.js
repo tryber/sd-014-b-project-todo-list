@@ -1,8 +1,7 @@
-let inputElement = document.getElementById("texto-tarefa");  //input de texto
-let buttonElement = document.querySelector("#criar-tarefa"); // botão adicionar
-let olElement = document.querySelector("#lista-tarefas"); // recuperando lista
-let btnRemove = document.querySelector("#apaga-tudo"); //recupera o botão de remover
-let btnSelectedClear = document.querySelector("#remover-finalizados");
+let inputElement = document.getElementById("texto-tarefa");
+let buttonElement = document.querySelector("#criar-tarefa");
+let olElement = document.querySelector("#lista-tarefas");
+let btnRemove = document.querySelector("#apaga-tudo");
 
 
 buttonElement.addEventListener("click", function recebeClick() {
@@ -20,6 +19,7 @@ buttonElement.addEventListener("click", function recebeClick() {
       colorGray.classList.remove('selected');
     }
     event.target.classList.add('selected');
+
   })
 
   liElement.addEventListener("dblclick", function doubleClicknone(event) {
@@ -30,6 +30,16 @@ buttonElement.addEventListener("click", function recebeClick() {
     olElement.removeChild(liElement);
   })
 
+})
 
+let btnSelectedClear = document.querySelector("#remover-finalizados");
+
+btnSelectedClear.addEventListener("click", function clearItemList() {
+  let clearComplete = document.querySelectorAll(".completed");
+  
+  for (index = clearComplete.length - 1; index >= 0; index -= 1) {
+    clearComplete[index].remove();
+  }
 
 })
+
