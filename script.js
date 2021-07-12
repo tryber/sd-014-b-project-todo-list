@@ -1,5 +1,4 @@
 // CONSTANTS:
-
 const query = document.querySelector.bind(document); // REF. [3]
 const queryAll = document.querySelectorAll.bind(document); // REF. [3]
 const newTaskButton = query('#criar-tarefa');
@@ -13,7 +12,6 @@ const moveUpButton = query('#mover-cima')
 const moveDownButton = query('#mover-baixo')
 
 // FUNCTIONS:
-
 function getInput() { 
   return inputWindow.value
 }
@@ -65,7 +63,6 @@ function moveDown() {
 moveDown();
 
 // EVENT LISTENERS:
-
 newTaskButton.addEventListener('click', (event)=>{
   if (inputWindow.value === '') {
     alert('Digite algo!');
@@ -88,16 +85,12 @@ inputWindow.addEventListener('keypress', (event)=>{
 
 orderedList.addEventListener('click', (event)=>{
   let listItem = queryAll('.list-item');
-  for (let i=0; i < listItem.length; i++) {
-    if (listItem[i].classList.contains('selected')) {
-      listItem[i].classList.remove('selected');
-      listItem[i].style.backgroundColor = 'white';
-    } else if (listItem[i] === event.target){
-      listItem[i].classList.add('selected');
-      listItem[i].style.backgroundColor = 'rgb(128,128,128)';
-    }
+  for (let i = 0; i < listItem.length; i++) {
+    listItem[i].classList.remove('selected');
   }
-});
+  event.target.classList.add('selected');
+})
+
 
 orderedList.addEventListener('dblclick', (event)=>{
   let listItem = queryAll('.list-item');
@@ -147,7 +140,6 @@ window.onload = () => {
 };
 
 // REFERÊNCIAS:
-
 // [1]: appendChild() method: 
 //w3schools.com/jsref/met_node_appendchild.asp
 // [2]: removeChild() method: 
@@ -157,7 +149,6 @@ window.onload = () => {
 //colega Glauco Lombeira
 
 // EXPLICAÇÕES
-
 // 1 - parentNode.insertBefore(arg1, arg2);
 // 'Por que usar parentNode?' Porque essa é a notação da função.
 // É assim que chama ela.
