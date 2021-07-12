@@ -93,3 +93,15 @@ function toDownListButton() {
 }
 
 takeToDownListButton.addEventListener('click', toDownListButton);
+
+const takeRemoveSelectedButton = document.querySelector('#remover-selecionado');
+function removeSelected() {
+  const takeLi = document.querySelectorAll('li');
+  for (let index = 0; index < takeLi.length; index += 1) {
+    if (takeLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      takeLi[index].remove();
+    }
+  }
+}
+
+takeRemoveSelectedButton.addEventListener('click', removeSelected);
