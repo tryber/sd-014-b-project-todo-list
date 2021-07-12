@@ -15,17 +15,18 @@ ol {
   justify-content: center;
   margin: auto;
   margin-top: 1rem;
+  font-family: sans-serif;
 }
 
 li {
   cursor: pointer;
 }
 
-.color {
+.selected {
   background-color: rgb(128, 128, 128);
   color: white;
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
