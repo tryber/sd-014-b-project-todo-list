@@ -1,0 +1,49 @@
+#input-div{
+  display: inline-block;
+}
+#criar-tarefa{
+  background-color: rgba(36, 148, 212, 0.884);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 5px;
+  float: right;
+  margin-left: 10px;
+}
+
+body{
+  background-color: rgb(25, 223, 25);
+  font-family: Helvetica, sans-serif;
+}
+
+#quadro{
+  background-color: honeydew;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo{
+  background-color: rgba(36, 148, 212, 0.884);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 5px;  
+}
+
+#remover-finalizados{
+  background-color: rgba(36, 148, 212, 0.884);
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.id-li{
+  background-color: honeydew;
+}
