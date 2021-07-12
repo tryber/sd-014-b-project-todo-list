@@ -7,6 +7,7 @@ window.onload = function (){
     let getInput = document.querySelector('#texto-tarefa');
     let getClearTasks = document.querySelector('#apaga-tudo');
     let buttonRemoveTasks = document.querySelector('#remover-finalizados');
+    let buttonRemoveSelected = document.querySelector('#remover-selecionado');
     
 
     getButton.addEventListener('click', createNewTask);
@@ -162,6 +163,14 @@ function getLocalStorage() {
     }
   }
 }
+
+buttonRemoveSelected.addEventListener('click', function () {
+  let selectedItem = document.getElementsByClassName('selected')[0];
+  if (selectedItem) {
+    getList.removeChild(selectedItem);
+  } 
+ 
+});
       
  
 
