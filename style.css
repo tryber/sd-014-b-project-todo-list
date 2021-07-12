@@ -14,8 +14,10 @@ body {
 .main-content {
     background: #fff;
     padding: 25px;
-    width: 70%;
+    width: 50%;
     margin: 80px auto;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.6);
 }
 
 /**********

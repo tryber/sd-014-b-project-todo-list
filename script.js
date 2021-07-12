@@ -10,6 +10,19 @@ valueTxtTask.addEventListener('keydown', function (event) {
         createTask();
 });
 
+
+const ol = document.querySelector('#lista-tarefas'); 
+
+function storage() {
+    ol.innerHTML = localStorage.ol;
+    
+    eventTasks();
+    if (ol.innerHTML === 'undefined') {
+        ol.innerHTML = '';
+    }
+}
+storage();
+
 //Cria os elementos li, dentro da lista
 function createTask() {
     //Faz a ligação da OL e do Input Text
@@ -24,15 +37,26 @@ function createTask() {
         let itemTask = document.createElement('li');
         itemTask.innerHTML = txtTask;
         itemTask.className = 'tasks';
-        itemTask.addEventListener('click', changeColor);
-        itemTask.addEventListener('dblclick', taskCompleted);
+        
 
         listTask.appendChild(itemTask);
 
+        eventTasks();
         //Seta o valor do input como vazio
         document.querySelector('#texto-tarefa').value = '';
     }
 }
+
+function eventTasks () {
+    let listTasks = document.querySelectorAll('.tasks');
+
+    for (let key of listTasks) {
+        let task = key;
+        task.addEventListener('click', changeColor);
+        task.addEventListener('dblclick', taskCompleted);
+    }
+}
+
 
 function changeColor(evento) {
     let listItems = document.querySelectorAll('.tasks');
@@ -49,7 +73,7 @@ function changeColor(evento) {
     };  
 } 
 
-function taskCompleted(evento) {    
+function taskCompleted(evento) {
     let itemClicked = evento.target;
     let searchClassCompleted = itemClicked.classList.contains('completed');
 
@@ -91,4 +115,13 @@ function clearCompleted() {
             task.parentNode.removeChild(task);
         };
     };
+}
+
+let btnSalvarTarefas = document.querySelector('#salvar-tarefas');
+btnSalvarTarefas.addEventListener('click', saveTasks);
+
+function saveTasks() {
+    
+    const dados = document.querySelector('ol').innerHTML;
+    localStorage.setItem('ol', dados);
 }
