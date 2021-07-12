@@ -1,7 +1,6 @@
 // Ao clicar no botão 'Adicionar' um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo. *Help do Henrique Almeida para limpar input*
 // Ordena os itens da lista de tarefas por ordem de criação
 const createTask = document.querySelector('#criar-tarefa'); // button
-const listItem = document.querySelectorAll('li');
 const listTask = document.querySelector('#lista-tarefas'); // pega <ol>
 
 createTask.addEventListener('click', () => {
@@ -15,11 +14,17 @@ createTask.addEventListener('click', () => {
   input.value = '';
 });
 
-// Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
-// .style.backgroundColor = 'rgb(128,128,128)';
+// Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) *Help Bea Ribeiro e Bel Albuquerque*
 listTask.addEventListener('click', (event) => {
-  // for (let key = 0; key < listItem.length; key += 1) {
-  //   listItem[key].style.backgroundColor = 'white';
-  // }
+  const listItem = document.querySelectorAll('li');
+  for (let key = 0; key < listItem.length; key += 1) {
+    listItem[key].style.backgroundColor = 'white';
+  }
+  // event.target.classList.add('selected');
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 });
+
+// Quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo.
+// const selectColor = document.querySelectorAll('.selected');
+// const gray = window.getComputedStyle(selectColor).getPropertyValue('background-color');
+// listTask.classList.toggle('.selected', gray);
