@@ -12,15 +12,6 @@ function limparInput() {
   textoTarefa.value = '';
 }
 
-// Adiciona o elemento 'li' e renderiza a tarefa no DOM
-function criarTarefa() {
-  tarefa = document.createElement('li');
-  tarefa.innerText = textoTarefa.value;
-  tarefa.className = 'tarefa';
-  listaTarefas.appendChild(tarefa);
-  limparInput();
-}
-
 // Alterar a cor para cinza quando um item da lista for clicado
 function mudarCorSelecionado(cor) {
   const itemClicado = document.querySelector('.selecionado');
@@ -37,10 +28,19 @@ function marcarItemCompleto(itemCompleto) {
   }
 }
 
+// Cria um evento de clique para quando o botão criar tarefa é pressionado
+btnCriarTarefa.addEventListener('click', () => {
+  tarefa = document.createElement('li');
+  tarefa.innerText = textoTarefa.value;
+  tarefa.className = 'tarefa';
+  listaTarefas.appendChild(tarefa);
+  limparInput();
+});
+
 // Evento de clique para apagar todas as tarefas da lista
 btnApagarTudo.addEventListener('click', () => {
   listaTarefas.innerHTML = '';
-})
+});
 
 // Evento que apaga os itens marcados como concluído
 btnRemoverFinalizados.addEventListener('click', () => {
@@ -51,10 +51,9 @@ btnRemoverFinalizados.addEventListener('click', () => {
       index -= 1;
     }
   }
-})
+});
 
-// Cria um evento de clique para quando o botão é pressionado
-btnCriarTarefa.addEventListener('click', criarTarefa);
+// Evento que muda a cor do item selecionado
 listaTarefas.addEventListener('click', mudarCorSelecionado);
 // Evento de duplo clique para marcar o elemento como completado
 listaTarefas.addEventListener('dblclick', marcarItemCompleto);
