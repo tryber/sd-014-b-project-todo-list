@@ -15,7 +15,7 @@ buttonAdd.addEventListener('click', function() {
             event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         }
         else if (currentColor ==='rgb(128, 128, 128)') {
-            event.target.style.backgroundColor = 'white';
+            event.target.style.backgroundColor = 'rgb(117, 181, 206)';
         };
         const currentItems = [];
         for (let index =0; index < document.getElementsByTagName('li').length; index += 1) {
@@ -23,7 +23,7 @@ buttonAdd.addEventListener('click', function() {
         }
         for (let index =0; index < currentItems.length; index += 1) {
             if(currentItems[index] !== event.target) {
-                currentItems[index].style.backgroundColor = 'white';
+                currentItems[index].style.backgroundColor = 'rgb(117, 181, 206)';
             }
         }
     })
@@ -70,4 +70,4 @@ apagarFinalizados.addEventListener('click', function () {
     for (index = 0; index < deletarCompletado.length; index += 1) {
             deletarCompletado[index].parentNode.removeChild(deletarCompletado[index]);
     }
-})
+});

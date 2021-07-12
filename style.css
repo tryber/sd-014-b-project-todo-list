@@ -1,16 +1,36 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(175, 109, 10);
+    background-color: rgb(216, 214, 200);
+    text-align: center;
 }
 main {
-    background-color: rgb(108, 168, 202);
+    background-color: rgb(117, 181, 206);
     margin-top: 100px;
     border-radius: 10px;
-    padding: 8px 8px;
+    padding: 10px 10px;
+    padding-top: 20px;
+    width: 300px;
+    display: inline-block;
+    text-align: center;
 }
 header {
     font-weight: 600;
     font-size: 18px;
+}
+
+button {
+    background-color: rgb(21, 122, 46);
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    padding: 8px 8px;
+    margin-left: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+button:hover {
+    background-color: rgb(55, 161, 31);
 }
 
 #funcionamento {
@@ -25,4 +45,10 @@ header {
 
 .currentSelectedItem{
     background-color: rgb(128, 128, 128);
+}
+
+input {
+    border-style: none;
+    border-radius: 5px;
+    margin-bottom: 8px;
 }
