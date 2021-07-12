@@ -1,6 +1,6 @@
 const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const inputTextoTarefa = document.getElementById('texto-tarefa');
-const listaTarefas = document.getElementById('lista-tarefas');
+let listaTarefas = document.getElementById('lista-tarefas');
 function addTarefaLista() {
   const tarefa = document.createElement('li');
   listaTarefas.appendChild(tarefa);
@@ -61,18 +61,34 @@ buttonSaveTasks.addEventListener('click', saveTasks);
 // let array = document.getElementsByClassName('tarefa');
 // let selected = document.querySelector('.tarefa .selected');
 function moveUp() {
-  const array = document.querySelectorAll('li');
-  const selected = document.querySelector('.selected');
-  for (let iTrocado = array.indexOf(selected) - 1; iTrocado >= 0; iTrocado -= 1) {
-    for (let iTroca = array.indexOf(selected); iTroca >= 0; iTroca -= 1) {
-      if (iTrocado < array.indexOf(selected)) {
-        const position = array[iTrocado];
-        array[iTrocado] = array[array.indexOf(selected)];
-        array[array.indexOf(selected)] = position;
+  const array = document.querySelectorAll('.tarefa');
+  const selected = document.querySelector('#selected');
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] === selected) {
+      for (let iTrocado = index - 1; iTrocado >= 0; iTrocado -= 1) {
+        for (let iTroca = index; iTroca >= 0; iTroca -= 1) {
+          if (iTrocado < index) {
+            const position = array[iTrocado].innerHTML;
+            array[iTrocado].innerHTML = array[index].innerHTML;
+            array[iTroca].innerHTML = position;
+            array[iTrocado].id = 'selected';
+            array[iTrocado].style.backgroundColor = 'rgb(128, 128, 128)';
+            // array[iTrocado].className = 'tarefa completed';
+            array[index].removeAttribute('id');
+            array[index].style.backgroundColor = '';
+            //array[index].classList.remove('completed');
+            if (array[index].classList == 'tarefa completed') {
+              array[index].classList.remove('completed');
+              array[iTrocado].className = 'tarefa completed';
+            }
+            break;
+          }
+        }
         break;
       }
+      console.log(array);
+      break;
     }
-    break;
   }
 }
 const buttonUp = document.getElementById('mover-cima');
@@ -82,20 +98,39 @@ buttonUp.addEventListener('click', moveUp);
 // const selected = document.querySelector('.selected');
 
 function moveDown () {
-  const array = document.querySelectorAll('li');
-  const selected = document.querySelector('.selected');
-  for (let iTrocado = array.indexOf(selected) + 1; iTrocado < array.length; iTrocado += 1) {
-    for (let iTroca = array.indexOf(selected); iTroca < array.length; iTroca += 1) {
-      if (iTrocado > array.indexOf(selected)) {
-        const position = array[iTrocado];
-        array[iTrocado] = array[array.indexOf(selected)];
-        array[array.indexOf(selected)] = position;
+  const array = document.querySelectorAll('.tarefa');
+  const selected = document.querySelector('#selected');
+  //console.log(selected);
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] === selected) {
+      for (let iTrocado = index + 1; iTrocado < array.length; iTrocado += 1) {
+        //console.log(array[iTrocado]);
+        for (iTroca = index; iTroca < array.length; iTroca += 1) {
+          //console.log(array[iTroca]);
+          if (iTrocado > index) {
+            const position = array[iTrocado].innerHTML;
+            array[iTrocado].innerHTML = array[index].innerHTML;
+            array[iTroca].innerHTML = position;
+            array[iTrocado].id = 'selected';
+            array[iTrocado].style.backgroundColor = 'rgb(128, 128, 128)';
+            // array[iTrocado].className = 'tarefa completed';
+            array[index].removeAttribute('id');
+            array[index].style.backgroundColor = '';
+            //array[index].classList.remove('completed');
+            if (array[index].classList == 'tarefa completed') {
+              array[index].classList.remove('completed');
+              array[iTrocado].className = 'tarefa completed';
+            }
+            break;
+          }
+        }
         break;
       }
+      console.log(array);
+      break;
     }
-    break;
   }
-}
+};
 const buttonDown = document.getElementById('mover-baixo');
 buttonDown.addEventListener('click', moveDown);
 //
