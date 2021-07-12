@@ -11,17 +11,22 @@ valueTxtTask.addEventListener('keydown', function (event) {
 });
 
 
-const ol = document.querySelector('#lista-tarefas'); 
+window.onload = function initialPage() {
+  let listTask = document.querySelector('#lista-tarefas');
 
-function storage() {
-    ol.innerHTML = localStorage.ol;
-    
-    eventTasks();
-    if (ol.innerHTML === 'undefined') {
-        ol.innerHTML = '';
-    }
+  if ( localStorage.length > 0) {
+    for ( let index = 0; index < localStorage.length; index += 1 ) {
+      let createLi = document.createElement('li');
+      let txtLocalStorage = localStorage.getItem('name' + index);
+      createLi.innerHTML = txtLocalStorage;
+      createLi.className = 'tasks';
+      
+      listTask.appendChild(createLi);
+
+      eventTasks();
+    };
+  };
 }
-storage();
 
 //Cria os elementos li, dentro da lista
 function createTask() {
@@ -89,6 +94,7 @@ let btnClearTasks = document.querySelector('#apaga-tudo');
 btnClearTasks.addEventListener('click', clearTasks);
 
 function clearTasks() {
+    localStorage.clear();
     let listTask = document.querySelectorAll('.tasks');
 
     for (let key of listTask) {
@@ -110,8 +116,9 @@ function clearCompleted() {
         //Retorna true se o elemento tiver a classe 'completed'
         let searchClassCompleted = task.classList.contains('completed');
         
-        //Se tiver, remove o elemento
+        //Se tiver, remove o elemento da lista e do Storage
         if (searchClassCompleted === true) {
+            localStorage.removeItem(task);
             task.parentNode.removeChild(task);
         };
     };
@@ -121,7 +128,11 @@ let btnSalvarTarefas = document.querySelector('#salvar-tarefas');
 btnSalvarTarefas.addEventListener('click', saveTasks);
 
 function saveTasks() {
-    
-    const dados = document.querySelector('ol').innerHTML;
-    localStorage.setItem('ol', dados);
+  let listTasks = document.querySelectorAll('.tasks');
+
+  for (let index = 0; index < listTasks.length; index += 1) {
+    let task = listTasks[index];
+    localStorage.setItem('name' + index, task.innerHTML);
+  };
+  
 }
