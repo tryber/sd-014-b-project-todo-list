@@ -1,6 +1,9 @@
 const buttonCreate = document.querySelector('#criar-tarefa');
 const buttonRemoveFinished = document.querySelector('#remover-finalizados');
 const buttonDeleteAll = document.querySelector('#apaga-tudo');
+const buttonMoveDown = document.querySelector('#mover-baixo');
+const buttonMoveUP = document.querySelector('#mover-cima');
+const buttonDelete = document.querySelector('#remover-selecionado');
 const buttonSave = document.querySelector('#salvar-tarefas');
 const list = document.querySelector('#lista-tarefas');
 
@@ -45,9 +48,7 @@ function removeAllItemsList() {
   listItems.innerHTML = '';
 }
 
-buttonDeleteAll.addEventListener('click', () => {
-  removeAllItemsList();
-});
+buttonDeleteAll.addEventListener('click', removeAllItemsList);
 
 function removeItemsFinished() {
   const itemsList = list.childNodes;
@@ -101,9 +102,52 @@ function insertTasksInDOM() {
   }
 }
 
-buttonSave.addEventListener('click', () => {
-  addTasksInLocalStorage();
-});
+buttonSave.addEventListener('click', addTasksInLocalStorage);
+
+function moveUp() {
+  const itemsList = list.childNodes;
+  for (let i = 1; i < itemsList.length; i += 1) {
+    if (itemsList[i].classList.contains('selected')) {
+      const up = itemsList[i].innerText;
+      const down = itemsList[i - 1].innerText;
+
+      itemsList[i - 1].innerText = up;
+      itemsList[i - 1].classList.add('selected');
+
+      itemsList[i].innerText = down;
+      itemsList[i].classList.remove('selected');
+      break;
+    }
+  }
+}
+
+buttonMoveUP.addEventListener('click', moveUp);
+
+function moveDown() {
+  const itemsList = list.childNodes;
+  for (let i = 0; i < itemsList.length - 1; i += 1) {
+    if (itemsList[i].classList.contains('selected')) {
+      const down = itemsList[i].innerText;
+      const up = itemsList[i + 1].innerText;
+
+      itemsList[i + 1].innerText = down;
+      itemsList[i + 1].classList.add('selected');
+
+      itemsList[i].innerText = up;
+      itemsList[i].classList.remove('selected');
+      break;
+    }
+  }
+}
+
+buttonMoveDown.addEventListener('click', moveDown);
+
+function deleteTask() {
+  const taskSelected = document.querySelector('.selected');
+  taskSelected.remove();
+}
+
+buttonDelete.addEventListener('click', deleteTask);
 
 function initialRenderization() {
   if (localStorage.getItem('tasks') === null) {
