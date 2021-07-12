@@ -1,5 +1,6 @@
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 const input = document.querySelector('#texto-tarefa');
-const inputLocalStorage = document.getElementById('texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const lista = document.querySelector('#lista-tarefas');
 const btnApagatudo = document.querySelector('#apaga-tudo');
@@ -21,7 +22,6 @@ btnCriarTarefa.addEventListener('click', addTarefa);
 function limparLinha() {
   const tarefas = document.querySelectorAll('.item-tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
-    tarefas[i].style.backgroundColor = 'green';
     tarefas[i].classList.remove('selected');
   }
 }
@@ -30,8 +30,6 @@ function limparLinha() {
 lista.addEventListener('click', function (event) {
   limparLinha();
   let tarefas = document.querySelectorAll('.item-tarefa');
-  let newColor = 'rgb(128, 128, 128)';
-  event.target.style.backgroundColor = newColor;
   event.target.classList.add('selected');
 });
 
@@ -53,10 +51,8 @@ function upLineSelection() {
       const sobeClasse = tarefas[n].className;
       tarefas[n].innerText = tarefas[n - 1].innerText;
       tarefas[n].className = tarefas[n - 1].className;
-      tarefas[n].style.backgroundColor = 'green';
       tarefas[n - 1].innerText = sobeTexto;
       tarefas[n - 1].className = sobeClasse;
-      tarefas[n - 1].style.backgroundColor = 'rgb(128, 128, 128)';
     }
   }
 } 
@@ -80,10 +76,8 @@ function downLineSelection() {
       const desceClasse = tarefas[n].className;
       tarefas[n].innerText = tarefas[n + 1].innerText;
       tarefas[n].className = tarefas[n + 1]. className;
-      tarefas[n].style.backgroundColor = 'green';
       tarefas[n + 1].innerText = desceTexto;
       tarefas[n + 1].className = desceClasse;
-      tarefas[n + 1].style.backgroundColor = 'rgb(128, 128, 128)';
     }
   }
 }
@@ -108,6 +102,7 @@ function apagaLista() {
 }
 btnApagatudo.addEventListener('click', apagaLista);
 
+// Remove itens concluídos
 function removerConcluidos() {
   const tamanhoListaCompleta = document.querySelectorAll('.completed');
   if (tamanhoListaCompleta.length !== 0) {
@@ -115,11 +110,12 @@ function removerConcluidos() {
       lista.removeChild(document.querySelector('.completed'));
     }
   } else {
-    console.log("Não existe nenhuma tarefa concluída!");
+    alert('Não existem tarefas concluídas!');
   }
 }
 btnRemoverConcluidos.addEventListener('click', removerConcluidos);
 
+// Remove item selecionado
 function removerSelecionados() {
   let selected = document.querySelector('.selected');
   if (selected !== null) {
@@ -128,34 +124,17 @@ function removerSelecionados() {
 }
 btnRemoverSelecionado.addEventListener('click', removerSelecionados);
 
+// Adiciona tarefas ao LocalStorage
 function addTarefaToLocalStorage() {
-  let tarefas = document.querySelectorAll('.item-tarefa');
+  let tarefas = document.getElementsByClassName('item-tarefa');
+  console.log(tarefas[0]);
   let tarefasStorage = [];
   for (let i = 0; i < tarefas.length; i += 1) {
-    tarefasStorage.push(tarefas[i].innerText);
+    tarefasStorage.push(`${tarefas[i].innerHTML} ${tarefas[i].className}`);
   }
   localStorage.setItem('tarefas', JSON.stringify(tarefasStorage));
 }
 btnSalvarTarefa.addEventListener('click', addTarefaToLocalStorage);
-
-//PRECISA DAR UMA OLHADA EM COMO RESOLVER ISSO
-function removeConcluidosLocalStorage() {
-  const tarefasConcluidas = document.querySelectorAll('.completed');
-  const listaLocalStorage = JSON.parse(localStorage.getItem('tarefas'));
-  if (tarefasConcluidas.length === 0) {
-    alert('Não existe nenhuma tarefa concluída');
-  } else {
-    for (let i = 0; i < tarefasConcluidas.length; i += 1) {
-      for (let ii = 0; ii < listaLocalStorage.length; ii += 1) {
-        if (tarefasConcluidas[i].innerText === listaLocalStorage[ii]) {
-          localStorage.removeItem(tarefasConcluidas[i]);
-        }
-      }
-    }
-  }
-}
-//btnRemoverConcluidos.addEventListener('click', removerConcluidos);
-btnRemoverConcluidos.addEventListener('click', removeConcluidosLocalStorage);
 
 // Inicialização do Local Storage
 // Verifica se já existe um array criado, caso tenha carrega a lista
@@ -165,11 +144,15 @@ function initialRenderization() {
     localStorage.setItem('tarefas', JSON.stringify([]));
   } else {
     const tarefasList = JSON.parse(localStorage.getItem('tarefas'));
-    const listLength = tarefasList.length - 1;
-    for (let index = 0; index <= listLength; index += 1) {
+    const listLength = tarefasList.length;
+    for (let index = 0; index < listLength; index += 1) {
+      let tarefaComClasse = tarefasList[index];
+      let classe = tarefaComClasse.indexOf('item-tarefa');// Armazena o índice, onde inicia essa frase buscada
+      let frase = tarefaComClasse.slice(0, classe); // Armazena a frase da posição 0 até o índice buscado anteriormente
+      let classes = tarefaComClasse.slice(classe, tarefaComClasse.length); // Armazena as classes, iniciando do indice buscado até o final
       const listElement = document.createElement('li');
-      listElement.innerText = tarefasList[index];
-      listElement.classList.add('item-tarefa');
+      listElement.innerText = frase;
+      listElement.className = classes;
       lista.appendChild(listElement);
     }
   }
