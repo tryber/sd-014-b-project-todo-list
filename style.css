@@ -1,15 +1,188 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0.1rem;
+    background-color:#540b0dda;
+    height: 1000px;
+    border-radius: 10%;
+    font-family: 'Bebas Neue', cursive;
+    box-shadow: 30px 30px ;
+}
+
+
+body{
+    height: 100%;
+    margin: 100px auto 0;
+    width: 1000px;
+    background-color: #335c67;
+
+}
+
+h1{
+    font-size: 5rem;
+    font-weight: 500;
+    font-family: 'Architects Daughter', cursive;
+    margin: 1rem 0 3rem;
+    text-align: center;
+    color: #fff3b0;
+   
+}
+
+.styling{
+    font-weight: 800;
+    color: #fff3b0;
+    font-family: 'Bebas Neue', cursive;
+}
+
+#explain{
+    margin-top: 20px;
+    font-family:'Architects Daughter', cursive; 
+    font-size: 2rem;
+    font-weight: 500;
+    color:#fff3b0;
+}
+
+
+#funcionamento{
+    font-size: 23px;
+    font-weight: 200;
+    font-family: 'Roboto';
+    margin: 1rem 0 3rem;
+    text-align: center;
+    color: #e09f3e;
+}
+
+.input-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.input-div .input{
+    padding: 0.5rem 1rem;
+    height: 40px;
+    outline: none;
+    width: 500px;
+    margin: 0.25rem;
+    border-radius: 25px;
+    border: none;
+    font-size: 18px;
+    box-shadow: 5px 10px ;
+
+}
+
+
+
+.button{
+    width: 50px;
+    height: 40px;
+    padding: 0;
+    margin: 0.20rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    overflow: hidden;
+    font-family: 'Roboto';
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 700px;
+    background-color: #fefae0;
+    
+}
+.button:hover{
+    border: solid black 2px;
+    opacity: 0.7;
+
+}
+
+.button:active{
+    background-color: #0F8B8D;
+}
+
 #criar-tarefa{
-    width: 80px;
-    height: 20px;
-    border: solid white 2px;
-    background-color:rgb(91, 149, 103);
-    display: inline;
-    margin-left: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+
+.remove-buttons{
+    text-align: center;
+}
+
+
+
+#remover-selecionado{
+    background: #9e2a2b;
+    color: #fefae0;
+    font-size: 25px;
+    
+}
+
+
+#mover-cima{
+    font-size: 25px;
+}
+
+#mover-baixo{
+    font-size: 25px;
+}
+
+#salvar-tarefas{
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.save-button{
+    text-align: center;
+    margin-top: 100px;
+    
+}
+
+#apaga-tudo{
+    width: 100px;
+    font-size: 18px;
+
+}
+
+#remover-finalizados{
+    width: 250px;
+    font-size: 18px;
 }
 
 .completed{
     text-decoration: line-through;
+}
+
+#lista-tarefas{
+    font-family: 'Architects Daughter', cursive; 
+    color: #fefae0;
+    font-weight: 550;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+}
+
+.newTask{
+    width: 350px;
+    font-size: 2rem;
+    border-bottom: 2px solid #fff3b0;
 }
 
