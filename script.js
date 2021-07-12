@@ -1,6 +1,8 @@
 // Script JS.
+const classSelected = '.li-selected';
+
 function changeBackground(li) {
-  const oldSelectedLi = document.querySelector('.li-selected');
+  const oldSelectedLi = document.querySelector(classSelected);
   if (oldSelectedLi !== null) {
     oldSelectedLi.classList.remove('li-selected');
   }
@@ -43,8 +45,8 @@ function cleaTarefas() {
 
 function delAllFinishLi() {
   const finishLi = document.querySelectorAll('.completed');
-  finishLi.forEach((el) => {
-    el.parentElement.removeChild(el);
+  finishLi.forEach((li) => {
+    li.parentElement.removeChild(li);
   });
 }
 
@@ -52,6 +54,40 @@ function saveLis() {
   const lis = document.querySelector('ol').innerHTML;
   localStorage.setItem('save', lis);
 }
+
+function moveUp() {
+  const liSelected = document.querySelector(classSelected);
+  const lis = document.querySelectorAll('li');
+
+  lis.forEach((li, id) => {
+    if (lis[id] === liSelected) {
+      const liPrevious = lis[id - 1];
+      if (liPrevious !== undefined) {
+        const elementPai = document.querySelector('ol');
+        liPrevious.parentElement.removeChild(liPrevious);
+        console.log(liPrevious);
+        elementPai.insertBefore(liPrevious, liSelected.nextSibling);
+      }
+    }
+  });
+}
+
+function moveDown() {
+  const liSelected = document.querySelector(classSelected);
+  const lis = document.querySelectorAll('li');
+
+  lis.forEach((li, id) => {
+    if (lis[id] === liSelected) {
+      const liPrevious = lis[id + 1];
+      if (liPrevious !== undefined) {
+        const elementPai = document.querySelector('ol');
+        liPrevious.parentElement.removeChild(liPrevious);
+        elementPai.insertBefore(liPrevious, liSelected);
+      }
+    }
+  });
+}
+
 function load() {
   if (localStorage.save !== undefined) {
     document.querySelector('ol').innerHTML = localStorage.save;
@@ -64,8 +100,12 @@ const button = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
 const buttonDelFinishLis = document.querySelector('#remover-finalizados');
 const buttonSavelis = document.querySelector('#salvar-tarefas');
+const buttonMoveUp = document.querySelector('#mover-cima');
+const buttonMoveDown = document.querySelector('#mover-baixo');
 
 button.addEventListener('click', selectedTarefa);
 buttonClear.addEventListener('click', cleaTarefas);
 buttonDelFinishLis.addEventListener('click', delAllFinishLi);
 buttonSavelis.addEventListener('click', saveLis);
+buttonMoveUp.addEventListener('click', moveUp);
+buttonMoveDown.addEventListener('click', moveDown);
