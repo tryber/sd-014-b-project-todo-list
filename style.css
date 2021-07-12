@@ -1,3 +1,70 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+  position: relative;
+  border: groove;
+  border-radius: 20%;
+  margin: 5% 10%;
+  padding: 10% 0;
+}
+
+header {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  padding: 10px;
+  margin-top: -10%;
+}
+
+#funcionamento {
+  color:rgb(128, 128, 128);
+  font-size: medium;
+  text-align: center;
+}
+
+#texto-tarefa {
+  width: 45%;
+  padding: 1% 5%;
+  margin-left: 15%;
+}
+
+#criar-tarefa {
+  font-weight: 600;
+  padding: 1%;
+  background-color: seagreen;
+  border: solid thin;
+  border-radius: 5%;
+}
+
+#remover-selecionado {
+  font-weight: 600;
+  padding: 1%;
+  background-color: goldenrod;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 10%;
+}
+
+#remover-finalizados {
+  font-weight: 600;
+  padding: 1%;
+  background-color: coral;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 5%;
+}
+
+#apaga-tudo {
+  font-weight: 600;
+  padding: 1%;
+  background-color: firebrick;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 5%;
+}
+
 #selected {
   background-color: rgb(128, 128, 128);
 }
@@ -6,7 +73,12 @@
   text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+ol {
+  padding: 3% 10%;
+}
+
 li {
+  list-style: inside decimal;
   padding: 0.5rem;
   font-size: large;
   width: fit-content;

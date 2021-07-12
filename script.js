@@ -4,7 +4,6 @@ function createListItem(text) {
   listItem.innerText = text;
   return listItem;
 }
-
 function textListItem() {
   const currentInput = document.getElementById('texto-tarefa').value;
   return currentInput;
@@ -19,7 +18,6 @@ function addIdStyle() {
     this.setAttribute('id', 'selected');
   }
 }
-
 function addClassStyle() {
   if (this.className === 'completed') {
     this.classList.remove('completed');
@@ -45,13 +43,34 @@ function eraseList() {
   const ordList = document.getElementById('lista-tarefas');
   ordList.innerHTML = '';
 }
-
 function eraseButton() {
   const eraseAll = document.getElementById('apaga-tudo');
   eraseAll.addEventListener('click', eraseList);
 }
 
+function removeCompleted(){
+  const completedItens = document.querySelectorAll('.completed');
+  for (let index of completedItens) {
+    index.remove();
+  }
+}
+function completedButton() {
+  const removeCompButton = document.getElementById('remover-finalizados');
+  removeCompButton.addEventListener('click', removeCompleted);
+}
+
+function removeSeleted(){
+  const selectedItem = document.getElementById('selected');
+  selectedItem.remove();
+}
+function seletedButton() {
+  const removeSelecButton = document.getElementById('remover-selecionado');
+  removeSelecButton.addEventListener('click', removeSeleted);
+}
+
 window.onload = () => {
   addListItem();
   eraseButton();
+  completedButton();
+  seletedButton();
 };
