@@ -69,3 +69,27 @@ window.onload = () => {
 };
 
 saveButton.addEventListener('click', saveList);
+
+const takeToUpListButton = document.querySelector('#mover-cima');
+function toUpListButton() {
+  const takeLi = document.querySelectorAll('li');
+  for (let index = 0; index < takeLi.length; index += 1) {
+    if (takeLi[index].previousElementSibling && takeLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      takeLi[index].parentElement.insertBefore(takeLi[index], takeLi[index].previousElementSibling);
+    }
+  }
+}
+
+takeToUpListButton.addEventListener('click', toUpListButton);
+
+const takeToDownListButton = document.querySelector('#mover-baixo');
+function toDownListButton() {
+  const takeLi = document.querySelectorAll('li');
+  for (let index = 0; index < takeLi.length; index += 1) {
+    if (takeLi[index].nextElementSibling && takeLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      takeLi[index].parentElement.insertBefore(takeLi[index], takeLi[index + 1].nextElementSibling);
+    }
+  }
+}
+
+takeToDownListButton.addEventListener('click', toDownListButton);
