@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+header,
+h1,
+p,
+input,
+button,
+ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+  font-family: sans-serif;
+}
+
+li {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+  color: white;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
