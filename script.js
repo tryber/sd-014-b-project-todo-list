@@ -5,6 +5,9 @@ const listToDo = document.getElementById('lista-tarefas');
 const eraseBtn = document.getElementById('apaga-tudo');
 const eraseTaskBtn = document.getElementById('remover-selecionado');
 const eraseFinishTask = document.getElementById('remover-finalizados');
+const moveUp = document.getElementById('mover-cima');
+const moveDown = document.getElementById('mover-baixo');
+const saveTasks = document.getElementById('salvar-tarefas');
 
 // função para adicionar na lista um novo item, capturado pelo input
 // aqui preciso do localStorage, pois ao final da inserção de dados, eles estejam lá para quando o usuário abrir novamente, ele ver a lista dele novamente.
@@ -26,6 +29,9 @@ function addTask() {
 }
 
 function selectItem(event) {
+  if (moveUp.hasAttribute('disabled')) {
+    moveUp.removeAttribute('disabled');
+  }
   const taskItem = document.querySelector('.selected');
   if (taskItem) {
     taskItem.classList.remove('selected');
@@ -38,8 +44,8 @@ addBtn.addEventListener('click', addTask);
 
 // função já feita no exercício de web storage, que adiciona um item ao teclar enter. Na documentação da Mozilla fala sobre eventos e métodos wich, key, location. https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key.
 inputText.addEventListener('keyup', (enter) => {
-  const key = enter.wich || enter.location;
-  if (key === 'Enter' || key === 3) {
+  const key = enter.wich || enter.key;
+  if (key === 'Enter' || key === 3 || key === 13) {
     addTask();
     inputText.value = '';
   }
@@ -54,60 +60,90 @@ eraseTaskBtn.addEventListener('click', deleteSelected);
 // evento que deleta APENAS os finalizados
 eraseFinishTask.addEventListener('click', deleteCompleted);
 
+// evento para mover para cima um item
+moveUp.addEventListener('click', moveItem);
+// evento para mover para cima um item
+moveDown.addEventListener('click', moveItemBx);
+
+// evento para salvar as tarefas
+saveTasks.addEventListener('click', saveList);
+
 // Deleta todas as tarefas
 function deleteAll() {
-  let listItem = document.querySelectorAll('.list-item');
-  for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].remove();
+  const listItemDel = document.querySelectorAll('.list-item');
+  for (let i = 0; i < listItemDel.length; i += 1) {
+    listItemDel[i].remove();
   }
 }
 
 // deleta uma tarefa selecionada
 function deleteSelected() {
-  let listItem = document.querySelector('.selected');
-  listItem.remove('list-item');
+  const listItemSelect = document.querySelector('.selected');
+  listItemSelect.remove();
 }
 
 // função de clique duplo, para tarefa ser cumprida
 function completeTask(event) {
-  const taskItem = document.querySelector('.completed');
-  // if (taskItem) {
-  //   taskItem.classList.remove('completed');
-  // }
-  event.target.classList.add('completed');
-}
-
-function selectItem(event) {
-  const taskItem = document.querySelector('.selected');
-  if (taskItem) {
-    taskItem.classList.remove('selected');
-  }
-  event.target.classList.add('selected');
+  // sd
+  event.target.classList.toggle('completed'); // evento toggle disponível na documentação. https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
 }
 
 function deleteCompleted() {
-  let listItem = document.querySelectorAll('.completed');
-  for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].remove();
+  const listItemDelCompleted = document.querySelectorAll('.completed');
+  for (let i = 0; i < listItemDelCompleted.length; i += 1) {
+    listItemDelCompleted[i].remove();
   }
 }
 
-function deleteSelected() {
-  let listItem = document.querySelector('.selected');
-  listItem.remove();
-  // for (let i = 0; i < listItem.length; i += 1) {
-  //   listItem[i].remove();
-  // }
+function moveItem() {
+  const listItemSelect = document.querySelector('.selected');
+  const itemIndex = document.getElementById('lista-tarefas').children;
+  for (let i = 0; i < itemIndex.length; i += 1) {
+    if (itemIndex[i] === listItemSelect) {
+      listToDo.insertBefore(itemIndex[i], itemIndex[i].previousElementSibling);
+      if (itemIndex[0] === listItemSelect) {
+        moveUp.setAttribute('disabled', 'true');
+      }
+    }
+  }
 }
 
-function upItem() {
-
+function moveItemBx() {
+  const listItemSelect2 = document.querySelector('.selected');
+  const itemIndex = document.getElementById('lista-tarefas').children;
+  for (let i = 0; i < itemIndex.length; i += 1) {
+    if (itemIndex[i] === listItemSelect2) {
+      listToDo.insertBefore(itemIndex[i].previousElementSibling, itemIndex[i]);
+    }
+  }
 }
 
-function downItem() {
-
+function saveList() {
+  const SaveHtmlList = listToDo.innerHTML;
+  localStorage.setItem('taskList', JSON.stringify(SaveHtmlList));
+  if (SaveHtmlList !== null) {
+    alert('Lista salva com sucesso!');
+  }
 }
 
-// window.onload {
+window.onload = () => {
+  // método window.confirm. https://developer.mozilla.org/pt-BR/docs/Web/API/Window/confirm. Surgiu da idéia de carregar a lista se o usuário quiser, visando usabilidade e dinamismo para a aplicação.
+  const confirms = window.confirm('Você deseja carregar a lista anterior?');
+  if (confirms) {
+    listToDo.innerHTML = JSON.parse(localStorage.getItem('taskList'));
+  }
+};
 
+// nota mental - fazer uma função que verifica se o meu elemento lista está vazio, para servir as outras funções. Fica mais organizado.
+
+// function voidList() {
+//   const voidItems = document.getElementById('lista-tarefas').children;
+//   console.log(voidItems);
+//   if (voidItems.length === 0) {
+//     alert('Não há elementos para manipular');
+//     return true;
+//   }
+//   return false;
 // }
+// questão 12 - mandar o array completo pro localstorage // monitoria
+// da o nome pra HashChangeEvent, no valor manda o array.

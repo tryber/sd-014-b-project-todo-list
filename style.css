@@ -36,6 +36,7 @@ header {
   margin-top: 0.3em;
   margin-left: auto;
   margin-right: auto;
+  color: brown;
 }
 
 input {
@@ -101,8 +102,7 @@ li, li::marker {
 .list-item {
   list-style-position: inside;
 }
-
-/* Depois de completo e entregue, tirar a gambiarra do marcador e fazer a linha inteira ficar com background cinza, junto com o ::marker */
+/* Achei esta dica para personalizar elementos com o atributo disabled. Para os botões não funcionarem caso não haja elementos na lista. https://developer.mozilla.org/pt-BR/docs/Web/CSS/:disabled */
 .selected {
   color:rgb(255, 255, 255);
   background-color: rgb(128, 128, 128);
@@ -117,11 +117,17 @@ li, li::marker {
   color: rgb(98, 98, 98);
 }
 
-.completed::marker {
-  color: rgb(192, 192, 192);
-  text-decoration: none;
+.completed li {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+.completed::marker {
+  color: rgb(192, 192, 192);
+}
+
+#funcionamento {
+  font-size: 1.4em;
+}
 
 /* Personalização dos botões do forumlário */
 
@@ -160,6 +166,11 @@ li, li::marker {
 #mover-cima:hover {
   color: rgb(95, 129, 3);
   background-color: rgba(130, 253, 119, 0.5);
+}
+
+#mover-cima:disabled {
+  color: rgb(128, 128, 128);
+  background-color: #ccc;
 }
 
 #mover-baixo {
