@@ -12,7 +12,7 @@ let listItens = taskList.children;
 
 btnCreateTask.addEventListener('click', addTask);
 
-function addTask(parameter) {
+function addTask() {
   let listItem = document.createElement('li');
   if (inputTask.value !== '') {
     listItem.innerText = inputTask.value;
@@ -22,25 +22,26 @@ function addTask(parameter) {
   }
 }
 
-inputTask.addEventListener('keypress', function(event) {
-  if(event.key === 'Enter' ){
-    addTask()
+inputTask.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    addTask();
   }
-})
+});
+
 function addListItemListeners(listItem) {
   listItem.addEventListener('click', function (event) {
     if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
       event.target.style.backgroundColor = '';
-      event.target.classList.remove('selected')
+      event.target.removeAttribute('id');
     } else {
       for (let item of taskList.children) {
         if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
           item.style.backgroundColor = '';
-          item.classList.remove('selected')
+          item.removeAttribute('id');
         }
       }
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      event.target.classList.add('selected')
+      event.target.id = 'selected';
     }
   });
 
@@ -62,36 +63,6 @@ btnDeleteAll.addEventListener('click', function () {
       taskList.removeChild(taskList.lastChild);
     }
     localStorage.clear();
-  //   let div = document.createElement('div');
-  //   let pElement = document.createElement('p');
-  //   pElement.innerText = 'Você tem certeza que quer apagar todas as tarefas?';
-  //   div.appendChild(pElement);
-  //   let yesButton = document.createElement('button');
-  //   yesButton.innerText = 'sim';
-  //   yesButton.style.backgroundColor = '#3caa41';
-  //   yesButton.style.display = 'inline';
-  //   let noButton = document.createElement('button');
-  //   noButton.innerText = 'não';
-  //   noButton.style.backgroundColor = '#ee4444';
-  //   noButton.style.display = 'inline';
-  //   div.appendChild(yesButton);
-  //   div.appendChild(noButton);
-  //   main.appendChild(div);
-  //   yesButton.addEventListener('click', function (e) {
-  //     main.removeChild(div);
-  //     while (taskList.firstChild) {
-  //       taskList.removeChild(taskList.lastChild);
-  //     }
-  //     localStorage.clear();
-  //   });
-
-  //   noButton.addEventListener('click', function (e) {
-  //     main.removeChild(div);
-  //   });
-  //   setTimeout(function () {
-  //     main.removeChild(div);
-  //   }, 10000);
-  // }
   }
 });
 
@@ -128,33 +99,57 @@ btnSaveTasks.addEventListener('click', function () {
 });
 
 btnMoveUp.addEventListener('click', function () {
-  let selectedItem = document.getElementsByClassName('selected')[0];
-  let listNode;
+  let selectedItem = document.getElementById('selected');
   if (selectedItem) {
-    listNode = selectedItem.parentNode;
-    if (selectedItem.previousElementSibling) {
-      //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
-      listNode.insertBefore(selectedItem, selectedItem.previousSibling);
-      // a linha acima insere selectedItem antes do elemento passado como referencia, no caso selectedItem.previousSibling que é o elemento logo acima, o if verifica se há um elemento acima
+    if (selectedItem.previousElementSibling !== null) {
+      selectedItem.parentElement.insertBefore(selectedItem, selectedItem.previousElementSibling);
+    } else if(selectedItem.previousElementSibling === null){
+      console.log(selectedItem)
     }
   }
 });
 
 btnMoveDown.addEventListener('click', function () {
-  let selectedItem = document.getElementsByClassName('selected')[0];
-  let listNode;
+  let selectedItem = document.getElementById('selected');
   if (selectedItem) {
-    listNode = selectedItem.parentNode;
-    if (selectedItem.nextElementSibling) {
-      //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
-      listNode.insertBefore(selectedItem.nextElementSibling, selectedItem);
-      //dessa vez foi preciso inverter. a linha acima insere selectedItem.nextElementSibling(elemento abaixo) depois do elemento passado como referencia, no caso selectedItem que é o elemento selecionado, o if verifica se há um elemento abaixo
+    if (selectedItem.nextElementSibling !== null) {
+      selectedItem.parentElement.insertBefore(selectedItem.nextElementSibling, selectedItem);
+    } else if(selectedItem.nextElementSibling === null){
+      console.log(selectedItem)
     }
   }
 });
 
+// function moveItem(selected, seletedSibling) {
+//   let siblingText = seletedSibling.innerText;
+//   seletedSibling.innerText = selected.innerText;
+//   selected.innerText = siblingText;
+//   selected.style.backgroundColor = '';
+//   selected.removeAttribute('id');
+//   seletedSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+//   seletedSibling.id = 'selected';
+//   handleCompleted(selected, seletedSibling);
+// }
+
+// function handleCompleted(selected, seletedSibling) {
+//   if (selected.classList.contains('completed') && !seletedSibling.classList.contains('completed')) {
+//     selected.classList.remove('completed');
+//     selected.style.textDecoration = 'none';
+//     seletedSibling.classList.add('completed');
+//     seletedSibling.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+//   } else if(selected.classList.contains('completed') && seletedSibling.classList.contains('completed')){
+//     selected.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+//     seletedSibling.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+//   } else if (seletedSibling.classList.contains('completed')) {
+//     seletedSibling.classList.remove('completed');
+//     seletedSibling.style.textDecoration = 'none';
+//     selected.classList.add('completed');
+//     selected.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+//   } 
+// }
+
 btnRemoveSelected.addEventListener('click', function () {
-  let selectedItem = document.getElementsByClassName('selected')[0];
+  let selectedItem = document.getElementById('selected');
   if (selectedItem) {
     taskList.removeChild(selectedItem);
   } else {
@@ -178,7 +173,6 @@ function getLocalStorage() {
       listItem.innerText = task.task;
       taskList.appendChild(listItem);
       if (task.completed == true) {
-        console.log(listItem);
         taskList.lastChild.classList.add('completed');
         taskList.lastChild.style.textDecoration =
           'line-through solid rgb(0, 0, 0)';

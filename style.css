@@ -71,9 +71,8 @@ button:active{
   background: rgb(77, 35, 105);
   transition-duration: .2s;
 }
-.selected{
+#selected{
   border:2px solid  rgb(136, 72, 179);
-  transition-duration: .3s;
 }
 
 #salvar-tarefas{
