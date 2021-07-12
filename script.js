@@ -11,6 +11,14 @@ function empityTasks() {
     getOl.removeChild(getOl.firstChild);
   }
 }
+function removeCompleted() {
+  const getOl = document.getElementById('lista-tarefas');
+  const getLi = document.querySelectorAll('.completed');
+  for (let index = 0; index < getLi.length; index += 1) {
+    getOl.removeChild(getLi[index]);
+  }
+}
+
 // eslint-disable-next-line max-lines-per-function
 function addTask() {
   const getOl = document.querySelector('#lista-tarefas');
@@ -46,3 +54,11 @@ function removeTasks() {
   });
 }
 removeTasks();
+
+function btnRemoveCompleted() {
+  const getButton = document.getElementById('remover-finalizados');
+  getButton.addEventListener('click', () => {
+    removeCompleted();
+  });
+}
+btnRemoveCompleted();
