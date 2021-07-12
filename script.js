@@ -57,3 +57,15 @@ function toClearCompleted() {
 }
 
 takeClear.addEventListener('click', toClearCompleted);
+
+const saveButton = document.querySelector('#salvar-tarefas');
+function saveList() {
+  const valueOfSaveList = takeOl.innerHTML;
+  localStorage.setItem('list', valueOfSaveList);
+}
+
+window.onload = () => {
+  takeOl.innerHTML = localStorage.getItem('list');
+};
+
+saveButton.addEventListener('click', saveList);
