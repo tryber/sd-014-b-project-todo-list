@@ -102,13 +102,13 @@ buttonUp.addEventListener('click', moveUp);
 function moveDown () {
   const array = document.querySelectorAll('.tarefa');
   const selected = document.querySelector('#selected');
-  //console.log(selected);
+  // console.log(selected);
   for (let index = 0; index < array.length; index += 1) {
     if (array[index] === selected) {
       for (let iTrocado = index + 1; iTrocado < array.length; iTrocado += 1) {
-        //console.log(array[iTrocado]);
-        for (iTroca = index; iTroca < array.length; iTroca += 1) {
-          //console.log(array[iTroca]);
+        // console.log(array[iTrocado]);
+        for (let iTroca = index; iTroca < array.length; iTroca += 1) {
+          // console.log(array[iTroca]);
           if (iTrocado > index) {
             const position = array[iTrocado].innerHTML;
             array[iTrocado].innerHTML = array[index].innerHTML;
@@ -118,7 +118,7 @@ function moveDown () {
             // array[iTrocado].className = 'tarefa completed';
             array[index].removeAttribute('id');
             array[index].style.backgroundColor = '';
-            //array[index].classList.remove('completed');
+            // array[index].classList.remove('completed');
             if (array[index].classList == 'tarefa completed') {
               array[index].classList.remove('completed');
               array[iTrocado].className = 'tarefa completed';
@@ -132,7 +132,7 @@ function moveDown () {
       break;
     }
   }
-};
+}
 const buttonDown = document.getElementById('mover-baixo');
 buttonDown.addEventListener('click', moveDown);
 //
