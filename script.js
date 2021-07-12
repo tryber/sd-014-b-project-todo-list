@@ -5,6 +5,12 @@ function alterColor() {
     getTasks[index].classList.remove('selected');
   }
 }
+function empityTasks() {
+  const getOl = document.getElementById('lista-tarefas');
+  while (getOl.firstChild) {
+    getOl.removeChild(getOl.firstChild);
+  }
+}
 // eslint-disable-next-line max-lines-per-function
 function addTask() {
   const getOl = document.querySelector('#lista-tarefas');
@@ -32,3 +38,11 @@ function addTask() {
   });
 }
 addTask();
+
+function removeTasks() {
+  const getButtonRemove = document.querySelector('#apaga-tudo');
+  getButtonRemove.addEventListener('click', () => {
+    empityTasks();
+  });
+}
+removeTasks();
