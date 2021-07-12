@@ -1,23 +1,7 @@
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
 const color = 'rgb(128, 128, 128)';
-
-// Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
-
-buttonCreateTask.addEventListener('click', () => {
-  const input = document.getElementById('texto-tarefa');
-  const addTask = document.createElement('li');
-  if (input.value !== '') {
-    listOfTasks.appendChild(addTask);
-    addTask.classList.add('task');
-    addTask.innerHTML = input.value;
-    input.value = '';
-  } else {
-    alert('Insira sua Tarefa!');
-  }
-  addTask.addEventListener('click', selected);
-  addTask.addEventListener('dblclick', createClass);
-});
+const childrenList = listOfTasks.children;
 
 // Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo.
 
@@ -47,6 +31,24 @@ function createClass(event) {
   }
 }
 
+// Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
+// Ajuda do Colega Victor Martins.
+
+buttonCreateTask.addEventListener('click', () => {
+  const input = document.getElementById('texto-tarefa');
+  const addTask = document.createElement('li');
+  if (input.value !== '') {
+    listOfTasks.appendChild(addTask);
+    addTask.classList.add('task');
+    addTask.innerHTML = input.value;
+    input.value = '';
+  } else {
+    alert('Insira sua Tarefa!');
+  }
+  addTask.addEventListener('click', selected);
+  addTask.addEventListener('dblclick', createClass);
+});
+
 // Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista.
 const buttonClear = document.getElementById('apaga-tudo');
 
@@ -57,7 +59,7 @@ buttonClear.addEventListener('click', () => {
 
 // 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista.
 
-const buttonClearSelected = document.getElementById('remover-finalizados');
+const buttonClearCompleted = document.getElementById('remover-finalizados');
 
 function apagaFinalizados() {
   const childs = document.getElementsByClassName('completed');
@@ -66,7 +68,7 @@ function apagaFinalizados() {
     childsIndex.remove();
   }
 }
-buttonClearSelected.addEventListener('click', apagaFinalizados);
+buttonClearCompleted.addEventListener('click', apagaFinalizados);
 
 // 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava.
 
@@ -88,9 +90,38 @@ window.onload = () => {
 
 // Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas.
 
-// const buttonUpper = document.getElementById('mover-cima');
-// const buttonLower = document.getElementById('mover-baixo');
+const buttonUpper = document.getElementById('mover-cima');
+const buttonLower = document.getElementById('mover-baixo');
 
-// buttonUpper.addEventListener('click', () => {
-//  const
-// })
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+// Referencia usada para utilizacao da funcao insertBefore, que "muda" o elemento com o elemento anterior.
+// Ajuda do Colega Henrique Almeida.
+
+buttonUpper.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected === null) {
+    alert('Nenhuma tarefa selecionada!');
+  } else if (taskSelected !== childrenList[0]) {
+    taskSelected.parentElement.insertBefore(taskSelected, taskSelected.previousSibling);
+  } else {
+    alert('Ja esta no topo');
+  }
+});
+
+buttonLower.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected === null) {
+    alert('Nenhuma tarefa selecionada!');
+  } else if (taskSelected !== childrenList[childrenList.length - 1]) {
+    taskSelected.parentElement.insertBefore(taskSelected, taskSelected.nextSibling.nextSibling);
+  } else {
+    alert('Ultima tarefa!');
+  }
+});
+
+const buttonClearSelected = document.getElementById('remover-selecionado');
+
+buttonClearSelected.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selected');
+  taskSelected.remove();
+});
