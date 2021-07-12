@@ -88,6 +88,11 @@ function moveDown() {
   });
 }
 
+function delSelected() {
+  const selectedLi = document.querySelector(classSelected);
+  selectedLi.parentElement.removeChild(selectedLi);
+}
+
 function load() {
   if (localStorage.save !== undefined) {
     document.querySelector('ol').innerHTML = localStorage.save;
@@ -102,6 +107,7 @@ const buttonDelFinishLis = document.querySelector('#remover-finalizados');
 const buttonSavelis = document.querySelector('#salvar-tarefas');
 const buttonMoveUp = document.querySelector('#mover-cima');
 const buttonMoveDown = document.querySelector('#mover-baixo');
+const buttonDelSelected = document.querySelector('#remover-selecionado');
 
 button.addEventListener('click', selectedTarefa);
 buttonClear.addEventListener('click', cleaTarefas);
@@ -109,3 +115,4 @@ buttonDelFinishLis.addEventListener('click', delAllFinishLi);
 buttonSavelis.addEventListener('click', saveLis);
 buttonMoveUp.addEventListener('click', moveUp);
 buttonMoveDown.addEventListener('click', moveDown);
+buttonDelSelected.addEventListener('click', delSelected);
