@@ -6,6 +6,11 @@ function createNewTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const createTask = document.createElement('li');
   createTask.innerText = inputTask.value;
+  createTask.addEventListener('click', changeBackgroundColor);
   taskList.appendChild(createTask);
   inputTask.value = '';
+}
+
+function changeBackgroundColor(Event) {
+  Event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
