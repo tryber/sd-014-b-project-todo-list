@@ -1,6 +1,7 @@
 const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCriarTarefa = document.querySelector('#criar-tarefa');
 const btnApagarTudo = document.querySelector('#apaga-tudo');
+const btnRemoverFinalizados = document.querySelector('#remover-finalizados');
 const listaTarefas = document.querySelector('#lista-tarefas');
 let tarefa = '';
 
@@ -37,6 +38,17 @@ function marcarItemCompleto(itemCompleto) {
 // Evento de clique para apagar todas as tarefas da lista
 btnApagarTudo.addEventListener('click', () => {
   listaTarefas.innerHTML = '';
+})
+
+// Evento que apaga os itens marcados como concluído
+btnRemoverFinalizados.addEventListener('click', () => {
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    const itemAtual = listaTarefas.children[index];
+    if (itemAtual.classList.contains('completed')) {
+      listaTarefas.removeChild(itemAtual);
+      index -= 1;
+    }
+  }
 })
 
 // Cria um evento de clique para quando o botão é pressionado
