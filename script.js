@@ -97,4 +97,15 @@ document.querySelector('#mover-baixo').addEventListener('click', () => {
 // li.parentNode.insertBefore(li.nextSibling, li);
 // Dica do Igor Marinho
 
+// * Requisito - 14
+
+document.querySelector('#remover-selecionado').addEventListener('click', () => {
+  const liSelected = document.querySelector('.selected');
+  if (liSelected) {
+    liSelected.remove();
+  } else {
+    alert('Não há tarefas selecionadas!');
+  }
+});
+
 // Lembrete: Refatorar o código para adicionar o evento direto do array das classes, porque o localStorage faz com o que os elementos percam o eventListener.
