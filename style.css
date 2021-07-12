@@ -1,0 +1,43 @@
+body {
+  max-width: 430px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0,0,0);
+}
+
+header, p, input {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  font-size: 30px;
+  background-color: green;
+  padding: 30px;
+  border-radius: 50%;
+  box-shadow: 2px -2px 2px black;
+}
+
+button, header {
+border: 2px solid black;
+}
+
+button {
+  font-size: 15px;
+  display: flexbox;
+  margin-top: 5px;
+}
+
+nav{
+  margin-top: 35px;
+}
+
+button:hover {
+  font-weight: bold;
+}
+
+.selected {
+  background-color: rgb(128,128,128);
+}
