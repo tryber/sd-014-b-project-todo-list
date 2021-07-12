@@ -1,24 +1,36 @@
-const clickButton = document.querySelector('#criar-tarefa')
-clickButton.addEventListener('click', createNewTask);
+window.onload = function () {
+  const clickButton = document.querySelector('#criar-tarefa')
+  clickButton.addEventListener('click', createNewTask);
 
-function createNewTask() {
-  const inputTask = document.querySelector('#texto-tarefa');
-  const taskList = document.querySelector('#lista-tarefas');
-  const createTask = document.createElement('li');
-  createTask.innerText = inputTask.value;
-  createTask.addEventListener('click', listBackgroundColor);
-  taskList.appendChild(createTask);
-  inputTask.value = '';
-}
+  function createNewTask() {
+    const inputTask = document.querySelector('#texto-tarefa');
+    const taskList = document.querySelector('#lista-tarefas');
+    const createTask = document.createElement('li');
+    createTask.innerText = inputTask.value;
+    createTask.addEventListener('click', listBackgroundColor);
+    createTask.addEventListener('dblclick', doubleClickCompleteTask);
+    taskList.appendChild(createTask);
+    inputTask.value = '';
+  }
 
-function listBackgroundColor(Event) {
-  const selectedList = document.querySelectorAll('li');
-  const color = 'rgb(128, 128, 128)';
-  for (let index = 0; index < selectedList.length; index += 1) {
-    if (selectedList[index].style.backgroundColor === color) {
-      selectedList[index].style.backgroundColor = '';
+  function listBackgroundColor(Event) {
+    const selectedList = document.querySelectorAll('li');
+    const color = 'rgb(128, 128, 128)';
+    for (let index = 0; index < selectedList.length; index += 1) {
+      if (selectedList[index].style.backgroundColor === color) {
+        selectedList[index].style.backgroundColor = '';
+      } else {
+        Event.target.style.backgroundColor = color;
+      }
+    }
+  }
+  function doubleClickCompleteTask(event) {
+    if (event.target.className === 'completed') {
+      event.target.classList.remove('completed');
     } else {
-      Event.target.style.backgroundColor = color;
+      event.target.classList.add('completed');
     }
   }
 }
+
+
