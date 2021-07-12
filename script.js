@@ -1,24 +1,20 @@
-let tagCriarTarefa = document.getElementById('criar-tarefa');
-tagCriarTarefa.addEventListener('click', insertLi);
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
-function insertLi() {
-  let tagListaTarefa = document.getElementById('lista-tarefas');
-  let criaLi = document.createElement('li');
-  let tagTextoTarefa = document.getElementById('texto-tarefa');
-  tagListaTarefa.appendChild(criaLi);
-  let selectLi = document.getElementsByTagName('li');
-  for (let i = 0; i < selectLi.length; i++) {
-    const element = selectLi[i];
-    element.addEventListener('click', turnGrey);
-  }
-  criaLi.innerText = tagTextoTarefa.value;
+const turnGrey = (x) =>
+  x.addEventListener('click', (event) => {
+    if (query('.selected')) query('.selected').classList.remove('selected');
+    event.target.classList.add('selected');
+  });
+
+const insertLi = () => {
+  let taskList = query('#lista-tarefas');
+  let newLi = document.createElement('li');
+  let tagTextoTarefa = query('#texto-tarefa');
+  taskList.appendChild(newLi);
+  turnGrey(newLi);
+  newLi.innerText = tagTextoTarefa.value;
   tagTextoTarefa.value = '';
-}
+};
 
-function turnGrey() {
-  let selectLi = document.getElementsByTagName('li');
-  for (let i = 0; i < selectLi.length; i++) {
-    const element = selectLi[i];
-    element.style.backgroundColor = 'rgb(128,128,128)';
-  }
-}
+query('#criar-tarefa').addEventListener('click', insertLi);
