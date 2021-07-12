@@ -44,9 +44,3 @@ header {
   margin-top: 10px;
 }
 
-::marker {
-  font-family: 'FontAwesome';
-  content: '\f101';
-  margin:0 5px 0 -15px;
-  color: #f00;  
-}

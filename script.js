@@ -1,3 +1,6 @@
+const input = document.querySelector('#texto-tarefa').value;
+const list = document.querySelector('#lista-tarefas');
+
 function createTask() {
   const input = document.querySelector('#texto-tarefa').value;
   const taskList = document.querySelector('#lista-tarefas');
@@ -21,7 +24,6 @@ function changeColor(event) {
   }
 }
 
-const list = document.querySelector('#lista-tarefas');
 list.addEventListener('click', changeColor);
 
 function finishTask(event) {
@@ -52,5 +54,33 @@ function removeCompletedTasks() {
 const removeCompleted = document.getElementById('remover-finalizados');
 removeCompleted.addEventListener('click', removeCompletedTasks);
 
-createTask();
+function saveTasks() {
+  const oldList = document.querySelectorAll('#lista-tarefas li');
+  const key = 'name';
+  let index = 0;
+  while (index < oldList.length) {
+    localStorage.setItem(key + index, oldList[index].outerHTML);
+    index += 1;
+  }
+}
+
+function initialRenderization() {
+  const newList = document.querySelectorAll('ol');
+  if (localStorage.length !== 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      console.log(localStorage.getItem(`name${index}`));
+      newList.innerHTML += localStorage.getItem(`name${index}`);
+    }
+  }
+}
+
 clearTasks();
+createTask();
+
+window.onload = initialRenderization;
+
+// const saveButton = document.getElementById('salvar-tarefas');
+// saveButton.addEventListener('click', addTaskToLocalStorage);
+
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', saveTasks);
