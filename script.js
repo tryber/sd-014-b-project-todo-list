@@ -15,14 +15,12 @@ const mark = (element) => {
 };
 
 const addTask = () => {
-  let input = query('#texto-tarefa');
-  let list = query('#lista-tarefas');
   let li = document.createElement('li');
-  list.appendChild(li);
+  query('#lista-tarefas').appendChild(li);
   selecTask(li);
   mark(li);
-  li.innerText = input.value;
-  input.value = '';
+  li.innerText = query('#texto-tarefa').value;
+  query('#texto-tarefa').value = '';
 };
 query('#criar-tarefa').addEventListener('click', addTask);
 
