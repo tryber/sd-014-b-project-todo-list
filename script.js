@@ -3,7 +3,6 @@ window.onload = function (){
     let getButton = document.querySelector('#criar-tarefa');
     let getList = document.querySelector('#lista-tarefas');
     let getInput = document.querySelector('#texto-tarefa');
-    let newTask = document.querySelector('.newTask');
     let getClearTasks = document.querySelector('#apaga-tudo');
     let buttonRemoveTasks = document.querySelector('#remover-finalizados');
 
@@ -15,14 +14,18 @@ window.onload = function (){
         listItem.innerHTML = getInput.value;
         getList.appendChild(listItem);
         getInput.value = ''; // retorna o input para um valor vazio.
+
     }
 
 
     getList.addEventListener ('click', newColor);
 
     function newColor(color){
-       let setAttribute = color.target.setAttribute('style', 'background-color: rgb(128, 128, 128)'); // retirado de https://developer.mozilla.org/pt-BR/docs/Web/API/Element/setAttribute onde atribuo um novo valor para style background diretamente no meu arquivo html.
-    }
+       
+      let setAttribute = color.target.setAttribute('style', 'background-color: rgb(128, 128, 128)'); // retirado de https://developer.mozilla.org/pt-BR/docs/Web/API/Element/setAttribute onde atribuo um novo valor para style background diretamente no meu arquivo html
+
+  }
+    
 
 
     getList.addEventListener ('click', removeColor);
@@ -30,12 +33,28 @@ window.onload = function (){
     function removeColor(event){
    
     let arrayList = document.getElementsByClassName('newTask');
+    
         for(let index = 0; index < arrayList.length; index += 1){
             arrayList[index].style.backgroundColor = '';
         }
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-     
+
+
+  
     }
+
+    getList.addEventListener ('click', selectedItem);
+
+    function selectedItem(event) {
+      const selectedItens = getList.children;
+      for (let index = 0; index < selectedItens.length; index += 1) {
+        if (selectedItens[index].classList.contains('selected')) {
+          selectedItens[index].classList.remove('selected');
+        }
+      }
+      event.target.classList.add('selected');
+    }
+
 
     getList.addEventListener('dblclick', clickCompleted);
      
@@ -72,6 +91,34 @@ window.onload = function (){
       }
       }
       removeTasks();
+
+      let buttonMup = document.getElementById('mover-cima');
+      let buttonMdn = document.getElementById('mover-baixo');
+
+      buttonMup.addEventListener('click', function () {
+        let selectedItem = document.getElementsByClassName('selected')[0];
+        let listNode;
+
+        if (selectedItem) {
+          listNode = selectedItem.parentNode;
+          if (selectedItem.previousElementSibling) {
+            listNode.insertBefore(selectedItem, selectedItem.previousSibling); // retirado de https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore onde posso inserir um nó antes do nó de referência.
+          }
+        }
+      });
+
+      buttonMdn.addEventListener('click', function () {
+        let selectedItem = document.getElementsByClassName('selected')[0];
+        let listNode;
+
+        if (selectedItem) {
+          listNode = selectedItem.parentNode;
+          if (selectedItem.nextElementSibling) {
+            listNode.insertBefore(selectedItem.nextElementSibling, selectedItem);
+          }
+        }
+      });
+
     
 }
 
