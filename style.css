@@ -1,0 +1,41 @@
+body{  
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header{
+  margin-top: 10px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.caixa{
+  border: 2px solid black;
+  background-color: greenyellow;
+  border-style: ridge;
+  border-top-left-radius: 30px;
+}
+
+#texto-tarefa{
+  margin-left: 45%;
+}
+
+#funcionamento{
+  text-align: center;
+}
+
+button{
+  border-radius: 5px;
+  background-color: coral;
+}
+
+#criar-tarefa{
+  margin-left: 15px;
+}
+
+ol{
+  margin-left: 40%;
+}
