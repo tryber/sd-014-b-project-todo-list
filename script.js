@@ -66,11 +66,11 @@ document.querySelector('#remover-finalizados').addEventListener('click', () => {
 
 document.querySelector('#salvar-tarefas').addEventListener('click', () => {
   const olInnerHtml = olPath.innerHTML;
-  localStorage.setItem('olInfo', olInnerHtml);
+  localStorage.setItem('olInfo', JSON.stringify(olInnerHtml));
 });
 
 window.onload = () => {
-  olPath.innerHTML = localStorage.getItem('olInfo');
+  olPath.innerHTML = JSON.parse(localStorage.getItem('olInfo'));
 };
 
 // * Requisito - 13
