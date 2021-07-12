@@ -5,8 +5,8 @@ const lista = document.querySelector('#lista-tarefas');
 const btnApagatudo = document.querySelector('#apaga-tudo');
 const btnRemoverConcluidos = document.querySelector('#remover-finalizados');
 const btnSalvarTarefa = document.querySelector('#salvar-tarefas');
-const moverParaCima = document.querySelector('#mover-cima');
-const moverParaBaixo = document.querySelector('mover-baixo');
+const btnMoverParaCima = document.querySelector('#mover-cima');
+const btnMoverParaBaixo = document.querySelector('#mover-baixo');
 const btnRemoverSelecionado = document.querySelector('#remover-selecionado');
 
 function addTarefa() {
@@ -22,6 +22,7 @@ function limparLinha() {
   const tarefas = document.querySelectorAll('.item-tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
     tarefas[i].style.backgroundColor = 'green';
+    tarefas[i].classList.remove('selected');
   }
 }
 
@@ -31,11 +32,66 @@ lista.addEventListener('click', function (event) {
   let tarefas = document.querySelectorAll('.item-tarefa');
   let newColor = 'rgb(128, 128, 128)';
   event.target.style.backgroundColor = newColor;
+  event.target.classList.add('selected');
 });
+
+// Subir linha de seleção
+function upLineSelection() {
+  let tarefas = document.querySelectorAll('.item-tarefa');
+  let selected = document.querySelector('.selected');
+  if (selected !== null) {
+    let n = 1;
+    if (tarefas[0].className === 'item-tarefa selected') {
+      alert('Primeiro elemento já está selecionado!');
+    } else {
+      for (let i = 1; i < tarefas.length; i += 1) {
+        if (tarefas[i].className === 'item-tarefa selected' || tarefas[i].className === 'item-tarefa selected completed') {
+          n = i;
+        }
+      }
+      const sobeTexto = tarefas[n].innerText;
+      const sobeClasse = tarefas[n].className;
+      tarefas[n].innerText = tarefas[n - 1].innerText;
+      tarefas[n].className = tarefas[n - 1].className;
+      tarefas[n].style.backgroundColor = 'green';
+      tarefas[n - 1].innerText = sobeTexto;
+      tarefas[n - 1].className = sobeClasse;
+      tarefas[n - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+} 
+btnMoverParaCima.addEventListener('click', upLineSelection);
+
+// Descer linha de seleção
+function downLineSelection() {
+  let tarefas = document.querySelectorAll('.item-tarefa');
+  let selected = document.querySelector('.selected');
+  if (selected !== null) {
+    let n = tarefas.length - 1;
+    if (tarefas[n].className === 'item-tarefa selected') {
+      alert('Último elemento já está selecionado!');
+    } else {
+      for (let i = 0; i < tarefas.length; i += 1) {
+        if (tarefas[i].className === 'item-tarefa selected' || tarefas[i].className === 'item-tarefa selected completed') {
+          n = i;
+        }
+      }
+      const desceTexto = tarefas[n].innerText;
+      const desceClasse = tarefas[n].className;
+      tarefas[n].innerText = tarefas[n + 1].innerText;
+      tarefas[n].className = tarefas[n + 1]. className;
+      tarefas[n].style.backgroundColor = 'green';
+      tarefas[n + 1].innerText = desceTexto;
+      tarefas[n + 1].className = desceClasse;
+      tarefas[n + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+btnMoverParaBaixo.addEventListener('click', downLineSelection);
 
 function tarefaCompleta(event) {
   let verificador = event.target.className;
-  if (verificador === 'item-tarefa completed') {
+  if (verificador === 'item-tarefa completed selected') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
@@ -62,7 +118,15 @@ function removerConcluidos() {
     console.log("Não existe nenhuma tarefa concluída!");
   }
 }
-//btnRemoverConcluidos.addEventListener('click', removerConcluidos);
+btnRemoverConcluidos.addEventListener('click', removerConcluidos);
+
+function removerSelecionados() {
+  let selected = document.querySelector('.selected');
+  if (selected !== null) {
+    selected.remove();
+  }
+}
+btnRemoverSelecionado.addEventListener('click', removerSelecionados);
 
 function addTarefaToLocalStorage() {
   let tarefas = document.querySelectorAll('.item-tarefa');
@@ -77,13 +141,18 @@ btnSalvarTarefa.addEventListener('click', addTarefaToLocalStorage);
 //PRECISA DAR UMA OLHADA EM COMO RESOLVER ISSO
 function removeConcluidosLocalStorage() {
   const tarefasConcluidas = document.querySelectorAll('.completed');
-  const listaLocalStorage = localStorage.getItem('tarefas');//Preciso descobrir como pegar esse valor
-  console.log(listaLocalStorage); // como saber o tamanho do array gravado no localStorage?
-  for (let i = 0; i > tarefasConcluidas.length; i += 1) {
-    for (let ii = 0; ii > tarefasConcluidas.length; ii += 1) {
-      console.log(ii);
+  const listaLocalStorage = JSON.parse(localStorage.getItem('tarefas'));
+  if (tarefasConcluidas.length === 0) {
+    alert('Não existe nenhuma tarefa concluída');
+  } else {
+    for (let i = 0; i < tarefasConcluidas.length; i += 1) {
+      for (let ii = 0; ii < listaLocalStorage.length; ii += 1) {
+        if (tarefasConcluidas[i].innerText === listaLocalStorage[ii]) {
+          localStorage.removeItem(tarefasConcluidas[i]);
+        }
+      }
     }
-  } 
+  }
 }
 //btnRemoverConcluidos.addEventListener('click', removerConcluidos);
 btnRemoverConcluidos.addEventListener('click', removeConcluidosLocalStorage);
