@@ -9,7 +9,6 @@ const selecTask = (x) =>
   });
 
 const mark = (element) => {
-  let li = queryAll('li');
   element.addEventListener('dblclick', function risca(e) {
     e.target.classList.toggle('completed');
   });
@@ -25,9 +24,12 @@ const addTask = () => {
   li.innerText = input.value;
   input.value = '';
 };
+query('#criar-tarefa').addEventListener('click', addTask);
 
 query('#apaga-tudo').addEventListener('click', () =>
   queryAll('#lista-tarefas').forEach((element) => element.remove())
 ); //Glauco god of refatoration and samuel son
 
-query('#criar-tarefa').addEventListener('click', addTask);
+query('#remover-finalizados').addEventListener('click', () => {
+  queryAll('.completed').forEach((element) => element.remove());
+}); //Samuel god of refatoration 2nd
