@@ -26,4 +26,8 @@ const addTask = () => {
   input.value = '';
 };
 
+query('#apaga-tudo').addEventListener('click', () =>
+  queryAll('#lista-tarefas').forEach((element) => element.remove())
+); //Glauco god of refatoration and samuel son
+
 query('#criar-tarefa').addEventListener('click', addTask);
