@@ -7,26 +7,37 @@
   <title>To Do List</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">
-      Clique duas vezes em um item para marcá-lo como completo
-    </p>
+  <main>
 
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Adicionar</button>
-    <button id="apaga-tudo">Apagar lista</button>
-    <button id="remover-finalizados">Apagar finalizados</button>
-    <button id="salvar-tarefas">Salvar lista</button>
-    <button id="mover-cima">Mover para cima</button>
-    <button id="mover-baixo">Mover para baixo</button>
-    <button id="remover-selecionado">Apagar selecionado</button>
-  </header>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo
+      </p>
+  
+      <input type="text" id="texto-tarefa" placeholder="Informe a tarefa...">
+      <button class="botao" id="criar-tarefa">Adicionar</button>
+      <button class="botao" id="apaga-tudo">Apagar lista</button>
+      <button class="botao" id="salvar-tarefas">Salvar lista</button>
+    </header>
+    
+    <h2 id="listaVazia">Lista vazia</h2>
+    <ol id="lista-tarefas"></ol>
 
-  <ol id="lista-tarefas"></ol>
+    <div style="text-align: center;">
+      <button class="botao" id="mover-cima">Mover para cima</button>
+      <button class="botao" id="mover-baixo">Mover para baixo</button>
+      <button class="botao" id="remover-selecionado">Apagar selecionado</button>
+      <button class="botao" id="remover-finalizados">Apagar finalizados</button>
+    </div>
+
+  </main>
   
 </body>
 </html>
