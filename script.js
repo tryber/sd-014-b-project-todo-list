@@ -16,13 +16,7 @@ window.onload = function initialPage() {
 
   if ( localStorage.length > 0) {
     for ( let index = 0; index < localStorage.length; index += 1 ) {
-      let createLi = document.createElement('li');
-      let txtLocalStorage = localStorage.getItem('name' + index);
-      createLi.innerHTML = txtLocalStorage;
-      createLi.className = 'tasks';
-      
-      listTask.appendChild(createLi);
-
+      listTask.innerHTML += localStorage.getItem('name' + [index]);
       eventTasks();
     };
   };
@@ -108,20 +102,28 @@ let btnRemoveCompleted = document.querySelector('#remover-finalizados');
 btnRemoveCompleted.addEventListener('click', clearCompleted);
 
 function clearCompleted() {
-    let listTask = document.querySelectorAll('.tasks');
+  saveTasks();
+  let listTask = document.querySelectorAll('.tasks');
 
-    for (let key of listTask) {
-        let task = key;
+  for (let key of listTask) {
+      let task = key;
 
-        //Retorna true se o elemento tiver a classe 'completed'
-        let searchClassCompleted = task.classList.contains('completed');
-        
-        //Se tiver, remove o elemento da lista e do Storage
-        if (searchClassCompleted === true) {
-            localStorage.removeItem(task);
-            task.parentNode.removeChild(task);
-        };
-    };
+      //Retorna true se o elemento tiver a classe 'completed'
+      let searchClassCompleted = task.classList.contains('completed');
+      //Se tiver, remove o elemento da lista e do Storage
+      if (searchClassCompleted === true ) {
+          task.parentNode.removeChild(task);
+      };
+  };
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const itemRemove = localStorage.getItem('name' + index);
+    let searchCompletedRemove = itemRemove.includes('completed');
+    
+    if (searchCompletedRemove === true) {
+      localStorage.removeItem('name' + [index]);
+    }
+  };
 }
 
 let btnSalvarTarefas = document.querySelector('#salvar-tarefas');
@@ -132,7 +134,8 @@ function saveTasks() {
 
   for (let index = 0; index < listTasks.length; index += 1) {
     let task = listTasks[index];
-    localStorage.setItem('name' + index, task.innerHTML);
+    localStorage.setItem('name' + index, task.outerHTML);
   };
   
+
 }
