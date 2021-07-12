@@ -25,6 +25,34 @@ ol.appendChild(lista[index]);
 }
 }
 
+function moveUp() {
+  let ol = document.querySelector('ol');
+  let lista = document.querySelectorAll('li'); 
+  let item = document.querySelector('.cinza');
+  let itemNumber = 0;
+  let tarefas = [];
+  for(let index = 0; index <= lista.length - 1; index += 1) {
+    // tarefas.push(lista[index]);
+    if(item === lista[index]) {
+      itemNumber = index;
+      console.log(itemNumber);
+    }
+  }
+  console.log(lista);
+  if (itemNumber !== 0 && itemNumber !== lista.length - 1) {
+    for(let index = 0; index <= lista.length - 1; index += 1) {
+      if(index === itemNumber){
+      }
+       if(index < itemNumber) {
+      ol.removeChild(lista[index]);
+      ol.appendChild(lista[index]);
+      return;
+      }
+    }
+  }
+}
+
+
 function addEvent() {
 let lista = document.querySelectorAll('li');
 // eslint-disable-next-line no-restricted-syntax
@@ -91,6 +119,8 @@ const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
 const button = document.getElementById('criar-tarefa');
 const buttonSalvar = document.getElementById('salvar-tarefas');
+const buttonMoveUp = document.getElementById('mover-cima');
+const buttonMovedown = document.getElementById('mover-baixo');
 button.addEventListener('click', createItem);
 button.addEventListener('click', addEvent);
 buttonApagaTudo.addEventListener('click', apagaLista);
@@ -98,13 +128,4 @@ buttonRemoveFinalizados.addEventListener('click', removeFinalizados);
 buttonSalvar.addEventListener('click', salvarLista);
 imprimirListaSalva();
 addEvent();
-
-
-
-
-
-
-// utton.addEventListener('click', sortItens);
-// let h1 = document.querySelector('h1');
-// h1.addEventListener('click', sortItens);
-
+buttonMoveUp.addEventListener('click', moveUp);
