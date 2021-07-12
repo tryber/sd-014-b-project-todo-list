@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(158deg , rgba(231,43,230,0.48503151260504207) 0% , rgba(126,12,187,0.7707457983193278) 48% , rgba(0,212,255,0.6138830532212884) 100%);
+  background-image: linear-gradient(158deg , rgba(231,43,230,0.485) 0% , rgba(126,12,187,0.770) 48% , rgba(0,212,255,0.613) 100%);
   height: 100vh;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 #texto-tarefa:focus {
-  border: 2px solid rgb(45, 126, 126);
+  border: 2px solid rgb(45 , 126 , 126);
 }
 
 #lista-tarefas {
@@ -66,26 +66,26 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  color: white;            
+  box-shadow: 0 0 20px white;
+  border-radius: 10px;
 }
 
 #criar-tarefa {
-  background-image: linear-gradient(to right , #77A1D3 0% , #79CBCA  51% , #77A1D3  100%);
+  background-image: linear-gradient(to right , #77a1d3 0% , #79cbca  51% , #77a1d3  100%);
   margin-left: 10px;
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;            
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
+
 }
 
 #criar-tarefa:hover {
   background-position: right center;
-  color: #fff;
   text-decoration: none;
-  }
+}
 
 #apaga-tudo {
   background-image: linear-gradient(to right , #ee0979 0% , #ff6a00  51% , #ee0979  100%);
@@ -96,33 +96,25 @@ body {
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
 }
 
 #apaga-tudo:hover {
   background-position: right center;
-  color: #fff;
   transition-duration: 0.5s;
 }
 
 #remover-finalizados {
-  background-image: linear-gradient(to right , #AA076B 0% , #61045F  51% , #AA076B  100%);
+  background-image: linear-gradient(to right , #aa076b 0% , #61045f  51% , #aa076b  100%);
   margin-left: 10px;
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
 }
 
 #remover-finalizados:hover {
   background-position: right center;
-  color: #fff;
   text-decoration: none;
 }
 
