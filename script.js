@@ -6,7 +6,6 @@ let tasks = document.querySelectorAll('.task');
 //Referecia: https://www.w3schools.com/howto/howto_html_clear_input.asp
 
 function selectTask(event) {
-  console.log('ltc.length');
   const selTaskList = document.getElementsByClassName('selectedTask');
   if (selTaskList.length >= 1) {
     selTaskList[0].classList.remove('selectedTask');
@@ -16,10 +15,18 @@ function selectTask(event) {
   }
 }
 
+function markCompleted(event) {
+  if (event.target.classList.contains('completed') === true) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function clickTask() {
   for (let i = 0; i < tasks.length; i += 1) {
     tasks[i].addEventListener('click', selectTask);
-    tasks[i].addEventListener('dbclick', markCompleted);
+    tasks[i].addEventListener('dblclick', markCompleted);
   }
 }
 
@@ -42,9 +49,6 @@ function addTask() {
   }
   tasks = document.querySelectorAll('.task');
   clickTask();
-}
-function markCompleted(event) {
-  event.target.classList.add('completed');
 }
 
 button.addEventListener('click', addTask, clickTask);
