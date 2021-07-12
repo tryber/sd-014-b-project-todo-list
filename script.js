@@ -51,10 +51,19 @@ deleteAll.addEventListener('click', allGone);
 function removeTaskCompleted() {
   const classCompleted = document.querySelectorAll('.completed');
 
-  for (let index = 0; index < classCompleted.length; index += 1){
+  for (let index = 0; index < classCompleted.length; index += 1) {
     classCompleted[index].remove('li');
   }
 }
 
-taskCompleted = document.querySelector('#remover-finalizados');
+const taskCompleted = document.querySelector('#remover-finalizados');
 taskCompleted.addEventListener('click', removeTaskCompleted);
+
+// remover selecionado (li selecionada)
+function removeSelected(event) {
+  selected = document.querySelector('.colorGray');
+  selected.remove('li');
+}
+
+const taskSelected = document.querySelector('#remover-selecionado');
+taskSelected.addEventListener('click', removeSelected);
