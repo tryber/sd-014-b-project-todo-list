@@ -1,0 +1,50 @@
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+body {
+  background-image: url(coffe-table.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: auto;
+}
+
+main {
+  margin-top: 30px;
+  margin-left: 17%;
+}
+
+header {
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  margin-left: 17%;
+  margin-top: 7%;
+}
+
+#criar-tarefa {
+  background-color: rgb(142, 214, 166);
+  font-weight: bold;
+}
+
+#apaga-tudo {
+  background-color: rgb(142, 214, 166);
+  font-weight: bold;
+}
+
+#remover-finalizados {
+  background-color: rgb(142, 214, 166);
+  font-weight: bold;
+}
+
+p {
+  font-weight: bold;
+}
+
+#texto-tarefa {
+  border:solid black 1px;
+}
+
+.toDoList{
+  font-weight: bold;
+}
