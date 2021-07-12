@@ -3,6 +3,7 @@ let getButton = document.getElementById("criar-tarefa");
 let getOl = document.getElementById("lista-tarefas");
 let getInput = document.getElementById("texto-tarefa");
 
+// Requisito 12
 function storage() {
     getOl.innerHTML = localStorage.getItem("list") 
   }
@@ -81,19 +82,45 @@ function saveTasks(){
 }
 getButton4.addEventListener("click", saveTasks);
 
-
-
 // Requisito 13
+let getButton5 = document.getElementById("mover-cima");
+let getButton6 = document.getElementById("mover-baixo");
 
+function moveUp(){
+    let getSelected = document.querySelector(".selected");
+    let tasksList = document.querySelectorAll(".itens-lista");
+    if(getSelected !== null){
+        if(getSelected === tasksList[0]){
+            alert("Elemento já esta no topo da lista");
+        } else { 
+            getSelected.parentElement.insertBefore(getSelected,getSelected.previousElementSibling);
+        }
+    }
+}
+getButton5.addEventListener("click", moveUp);
+
+function moveDown(){
+    let getSelected = document.querySelector(".selected");
+    let tasksList = document.querySelectorAll(".itens-lista");
+    if(getSelected !== null){
+        if(getSelected.nextElementSibling === null){
+            alert("Elemento já esta na base da lista");
+        } else {
+            getSelected.parentElement.insertBefore(getSelected,getSelected.nextElementSibling);
+            console.log(getSelected.parentElement.insertBefore(getSelected,getSelected.nextElementSibling.nextElementSibling));
+        }
+    }
+}
+getButton6.addEventListener("click", moveDown);
 
 // Requisito 14
-let getButton5 = document.getElementById("remover-selecionado");
+let getButton7 = document.getElementById("remover-selecionado");
 
 function emptySelected (){
     let getSelected = document.querySelector(".selected");
        getOl.removeChild(getSelected);
 }
-getButton5.addEventListener("click",emptySelected);
+getButton7.addEventListener("click",emptySelected);
 
 
 
