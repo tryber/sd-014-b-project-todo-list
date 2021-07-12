@@ -3,7 +3,6 @@ let buttonElement = document.querySelector("#criar-tarefa");
 let olElement = document.querySelector("#lista-tarefas");
 let btnRemove = document.querySelector("#apaga-tudo");
 
-
 buttonElement.addEventListener("click", function recebeClick() {
   let liElement = document.createElement('li');
 
