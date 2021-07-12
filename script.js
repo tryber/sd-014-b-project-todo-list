@@ -29,3 +29,13 @@ function riscado(event) {
     event.target.classList.toggle('completed');
 }
 listaOrdenada.addEventListener('dblclick', riscado);
+
+
+//Requisito 10
+function apagaTudo() {
+    const listaOrdenada = document.querySelector('ol');
+    listaOrdenada.innerHTML = '';
+}
+const buttonApaga = document.querySelector('#apaga-tudo');
+
+buttonApaga.addEventListener('click', apagaTudo);
