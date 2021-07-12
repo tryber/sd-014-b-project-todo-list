@@ -51,6 +51,20 @@ function removeCheckedItem() {
 }
 checked.addEventListener('click', removeCheckedItem);
 
+let removeButton = document.querySelector('#remover-selecionado')
+function removeSelected () {
+    const color = 'rgb(128, 128, 128)';
+    const list = document.querySelectorAll('li');
+    for (let i = 0; i < list.length; i +=1) {
+        if(list[i].style.backgroundColor === color) {
+            taskList.removeChild(list[i]);
+        }
+    }
+}
+removeButton.addEventListener('click', removeSelected);
+
+
+
 
 
 
