@@ -42,7 +42,7 @@ function removeItens() {
 }
 clear.addEventListener('click', removeItens);
 
-let checked = document.querySelector('#remove-finalizados');
+let checked = document.querySelector('#remover-finalizados');
 function removeCheckedItem() {
     let completed = document.querySelectorAll('.completed');
     for (let i = 0; i < completed.length; i+=1 ) {
