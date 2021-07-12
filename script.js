@@ -39,3 +39,17 @@ function apagaTudo() {
 const buttonApaga = document.querySelector('#apaga-tudo');
 
 buttonApaga.addEventListener('click', apagaTudo);
+
+//Requisito 11
+
+function removeFinalizado() {
+    const apagaFinalizado = document.querySelectorAll('li');
+    const listaOrdenada = document.querySelector('ol');
+    for (let index of apagaFinalizado) {
+        if (index.classList.contains('completed')) {
+            listaOrdenada.removeChild(index);
+        }
+    }
+}
+const buttonFinaliza = document.querySelector('#remover-finalizados');
+buttonFinaliza.addEventListener('click', removeFinalizado)
