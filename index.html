@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="style.css">
+    <link href = 'https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bebas+Neue&family=Roboto&family=Shadows+Into+Light&family=Yatra+One&family=Yomogi&display=swap' rel='stylesheet' type = 'text/css'>
+<body>
+    <header>
+        <h1><span class = "styling">TODO</span>List</h1>
+        
+
+    </header>
+
+    <section class = "container">
+
+        <p id = "explain">Everything you need to do in one place!</p>
+
+        <p id = "funcionamento">Double click to check tasks!</p>
+
+        
+    <div class = "input-div">
+        <input type = "text" id = "texto-tarefa" class = "input" placeholder="Stuff I need to do">
+        <button id = "criar-tarefa" type="button" class="button">Add</button>
+        <button id = "remover-selecionado" type="button" class="button"><ion-icon name="close-outline"></ion-icon></button>
+        <button id = "mover-cima" type="button" class="button"><ion-icon name="arrow-up-outline"></ion-icon></button>
+        <button id = "mover-baixo" type="button" class="button"><ion-icon name="arrow-down-outline"></ion-icon></button>
+    </div>
+
+       
+        <ol id = lista-tarefas></ol>
+
+    <div class = "save-button">
+        <button id = "salvar-tarefas" type = "button" class= "button"><ion-icon name="save-outline"></ion-icon> Save</button>
+    </div>
+
+    <div class = "remove-buttons">
+        <button id = "apaga-tudo" type="button" class="button"><ion-icon name="trash-outline"></ion-icon> Clear All </button>
+        <button id = "remover-finalizados" type="button" class="button"><ion-icon name="trash-bin-outline"></ion-icon> Remove Completed Tasks</button>
+    </div>
+        
+    </section>
+
+    
+    
+    <script src = "script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+</html>
