@@ -1,0 +1,12 @@
+* {
+  padding: 10px;
+  margin: 10px;
+}
+
+.li-selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
