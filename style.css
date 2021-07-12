@@ -18,10 +18,13 @@ header {
 }
 
 .lastTaskCreated {
-  background-color: rgba(127, 255, 212, 0.281);
+  /* background-color: rgba(127, 255, 212, 0.281); */
 }
 
 .selectedTask {
   background-color: rgb(128, 128, 128);
-  border: 1px solid white;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
