@@ -1,0 +1,117 @@
+body {
+  background-image: url('background-image.jpeg');
+  font-family: -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica, sans-serif;
+}
+
+header {
+  margin: 15px;
+}
+
+#title {
+  background-color: rgb(159 , 36 , 38);
+  color: rgb(244 , 241 , 230);
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 50px;
+  margin: auto;
+  border-radius: 25px;
+  box-shadow: inset 0 0 0.5em rgba(89 , 18 , 24), 0 0 8px 2px rgba(89 , 18 , 24);
+  max-width: 800px;
+  min-width: 500px;
+}
+
+main {
+  text-align: center;
+  max-width: 800px;
+  min-width: 500px;
+  min-height: 200px;
+  margin: auto;
+  padding: 10px;
+  background-color: rgba(244 , 241 , 230 , 0.93);
+  border-radius: 25px;
+  box-shadow: inset 0 0 1em rgba(76 , 84 , 97 , 0.88), 0 0 8px 2px rgb(159 , 36 , 38);
+  cursor: pointer;
+}
+
+#funcionamento {
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(76 , 84 , 97 , 0.88);
+  text-align: left;
+  margin-left: 11%;
+}
+
+#input-container {
+  text-align: left;
+  margin-left: 11%;
+}
+
+#texto-tarefa {
+  padding: 4px;
+  border-radius: 15px;
+  margin-right: 8px;
+  min-width: 280px;
+}
+
+.task {
+  padding: 3px 15px;
+  border-radius: 15px;
+}
+
+.selected {
+  background-color: rgba(76 , 84 , 97 , 0.88);
+  color: white;
+  font-weight: 700;
+}
+
+.completed {
+  text-decoration: line-through solid black 3px;
+}
+
+#list-container {
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+  min-height: 90px;
+  padding: 10px;
+  line-height: 28px;
+  font-size: 18px;
+  list-style-position: inside;
+}
+
+#lista-tarefas {
+  padding: 0;
+  text-align: left;
+}
+
+#buttons-container {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+button {
+  margin: 2px 5px;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica, sans-serif;
+  background-color: rgb(159 , 36 , 38);
+  color: white;
+  border: none;
+}
+
+#apaga-tudo , #remover-finalizados {
+  background-color: rgb(221 , 108 , 15);
+}
+
+#salvar-tarefas {
+  background-color: rgb(28 , 151 , 56);
+  color: white;
+}
+
+#mover-baixo , #mover-cima {
+  background-color: rgba(76 , 84 , 97 , 0.88);
+  color: white;
+}
