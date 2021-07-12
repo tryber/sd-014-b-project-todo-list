@@ -1,0 +1,55 @@
+.title {
+  font-size: 20px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-weight: 800;
+  
+}
+
+#funcionamento {
+  font-family: Verdana, sans-serif;
+  color: grey;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.btn {
+  padding: 10px;
+  border: 0;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#criar-tarefa {
+  background-color: lightgreen;
+  color: black;
+}
+
+#criar-tarefa:hover {
+  background-color: green;
+  color: white;
+}
+
+#apaga-tudo {
+  background-color: lightcoral;
+  color: black;
+}
+
+#apaga-tudo:hover {
+  background-color: red;
+  color: white;
+}
+
+#remover-finalizados {
+  background-color: lightskyblue;
+  color: black;
+}
+#remover-finalizados:hover {
+  background-color: blue;
+  color: white;
+}
+
+.control_panel{
+  display: inline-block;
+}
