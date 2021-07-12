@@ -33,9 +33,9 @@ function teste(){listaOrdenada.addEventListener('click',function(event){
 teste()
 
 //Requisito 9:
-//erro ao dar o segundo cuplo click a classe não é removida
 listaOrdenada.addEventListener('dblclick',function(event){
-  let lista = document.querySelectorAll('li');
+  event.target.classList.toggle('completed');
+  /*let lista = document.querySelectorAll('li');
   //console.log(lista)  
   for(let index=0;index<lista.length; index+=1){
     if(lista[index].className === 'completed'){
@@ -45,8 +45,8 @@ listaOrdenada.addEventListener('dblclick',function(event){
   }
     event.target.classList.add('completed');
     listaOrdenada.addEventListener('dblclick', function(){
-      event.target.classList.remove('completed')
-    })
+      event.target.classList.remove('completed');
+    })*/
 })
 
 
@@ -59,11 +59,13 @@ apagaTudo.addEventListener('click',function(event){
 })
 
 //Requisito 11:
-deletar.addEventListener('click',function(event){
-  let lista = document.querySelectorAll('li');
-  for(let valor of lista){
-    if(valor.className ==='completed'){
-      valor.parentNode.removeChild(valor);
-    }
+deletar.addEventListener('click',function(){
+  let lista = document.querySelectorAll('.completed');
+  //finalizado.remove("completed");
+  //console.log(lista);
+  for(let index = 0; index < lista.length; index += 1){
+    lista[index].parentNode.removeChild(lista[index]);
   }
 })
+
+//Requisito 12:
