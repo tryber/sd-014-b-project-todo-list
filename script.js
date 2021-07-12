@@ -61,4 +61,13 @@ function createButton () {
 }
 createButton();
 
+//------------------------------------------------------------------------------------------------
 
+const apagarFinalizados = document.getElementById('remover-finalizados');
+
+apagarFinalizados.addEventListener('click', function () {
+    let deletarCompletado = document.querySelectorAll('.completed');
+    for (index = 0; index < deletarCompletado.length; index += 1) {
+            deletarCompletado[index].parentNode.removeChild(deletarCompletado[index]);
+    }
+})
