@@ -20,6 +20,12 @@ function limparTarefas() {
   lista.innerText = '';
 }
 
+function limparSelecionados() {
+  const remover = document.querySelectorAll('.completed');
+  for (let index = 0; index < remover.length; index += 1) {
+    remover[index].remove();
+  }
+}
 function adicionaTarefa() {
   let input = document.getElementById('texto-tarefa');
   let lista = document.querySelector('#lista-tarefas');
@@ -35,3 +41,4 @@ function adicionaTarefa() {
 const criarTarefa = document.querySelector('#criar-tarefa');
 criarTarefa.addEventListener('click', adicionaTarefa);
 document.querySelector('#apaga-tudo').addEventListener('click', limparTarefas);
+document.querySelector('#remover-finalizados').addEventListener('click', limparSelecionados);
