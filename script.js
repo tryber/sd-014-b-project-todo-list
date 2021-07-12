@@ -48,10 +48,24 @@ function delAllFinishLi() {
   });
 }
 
+function saveLis() {
+  const lis = document.querySelector('ol').innerHTML;
+  localStorage.setItem('save', lis);
+}
+function load() {
+  if (localStorage.save !== undefined) {
+    document.querySelector('ol').innerHTML = localStorage.save;
+  }
+}
+
+window.onload = load;
+
 const button = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
 const buttonDelFinishLis = document.querySelector('#remover-finalizados');
+const buttonSavelis = document.querySelector('#salvar-tarefas');
 
 button.addEventListener('click', selectedTarefa);
 buttonClear.addEventListener('click', cleaTarefas);
 buttonDelFinishLis.addEventListener('click', delAllFinishLi);
+buttonSavelis.addEventListener('click', saveLis);
