@@ -60,8 +60,8 @@ const taskCompleted = document.querySelector('#remover-finalizados');
 taskCompleted.addEventListener('click', removeTaskCompleted);
 
 // remover selecionado (li selecionada)
-function removeSelected(event) {
-  selected = document.querySelector('.colorGray');
+function removeSelected() {
+  const selected = document.querySelector('.colorGray');
   selected.remove('li');
 }
 
