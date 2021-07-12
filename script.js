@@ -36,6 +36,22 @@ function checkItem(event) {
 }
 taskList.addEventListener('dblclick', checkItem);
 
+let clear = document.querySelector('#apaga-tudo')
+function removeItens() {
+    taskList.innerHTML = '';
+}
+clear.addEventListener('click', removeItens);
+
+let checked = document.querySelector('#remove-finalizados');
+function removeCheckedItem() {
+    let completed = document.querySelectorAll('.completed');
+    for (let i = 0; i < completed.length; i+=1 ) {
+    taskList.removeChild(completed[i])
+    }
+}
+checked.addEventListener('click', removeCheckedItem);
+
+
 
 
 

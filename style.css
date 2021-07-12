@@ -1,3 +1,15 @@
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
+#cabecalho {
+    background-color: #522a86;
+    padding: 14px;
+    margin: -8px;
+}
+h1 {
+    color: rgb(7, 6, 2);
+}
+body {
+    background-image: linear-gradient(to bottom, #9A48D0, #7E5A9B);
+    background-attachment: fixed;
+}
