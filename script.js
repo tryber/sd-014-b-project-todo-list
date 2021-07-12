@@ -1,3 +1,4 @@
+
 // Permite a adição de tarefas à lista
 
 let addTask = document.querySelector("#criar-tarefa");
@@ -10,10 +11,15 @@ function createTask() {
   itemList.innerText = task;
   itemList.addEventListener("click", changeBackgroundColor);
   itemList.addEventListener("dblclick", completedTask); 
-  localStorage.setItem(task,task);
   parentLis.appendChild(itemList);
   document.querySelector("#texto-tarefa").value = null;
 }
+
+window.onload = () => {
+  let listaSalva = document.querySelector("#lista-tarefas").innerHTML;
+  listaSalva = localStorage.getItem("Lista");
+}
+
 
 // Ao clicar em uma tarefa, muda o background da mesma
 
@@ -67,4 +73,12 @@ function removeTask(event) {
 }
 
 // Função para salvar tarefas mesmo na página
+let salvarLista = document.querySelector("#salvar-tarefas");
+salvarLista.addEventListener("click", salveList);
+
+function salveList() {
+  let salvaLista = document.querySelector("#lista-tarefas").innerHTML;
+  localStorage.setItem("Lista", salvaLista);
+}
+
 
