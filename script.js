@@ -1,6 +1,6 @@
 // CONSTANTS:
 
-const query = document.querySelector.bind(document);
+const query = document.querySelector.bind(document); // REF. [3]
 const queryAll = document.querySelectorAll.bind(document); // REF. [3]
 const newTaskButton = query('#criar-tarefa');
 const inputWindow = query('#texto-tarefa');
@@ -33,6 +33,36 @@ function addToList(input) { // REF. [1]
 function eraseListItem(listElement) {
   orderedList.removeChild(listElement); // REF. [2]
 }
+
+function moveUp() {
+  moveUpButton.addEventListener('click', () => {
+    if (!query('.selected')) {
+      return; // Se nada selecionado, termina a função
+    }
+    if (query('.selected').previousElementSibling) { // Se houver anterior
+        query('.selected').parentNode.insertBefore(
+        query('.selected'),
+        query('.selected').previousElementSibling, // Explicação: 1
+      );
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  moveDownButton.addEventListener('click', () => {
+    if (!query('.selected')) {
+      return; // Se nada selecionado, termina a função
+    }
+    if (query('.selected').nextElementSibling) { // Se houver próximo
+        query('.selected').parentNode.insertBefore(
+        query('.selected').nextElementSibling,
+        query('.selected'),
+      );
+    }
+  });
+}
+moveDown();
 
 // EVENT LISTENERS:
 
@@ -108,38 +138,13 @@ removeSelectedButton.addEventListener('click', (event)=>{
 });
 
 saveTasks.addEventListener('click', (event)=>{
+  localStorage.setItem('list', orderedList.innerHTML);
   window.alert('Lista salva');
 });
 
-function moveUp() {
-  moveUpButton.addEventListener('click', () => {
-    if (!query('.selected')) {
-      return; // Se nada selecionado, termina a função
-    }
-    if (query('.selected').previousElementSibling) { // Se houver anterior
-        query('.selected').parentNode.insertBefore(
-        query('.selected'),
-        query('.selected').previousElementSibling, // Explicação: 1
-      );
-    }
-  });
-}
-moveUp();
-
-function moveDown() {
-  moveDownButton.addEventListener('click', () => {
-    if (!query('.selected')) {
-      return; // Se nada selecionado, termina a função
-    }
-    if (query('.selected').nextElementSibling) { // Se houver próximo
-        query('.selected').parentNode.insertBefore(
-        query('.selected').nextElementSibling,
-        query('.selected'),
-      );
-    }
-  });
-}
-moveDown();
+window.onload = () => {
+  orderedList.innerHTML = localStorage.getItem('list');
+};
 
 // REFERÊNCIAS:
 
