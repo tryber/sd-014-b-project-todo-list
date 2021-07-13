@@ -1,42 +1,134 @@
 body {
-  background-color: #003049;
-  font-family: Arial, Helvetica, sans-serif;
-  color: antiquewhite;
+  background-color: #e0eff1;
+  font-family: Work Sans, Helvetica, Arial, sans-serif;
+  background: #F5F6F7;
+  color: #03045E
+}
+
+#content {
+  max-width: 500px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: auto;
+  text-align: center;
+}
+.done {
+  text-decoration: line-through solid #719297;
+  color: #719297;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+  color: #023E8A;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding: 4px;
+}
+
+header {
+  background-color: #03045E;
+  size: 100%;
+  padding:50px;
+  margin: auto;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
 }
 
 #title {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
+
 
 #texto-tarefa {
   min-height: 25px;
+  min-width: 300px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+#texto-tarefa:hover {
+  border: 2px solid #023E8A;
+}
+
+#lista-tarefas {
+  text-align: left;
+  background-color: white;
+  border-radius: 15px;
+  margin: 5px;
+  line-height: 3ui;
+  box-shadow: 2px 2px #d4e8eb;
 }
 
 #criar-tarefa {
-  background-color: #118ab2;
-  color: black;
+  background-color: #023E8A;
+  color: white;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #118ab2;
-  border-radius: 5px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+#criar-tarefa:hover {
+  background-color: #03045e;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
 }
 
 #apaga-tudo {
-  background-color: #ef476f;
-  color: black;
+  background-color: #023E8A;
+  color: white;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #ef476f;
-  border-radius: 5px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+#apaga-tudo:hover {
+  background-color: #03045e;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
 }
 
 #remover-finalizados {
-  background-color: #06d6a0;
-  color: black;
+  background-color: #023E8A;
+  color: white;
   padding: 2px 10px 3px 10px;
-  border: 2px solid #06d6a0;
-  border-radius: 5px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+  margin: 2px;
 }
 
+#remover-finalizados:hover {
+  background-color: #03045e;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+}
+#remover-selecionado {
+  background-color: #023E8A;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+  margin: 2px;
+}
+
+#remover-selecionado:hover {
+  background-color: #03045e;
+  color: white;
+  padding: 2px 10px 3px 10px;
+  border: 2px solid #023E8A;
+  border-radius: 15px;
+}
 /* YELLOW #ffd166
 BLUE #118ab2
 GREEN #06d6a0
