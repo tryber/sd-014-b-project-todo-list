@@ -13,10 +13,12 @@ function selectTarefa() {
 }
 
 function tarefaCompleta() {
-  const tarefaCompletada = document.querySelectorAll('li');
+  const tarefaCompletada = document.querySelectorAll('.lista');
   for (let i = 0; i < tarefaCompletada.length; i += 1) {
     tarefaCompletada[i].addEventListener('dblclick', () => {
-      tarefaCompletada[i].classList.add('completed');
+      if (tarefaCompletada[i].classList.contains('completed')) {
+        tarefaCompletada[i].classList.remove('completed');
+      } else tarefaCompletada[i].classList.add('completed');
     });
   }
 }
@@ -26,10 +28,12 @@ function addTarefa() {
   const createNew = document.createElement('li');
   const tarefaAdd = document.querySelector('#texto-tarefa').value;
   createNew.innerHTML = tarefaAdd;
+  createNew.classList.add('lista');
   addList.appendChild(createNew);
+  addList.addEventListener('dblclick', tarefaCompleta)
   document.querySelector('#texto-tarefa').value = '';
   selectTarefa();
-  tarefaCompleta();
+
 }
 
 function clickButtonCreate() {
