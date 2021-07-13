@@ -76,8 +76,6 @@ function addsClearHighlightedButton (){
 }
 addsClearHighlightedButton();
 
-
-
 function clearHighlighted(){
   for (let value of toDoList.querySelectorAll('.li')) {
     if (value.style.backgroundColor === 'rgb(128, 128, 128)') {
@@ -86,7 +84,21 @@ function clearHighlighted(){
   }
 }
 
+function saveTaskList(){
+  localStorage.setItem('userList', toDoList.innerHTML);
+}
 
+function generateSaveButton(){
+  saveButton = document.createElement('button');
+  saveButton.innerText = 'save';
+  saveButton.id = 'salvar-tarefas';
+  saveButton.addEventListener('click', saveTaskList);
+  buttonContainer.appendChild(saveButton);
+}
+generateSaveButton();
 
+window.onload = function(){
+  toDoList.innerHTML = localStorage.getItem('userList');
+}
 
 
