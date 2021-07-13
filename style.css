@@ -1,0 +1,57 @@
+body {
+  background-color:rgb(170, 170, 170);
+}
+
+header h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+#funcionamento {
+  margin-left: 20px;
+  margin-top: 80px;
+  font-size: 25px;
+}
+
+.addList {
+  display: inline-block;
+}
+  
+input {
+  vertical-align: top;
+  margin-left: 20px;
+  width:600px;
+  height:40px;
+  border-radius: 5px;
+  border:solid 2px blue;
+}
+
+button {
+  vertical-align: top;
+  margin-left: 100px;
+  width:150px;
+  height:50px;
+  border-radius:5px;
+  border:solid 3px blue;
+  font-family:fantasy;
+  font-size: 20px;
+  font-style:initial;
+}
+
+.fade {
+  opacity: 0.8;
+}
+
+.fade:hover{
+  opacity: 1.5;
+  background-color: rgb(144, 166, 238);
+}
+
+.backColorCinza {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
