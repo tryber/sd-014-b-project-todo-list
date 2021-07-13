@@ -66,3 +66,27 @@ function addClearCompletedTasksButton() {
 }
 addClearCompletedTasksButton();
 
+
+function addsClearHighlightedButton (){
+  let clearHighlightedButton = document.createElement('button');
+  clearHighlightedButton.innerText = 'clear highlighted';
+  clearHighlightedButton.id = 'remover-selecionado';
+  clearHighlightedButton.addEventListener('click', clearHighlighted);
+  buttonContainer.appendChild(clearHighlightedButton);
+}
+addsClearHighlightedButton();
+
+
+
+function clearHighlighted(){
+  for (let value of toDoList.querySelectorAll('.li')) {
+    if (value.style.backgroundColor === 'rgb(128, 128, 128)') {
+      value.remove();
+    }
+  }
+}
+
+
+
+
+
