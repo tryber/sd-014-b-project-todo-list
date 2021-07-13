@@ -1,0 +1,8 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+.completed {
+  text-decoration: black solid line-through;
+}
