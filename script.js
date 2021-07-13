@@ -5,9 +5,9 @@
 // 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
 
 // 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+const taskList = document.querySelector('#lista-tarefas'); // Atribuir elemento de id lista-tarefas à variável taskList
 
 function newTask() {
-  const taskList = document.querySelector('#lista-tarefas'); // Atribuir elemento de id lista-tarefas à variável taskList
   const task = document.createElement('li'); // Criar elemento de item listado (li) no document
   taskList.appendChild(task); //  Adiciona elemento task (tarefa do input) como elemento filho do elemento pai taskList
 
@@ -27,14 +27,26 @@ dbClickTask.addEventListener('dblclick', checkTask);
 
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 
-
-
-const apagarTudo = document.getElementById('apaga-tudo');
-apagarTudo.addEventListener('click', removeAll);
-
 function removeAll() {
-  const taskList = document.querySelector('#lista-tarefas'); 
   while(taskList.lastElementChild != null) {
     taskList.removeChild(taskList.lastElementChild);
   }
 }
+
+const apagarTudo = document.getElementById('apaga-tudo');
+apagarTudo.addEventListener('click', removeAll);
+
+function saveTasks() {
+  localStorage.setItem('taskList', taskList.innerHTML);
+}
+
+const saveAllTasks = document.getElementById('salvar-tarefas');
+saveAllTasks.addEventListener('click', saveTasks);
+
+function recoverAllTasks() {
+  if (localStorage.getItem('taskList') !== '') {
+    taskList.innerHTML = localStorage.getItem('taskList');
+  }
+}
+
+recoverAllTasks();
