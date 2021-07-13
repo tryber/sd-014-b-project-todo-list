@@ -1,4 +1,3 @@
-const root = document.querySelector('.root');
 const toDoList = document.querySelector('#lista-tarefas');
 const input = document.querySelector('#texto-tarefa');
 const taskDone = document.querySelector('.completed');
@@ -66,8 +65,7 @@ function addClearCompletedTasksButton() {
 }
 addClearCompletedTasksButton();
 
-
-function addsClearHighlightedButton (){
+function addsClearHighlightedButton() {
   let clearHighlightedButton = document.createElement('button');
   clearHighlightedButton.innerText = 'clear highlighted';
   clearHighlightedButton.id = 'remover-selecionado';
@@ -76,7 +74,7 @@ function addsClearHighlightedButton (){
 }
 addsClearHighlightedButton();
 
-function clearHighlighted(){
+function clearHighlighted() {
   for (let value of toDoList.querySelectorAll('.li')) {
     if (value.style.backgroundColor === 'rgb(128, 128, 128)') {
       value.remove();
@@ -84,11 +82,11 @@ function clearHighlighted(){
   }
 }
 
-function saveTaskList(){
+function saveTaskList() {
   localStorage.setItem('userList', toDoList.innerHTML);
 }
 
-function generateSaveButton(){
+function generateSaveButton() {
   saveButton = document.createElement('button');
   saveButton.innerText = 'save';
   saveButton.id = 'salvar-tarefas';
@@ -97,8 +95,6 @@ function generateSaveButton(){
 }
 generateSaveButton();
 
-window.onload = function(){
+window.onload = function () {
   toDoList.innerHTML = localStorage.getItem('userList');
-}
-
-
+};
