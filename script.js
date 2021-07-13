@@ -23,8 +23,8 @@ clicar()
 
 
 function remover(){
-    let aaaa = document.querySelector('.selected')
-    aaaa.classList.remove('selected')
+    let aaaa = document.querySelector('.completed')
+    aaaa.classList.remove('completed')
 }
 
 
@@ -38,3 +38,13 @@ function colorSelector() {
     }
     colorSelector();
 
+    function doubleclick(){
+        const doubleClicou = document.querySelector('#lista-tarefas');
+        doubleClicou.addEventListener( "dblclick" , (event) => {
+            document.querySelector('.completed').classList.remove('completed');
+                event.target.classList.add('completed')
+        })
+
+    }
+
+doubleclick()
