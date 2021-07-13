@@ -37,4 +37,14 @@ window.onload = function () {
     clearAllList.innerHTML = '';
   }
   buttonToRemoveList.addEventListener('click', removeAllList);
+
+  const removeComplete = document.querySelector('#remover-finalizados');
+  function removeCompleteTasks (){
+    const completeTasks = document.querySelectorAll('.completed');
+    for (let index = 0; index < completeTasks.length; index += 1){
+      completeTasks[index].remove();
+    }
+  }
+  removeComplete.addEventListener('click', removeCompleteTasks);
+
 }
