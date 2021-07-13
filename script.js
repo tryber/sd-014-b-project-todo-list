@@ -10,6 +10,7 @@ const removeAll = document.querySelector('#remover-selecionado');
 const answer = document.querySelector('#texto-tarefa');
 
 // Requisito 7 e 8
+// Código do Henrique
 // Seleciona um item da lista
 function change() {
   for (let index = 0; index < allTasks.length; index += 1) {
@@ -27,7 +28,7 @@ function change() {
 function createTask() {
   const newtask = document.createElement('li');
   newtask.className = 'item';
-  if (answer.value === false) {
+  if (answer.value == false) {
     alert('ERRO! DIGITE UMA TAREFA.');
   } else {
     newtask.innerText = answer.value;
@@ -36,7 +37,7 @@ function createTask() {
   }
   change();
 }
-
+// Adiciona a task ao clickar ou apertar
 button.addEventListener('click', createTask);
 answer.addEventListener('keypress', (event) => {
   if (event.keyCode === 13) {
@@ -49,8 +50,10 @@ answer.addEventListener('keypress', (event) => {
 list.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
+    event.target.innerHTML -= ' ✅';
   } else {
     event.target.classList.add('completed');
+    event.target.innerHTML += ' ✅';
   }
 });
 

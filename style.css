@@ -3,23 +3,65 @@ body {
   background-color: rgb(88, 32, 32);
 }
 
+header {
+  font-size: 50px ;
+  font-family: 'Bebas Neue', cursive;
+
+}
+
 section {
   background-color: rgb(190, 132, 121);
-  width: 80%;
-  height: 400px;
+  width: 60%;
+  height: 600px;
   text-align: center;
   border-radius: 20px;
   margin: auto;
   padding-top: 10px;
+  border-radius: 85px;
+}
+
+ol {
+  background-color: white;
+  width: 50%;
+  height: 60%;
+  margin-left: 20%;
+  border-radius: 14px;
 }
 
 li {
-  list-style-position: inside;
   width: 50%;
+  margin: auto;
+  font-size: 30px;
+}
+
+button {
+  background-color: #5a291d; 
+  border: none;
+  color: white;
+  padding: 9px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 4px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+
+input {
+  font-size: 20px;
+}
+
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .changeBg {
   background-color: rgb(128,128,128);
+  
 }
 
 .completed {
