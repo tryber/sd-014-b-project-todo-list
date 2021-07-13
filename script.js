@@ -53,3 +53,17 @@ function clickButtonClear() {
   btn.addEventListener('click', limparLista);
 }
 clickButtonClear();
+
+function limparListaCompleta() {
+  const lista = document.querySelectorAll('.completed');
+  const listas = document.querySelector('#lista-tarefas');
+  for (let i = 0; i < lista.length; i += 1) {
+    listas.removeChild(lista[i]);
+  }
+}
+
+function clickButtonClearComplete() {
+  const btn = document.querySelector('#remover-finalizados');
+  btn.addEventListener('click', limparListaCompleta);
+}
+clickButtonClearComplete();
