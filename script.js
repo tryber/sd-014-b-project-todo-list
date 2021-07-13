@@ -26,7 +26,7 @@ createTaskButton.addEventListener('click', () => {
     alert('Error: Digite ao menos 1 caractere.');
   }
 });
-
+// Para disparar o evento keycode, clicando a tecla entrer é necessário pegar sua chave que é o numero 13, assim ao clicar no enter ele dispara um evento.
 textTask.addEventListener('keyup', (event) => {
   if (event.keyCode === 13 && textTask.value.length > 0) {
     newTask();
@@ -86,7 +86,7 @@ function createRemoveSelectedButton(buttonName) {
   newButton.id = 'remover-finalizados';
   buttonContainer.appendChild(newButton);
 }
-createRemoveSelectedButton('Remove tarefa finalizada');
+createRemoveSelectedButton('Remove tarefa completada');
 
 const removeCompleted = document.getElementById('remover-finalizados');
 
@@ -164,3 +164,30 @@ removeSelected.addEventListener('click', () => {
 //     }
 //   }
 // });
+
+// 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+// O que será verificado:
+// Será verificado que existe um elemento button com o id salvar-tarefas
+// Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
+
+// Cria button
+
+function createSaveTaskButton(buttonName) {
+  const newButton = document.createElement('button');
+
+  newButton.innerHTML = buttonName;
+  newButton.id = 'salvar-tarefas';
+  buttonContainer.appendChild(newButton);
+}
+createSaveTaskButton('Salvar');
+
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+
+salvarTarefas.addEventListener('click', () => {
+  localStorage.setItem('list', orderedList.innerHTML);
+});
+
+function saveTask() {
+  orderedList.innerHTML = localStorage.getItem('list');
+}
+saveTask();
