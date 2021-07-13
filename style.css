@@ -1,0 +1,97 @@
+body {
+  background-color: rgb(241 , 240 , 238);
+  font-family: monospace;
+  color: grey;
+}
+
+h1 {
+  color: rgb(248 , 147 , 52);
+}
+
+aside {
+  float: left;
+  margin-top: 60px;
+}
+
+header {
+  margin: 20px;
+  float: right;
+  margin-right: 610px;
+  margin-top: 60px;
+}
+
+#texto-tarefa {
+  color: black;
+  background-color: beige;
+  margin-left: 45px;
+  border-radius: 10px;
+  height: 20px;
+}
+
+section {
+  margin-left: 250px;
+}
+
+#criar-tarefa {
+  border-radius: 10px;
+  background-color: lightsalmon;
+  border: 2px solid lightsalmon;
+  height: 25px;
+  font-weight: bold;
+}
+
+section ol li {
+  font-size: 14px;
+  color: black;
+  margin: 10px;
+}
+
+#button-align {
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+#apaga-tudo {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid lightskyblue;
+  background-color: lightskyblue;
+  font-weight: bold;
+}
+
+#remover-finalizados {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(248, 248, 147);
+  background-color: rgb(248, 248, 147);
+  font-weight: bold;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+footer {
+  margin-top: 300px;
+  text-align: center;
+}
+
+#remover-selecionado {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(135, 255, 209);
+  background-color: rgb(135, 255, 209);
+  font-weight: bold;
+}
+
+#salvar-tarefas {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(255, 135, 229);
+  background-color: rgb(255, 135, 229);
+  font-weight: bold;
+}
