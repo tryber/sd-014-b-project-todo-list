@@ -5,13 +5,11 @@ function clicar() {
         botao.addEventListener('click', () => {
             let stringui = document.getElementById('texto-tarefa').value;
                 const tucano = document.createElement('li')
-                    tucano.className= ('listinha')
+                    tucano.classList= ('pixel')
                     tucano.innerText = stringui
                         lista.appendChild(tucano)
                             document.getElementById('texto-tarefa').value=''
-                                tucano.onclick = function(){
-                                    tucano.style.backgroundColor = '#808080'
-                                }
+                               
         
         }
         
@@ -20,3 +18,23 @@ function clicar() {
 
 }
 clicar()
+
+
+
+
+function remover(){
+    let aaaa = document.querySelector('.selected')
+    aaaa.classList.remove('selected')
+}
+
+
+
+function colorSelector() {
+    const selectedColor = document.querySelector('#lista-tarefas');
+    selectedColor.addEventListener('click', (event) => {
+    document.querySelector('.selected').classList.remove('selected');
+    event.target.classList.add('selected');
+    });
+    }
+    colorSelector();
+
