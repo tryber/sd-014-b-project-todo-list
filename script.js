@@ -29,6 +29,17 @@ function checkTask(event) {
 const dbClickTask = document.querySelector('ol');
 dbClickTask.addEventListener('dblclick', checkTask);
 
+function selectTask(selectEvent) {
+  if (document.querySelector('.selected') != null) {
+    document.querySelector('.selected').classList.remove('selected');
+  }
+  selectEvent.target.classList.add('selected');
+  console.log(selectEvent.target);
+}
+
+const singleClickTask = document.querySelector('ol');
+singleClickTask.addEventListener('click', selectTask);
+
 // 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 
 function removeAll() {
