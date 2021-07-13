@@ -5,6 +5,7 @@ function alterColor() {
     getTasks[index].classList.remove('selected');
   }
 }
+
 function empityTasks() {
   const getOl = document.getElementById('lista-tarefas');
   while (getOl.firstChild) {
@@ -62,3 +63,34 @@ function btnRemoveCompleted() {
   });
 }
 btnRemoveCompleted();
+
+/* function saveTasks() {
+  const getButtonSaveTasks = document.getElementById('salvar-tarefas');
+  getButtonSaveTasks.addEventListener('click', () => {
+    const getTasks = document.querySelectorAll('.task');
+    // eslint-disable-next-line sonarjs/no-unused-collection
+    const tasks = [];
+    for (let index = 0; index < getTasks.length; index += 1) {
+      tasks.push(getTasks[index].innerHTML);
+    }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  });
+}
+saveTasks(); */
+
+function saveTasks() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const getButtonSaveTasks = document.getElementById('salvar-tarefas');
+  getButtonSaveTasks.addEventListener('click', () => {
+    localStorage.setItem('taskList', taskList.innerHTML);
+  });
+}
+saveTasks();
+
+function setTasksSaved() {
+  const taskList = document.querySelector('#lista-tarefas');
+  if (localStorage.getItem('taskList') !== '') {
+    taskList.innerHTML = localStorage.getItem('taskList');
+  }
+}
+setTasksSaved();
