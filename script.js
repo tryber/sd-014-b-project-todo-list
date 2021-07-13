@@ -155,3 +155,10 @@ function removeSelected() {
 
 const removeButton = document.getElementById('remover-selecionado');
 removeButton.addEventListener('click', removeSelected);
+
+function clearSaved() {
+  localStorage.clear();
+}
+
+const eraseButton = document.getElementById('limpar-salvos');
+eraseButton.addEventListener('click', clearSaved);
