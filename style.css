@@ -1,0 +1,63 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(216, 214, 200);
+    text-align: center;
+}
+main {
+    background-color: rgb(117, 181, 206);
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    padding-top: 20px;
+    width: 300px;
+    display: inline-block;
+    text-align: center;
+}
+header {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+button {
+    background-color: rgb(21, 122, 46);
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    padding: 8px 8px;
+    margin-left: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+button:hover {
+    background-color: rgb(55, 161, 31);
+}
+
+#funcionamento {
+    font-size: 12px;
+    font-style: italic;
+    color: rgb(69, 71, 73);
+}
+
+#texto-tarefa {
+    background-color: rgb(234, 237, 241);
+}
+
+.currentSelectedItem{
+    background-color: rgb(128, 128, 128);
+}
+
+.listItemOfTask{
+    text-align: justify;
+}
+
+input {
+    border-style: none;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+#salvar-tarefas{
+    padding: 5px 5px;
+    font-size: 10px;
+}
