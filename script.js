@@ -12,7 +12,7 @@ const taskSelector = (task) =>
 
 const marker = (element) => {
   element.addEventListener('dblclick', (event) => {
-    event.target.classList.toggle('done');
+    event.target.classList.toggle('completed');
   });
 };
 
@@ -36,7 +36,7 @@ query('#apaga-tudo').addEventListener('click', () =>
   queryAll('.item').forEach((element) => element.remove()));
 
 query('#remover-finalizados').addEventListener('click', () => {
-  queryAll('.done').forEach((element) => element.remove());
+  queryAll('.completed').forEach((element) => element.remove());
 });
 
 query('#remover-selecionado').addEventListener('click', () =>
