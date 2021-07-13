@@ -186,6 +186,11 @@ li, li::marker {
   background-color: rgba(228, 123, 4, 0.822);
 }
 
+#mover-baixo:disabled {
+  color: rgb(128, 128, 128);
+  background-color: #ccc;
+}
+
 #apaga-tudo {
   color: rgb(255, 255, 255);
   background-color: rgba(228, 123, 4, 0.822);

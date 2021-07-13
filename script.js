@@ -60,11 +60,6 @@ eraseTaskBtn.addEventListener('click', deleteSelected);
 // evento que deleta APENAS os finalizados
 eraseFinishTask.addEventListener('click', deleteCompleted);
 
-// evento para mover para cima um item
-moveUp.addEventListener('click', moveItem);
-// evento para mover para cima um item
-moveDown.addEventListener('click', moveItemBx);
-
 // evento para salvar as tarefas
 saveTasks.addEventListener('click', saveList);
 
@@ -95,29 +90,32 @@ function deleteCompleted() {
   }
 }
 
-function moveItem() {
+function moveItem() { // refatorado junto com o Victor Martins - 14B
   const listItemSelect = document.querySelector('.selected');
-  const itemIndex = document.getElementById('lista-tarefas').children;
-  for (let i = 0; i < itemIndex.length; i += 1) {
-    if (itemIndex[i] === listItemSelect) {
-      listToDo.insertBefore(itemIndex[i], itemIndex[i].previousElementSibling);
-      if (itemIndex[0] === listItemSelect) {
-        moveUp.setAttribute('disabled', 'true');
-      }
-    }
+  // const itemIndex = document.getElementById('lista-tarefas').children;
+  if (listItemSelect === listToDo.firstElementChild) {
+    moveUp.setAttribute('disabled', 'true');
+  } else {
+    listToDo.insertBefore(listItemSelect, listItemSelect.previousElementSibling);
   }
 }
 
 function moveItemBx() {
   const listItemSelect2 = document.querySelector('.selected');
-  const itemIndex = document.getElementById('lista-tarefas').children;
-  for (let i = 0; i < itemIndex.length; i += 1) {
-    if (itemIndex[i] === listItemSelect2) {
-      listToDo.insertBefore(itemIndex[i].previousElementSibling, itemIndex[i]);
-    }
+  if (listItemSelect2 === listToDo.lastElementChild) {
+    moveDown.setAttribute('disabled', 'true');
+  } else {
+    listToDo.insertBefore(listItemSelect2.nextElementSibling, listItemSelect2);
   }
 }
 
+// evento para mover para cima um item
+moveUp.addEventListener('click', moveItem);
+
+// evento para mover para cima um item
+moveDown.addEventListener('click', moveItemBx);
+
+// função que salva a lista no localstorage
 function saveList() {
   const SaveHtmlList = listToDo.innerHTML;
   localStorage.setItem('taskList', JSON.stringify(SaveHtmlList));
@@ -128,9 +126,12 @@ function saveList() {
 
 window.onload = () => {
   // método window.confirm. https://developer.mozilla.org/pt-BR/docs/Web/API/Window/confirm. Surgiu da idéia de carregar a lista se o usuário quiser, visando usabilidade e dinamismo para a aplicação.
-  const confirms = window.confirm('Você deseja carregar a lista anterior?');
-  if (confirms) {
-    listToDo.innerHTML = JSON.parse(localStorage.getItem('taskList'));
+  if (localStorage) {
+    const confirms = window.confirm('Você deseja carregar a última lista salva?');
+    if (confirms) { // variável sozinha dentro do if verifica se ela é true. Dica de monitoria.
+      listToDo.innerHTML = JSON.parse(localStorage.getItem('taskList'));
+      localStorage.clear();
+    }
   }
 };
 
@@ -146,4 +147,4 @@ window.onload = () => {
 //   return false;
 // }
 // questão 12 - mandar o array completo pro localstorage // monitoria
-// da o nome pra HashChangeEvent, no valor manda o array.
+// da o nome pra HasChangeEvent, no valor manda o array.
