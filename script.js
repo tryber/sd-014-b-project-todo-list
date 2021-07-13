@@ -96,3 +96,62 @@ createTask();
 const saveButton = document.getElementById('salvar-tarefas');
 saveButton.addEventListener('click', saveTasks);
 window.onload = initialRenderization;
+
+function changeUpPosition() {
+  const taskItens = document.querySelectorAll('ol li');
+  let firstPosition;
+  let secondPosition;
+  for (let index = 0; index < taskItens.length; index += 1) {
+    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)' && index !== 0) {
+      firstPosition = taskItens[index - 1].textContent;
+      secondPosition = taskItens[index].textContent;
+      // if (taskItens[index].previousSibling.classList.contains('completed')) {
+      //   taskItens[index].classList.add('completed');
+      //   taskItens[index - 1].classList.remove('completed');
+      // }
+      taskItens[index].innerText = firstPosition;
+      taskItens[index - 1].innerText = secondPosition;
+      taskItens[index].style.backgroundColor = '';
+      taskItens[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+const upButton = document.getElementById('mover-cima');
+upButton.addEventListener('click', changeUpPosition);
+
+function changeDownPosition() {
+  const taskItens = document.querySelectorAll('ol li');
+  const length = taskItens.length - 1;
+  let firstPosition;
+  let secondPosition;
+  for (let index = length; index >= 0; index -= 1) {
+    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)' && index !== length) {
+      firstPosition = taskItens[index + 1].textContent;
+      secondPosition = taskItens[index].textContent;
+      // if (taskItens[index].nextSibling.classList.contains('completed')) {
+      //   taskItens[index].classList.add('completed');
+      //   taskItens[index + 1].classList.remove('completed');
+      // }
+      taskItens[index].innerText = firstPosition;
+      taskItens[index + 1].innerText = secondPosition;
+      taskItens[index].style.backgroundColor = '';
+      taskItens[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+const downButton = document.getElementById('mover-baixo');
+downButton.addEventListener('click', changeDownPosition);
+
+function removeSelected() {
+  const taskItens = document.querySelectorAll('ol li');
+  for (let index = 0; index < taskItens.length; index += 1) {
+    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      list.removeChild(taskItens[index]);
+    }
+  }
+}
+
+const removeButton = document.getElementById('remover-selecionado');
+removeButton.addEventListener('click', removeSelected);
