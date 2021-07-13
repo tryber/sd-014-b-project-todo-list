@@ -76,5 +76,5 @@ function delItemComplet() {
   }
 }
 
-const itemFinalizado = document.querySelector('#remove-finalizados');
+const itemFinalizado = document.querySelector('#remover-finalizados');
 itemFinalizado.addEventListener('click', delItemComplet);
