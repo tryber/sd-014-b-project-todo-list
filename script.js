@@ -24,3 +24,8 @@ function selection(event) {
 
 taskList.addEventListener('click', selection);
 
+// Uso do .toggle Referência https://pt.stackoverflow.com/
+function riskText(event) {
+    event.target.classList.toggle('completed');
+}
+taskList.addEventListener('dblclick', riskText);
