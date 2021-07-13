@@ -37,22 +37,24 @@ lista.addEventListener('click', function (event) {
 function upLineSelection() {
   let tarefas = document.querySelectorAll('.item-tarefa');
   let selected = document.querySelector('.selected');
+  console.log(selected);
   if (selected !== null) {
     let n = 1;
-    if (tarefas[0].className === 'item-tarefa selected') {
+    if (tarefas[0].className === 'item-tarefa selected' || tarefas[0].className === 'item-tarefa selected completed') {
       alert('Primeiro elemento já está selecionado!');
     } else {
       for (let i = 1; i < tarefas.length; i += 1) {
         if (tarefas[i].className === 'item-tarefa selected' || tarefas[i].className === 'item-tarefa selected completed') {
           n = i;
+          const sobeTexto = tarefas[n].innerText;
+          const sobeClasse = tarefas[n].className;
+          tarefas[n].innerText = tarefas[n - 1].innerText;
+          tarefas[n].className = tarefas[n - 1].className;
+          tarefas[n - 1].innerText = sobeTexto;
+          tarefas[n - 1].className = sobeClasse;
         }
       }
-      const sobeTexto = tarefas[n].innerText;
-      const sobeClasse = tarefas[n].className;
-      tarefas[n].innerText = tarefas[n - 1].innerText;
-      tarefas[n].className = tarefas[n - 1].className;
-      tarefas[n - 1].innerText = sobeTexto;
-      tarefas[n - 1].className = sobeClasse;
+
     }
   }
 } 
@@ -64,20 +66,21 @@ function downLineSelection() {
   let selected = document.querySelector('.selected');
   if (selected !== null) {
     let n = tarefas.length - 1;
-    if (tarefas[n].className === 'item-tarefa selected') {
+    if (tarefas[n].className === 'item-tarefa selected' || tarefas[n].className === 'item-tarefa selected completed') {
       alert('Último elemento já está selecionado!');
     } else {
-      for (let i = 0; i < tarefas.length; i += 1) {
+      for (let i = 0; i < n; i += 1) {
         if (tarefas[i].className === 'item-tarefa selected' || tarefas[i].className === 'item-tarefa selected completed') {
           n = i;
+          const desceTexto = tarefas[n].innerText;
+          const desceClasse = tarefas[n].className;
+          tarefas[n].innerText = tarefas[n + 1].innerText;
+          tarefas[n].className = tarefas[n + 1].className;
+          tarefas[n + 1].innerText = desceTexto;
+          tarefas[n + 1].className = desceClasse;
+          break;
         }
       }
-      const desceTexto = tarefas[n].innerText;
-      const desceClasse = tarefas[n].className;
-      tarefas[n].innerText = tarefas[n + 1].innerText;
-      tarefas[n].className = tarefas[n + 1]. className;
-      tarefas[n + 1].innerText = desceTexto;
-      tarefas[n + 1].className = desceClasse;
     }
   }
 }
@@ -148,8 +151,9 @@ function initialRenderization() {
     for (let index = 0; index < listLength; index += 1) {
       let tarefaComClasse = tarefasList[index];
       let classe = tarefaComClasse.indexOf('item-tarefa');// Armazena o índice, onde inicia essa frase buscada
-      let frase = tarefaComClasse.slice(0, classe); // Armazena a frase da posição 0 até o índice buscado anteriormente
+      let frase = tarefaComClasse.slice(0, (classe - 1)); // Armazena a frase da posição 0 até o índice buscado anteriormente
       let classes = tarefaComClasse.slice(classe, tarefaComClasse.length); // Armazena as classes, iniciando do indice buscado até o final
+      console.log(classes);
       const listElement = document.createElement('li');
       listElement.innerText = frase;
       listElement.className = classes;
