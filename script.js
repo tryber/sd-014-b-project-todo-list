@@ -15,6 +15,7 @@ function addListItem() {
 function selectItem() {
   let getItem = document.querySelectorAll('.tarefa');
   for (let index = 0; index <= getItem.length - 1; index += 1) {
+    getItem[index].addEventListener('dblclick', markAsCompleted);
     getItem[index].addEventListener('click', changeColor);
   }
 }  
@@ -27,3 +28,11 @@ function changeColor(item) {
   item.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function markAsCompleted(item) {
+  console.log(item.target.className);
+  if (item.target.className === 'tarefa completed') {
+    item.target.classList.remove('completed');
+  } else {
+    item.target.classList.add('completed');
+  }
+}

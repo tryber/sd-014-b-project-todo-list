@@ -5,3 +5,7 @@ body {
 .tarefa {
     background-color: lightsteelblue;
 }
+
+.completed {
+    text-decoration: line-through;
+}
