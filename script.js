@@ -4,7 +4,7 @@ document.querySelector('h1').innerText = "Minha Lista de Tarefas";
 document.querySelector('#funcionamento').innerText = "Clique duas vezes em um item para marcá-lo como completo";
 document.querySelector('#apaga-tudo').innerText = "Apaga tudo";
 document.querySelector('#criar-tarefa').innerText = "Criar tarefa";
-document.querySelector('#remove-finalizados').innerText = "Remover Finalizados";
+document.querySelector('#remover-finalizados').innerText = "Remover Finalizados";
 
 
 let addTextTarefa = document.querySelector('#texto-tarefa');
