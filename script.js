@@ -1,6 +1,7 @@
 const addButton = document.querySelector('#criar-tarefa');
 const eraseButton = document.querySelector('#apaga-tudo');
 const eraseCompletedTaskButton = document.querySelector('#remover-finalizados');
+const killButton = document.querySelector('#remover-selecionado');
 const list = document.querySelector('#lista-tarefas');
 
 function changeColor(item) {
@@ -20,10 +21,10 @@ function markAsCompleted(item) {
 }
 
 function selectItem() {
-  const getItem = document.querySelectorAll('.tarefa');
-  for (let index = 0; index <= getItem.length - 1; index += 1) {
-    getItem[index].addEventListener('dblclick', markAsCompleted);
-    getItem[index].addEventListener('click', changeColor);
+  const selectedItem = document.querySelectorAll('.tarefa');
+  for (let index = 0; index <= selectedItem.length - 1; index += 1) {
+    selectedItem[index].addEventListener('dblclick', markAsCompleted);
+    selectedItem[index].addEventListener('click', changeColor);
   }
 }
 
@@ -38,11 +39,22 @@ function addListItem() {
 }
 
 function eraseList() {
-  const getListItem = document.querySelectorAll('.tarefa');
-  for (let index = 0; index <= getListItem.length - 1; index += 1) {
-    list.removeChild(getListItem[index]);
+  const selectedItem = document.querySelectorAll('.tarefa');
+  for (let index = 0; index <= selectedItem.length - 1; index += 1) {
+    list.removeChild(selectedItem[index]);
   }
 }
+
+function removeListItem() {
+  const selectedItem = document.querySelectorAll('.tarefa');
+  for (index = 0; index <= selectedItem.length - 1; index += 1) {
+    if (selectedItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      const getlist = document.querySelector('#lista-tarefas');
+      getlist.removeChild(selectedItem[index]);
+    }
+  }
+}
+
 
 function removeCompleted() {
   const getCompletedItem = document.querySelectorAll('.completed');
@@ -54,3 +66,4 @@ function removeCompleted() {
 addButton.addEventListener('click', addListItem);
 eraseButton.addEventListener('click', eraseList);
 eraseCompletedTaskButton.addEventListener('click', removeCompleted);
+killButton.addEventListener('click', removeListItem)
