@@ -1,10 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: #ffeb54;
+  background: rgb(255 , 235 , 84);
 }
 
 /**********
@@ -12,12 +12,12 @@ body {
 **********/
 
 .main-content {
-    background: #fff;
-    padding: 25px;
-    width: 50%;
-    margin: 80px auto;
-    border-radius: 5px;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.6);
+  background: white;
+  padding: 25px;
+  width: 50%;
+  margin: 80px auto;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px rgba(0 , 0 , 0 , 0.6);
 }
 
 /**********
@@ -25,9 +25,9 @@ body {
 **********/
 
 #funcionamento {
-    color: #797575;
-    font-style: italic;
-    margin: 0px 0px 10px 0px;
+  color: rgb(121 , 117 , 117);
+  font-style: italic;
+  margin: 0 0 10px;
 }
 
 /**********
@@ -35,22 +35,22 @@ body {
 **********/
 
 #lista-tarefas {
-    padding: 17px;
+  padding: 17px;
 }
 
 .tasks {
-    width: 50%;
-    padding: 0px 5px 0px 5px;
-    margin-top: 5px;
-    user-select: none;
+  width: 50%;
+  padding: 0 5px;
+  margin-top: 5px;
+  user-select: none;
 }
 
 .tasks:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 /**********
