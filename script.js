@@ -74,7 +74,7 @@ function recoverSave() {
   const save = JSON.parse(window.localStorage.getItem('lista'));
   ol.innerHTML = save;
   const listItems = document.querySelectorAll('.listItem');
-  for (let index = 0; index < listItems.length; index += 1){
+  for (let index = 0; index < listItems.length; index += 1) {
    listItems[index].addEventListener('click', changeColorToGray);
    listItems[index].addEventListener('dblclick', completedListItem);
   }
@@ -82,5 +82,63 @@ function recoverSave() {
 }
 recoverSave()
 
+function moveUp() {
+ let selected = document.querySelector('.selected');
+ let listItems = document.querySelectorAll('.listItem');
+ let completed = document.querySelectorAll('.completed');
+ for (let index = 1; index < listItems.length; index += 1) {
+  if (selected === listItems[0]) {
+   alert('Num vai dar não')
+   break;
+  }
+  else if (selected === listItems[index]) {
+   let saveSelected = listItems[index - 1].innerHTML;
+   listItems[index - 1].innerHTML = listItems[index].innerHTML;
+   listItems[index].innerHTML = saveSelected;
+   selected.classList.remove('selected');
+   listItems[index - 1].classList.add('selected');
+  }
+ }
+}
 
+function moveUpButton() {
+ let button = document.getElementById('mover-cima');
+ button.addEventListener('click', moveUp)
+}
+moveUpButton()
+
+function moveDown() {
+ let selected = document.querySelector('.selected')
+ let listItems = document.querySelectorAll('.listItem')
+
+ for (let index = 0; index < listItems.length; index += 1) {
+  if (selected === listItems[listItems.length - 1]) {
+   alert('Num vai dar não')
+   break;
+  } else if (selected === listItems[index]) {
+   let target = listItems[index + 1].innerHTML;
+   listItems[index + 1].innerHTML = listItems[index].innerHTML;
+   listItems[index].innerHTML = target;
+   selected.classList.remove('selected');
+   listItems[index + 1].classList.add('selected');
+  }
+ }
+
+}
+
+function moveDownButton() {
+ let button = document.getElementById('mover-baixo');
+ button.addEventListener('click', moveDown)
+}
+moveDownButton()
+
+function removeSelected() {
+ let button = document.getElementById('remover-selecionado');
+ const ol = document.getElementById('lista-tarefas');
+ button.addEventListener('click', function() {
+  let selected = document.querySelector('.selected');
+  ol.removeChild(selected)
+ })
+}
+removeSelected()
 
