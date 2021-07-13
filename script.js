@@ -63,13 +63,28 @@ function saveTasks() {
   }
 }
 
+// function removeCompletedStorage() {
+//   let string;
+//   const finalIndex = localStorage.length;
+//   for (let i = 0; i <= finalIndex; i += 1) {
+//     string = localStorage.getItem(`name${i}`);
+//     if (string.includes('completed')) {
+//       localStorage.removeItem(`name${i}`);
+//     } else {
+//       i += 1;
+//     }
+//   }
+// }
+
 function initialRenderization() {
   const newList = document.querySelector('ol');
   const itens = [];
-  if (localStorage.length !== 0) {
-    for (let index = 0; index < localStorage.length; index += 1) {
-      console.log(localStorage.getItem(`name${index}`));
+  for (let index = 0; index < localStorage.length; index += 1) {
+    if (localStorage.getItem(`name${index}`) !== null && localStorage.length !== 0) {
       itens.push(localStorage.getItem(`name${index}`));
+      newList.innerHTML += itens[index];
+    } else {
+      itens.push(localStorage.getItem(`name${(index + 1)}`));
       newList.innerHTML += itens[index];
     }
   }
@@ -78,10 +93,6 @@ function initialRenderization() {
 clearTasks();
 createTask();
 
-window.onload = initialRenderization;
-
-// const saveButton = document.getElementById('salvar-tarefas');
-// saveButton.addEventListener('click', addTaskToLocalStorage);
-
 const saveButton = document.getElementById('salvar-tarefas');
 saveButton.addEventListener('click', saveTasks);
+window.onload = initialRenderization;
