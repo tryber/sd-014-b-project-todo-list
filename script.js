@@ -34,19 +34,19 @@ function eventTasks() {
   }
 }
 
+const valueTxtTask = document.querySelector('#texto-tarefa');
 // Cria os elementos li, dentro da lista
 function createTask() {
   // Faz a ligação da OL e do Input Text
   const listTask = document.querySelector('#lista-tarefas');
-  const txtTask = document.querySelector('#texto-tarefa').value;
 
-  if (txtTask === '') {
+  if (valueTxtTask === '') {
     alert('[ERRO] Campo vazio!');
   } else {
     // Cria o elemento, adiciona o texto inserido no input
     // Adiciona classe, evento de clique e adiciona no html
     const itemTask = document.createElement('li');
-    itemTask.innerHTML = txtTask;
+    itemTask.innerHTML = valueTxtTask.value;
     itemTask.className = 'tasks';
 
     listTask.appendChild(itemTask);
@@ -65,8 +65,6 @@ function pressEnter(event) {
   if (event.keyCode !== 13) return;
   createTask();
 }
-
-const valueTxtTask = document.querySelector('#texto-tarefa');
 valueTxtTask.addEventListener('keydown', pressEnter);
 
 window.onload = function initialPage() {
