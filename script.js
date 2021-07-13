@@ -20,10 +20,20 @@ function addTarefa() {
   addList.appendChild(createNew);
   document.querySelector('#texto-tarefa').value = '';
   selectTarefa();
+  tarefaCompleta();
 }
 
 function clickButton() {
   const btn = document.querySelector('#criar-tarefa');
-  btn.addEventListener('click', addTarefa );
+  btn.addEventListener('click', addTarefa);
 }
 clickButton();
+
+function tarefaCompleta() {
+  const tarefaCompletada = document.querySelectorAll('li');
+  for (let i = 0; i < tarefaCompletada.length; i += 1) {
+    tarefaCompletada[i].addEventListener('dblclick', () => {
+      tarefaCompletada[i].classList.add('completed');
+    });
+  }
+}
