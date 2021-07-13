@@ -12,6 +12,17 @@ function selectTarefa() {
   }
 }
 
+function tarefaCompleta() {
+  const tarefaCompletada = document.querySelectorAll('li');
+  for (let i = 0; i < tarefaCompletada.length; i += 1) {
+    tarefaCompletada[i].addEventListener('dblclick', () => {
+      if (tarefaCompletada[i].classList.contains('completed')) {
+        tarefaCompletada[i].classList.remove('completed');
+      } else tarefaCompletada[i].classList.add('completed');
+    });
+  }
+}
+
 function addTarefa() {
   const addList = document.querySelector('#lista-tarefas');
   const createNew = document.createElement('li');
@@ -23,19 +34,22 @@ function addTarefa() {
   tarefaCompleta();
 }
 
-function clickButton() {
+function clickButtonCreate() {
   const btn = document.querySelector('#criar-tarefa');
   btn.addEventListener('click', addTarefa);
 }
-clickButton();
+clickButtonCreate();
 
-function tarefaCompleta() {
-  const tarefaCompletada = document.querySelectorAll('li');
-  for (let i = 0; i < tarefaCompletada.length; i += 1) {
-    tarefaCompletada[i].addEventListener('dblclick', () => {
-      if (tarefaCompletada[i].classList.contains('completed')) {
-        tarefaCompletada[i].classList.remove('completed');
-      } else tarefaCompletada[i].classList.add('completed');
-    });
+function limparLista() {
+  const lista = document.querySelectorAll('li');
+  const listas = document.querySelector('#lista-tarefas');
+  for (let i = 0; i < lista.length; i += 1) {
+    listas.removeChild(lista[i]);
   }
 }
+
+function clickButtonClear() {
+  const btn = document.querySelector('#apaga-tudo');
+  btn.addEventListener('click', limparLista);
+}
+clickButtonClear();
