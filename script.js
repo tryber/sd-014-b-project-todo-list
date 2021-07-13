@@ -16,10 +16,14 @@ function selectItem() {
   let getItem = document.querySelectorAll('.tarefa');
   for (let index = 0; index <= getItem.length - 1; index += 1) {
     getItem[index].addEventListener('click', changeColor);
-    console.log(getItem[index]);
   }
 }  
 
 function changeColor(item) {
+  let selectedItem = document.querySelectorAll('.tarefa');
+  for (let index = 0; index <= selectedItem.length - 1; index +=1){
+    selectedItem[index].style.backgroundColor = ''
+  }
   item.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
