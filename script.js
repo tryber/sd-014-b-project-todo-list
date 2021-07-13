@@ -114,7 +114,7 @@ function changeUpPosition() {
       taskItens[index].innerText = firstPosition;
       taskItens[index - 1].innerText = secondPosition;
       taskItens[index].style.backgroundColor = '';
-      taskItens[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      taskItens[index - 1].style.backgroundColor = selectedColor;
     }
   }
 }
@@ -138,7 +138,7 @@ function changeDownPosition() {
       taskItens[index].innerText = firstPosition;
       taskItens[index + 1].innerText = secondPosition;
       taskItens[index].style.backgroundColor = '';
-      taskItens[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      taskItens[index + 1].style.backgroundColor = selectedColor;
     }
   }
 }
