@@ -3,13 +3,13 @@ const buttonAdd = document.querySelector('#criar-tarefa');
 let fatherOfList = document.getElementById('lista-tarefas');
 
 
-buttonAdd.addEventListener('click', function() {
+buttonAdd.addEventListener('click', function createLi() {
     let childOfList = document.createElement('li');
     if (inputText.value !== ''){
     childOfList.innerText = inputText.value;
     childOfList.className = 'listItemOfTask';
     childOfList.style.fontSize = '12px';
-    childOfList.addEventListener('click', function (event){
+    childOfList.addEventListener('click', function bgColor(event){
         const currentColor = event.target.style.backgroundColor;
         if (currentColor !== 'rgb(128, 128, 128)') {
             event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -27,7 +27,7 @@ buttonAdd.addEventListener('click', function() {
             }
         }
     })
-    childOfList.addEventListener('dblclick', function(event){
+    childOfList.addEventListener('dblclick', function lineThrough(event){
         const currentSetItem = event.target.style.textDecoration;
         if (currentSetItem !== 'line-through solid rgb(0, 0, 0)') {
             event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
@@ -71,3 +71,20 @@ apagarFinalizados.addEventListener('click', function () {
             deletarCompletado[index].parentNode.removeChild(deletarCompletado[index]);
     }
 });
+
+//-----------------------------------------------------------------------------------------------
+
+const saveButton = document.querySelector('#salvar-tarefas');
+
+function salvarLista() {
+    for (let index = 0; index < fatherOfList.childNodes.length; index += 1) {
+        localStorage.setItem('list-items-restored', fatherOfList.innerHTML);
+    }
+}
+
+saveButton.addEventListener('click', salvarLista);
+
+function abrirLista() {
+    fatherOfList.innerHTML = localStorage.getItem('list-items-restored');
+}
+abrirLista();

@@ -47,8 +47,17 @@ button:hover {
     background-color: rgb(128, 128, 128);
 }
 
+.listItemOfTask{
+    text-align: justify;
+}
+
 input {
     border-style: none;
     border-radius: 5px;
     margin-bottom: 8px;
+}
+
+#salvar-tarefas{
+    padding: 5px 5px;
+    font-size: 10px;
 }
