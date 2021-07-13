@@ -19,30 +19,19 @@ function clicar() {
 }
 clicar()
 
-
-
-/*
-function remover(){
-   const clean = document.getElementById('apaga-tudo')
-   clean.addEventListener('click', () => {
-    const list = document.querySelectorAll('.pixel')
-    const ul = document.getElementById('lista-tarefas')
-    for (index = 0; index < list.length; list += 1 ){
-        ul.removeChild(list[index])
-            }
-        })
-}
-remover()
-*/
- function remover (){
+function remover (){
      const clean = document.getElementById('apaga-tudo')
+        let quebra = document.getElementsByClassName('completed')
+        let quebra2 = document.getElementsByClassName('selected')
      clean.addEventListener('click', (event)=>{
         const ul = document.querySelector('#lista-tarefas')
         ul.innerHTML = ''
+        quebra.classList = ('completed')
+        quebra2.classList = ('selected')
         
      })
     }
-    remover()
+remover()
 
 
 function colorSelector() {
@@ -52,17 +41,21 @@ function colorSelector() {
     event.target.classList.add('selected');
     });
     }
-    colorSelector();
+colorSelector();
 
 
-    function doubleclick(){
-        const doubleClicou = document.querySelector('#lista-tarefas');
-        doubleClicou.addEventListener( "dblclick" , (event) => {
-            document.querySelector('.completed').classList.remove('completed');
-                event.target.classList.add('completed')
+function doubleclick(evento){
+        
+    if(evento.target.classList.contains('completed') !== true && evento.target !==lista){
+        evento.target.classList.add('completed');
+    }
+        else if (evento.target.classList.contains('completed')){
+            evento.target.classList.remove('completed')
+        }
+    }
                 
-        })}
-        doubleclick()
+        
+lista.addEventListener('dblclick' , doubleclick)
 
 
 function cleaner() {
@@ -72,4 +65,12 @@ function cleaner() {
                 event.target.classList.add('selected');
                  });
             }
-            colorSelector();
+colorSelector();
+
+function removeSelect(){
+    const buttomRemove = document.querySelector("#remover-finalizados")
+
+
+}
+
+
