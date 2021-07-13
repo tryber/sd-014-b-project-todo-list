@@ -19,12 +19,13 @@ function newTask() {
 
 // 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
 function checkTask(event) {
-  for (let i = 0; i < taskList.length; i += 1) {
-    document.querySelectorAll('li').classList.remove('checked');
-  }
-  event.target.classList.toggle('checked');
+  if (event.target.classList.value.includes('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed')};
   console.log(event.target);
 }
+
 const dbClickTask = document.querySelector('ol');
 dbClickTask.addEventListener('dblclick', checkTask);
 
