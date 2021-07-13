@@ -33,7 +33,9 @@ function tarefaCompleta() {
   const tarefaCompletada = document.querySelectorAll('li');
   for (let i = 0; i < tarefaCompletada.length; i += 1) {
     tarefaCompletada[i].addEventListener('dblclick', () => {
-      tarefaCompletada[i].classList.add('completed');
+      if (tarefaCompletada[i].classList.contains('completed')) {
+        tarefaCompletada[i].classList.remove('completed');
+      } else tarefaCompletada[i].classList.add('completed');
     });
   }
 }
