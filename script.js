@@ -1,8 +1,16 @@
-function clickButton() {
-  const btn = document.querySelector('#criar-tarefa');
-  btn.addEventListener('click', addTarefa);
+function selectTarefa() {
+  const tarefaSelecionada = document.querySelectorAll('li');
+  for (let i = 0; i < tarefaSelecionada.length; i += 1) {
+    tarefaSelecionada[i].addEventListener('click', () => {
+      for (let index = 0; index < tarefaSelecionada.length; index += 1) {
+        if (tarefaSelecionada[index].classList.contains('tarefa')) {
+          tarefaSelecionada[index].classList.remove('tarefa');
+        }
+      }
+      tarefaSelecionada[i].classList.add('tarefa');
+    });
+  }
 }
-clickButton();
 
 function addTarefa() {
   const addList = document.querySelector('#lista-tarefas');
@@ -11,16 +19,11 @@ function addTarefa() {
   createNew.innerHTML = tarefaAdd;
   addList.appendChild(createNew);
   document.querySelector('#texto-tarefa').value = '';
-  console.log(tarefaAdd + ' adicionado!');
   selectTarefa();
 }
 
-function selectTarefa() {
-  const tarefaSelecionada = document.querySelectorAll('li');
-  for (let i = 0; i < tarefaSelecionada.length; i += 1) {
-    tarefaSelecionada[i].addEventListener('click', () => {
-      console.log("hm");
-      tarefaSelecionada[i].classList.add('tarefa');
-    });
-  }
+function clickButton() {
+  const btn = document.querySelector('#criar-tarefa');
+  btn.addEventListener('click', addTarefa );
 }
+clickButton();
