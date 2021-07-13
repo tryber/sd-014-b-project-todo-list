@@ -1,12 +1,12 @@
 const input = document.querySelector('#texto-tarefa');
-const taskList = document.querySelector('#lista-tarefas');
+const olTaskList = document.querySelector('#lista-tarefas');
 
 // criando tarefa (elemento li)
 function addTask() {
   const li = document.createElement('li');
   li.innerText = input.value;
   li.className = 'classLi';
-  taskList.appendChild(li);
+  olTaskList.appendChild(li);
   input.value = '';
 }
 
@@ -26,14 +26,14 @@ function liGetColor(event) {
   event.target.classList.add('colorGray');
 }
 
-taskList.addEventListener('click', liGetColor);
+olTaskList.addEventListener('click', liGetColor);
 
 // riscar tarefa concluida
 function taskDone(event) { // scratch
   event.target.classList.toggle('completed');
 }
 
-taskList.addEventListener('dblclick', taskDone);
+olTaskList.addEventListener('dblclick', taskDone);
 
 // botao apagar tudo
 function allGone() {
@@ -44,8 +44,8 @@ function allGone() {
   }
 }
 
-const deleteAll = document.querySelector('#apaga-tudo');
-deleteAll.addEventListener('click', allGone);
+const btnDeleteAll = document.querySelector('#apaga-tudo');
+btnDeleteAll.addEventListener('click', allGone);
 
 // remover finalizados
 function removeTaskCompleted() {
@@ -56,8 +56,8 @@ function removeTaskCompleted() {
   }
 }
 
-const taskCompleted = document.querySelector('#remover-finalizados');
-taskCompleted.addEventListener('click', removeTaskCompleted);
+const btnTaskCompleted = document.querySelector('#remover-finalizados');
+btnTaskCompleted.addEventListener('click', removeTaskCompleted);
 
 // remover selecionado (li selecionada)
 function removeSelected() {
@@ -65,5 +65,18 @@ function removeSelected() {
   selected.remove('li');
 }
 
-const taskSelected = document.querySelector('#remover-selecionado');
-taskSelected.addEventListener('click', removeSelected);
+const btnRemoveSelected = document.querySelector('#remover-selecionado');
+btnRemoveSelected.addEventListener('click', removeSelected);
+
+// 12. webstorage no botão salvar tarefa
+// taskList = document.querySelector('#lista-tarefas')
+function saveTask() {
+  localStorage.setItem('taskList', olTaskList.innerHTML);
+}
+
+const btnSaveTask = document.querySelector('#salvar-tarefas');
+btnSaveTask.addEventListener('click', saveTask);
+
+window.onload = function restorePage() {
+  olTaskList.innerHTML = localStorage.getItem('taskList');
+};
