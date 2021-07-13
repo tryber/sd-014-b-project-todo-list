@@ -4,6 +4,7 @@ document.querySelector('h1').innerText = "Minha Lista de Tarefas";
 document.querySelector('#funcionamento').innerText = "Clique duas vezes em um item para marcá-lo como completo";
 document.querySelector('#apaga-tudo').innerText = "Apaga tudo";
 document.querySelector('#criar-tarefa').innerText = "Criar tarefa";
+document.querySelector('#remove-finalizados').innerText = "Remover Finalizados";
 
 
 let addTextTarefa = document.querySelector('#texto-tarefa');
@@ -45,7 +46,7 @@ colorItemList();
 
 
 function riscaItemCompleto() {
-  addListTarefa.addEventListener('dblclick',function(event){
+  addListTarefa.addEventListener('dblclick',function(event){ //Escutador em addListTarefa que quando haver um duplo click na lista #lista-tarefas, executará a função, se no local haver a tag li, então ele irá adicionar a classe completed declarada.
   if (event.target.localName === 'li') {
     event.target.classList.toggle('completed');
   }
@@ -55,6 +56,7 @@ riscaItemCompleto();
 
 
 //Requisito 10
+
 function apagaTudo(){
   let apagaTudoButton = document.querySelector('#apaga-tudo');
   apagaTudoButton.addEventListener('click', function(){
@@ -62,3 +64,17 @@ function apagaTudo(){
   });
   }
   apagaTudo();
+
+
+// Requisito 11
+
+function delItemComplet() {
+  const itemComplet = document.querySelectorAll('.completed');
+
+  for (let index = 0; index < itemComplet.length; index += 1) {
+    itemComplet[index].remove('li');
+  }
+}
+
+const itemFinalizado = document.querySelector('#remove-finalizados');
+itemFinalizado.addEventListener('click', delItemComplet);

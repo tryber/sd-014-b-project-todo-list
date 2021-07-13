@@ -1,5 +1,5 @@
 body {
-  background-color:white;
+  background-color:rgb(170, 170, 170);
 }
 
 header h1 {
@@ -10,8 +10,8 @@ header h1 {
 
 #funcionamento {
   margin-left: 20px;
-  margin-top: 60px;
-  font-size: 20px;
+  margin-top: 80px;
+  font-size: 25px;
 }
 
 .addList {
@@ -20,7 +20,8 @@ header h1 {
   
 input {
   vertical-align: top;
-  width:450px;
+  margin-left: 20px;
+  width:600px;
   height:40px;
   border-radius: 5px;
   border:solid 2px blue;
@@ -28,11 +29,23 @@ input {
 
 button {
   vertical-align: top;
-  margin-left: 50px;
-  width:100px;
-  height:40px;
+  margin-left: 100px;
+  width:150px;
+  height:50px;
   border-radius:5px;
-  border:solid 2px blue;
+  border:solid 3px blue;
+  font-family:fantasy;
+  font-size: 20px;
+  font-style:initial;
+}
+
+.fade {
+  opacity: 0.8;
+}
+
+.fade:hover{
+  opacity: 1.5;
+  background-color: rgb(144, 166, 238);
 }
 
 .backColorCinza {
