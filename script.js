@@ -1,3 +1,8 @@
+const addButton = document.querySelector('#criar-tarefa');
+const eraseButton = document.querySelector('#apaga-tudo');
+const eraseCompletedTaskButton = document.querySelector('#remover-finalizados');
+const list = document.querySelector('#lista-tarefas');
+
 function changeColor(item) {
   const selectedItem = document.querySelectorAll('.tarefa');
   for (let index = 0; index <= selectedItem.length - 1; index += 1) {
@@ -23,7 +28,6 @@ function selectItem() {
 }
 
 function addListItem() {
-  const list = document.querySelector('#lista-tarefas');
   const input = document.querySelector('#texto-tarefa');
   const listItem = document.createElement('li');
   listItem.innerText = input.value;
@@ -36,12 +40,17 @@ function addListItem() {
 function eraseList() {
   const getListItem = document.querySelectorAll('.tarefa');
   for (let index = 0; index <= getListItem.length - 1; index += 1) {
-    const getList = document.querySelector('#lista-tarefas');
-    getList.removeChild(getListItem[index]);
+    list.removeChild(getListItem[index]);
   }
 }
 
-const addButton = document.querySelector('#criar-tarefa');
-const eraseButton = document.querySelector('#apaga-tudo');
-eraseButton.addEventListener('click', eraseList);
+function removeCompleted() {
+  const getCompletedItem = document.querySelectorAll('.completed');
+  for (let index = 0; index <= getCompletedItem.length - 1; index += 1) {
+    list.removeChild(getCompletedItem[index]);
+  }
+}
+
 addButton.addEventListener('click', addListItem);
+eraseButton.addEventListener('click', eraseList);
+eraseCompletedTaskButton.addEventListener('click', removeCompleted);
