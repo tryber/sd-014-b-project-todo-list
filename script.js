@@ -3,8 +3,8 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
 function addInTodoList() {
-  if (input.value.length == 0) {
-    alert ('digite uma tarefa')
+  if (input.value.length === 0) {
+    alert('digite uma tarefa')
   } else {
     const valueInput = input.value;
     const listLi = document.createElement('li');
@@ -15,9 +15,17 @@ function addInTodoList() {
   }
 }
 
+function changeColorLi(event) {
+  const allLi = document.querySelectorAll('.to-do');
+  for (let i = 0; i < allLi.length; i++) {
+    allLi[i].classList.remove('to-do-grey');
+  }
+  event.target.classList.add('to-do-grey');
+}
+
+
 
 window.onload = function() {
   button.addEventListener('click', addInTodoList)
-
-
+  list.addEventListener('click', changeColorLi)
 };
