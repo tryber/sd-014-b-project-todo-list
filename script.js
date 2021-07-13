@@ -1,4 +1,3 @@
-const input = document.querySelector('#texto-tarefa').value;
 const list = document.querySelector('#lista-tarefas');
 
 function createTask() {
@@ -59,17 +58,19 @@ function saveTasks() {
   const key = 'name';
   let index = 0;
   while (index < oldList.length) {
-    localStorage.setItem(key + index, oldList[index].outerHTML);
+    JSON.stringify(localStorage.setItem(key + index, oldList[index].outerHTML));
     index += 1;
   }
 }
 
 function initialRenderization() {
-  const newList = document.querySelectorAll('ol');
+  const newList = document.querySelector('ol');
+  const itens = [];
   if (localStorage.length !== 0) {
     for (let index = 0; index < localStorage.length; index += 1) {
       console.log(localStorage.getItem(`name${index}`));
-      newList.innerHTML += localStorage.getItem(`name${index}`);
+      itens.push(localStorage.getItem(`name${index}`));
+      newList.innerHTML += itens[index];
     }
   }
 }
