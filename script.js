@@ -21,12 +21,28 @@ clicar()
 
 
 
-
+/*
 function remover(){
-    let aaaa = document.querySelector('.completed')
-    aaaa.classList.remove('completed')
+   const clean = document.getElementById('apaga-tudo')
+   clean.addEventListener('click', () => {
+    const list = document.querySelectorAll('.pixel')
+    const ul = document.getElementById('lista-tarefas')
+    for (index = 0; index < list.length; list += 1 ){
+        ul.removeChild(list[index])
+            }
+        })
 }
-
+remover()
+*/
+ function remover (){
+     const clean = document.getElementById('apaga-tudo')
+     clean.addEventListener('click', (event)=>{
+        const ul = document.querySelector('#lista-tarefas')
+        ul.innerHTML = ''
+        
+     })
+    }
+    remover()
 
 
 function colorSelector() {
@@ -38,13 +54,22 @@ function colorSelector() {
     }
     colorSelector();
 
+
     function doubleclick(){
         const doubleClicou = document.querySelector('#lista-tarefas');
         doubleClicou.addEventListener( "dblclick" , (event) => {
             document.querySelector('.completed').classList.remove('completed');
                 event.target.classList.add('completed')
-        })
+                
+        })}
+        doubleclick()
 
-    }
 
-doubleclick()
+function cleaner() {
+    const selectedColor = document.querySelector('#lista-tarefas');
+        selectedColor.addEventListener('click', (event) => {
+            document.querySelector('.selected').classList.remove('selected');
+                event.target.classList.add('selected');
+                 });
+            }
+            colorSelector();
