@@ -12,14 +12,16 @@ function createTask() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
+const selectedColor = 'rgb(128, 128, 128)';
+
 function changeColor(event) {
   const evento = event;
   const listItem = document.querySelectorAll('#lista-tarefas li');
   for (let index = 0; index < listItem.length; index += 1) {
-    if (listItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (listItem[index].style.backgroundColor === selectedColor) {
       listItem[index].style.backgroundColor = '';
     }
-    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    evento.target.style.backgroundColor = selectedColor;
   }
 }
 
@@ -102,7 +104,7 @@ function changeUpPosition() {
   let firstPosition;
   let secondPosition;
   for (let index = 0; index < taskItens.length; index += 1) {
-    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)' && index !== 0) {
+    if (taskItens[index].style.backgroundColor === selectedColor && index !== 0) {
       firstPosition = taskItens[index - 1].textContent;
       secondPosition = taskItens[index].textContent;
       // if (taskItens[index].previousSibling.classList.contains('completed')) {
@@ -126,7 +128,7 @@ function changeDownPosition() {
   let firstPosition;
   let secondPosition;
   for (let index = length; index >= 0; index -= 1) {
-    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)' && index !== length) {
+    if (taskItens[index].style.backgroundColor === selectedColor && index !== length) {
       firstPosition = taskItens[index + 1].textContent;
       secondPosition = taskItens[index].textContent;
       // if (taskItens[index].nextSibling.classList.contains('completed')) {
@@ -147,7 +149,7 @@ downButton.addEventListener('click', changeDownPosition);
 function removeSelected() {
   const taskItens = document.querySelectorAll('ol li');
   for (let index = 0; index < taskItens.length; index += 1) {
-    if (taskItens[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (taskItens[index].style.backgroundColor === selectedColor) {
       list.removeChild(taskItens[index]);
     }
   }
