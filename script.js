@@ -1,141 +1,129 @@
-let btnAddTask = document.querySelector('#criar-tarefa');
-btnAddTask.addEventListener('click', createTask);
+function changeColor(evento) {
+  const listItems = document.querySelectorAll('.tasks');
+  const itemClicked = evento.target;
 
-// Ao apertar ENTER, irá executar a função createTask
-// Gabriel Gartz - StackOverflow
-// 04/02/2014 - às 15:35
-let valueTxtTask = document.querySelector('#texto-tarefa');
-valueTxtTask.addEventListener('keydown', function (event) {
-  if (event.keyCode !== 13) return;
-    createTask();
-});
+  for (const key of listItems) {
+    const item = key;
 
+    // Muda a cor de todos para branco 
+    item.style.backgroundColor = 'rgb(0, 0, 0, 0)';
 
-window.onload = function initialPage() {
-  let listTask = document.querySelector('#lista-tarefas');
+    // Seta a cor do item clickado para cinza  
+    itemClicked.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+} 
 
-  if ( localStorage.length > 0) {
-    for ( let index = 0; index < localStorage.length; index += 1 ) {
-      listTask.innerHTML += localStorage.getItem('name' + [index]);
-      eventTasks();
-    }; 
-  }; 
+function taskCompleted(evento) {
+  const itemClicked = evento.target;
+  const searchClassCompleted = itemClicked.classList.contains('completed');
 
-
-}
-
-//Cria os elementos li, dentro da lista
-function createTask() {
-  //Faz a ligação da OL e do Input Text
-  let listTask = document.querySelector('#lista-tarefas');
-  let txtTask = document.querySelector('#texto-tarefa').value;
-
-  if (txtTask.length === 0) { 
-    alert('[ERRO] Campo vazio!');
+  // Verifica se possui a classe 'completed', se sim, remove, se não, adiciona 
+  if (searchClassCompleted === true) {
+    itemClicked.classList.remove('completed');
   } else {
-    //Cria o elemento, adiciona o texto inserido no input
-    //Adiciona classe, evento de clique e adiciona no html
-    let itemTask = document.createElement('li');
-    itemTask.innerHTML = txtTask;
-    itemTask.className = 'tasks';
-    
-
-    listTask.appendChild(itemTask);
-
-    eventTasks();
-    //Seta o valor do input como vazio
-    document.querySelector('#texto-tarefa').value = '';
-  };
+    itemClicked.classList.add('completed');
+  }
 }
 
-function eventTasks () {
-  let listTasks = document.querySelectorAll('.tasks');
+function eventTasks() {
+  const listTasks = document.querySelectorAll('.tasks');
 
-  for (let key of listTasks) {
-    let task = key;
+  for (const key of listTasks) {
+    const task = key;
     task.addEventListener('click', changeColor);
     task.addEventListener('dblclick', taskCompleted);
   }
 }
 
+// Cria os elementos li, dentro da lista   
+function createTask() { 
+  // Faz a ligação da OL e do Input Text 
+  const listTask = document.querySelector('#lista-tarefas');
+  const txtTask = document.querySelector('#texto-tarefa').value;
 
-function changeColor(evento) {
-  let listItems = document.querySelectorAll('.tasks');
-  let itemClicked = evento.target;
-
-  for (let key of listItems) {
-    let item = key;
-
-    //Muda a cor de todos para branco
-    item.style.backgroundColor = 'rgb(0, 0, 0, 0)';
-
-    //Seta a cor do item clickado para cinza
-    itemClicked.style.backgroundColor = 'rgb(128, 128, 128)';
-  };  
-} 
-
-function taskCompleted(evento) {
-  let itemClicked = evento.target;
-  let searchClassCompleted = itemClicked.classList.contains('completed');
-
-  //Verifica se possui a classe 'completed', se sim, remove, se não, adiciona
-  if (searchClassCompleted === true) {
-    itemClicked.classList.remove('completed');
+  if (txtTask.length === 0) { 
+    alert('[ERRO] Campo vazio!');
   } else {
-    itemClicked.classList.add('completed');
-  };
+    // Cria o elemento, adiciona o texto inserido no input 
+    // Adiciona classe, evento de clique e adiciona no html  
+    const itemTask = document.createElement('li');
+    itemTask.innerHTML = txtTask;
+    itemTask.className = 'tasks';
+
+    listTask.appendChild(itemTask);
+    eventTasks();
+    // Seta o valor do input como vazio
+    document.querySelector('#texto-tarefa').value = '';
+  }
+}
+const btnAddTask = document.querySelector('#criar-tarefa');
+btnAddTask.addEventListener('click', createTask);
+
+// Ao apertar ENTER, irá executar a função createTask
+// Gabriel Gartz - StackOverflow
+// 04/02/2014 - às 15:35
+function pressEnter(event) {
+  if (event.keyCode !== 13) return;
+  createTask();
 }
 
-let btnClearTasks = document.querySelector('#apaga-tudo');
+const valueTxtTask = document.querySelector('#texto-tarefa');
+valueTxtTask.addEventListener('keydown', pressEnter);
+
+window.onload = function initialPage() {
+  const listTask = document.querySelector('#lista-tarefas');
+
+  if (localStorage.length > 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      listTask.innerHTML += localStorage.getItem(`name${index}`);
+      eventTasks();
+    }
+  }
+};
+
+const btnClearTasks = document.querySelector('#apaga-tudo');
 btnClearTasks.addEventListener('click', clearTasks);
 
 function clearTasks() {
   localStorage.clear();
-  let listTask = document.querySelectorAll('.tasks');
+  const listTask = document.querySelectorAll('.tasks');
 
-  for (let key of listTask) {
-    let task = key;
+  for (const key of listTask) {
+    const task = key;
 
     task.parentNode.removeChild(task);
-  };
+  }
 }
 
-let btnRemoveCompleted = document.querySelector('#remover-finalizados');
-btnRemoveCompleted.addEventListener('click', clearCompleted);
+function saveTasks() {
+  const listTasks = document.querySelectorAll('.tasks');
+
+  for (let index = 0; index < listTasks.length; index += 1) {
+    const task = listTasks[index];
+    localStorage.setItem('name' + index, task.outerHTML);
+  }
+}
+const btnSalvarTarefas = document.querySelector('#salvar-tarefas');
+btnSalvarTarefas.addEventListener('click', saveTasks);
 
 function clearCompleted() {
   saveTasks();
-  let listTask = document.querySelectorAll('.tasks');
-
-  for (let key of listTask) {
-    let task = key;
-
-    //Retorna true se o elemento tiver a classe 'completed'
-    let searchClassCompleted = task.classList.contains('completed');
-    //Se tiver, remove o elemento da lista e do Storage
-    if (searchClassCompleted === true ) {
+  const listTask = document.querySelectorAll('.tasks');
+  for (const key of listTask) {
+    const task = key;
+    const searchClassCompleted = task.classList.contains('completed'); // Retorna true se o elemento tiver a classe 'completed'
+    if (searchClassCompleted === true ) { // Se tiver, remove o elemento da lista e do Storage
       task.parentNode.removeChild(task);
-    };
-  };
+    }
+  }
 
   for (let index = 0; index < localStorage.length; index += 1) {
-    const itemRemove = localStorage.getItem('name' + index);
-    let searchCompletedRemove = itemRemove.includes('completed');
-    
+    const itemRemove = localStorage.getItem(`name${index}`);
+    const searchCompletedRemove = itemRemove.includes('completed');
     if (searchCompletedRemove === true) {
-      localStorage.removeItem('name' + [index]);
+      localStorage.removeItem(`name${index}`);
     }
-  };
+  }
 }
-
-let btnSalvarTarefas = document.querySelector('#salvar-tarefas');
-btnSalvarTarefas.addEventListener('click', saveTasks);
-
-function saveTasks() {
-  let listTasks = document.querySelectorAll('.tasks');
-
-  for (let index = 0; index < listTasks.length; index += 1) {
-    let task = listTasks[index];
-    localStorage.setItem('name' + index, task.outerHTML);
-  };
-}
+const btnRemoveCompleted = document.querySelector('#remover-finalizados');
+btnRemoveCompleted.addEventListener('click', clearCompleted);
