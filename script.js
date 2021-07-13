@@ -71,10 +71,11 @@ salvarLista.addEventListener("click", salveList);
 
 function salveList() {
   let salvaLista = document.querySelector("#lista-tarefas").innerHTML;
-  localStorage.setItem("Lista", salvaLista);
+  localStorage.setItem("Lista", JSON.stringify(salvaLista));
 }
 
 window.onload = () => {
-  let listaSalva = document.querySelector("#lista-tarefas").innerHTML;
-  listaSalva = localStorage.getItem("Lista");
+  let listaSalva = document.querySelector("#lista-tarefas");
+  listaSalva.innerHTML = JSON.parse(localStorage.getItem("Lista"));
+  //console.log(JSON.parse(listaSalva));
 };
