@@ -1,12 +1,15 @@
 const taskInput = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const button = document.getElementById('criar-tarefa');
+const buttonCT = document.getElementById('criar-tarefa');
+const buttonRC = document.getElementById('remover-finalizados');
 let tasks = document.querySelectorAll('.task');
+const delButton = document.getElementById('apaga-tudo');
 
 //Referecia: https://www.w3schools.com/howto/howto_html_clear_input.asp
 
 function selectTask(event) {
   const selTaskList = document.getElementsByClassName('selectedTask');
+  console.log(selTaskList);
   if (selTaskList.length >= 1) {
     selTaskList[0].classList.remove('selectedTask');
     event.target.classList.add('selectedTask');
@@ -51,23 +54,19 @@ function addTask() {
   clickTask();
 }
 
-button.addEventListener('click', addTask, clickTask);
+function removeCompleted() {
+  document.querySelectorAll('.completed').forEach((item) => {
+    item.remove();
+  });
+}
 
-// function clickTask() {
-//   const selTaskList = [];
-//   tasks.forEach((item) => {
-//     item.addEventListener('click', (event) => {
-//       event.target.classList.add('selectedTask');
-//       selTaskList.push(event.target);
-//       // selTaskList[-2].classList.remove('selectedTask');
-//       console.log(selTaskList);
-//     });
-//   });
-// }
-// tasks.forEach((item) => {
-//   item.addEventListener('click', (event) => {
-//     event.target.classList.add('selectedTask');
-//     event.target.previousSibling.classList.remove('selectedTask');
-//     console.log('event');
-//   });
-// });
+buttonCT.addEventListener('click', addTask, clickTask);
+buttonRC.addEventListener('click', removeCompleted);
+
+function delAllTasks() {
+  document.querySelectorAll('.task').forEach((item) => {
+    item.remove();
+  });
+}
+
+delButton.addEventListener('click', delAllTasks);

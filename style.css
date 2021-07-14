@@ -1,6 +1,8 @@
 body {
   background-color: #0f0e17;
   color: #fffffe;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 header {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -17,12 +19,47 @@ header {
   display: inline-block;
 }
 
+/* .texto-tarefa {
+  padding: 6px;
+}
+
 .lastTaskCreated {
   /* background-color: rgba(127, 255, 212, 0.281); */
+} */
+
+
+
+#lista-tarefas {
+  align
+  background-color: #2e2f3e9c;
+  border-radius: 15px;
+  padding: 10px;
+  width: 80%;
+  /* margin-left: 30px; */
+  /* margin-right: 30px; */
+  box-shadow: 2px 10px 6px rgba(0, 0, 0, 0.137);
+}
+
+.task {
+  border-bottom: 1px solid rgba(85, 85, 85, 0.199);
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 6px;
+  font-family: monospace;
+  font-size: 1.5em;
+  border-radius: 10px;
+  max-width: 80%;
+  /* display: list-item */
+  width: 80%;
 }
 
 .selectedTask {
   background-color: rgb(128, 128, 128);
+  box-shadow: 2px 10px 6px rgba(0, 0, 0, 0.137);
+}
+
+.task:hover {
+  background-color: rgba(85, 85, 85, 0.199);
 }
 
 .completed {
