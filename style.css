@@ -2,14 +2,45 @@
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 #cabecalho {
-    background-color: #522a86;
+    background-image: url('https://blog.costaatacado.com.br/wp-content/uploads/2018/06/x-truques-para-organizar-suas-anota%C3%A7%C3%B5es-em-post-it.png');
+    background-position: center;
     padding: 14px;
+    border: 1px solid black;
     margin: -8px;
 }
 h1 {
     color: rgb(7, 6, 2);
 }
 body {
-    background-image: linear-gradient(to bottom, #9A48D0, #7E5A9B);
+    background-image: url('https://amplic.com.br/wp-content/uploads/2018/09/AMPLIC_exemplo-canvas-post-it.jpg');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    
+    
 }
+button {
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 20%;
+    color: rgb(17, 13, 13);
+    font-weight: 900;
+    cursor: pointer;
+    margin-left: 10px;
+}
+p {
+    font-weight: 900;
+}
+#apaga-tudo {
+    background-color: yellow;
+}
+#remover-finalizados {
+    background-color: yellowgreen;
+}
+#remover-selecionado {
+    background-color: violet;
+}
+#criar-tarefa {
+    background-color: lightblue;
+}
+
