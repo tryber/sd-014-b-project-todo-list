@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project To Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.</p>  
+  </header>
+  <section id="board-tarefas">
+    <input id="texto-tarefa" type="text">
+    <button id="criar-tarefa" onclick="createTask()">Nova Tarefa</button>
+    <ol id="lista-tarefas">      
+    </ol>
+    <button id="apaga-tudo" onclick="clearTasks()"><i class="fa fa-times" aria-hidden="true"></i> Clear</button>
+    <button id="remover-selecionado"><i class="fa fa-times" aria-hidden="true"></i> Selected</button>
+    <button id="remover-finalizados"><i class="fa fa-times" aria-hidden="true"></i> Completed</button>    
+    <button id="mover-cima"><i class="fa fa-arrow-up" aria-hidden="true"></i> </button>
+    <button id="mover-baixo"><i class="fa fa-arrow-down" aria-hidden="true"></i> </button>
+    <button id="salvar-tarefas"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+    <button id="limpar-salvos"><i class="fa fa-eraser" aria-hidden="true"></i> Saved</button>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>

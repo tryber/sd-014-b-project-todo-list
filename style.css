@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+body {
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;
+  font-family: Otomanopee One, sans-serif;
+}
+
+header {
+  width: 500px;
+  margin: 40px auto auto;
+  padding-left: 100px;
+  text-align: center;
+}
+
+button {
+  border-radius: 5px;
+  margin: 2px 2px 5px;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+#funcionamento {
+  margin-top: 20px;
+}
+
+#board-tarefas {
+  padding-left: 140px;
+  width: 500px;
+  margin: 20px auto auto;
+}
+
+#texto-tarefa {
+  width: 350px;
+}
+
+#lista-tarefas {
+  padding: 20px 20px 30px 50px;
+  word-break: break-all;
+}
+
+#lista-tarefas li {
+  width: 400px;
+  margin-top: 10px;
+}
+
