@@ -1,7 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #11111a;
+  color: #f6f2ff;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+}
+
+header {
+  background-color: #1b1b27;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 25rem;
+  padding: 0 1rem;
+}
+
+header p {
+  font-size: 0.8rem;
+}
+
+h1 {
+  margin: 3rem 0;
+  text-align: center;
+  line-height: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#todos-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  height: 70vh;
+  width: 40rem;
+  background-color: #1b1b27;
+  align-items: center;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  overflow: auto;
+}
+
+li {
+  background-color: #22222e;
+  width: 29rem;
+  min-height: 1.4rem;
+  padding: 1rem;
+  margin: .5rem;
+  border-radius: 1rem;
+  align-items: center;
+  cursor: pointer;
+  list-style-image: url(/images/pending.svg);
+}
+
+li:hover {
+  filter: brightness(120%);
+}
+
+input {
+  padding: 0.5rem;
+  margin: 1rem 0;
+  height: 3rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: #32823b;
+  height: 2rem;
+  margin: 0.2rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #f6f2ff;
+  font-weight: 700;
+}
+
+button:hover {
+  filter: brightness(115%);
+}
+
+#delete-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button#criar-tarefa {
+  background-color: #32823b;
+}
+
+button#remover-selecionado,
+button#remover-finalizados,
+button#apaga-tudo {
+  background-color: #b5102e;
+  width: 33%;
+}
+button#salvar-tarefas {
+  background-color: #8223d0;
+}
+
 .selected {
   background-color: gray;
+  color: black;
 }
 
 .completed {
   text-decoration: line-through;
+  list-style-image: url(/images/check.svg);
+}
+
+li.selected {
+  background-color: gray;
 }
