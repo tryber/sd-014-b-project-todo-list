@@ -37,9 +37,19 @@ function removeALl() {
   });
 }
 
+function removeCompleted() {
+  buttonCompletedRemove.addEventListener('click', () => {
+    const completed = document.querySelectorAll('.completed');
+    for (let key = 0; key < completed.length; key += 1) {
+      completed[key].remove();
+    }
+  });
+}
+
 window.onload = function() {
   button.addEventListener('click', addInTodoList);
   list.addEventListener('click', changeColorLi);
   completedLi();
   removeALl()
+  removeCompleted()
 }
