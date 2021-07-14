@@ -4,6 +4,9 @@ const input = document.querySelector('#texto-tarefa');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const apagaFinalizados = document.querySelector('#remover-finalizados');
 const apagaSelecionado = document.querySelector('#remover-selecionado');
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+
+lista.innerHTML = localStorage.getItem('lista');
 
 function selectItem (event) {
   const itensTarefa = document.querySelectorAll('.tarefa');
@@ -55,6 +58,10 @@ function eraseSelected() {
   lista.removeChild(itemSelecionado);
 }
 
+function saveTasks() {
+  localStorage.setItem('lista', lista.innerHTML);
+}
+
 createList.addEventListener('click', createItem);
 
 apagaTudo.addEventListener('click', eraseAll);
@@ -62,3 +69,5 @@ apagaTudo.addEventListener('click', eraseAll);
 apagaFinalizados.addEventListener('click', eraseCompleted);
 
 apagaSelecionado.addEventListener('click', eraseSelected);
+
+salvarTarefas.addEventListener('click', saveTasks);

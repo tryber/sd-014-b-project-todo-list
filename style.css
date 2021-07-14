@@ -32,26 +32,28 @@ body {
 .botao {
   padding: 10px;
   border-radius: 20px;
-  font-size: 20px;
-  width: 8%;
-  margin-left: 3%;
-  
+  font-size: 18px;
+  width: fit-content;
+  border: 2px solid black;
 }
 
 #criar-tarefa {
   background-color: #74a2dc;
-
+  margin-left: 3%;
 }
 
 #lista-tarefas {
-  margin-left: 19%;
+  margin-left: 20%;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 42%;
+  padding: 20px;
 }
 
 .tarefa {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 18px;
+  margin: 10px;
   width: fit-content;
-  border-radius: 7px;
   padding: 3px;
 }
 
@@ -65,22 +67,20 @@ body {
 
 #botoes-inferiores {
   display: flex;
-  margin-left: 20%;
+  width: 42%;
+  margin-left: 18.5%;
+  justify-content: space-around;
 }
 
 #apaga-tudo {
-  background-color: red;
+  background-color: orangered;
   color: white;
-
 }
 
 #remover-finalizados {
-  background-color: orange;
-  color: white;
-  text-decoration: line-through;
+  background-color: goldenrod;
 }
 
 #remover-selecionado {
-  background-color: green;
-  color: white;
+  background-color: rgb(38, 204, 38);
 }
