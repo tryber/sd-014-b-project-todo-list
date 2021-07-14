@@ -28,5 +28,61 @@
         <button id='criar-tarefa'>Criar Tarefa</button>
     </div>
 
+
+
+    <script>
+
+        
+
+        function createList () {
+            let addList = document.getElementById('lista-tarefas');
+
+            let newLi = document.createElement('li');
+
+            newLi.innerText = document.getElementById('texto-tarefa').value;
+
+            addList.appendChild(newLi)
+
+            newLi.className = 'list-tasks';
+
+            document.getElementById('texto-tarefa').value = ''
+
+            let addListTask = document.querySelectorAll('.list-tasks');
+
+            for (let i = 0; i < addListTask.length ; i+= 1) {
+            console.log(addListTask);
+            addListTask[i].addEventListener('click', changeBackGroundColor);
+            }
+
+        }
+
+        function changeBackGroundColor (event) {
+            event.target.style.backgroundColor = '(rgb(128, 128, 128))';
+            console.log('ttt');
+        }
+
+
+        let addButton = document.getElementById('criar-tarefa');
+
+        addButton.addEventListener('click', createList);
+
+        // let addListTask = document.querySelectorAll('.list-tasks');
+
+        // for (let i = 0; i < addListTask.length ; i+= 1) {
+        //     console.log(addListTask);
+        // addListTask.addEventListener('click', changeBackGroundColor);
+        // }
+
+        function changeBackGroundColor (event) {
+            event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
+        }
+
+        
+
+      
+
+
+
+    </script>
 </body>
 </html>
