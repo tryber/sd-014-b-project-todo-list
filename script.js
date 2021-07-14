@@ -23,9 +23,15 @@ function changeColorLi(event) {
   event.target.classList.add('to-do-grey');
 }
 
+function completedLi() {
+  list.addEventListener('dblclick', event => {
+    event.target.classList.toggle('completed');
+  });
+}
 
 
 window.onload = function() {
-  button.addEventListener('click', addInTodoList)
-  list.addEventListener('click', changeColorLi)
-};
+  button.addEventListener('click', addInTodoList);
+  list.addEventListener('click', changeColorLi);
+  completedLi()
+}
