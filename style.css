@@ -55,11 +55,6 @@ p {
   margin-left: 10px;
 }
 
-.bgColor {
-  width: 400px;
-  background-color: gray;
-}
-
 .task {
   font-family: 'Lato', sans-serif;
   font-weight: 500;

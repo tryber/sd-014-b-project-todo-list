@@ -12,7 +12,6 @@ function addText() {
   const texto = textInput.value;
   const taskListItem = document.createElement('li');
   taskListItem.innerText = texto;
-  taskListItem.classList.add('task');
   textInput.value = null;
   taskList.appendChild(taskListItem);
 }
@@ -21,9 +20,11 @@ addButton.addEventListener('click', addText);
 // Adiciona background-color da tarefa clicada
 
 function addBackground(event) {
-  const taskBgColor = document.querySelector('.task');
-  taskBgColor.classList.remove('bgColor');
-  event.target.classList.add('bgColor');
+  const taskBgColor = document.querySelectorAll('li');
+  for (let index of taskBgColor) {
+    index.style.backgroundColor = 'rgb(232 , 235 , 241';
+  }
+  event.target.style.backgroundColor = 'gray';
 }
 taskList.addEventListener('click', addBackground);
 
@@ -33,11 +34,13 @@ taskList.addEventListener('click', addBackground);
 // Pedi ajuda em monitoria individual, lá pude entender melhor como funciona essa verificação e consegui aplicar no requisito.
 
 function markCompleted(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.add('completed');
-  }
+  // if (!event.target.classList.contains('completed')) {
+  //   event.target.classList.add('completed');
+  // } else {
+  //   event.target.classList.remove('completed');
+  // }
+
+  event.target.classList.toggle('completed');
 }
 
 taskList.addEventListener('dblclick', markCompleted);
