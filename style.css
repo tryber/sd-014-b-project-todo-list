@@ -12,3 +12,7 @@
 .completed{
     text-decoration: line-through;
 }
+
+.listItemOfTask{
+  text-align: justify;
+}

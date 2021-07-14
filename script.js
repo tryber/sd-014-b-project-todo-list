@@ -1,6 +1,7 @@
 const addButton = document.querySelector('#criar-tarefa');
 const inputText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const clsButton = document.querySelector('#apaga-tudo');
 
 addButton.addEventListener('click', function() {
   const createList = document.createElement('li');
@@ -26,6 +27,17 @@ taskList.addEventListener('click', selection);
 
 // Uso do .toggle Referência https://pt.stackoverflow.com/
 function riskText(event) {
-    event.target.classList.toggle('completed');
+  event.target.classList.toggle('completed');
 }
 taskList.addEventListener('dblclick', riskText);
+
+function selectCls() {
+  for (let index = taskList.children.length - 1; index >= 0; index -= 1) {
+    taskList.children[index].remove();
+  }
+}
+
+clsButton.addEventListener('click', selectCls);
+
+
+
