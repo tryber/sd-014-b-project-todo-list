@@ -5,8 +5,8 @@ const btnCreateTask = document.getElementById('criar-tarefa');
 const btnDeleteAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
-const btnMoveUp = document.getElementById('mover-cima');
-const btnMoveDown = document.getElementById('mover-baixo');
+const btnMoveUp = document.querySelector('#mover-cima');
+const btnMoveDown = document.querySelector('#mover-baixo');
 const btnRemoveSelected = document.getElementById('remover-selecionado');
 let listItens = taskList.children;
 
@@ -30,10 +30,6 @@ inputTask.addEventListener('keypress', function (event) {
 
 function addListItemListeners(listItem) {
   listItem.addEventListener('click', function (event) {
-    if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
-      event.target.style.backgroundColor = '';
-      event.target.removeAttribute('id');
-    } else {
       for (let item of taskList.children) {
         if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
           item.style.backgroundColor = '';
@@ -42,7 +38,6 @@ function addListItemListeners(listItem) {
       }
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       event.target.id = 'selected';
-    }
   });
 
   listItem.addEventListener('dblclick', function (event) {
@@ -101,52 +96,26 @@ btnSaveTasks.addEventListener('click', function () {
 btnMoveUp.addEventListener('click', function () {
   let selectedItem = document.getElementById('selected');
   if (selectedItem) {
-    if (selectedItem.previousElementSibling !== null) {
-      selectedItem.parentElement.insertBefore(selectedItem, selectedItem.previousElementSibling);
-    } else if(selectedItem.previousElementSibling === null){
-      console.log(selectedItem)
-    }
+    listNode = selectedItem.parentNode;
+    if (selectedItem.previousElementSibling) {
+      //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
+      listNode.insertBefore(selectedItem, selectedItem.previousSibling);
+      // a linha acima insere selectedItem antes do elemento passado como referencia, no caso selectedItem.previousSibling que é o elemento logo acima, o if verifica se há um elemento acima
   }
+}
 });
 
 btnMoveDown.addEventListener('click', function () {
   let selectedItem = document.getElementById('selected');
   if (selectedItem) {
-    if (selectedItem.nextElementSibling !== null) {
-      selectedItem.parentElement.insertBefore(selectedItem.nextElementSibling, selectedItem);
-    } else if(selectedItem.nextElementSibling === null){
-      console.log(selectedItem)
-    }
+    listNode = selectedItem.parentNode;
+    if (selectedItem.nextElementSibling) {
+      //referencia: https://stackoverflow.com/questions/46724542/javascript-move-elements-up-and-down-in-the-list
+      listNode.insertBefore(selectedItem.nextElementSibling, selectedItem);
+      //dessa vez foi preciso inverter. a linha acima insere selectedItem.nextElementSibling(elemento abaixo) depois do elemento passado como referencia, no caso selectedItem que é o elemento selecionado, o if verifica se há um elemento abaixo
   }
+}
 });
-
-// function moveItem(selected, seletedSibling) {
-//   let siblingText = seletedSibling.innerText;
-//   seletedSibling.innerText = selected.innerText;
-//   selected.innerText = siblingText;
-//   selected.style.backgroundColor = '';
-//   selected.removeAttribute('id');
-//   seletedSibling.style.backgroundColor = 'rgb(128, 128, 128)';
-//   seletedSibling.id = 'selected';
-//   handleCompleted(selected, seletedSibling);
-// }
-
-// function handleCompleted(selected, seletedSibling) {
-//   if (selected.classList.contains('completed') && !seletedSibling.classList.contains('completed')) {
-//     selected.classList.remove('completed');
-//     selected.style.textDecoration = 'none';
-//     seletedSibling.classList.add('completed');
-//     seletedSibling.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-//   } else if(selected.classList.contains('completed') && seletedSibling.classList.contains('completed')){
-//     selected.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-//     seletedSibling.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-//   } else if (seletedSibling.classList.contains('completed')) {
-//     seletedSibling.classList.remove('completed');
-//     seletedSibling.style.textDecoration = 'none';
-//     selected.classList.add('completed');
-//     selected.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-//   } 
-// }
 
 btnRemoveSelected.addEventListener('click', function () {
   let selectedItem = document.getElementById('selected');
