@@ -50,7 +50,7 @@ header {
 #remover-finalizados {
   font-weight: 600;
   padding: 1%;
-  background-color: coral;
+  background-color: coral;g
   border: solid thin;
   border-radius: 5%;
   margin: 0 0 -50% 5%;
@@ -80,6 +80,7 @@ ol {
 li {
   list-style: inside decimal;
   padding: 0.5rem;
+  margin: 1%;
   font-size: large;
   width: fit-content;
   border: solid thin black;

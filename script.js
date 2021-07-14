@@ -11,12 +11,12 @@ function textListItem() {
 
 function addIdStyle() {
   const listedItem = document.querySelectorAll('li');
-  if (this.id === 'selected') {
-    this.removeAttribute('id');
-  } else {
+  // if (this.id === 'selected') {
+  //   this.removeAttribute('id');
+  // } else {
     for (const indexIn of listedItem) { indexIn.id = ''; }
     this.setAttribute('id', 'selected');
-  }
+  // }
 }
 function addClassStyle() {
   if (this.className === 'completed') {
@@ -59,18 +59,46 @@ function completedButton() {
   removeCompButton.addEventListener('click', removeCompleted);
 }
 
-function removeSeleted(){
+function removeSelected(){
   const selectedItem = document.getElementById('selected');
   selectedItem.remove();
 }
-function seletedButton() {
+function selectedButton() {
   const removeSelecButton = document.getElementById('remover-selecionado');
-  removeSelecButton.addEventListener('click', removeSeleted);
+  removeSelecButton.addEventListener('click', removeSelected);
+}
+// Após pesquisar sobre "mover posição elementos HTML", encontrei uma dica no Stackoverflow sobre o "insertBefore()", analizando sua documentação pude concluir que seu uso seria útil para este requisito.
+function moveUp() {
+  const selectedItem = document.getElementById('selected');
+  const list = document.querySelector('ol');
+  const itensList = document.querySelectorAll('li');
+  if (selectedItem && selectedItem !== itensList[0]) {
+    list.insertBefore(selectedItem, selectedItem.previousSibling);
+  }
+}
+function buttonUp() {
+  const upButton = document.getElementById('mover-cima');
+  upButton.addEventListener('click', moveUp);
+}
+
+function moveDown() {
+  const selectedItem = document.getElementById('selected');
+  const list = document.querySelector('ol');
+  const itensList = document.querySelectorAll('li');
+  if (selectedItem && selectedItem !== itensList[itensList.length - 1]) {
+    list.insertBefore(selectedItem.nextSibling, selectedItem);
+  }
+}
+function buttonDown() {
+  const upButton = document.getElementById('mover-baixo');
+  upButton.addEventListener('click', moveDown);
 }
 
 window.onload = () => {
   addListItem();
   eraseButton();
   completedButton();
-  seletedButton();
+  selectedButton();
+  buttonUp();
+  buttonDown();
 };
