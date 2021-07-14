@@ -28,14 +28,14 @@ function liGetColor(event) {
 
 olTaskList.addEventListener('click', liGetColor);
 
-// riscar tarefa concluida
+// 9.riscar tarefa concluida
 function taskDone(event) { // scratch
   event.target.classList.toggle('completed');
 }
 
 olTaskList.addEventListener('dblclick', taskDone);
 
-// botao apagar tudo
+// 10.botao apagar tudo
 function allGone() {
   const classLi = document.querySelectorAll('.classLi');
 
@@ -47,7 +47,7 @@ function allGone() {
 const btnDeleteAll = document.querySelector('#apaga-tudo');
 btnDeleteAll.addEventListener('click', allGone);
 
-// remover finalizados
+// 11.remover finalizados
 function removeTaskCompleted() {
   const classCompleted = document.querySelectorAll('.completed');
 
@@ -59,7 +59,7 @@ function removeTaskCompleted() {
 const btnTaskCompleted = document.querySelector('#remover-finalizados');
 btnTaskCompleted.addEventListener('click', removeTaskCompleted);
 
-// remover selecionado (li selecionada)
+// 14.remover selecionado (li selecionada)
 function removeSelected() {
   const selected = document.querySelector('.colorGray');
   selected.remove('li');
@@ -68,7 +68,7 @@ function removeSelected() {
 const btnRemoveSelected = document.querySelector('#remover-selecionado');
 btnRemoveSelected.addEventListener('click', removeSelected);
 
-// 12. webstorage no botão salvar tarefa
+// 12.webstorage no botão salvar tarefa
 // taskList = document.querySelector('#lista-tarefas')
 function saveTask() {
   localStorage.setItem('taskList', olTaskList.innerHTML);
@@ -80,3 +80,36 @@ btnSaveTask.addEventListener('click', saveTask);
 window.onload = function restorePage() {
   olTaskList.innerHTML = localStorage.getItem('taskList');
 };
+
+// 13. btn mover cima baixo
+function moveUp() {
+  const selected = document.querySelector('.colorGray');
+  const allLi = document.querySelectorAll('.classLi');
+
+  if (selected === allLi[0]) {
+    alert('tarefa seleciona já é a primeira');
+  } else {
+    // MDN insertBefore sytanx
+    // let insertedNode = parentNode.insertBefore(newNode, referenceNode)
+    selected.parentNode.insertBefore(selected, selected.previousElementSibling);
+  }
+}
+
+const btnMoveUp = document.querySelector('#mover-cima');
+btnMoveUp.addEventListener('click', moveUp);
+
+function moveDown() {
+  const selected = document.querySelector('.colorGray');
+  const allLi = document.querySelectorAll('.classLi');
+
+  if (selected === allLi[allLi.length - 1]) {
+    alert('tarefa seleciona já é a ultima');
+  } else {
+    // MDN Note: There is no insertAfter() method.
+    // emulated by insertBefore method with Node.nextSibling.
+    selected.parentNode.insertBefore(selected, selected.nextElementSibling.nextElementSibling);
+  }
+}
+
+const btnMoveDown = document.querySelector('#mover-baixo');
+btnMoveDown.addEventListener('click', moveDown);
