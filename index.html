@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>To Do</title>
+</head>
+<body>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <input type="text" id="texto-tarefa">
+    <nav>
+      <button id="criar-tarefa"><img src="/images/add.svg" alt="Criar"></button>
+      <div id="delete-buttons">
+        <button id="remover-selecionado">Apagar item</button>
+        <button id="remover-finalizados">Apagar finalizados</button>
+        <button id="apaga-tudo">Apagar tudo</button>
+      </div>
+      <button id="mover-cima"><img src="/images/up.svg" alt="Mover para cima"></button>
+      <button id="mover-baixo"><img src="/images/down.svg" alt="Mover para baixo"></button>
+      <button id="salvar-tarefas"><img src="images/save.svg" alt="Salvar"></button>
+    </nav>
+  </header>
+  <main>
+    <div id="todos-container">
+      <ol id="lista-tarefas"></ol>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
