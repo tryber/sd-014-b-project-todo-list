@@ -7,6 +7,7 @@ function adcionarLiCompleto() {
     function adcionaLi() {
         const creatLi = document.createElement('li');
         creatLi.innerText = textoTarefa.value;
+        creatLi.className = 'list';
         listOr.appendChild(creatLi);
         textoTarefa.value = null;
     }
@@ -17,66 +18,88 @@ function adcionarLiCompleto() {
         }
     })
 }
-adcionarLiCompleto();
 
-function addBackgroundColor() {
-    const li = document.querySelectorAll('li');
 
-    for (let index in li) {
-        li[index].addEventListener('click', function (event) {
-            for (let secondIndex = 0; secondIndex < li.length; secondIndex += 1) {
-                if (li[secondIndex].classList.contains('selected')) {
-                    li[secondIndex].classList.remove('selected');
-                }
+function addBackgroundColorFulll() {
+    function addBackgroundColor() {
+        const list = document.querySelectorAll('.list');
+        function addSelec(event) {
+        for (let index = 0; index < list.length; index += 1) {
+            if (list[index].classList.contains('selected')) {
+                list[index].classList.remove('selected');
             }
-            event.target.classList.add('selected');
-        });
+        }
+        event.target.classList.add('selected');
+        }
+        const li = document.querySelectorAll('li');
+        for (let i = 0; i < li.length; i += 1) {
+            li[i].addEventListener('click', addSelec);
+        }
     }
-}
-button.addEventListener('click', addBackgroundColor);
+    button.addEventListener('click', addBackgroundColor);
     document.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             addBackgroundColor();
         }
     })
-
-function addLineThrough() {
-    const li = document.querySelectorAll('li');
-
-    for (let index in li) {
-        li[index].addEventListener('dblclick', function (event) {
-            event.target.classList.add('completed');
-            if (li[index].classList.contains('completed')) {
-                li[index].addEventListener('dblclick', function (event) {
-                    event.target.classList.remove('completed');
-                })
-            }
-        });
-    }
 }
-button.addEventListener('click', addLineThrough);
+
+
+function addLineThroughFull() {
+    let contador = 0;
+    function addLineThrough() {
+
+        function addComple(event) {
+            if (event.target.classList.contains('completed')) {
+                event.target.classList.remove('completed');
+            } else {
+                event.target.classList.add('completed');
+            }
+        }
+
+        const li = document.querySelectorAll('.list');
+        for (let i = contador; i < li.length; i += 1) {
+            li[i].addEventListener('dblclick', addComple);
+            contador += 1;
+        }
+    }
+    button.addEventListener('click', addLineThrough);
     document.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             addLineThrough();
         }
     })
-
-function removeAll(){
-    const li = document.querySelectorAll('li');
-
-    for (let index in li) {
-        li[index].parentNode.removeChild(li[index]);
-    }
 }
-document.getElementById('apaga-tudo').addEventListener('click', removeAll);
 
-function removeAll(){
-    const li = document.querySelectorAll('li');
 
-    for (let index in li) {
-        if (li[index].classList.contains('completed')) {
-         li[index].parentNode.removeChild(li[index]);
+function removeAllFull() {
+    function removeAll(){
+        const li = document.querySelectorAll('.list');
+
+        for (let index = 0; index < li.length; index += 1) {
+            li[index].parentNode.removeChild(li[index]);
         }
     }
+    document.getElementById('apaga-tudo').addEventListener('click', removeAll);
 }
-document.getElementById('remover-finalizados').addEventListener('click', removeAll);
+
+
+function removeCompleted() {
+    function removeCompleted(){
+        const li = document.querySelectorAll('.list');
+
+        for (let index = 0; index < li.length; index += 1) {
+            if (li[index].classList.contains('completed')) {
+                li[index].parentNode.removeChild(li[index]);
+            }
+        }
+    }
+    document.getElementById('remover-finalizados').addEventListener('click', removeCompleted);
+}
+
+
+adcionarLiCompleto();
+addBackgroundColorFulll();
+addLineThroughFull();
+removeAllFull();
+removeCompleted();
