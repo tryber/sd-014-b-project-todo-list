@@ -1,6 +1,14 @@
+let elementoSelecionado = null;
+
 function adicionarCor(event) {
   const elemento = event.target;
+
+  if (elementoSelecionado) {
+    elementoSelecionado.style.backgroundColor = '';
+  }
+
   elemento.style.backgroundColor = 'rgb(128, 128, 128)';
+  elementoSelecionado = elemento;
 }
 
 function adicionarTarefa() {
