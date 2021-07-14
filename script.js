@@ -86,7 +86,9 @@ function moveUp() {
   const selected = document.querySelector('.colorGray');
   const allLi = document.querySelectorAll('.classLi');
 
-  if (selected === allLi[0]) {
+  if (selected === undefined || selected === null) {
+    alert('não há tarefa selecionada');
+  } else if (selected === allLi[0]) {
     alert('tarefa seleciona já é a primeira');
   } else {
     // MDN insertBefore sytanx
@@ -102,7 +104,9 @@ function moveDown() {
   const selected = document.querySelector('.colorGray');
   const allLi = document.querySelectorAll('.classLi');
 
-  if (selected === allLi[allLi.length - 1]) {
+  if (selected === undefined || selected === null) {
+    alert('não há tarefa selecionada');
+  } else if (selected === allLi[allLi.length - 1]) {
     alert('tarefa seleciona já é a ultima');
   } else {
     // MDN Note: There is no insertAfter() method.
