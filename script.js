@@ -1,6 +1,8 @@
 const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const buttonRemoveAll = document.querySelector('#apaga-tudo');
+const buttonCompletedRemove = document.querySelector('#remover-finalizados');
 
 function addInTodoList() {
   if (input.value.length === 0) {
@@ -29,9 +31,15 @@ function completedLi() {
   });
 }
 
+function removeALl() {
+  buttonRemoveAll.addEventListener('click', () => {
+    list.parentNode.removeChild(list);
+  });
+}
 
 window.onload = function() {
   button.addEventListener('click', addInTodoList);
   list.addEventListener('click', changeColorLi);
-  completedLi()
+  completedLi();
+  removeALl()
 }
