@@ -1,0 +1,37 @@
+body {
+	background-image: url('tarefas.jpg'); /* fonte-image= https://www.casinhaarrumada.com/wp-content/uploads/2016/05/lista-de-tarefas-1.jpg */
+}
+
+header p {
+	text-align: center;
+	font-size: 10;
+}
+
+h1 {
+	font-size: 20px;
+	text-align: center;
+}
+
+#box {
+	background-color: #eaafc8;
+	width: 50%;
+	padding: 20px;
+	right: 100px;
+	border-radius: 50px;
+	margin-top: 100px;
+	margin-left: 25%;
+}
+
+.styleButton {
+	border-radius: 50px;
+	background-color: #00B4DB;
+	font-weight: bolder;
+}
+
+section {
+	text-align: center;
+}
+
+.completed {
+	text-decoration: line-through solid rgb(0, 0, 0);
+}
