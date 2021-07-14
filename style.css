@@ -2,9 +2,12 @@
 
 // Estilos padrões e reset do CSS
 
-* {
+html, body {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   margin: 0;
-  padding: 0;
 }
 
 body {
@@ -12,9 +15,9 @@ body {
 }
 
 .container {
-  width: 80%;
-  height: 80%;
-  margin-top: 10%;
+  width: calc(70% - 100px);
+  height: 50%;
+  /* margin-top: 10%; */
   background-color: rgb(255, 255, 255);
   display: block;
   margin-left: auto; 
@@ -31,9 +34,10 @@ body {
 
 header {
   font-family: 'Crete Round', serif;
+  align-content: center;
   display: inline-block;
   font-size: 3em;
-  margin-top: 0.3em;
+  margin-top: calc(10% - 80px); /* Vi aqui, procurando sobre dinamismo: https://developer.mozilla.org/pt-BR/docs/Web/CSS/calc() */
   margin-left: auto;
   margin-right: auto;
   color: brown;
@@ -73,17 +77,39 @@ button:nth-child(n+1):hover {
   background-color: rgba(151, 10, 10, 0.5);
 }
 
-section {
+#tex-input-section {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+}
+
+section .section-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: space-between;
   width: 40%;
   height: 30%;
   margin: 20px 20px 0 0;
+
 }
 /* Personalização seguindo este tutorial https://css-tricks.com/numbering-in-style/*/
 
 ol {
+  z-index: 1;
+  columns:3; /* baseado neste codepen https://codepen.io/oldrup/pen/Yzygdzv */
+  column-gap: 15px;
+  /* height: 500px; */
+  line-height: 200%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3em;
   padding: 0;
+}
+
+#lista-tarefa {
+  margin-top: 30px;
 }
 
 li::marker {
@@ -199,4 +225,11 @@ li, li::marker {
 #apaga-tudo:hover {
   color: rgb(92, 49, 0);
   background-color: rgba(255, 167, 66, 0.822);
+}
+
+#button-interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
 }

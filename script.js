@@ -32,6 +32,9 @@ function selectItem(event) {
   if (moveUp.hasAttribute('disabled')) {
     moveUp.removeAttribute('disabled');
   }
+  if (moveDown.hasAttribute('disabled')) {
+    moveDown.removeAttribute('disabled');
+  }
   const taskItem = document.querySelector('.selected');
   if (taskItem) {
     taskItem.classList.remove('selected');
@@ -105,6 +108,7 @@ function moveItemBx() {
   if (listItemSelect2 === listToDo.lastElementChild) {
     moveDown.setAttribute('disabled', 'true');
   } else {
+    moveDown.removeAttribute('disabled');
     listToDo.insertBefore(listItemSelect2.nextElementSibling, listItemSelect2);
   }
 }
@@ -134,17 +138,3 @@ window.onload = () => {
     }
   }
 };
-
-// nota mental - fazer uma função que verifica se o meu elemento lista está vazio, para servir as outras funções. Fica mais organizado.
-
-// function voidList() {
-//   const voidItems = document.getElementById('lista-tarefas').children;
-//   console.log(voidItems);
-//   if (voidItems.length === 0) {
-//     alert('Não há elementos para manipular');
-//     return true;
-//   }
-//   return false;
-// }
-// questão 12 - mandar o array completo pro localstorage // monitoria
-// da o nome pra HasChangeEvent, no valor manda o array.
