@@ -28,8 +28,16 @@ function addBackground(event) {
 taskList.addEventListener('click', addBackground);
 
 // Risca tarefas concluídas
+// Referências para esse requisito:
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+// Pedi ajuda em monitoria individual, lá pude entender melhor como funciona essa verificação e consegui aplicar no requisito.
 
 function markCompleted(event) {
-  event.target.classList.add('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
 }
+
 taskList.addEventListener('dblclick', markCompleted);
