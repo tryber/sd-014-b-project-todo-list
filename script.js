@@ -81,6 +81,8 @@ function setTasksSaved() {
 }
 setTasksSaved();
 
+// As duas funções abaixo tiveram uma consulta ao código do amigo ISRAEL-NAZARETH Turma -B da Trybe.
+
 function moveUp() {
   const getButtonUp = document.getElementById('mover-cima');
   getButtonUp.addEventListener('click', () => {
@@ -107,3 +109,16 @@ function moveDown() {
   });
 }
 moveDown();
+
+function removeTaskSelected() {
+  const buttonRemove = document.getElementById('remover-selecionado');
+  buttonRemove.addEventListener('click', () => {
+    const getSelected = document.querySelector('.selected');
+    if (getSelected === null) {
+      alert('Nenhuma tarefa foi selecionada');
+    } else {
+      getSelected.parentNode.removeChild(getSelected);
+    }
+  });
+}
+removeTaskSelected();
