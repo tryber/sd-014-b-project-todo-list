@@ -1,6 +1,6 @@
 let elementoSelecionado = null;
 
-function adicionarCor(event) {
+function selecionarTarefa(event) {
   const elemento = event.target;
 
   if (elementoSelecionado) {
@@ -11,12 +11,23 @@ function adicionarCor(event) {
   elementoSelecionado = elemento;
 }
 
+function completarTarefa(event) {
+  const elemento = event.target;
+
+  if (elemento.classList.contains('completed')) {
+    elemento.classList.remove('completed');
+  } else {
+    elemento.setAttribute('class', 'completed');
+  }
+}
+
 function adicionarTarefa() {
   const listaTarefas = document.getElementById('lista-tarefas');
   const li = document.createElement('li');
   const inputTextoTarefa = document.getElementById('texto-tarefa');
   li.innerHTML = inputTextoTarefa.value;
-  li.addEventListener('click', adicionarCor);
+  li.addEventListener('click', selecionarTarefa);
+  li.addEventListener('dblclick', completarTarefa);
   inputTextoTarefa.value = '';
   listaTarefas.appendChild(li);
 }
