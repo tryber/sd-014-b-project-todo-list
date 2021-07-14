@@ -7,6 +7,10 @@
   border-radius: 5px;
 }
 
+#remover-finalizados {
+  border-radius: 5px;
+}
+
 .completed {
   text-decoration: line-through;
 }
