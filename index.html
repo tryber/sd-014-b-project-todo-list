@@ -50,7 +50,6 @@
             let addListTask = document.querySelectorAll('.list-tasks');
 
             for (let i = 0; i < addListTask.length ; i+= 1) {
-            console.log(addListTask);
             addListTask[i].addEventListener('click', changeBackGroundColor);
             }
 
@@ -66,16 +65,25 @@
 
         addButton.addEventListener('click', createList);
 
-        // let addListTask = document.querySelectorAll('.list-tasks');
+        
 
-        // for (let i = 0; i < addListTask.length ; i+= 1) {
-        //     console.log(addListTask);
-        // addListTask.addEventListener('click', changeBackGroundColor);
-        // }
+        function changeBackGroundColor (event) { 
 
-        function changeBackGroundColor (event) {
+            addListTask = document.querySelectorAll('.list-tasks');
+            for (let i = 0; i < addListTask.length ; i+= 1) {
+                
+                if (addListTask[i].style.backgroundColor ===  'rgb(128 , 128 , 128)' );
+                    addListTask[i].style.backgroundColor = '';
+            }   
             event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
-        }
+
+        }   
+
+      
+
+       
+
+
 
         
 
