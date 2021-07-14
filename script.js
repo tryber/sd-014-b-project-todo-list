@@ -64,20 +64,6 @@ function btnRemoveCompleted() {
 }
 btnRemoveCompleted();
 
-/* function saveTasks() {
-  const getButtonSaveTasks = document.getElementById('salvar-tarefas');
-  getButtonSaveTasks.addEventListener('click', () => {
-    const getTasks = document.querySelectorAll('.task');
-    // eslint-disable-next-line sonarjs/no-unused-collection
-    const tasks = [];
-    for (let index = 0; index < getTasks.length; index += 1) {
-      tasks.push(getTasks[index].innerHTML);
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  });
-}
-saveTasks(); */
-
 function saveTasks() {
   const taskList = document.querySelector('#lista-tarefas');
   const getButtonSaveTasks = document.getElementById('salvar-tarefas');
@@ -94,3 +80,30 @@ function setTasksSaved() {
   }
 }
 setTasksSaved();
+
+function moveUp() {
+  const getButtonUp = document.getElementById('mover-cima');
+  getButtonUp.addEventListener('click', () => {
+    const getSelected = document.querySelector('.selected');
+    const getTasks = document.querySelectorAll('.task');
+    if (getSelected === null) {
+      alert('Nenhuma tarefa foi selecionada');
+    } else if (getSelected !== getTasks[0]) {
+      getSelected.parentNode.insertBefore(getSelected, getSelected.previousElementSibling);
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  const getButtonDown = document.getElementById('mover-baixo');
+  getButtonDown.addEventListener('click', () => {
+    const getSelected = document.querySelector('.selected');
+    if (getSelected === null) {
+      alert('Nenhuma tarefa foi selecionada');
+    } else if (getSelected !== getSelected.parentNode.lastChild) {
+      getSelected.parentNode.insertBefore(getSelected.nextElementSibling, getSelected);
+    }
+  });
+}
+moveDown();
