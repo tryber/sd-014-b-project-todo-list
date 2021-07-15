@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Prompt:wght@200;300;400;500;700&display=swap');
 
-// Estilos padrões e reset do CSS
+/* Estilos padrões e reset do CSS */
 
 html, body {
   left: 0;
@@ -15,9 +15,8 @@ body {
 }
 
 .container {
-  width: calc(70% - 100px);
+  width: calc(70% - 100px); /* método de cáculo visto aqui na documentação MDN https://developer.mozilla.org/pt-BR/docs/Web/CSS/calc() */
   height: 50%;
-  /* margin-top: 10%; */
   background-color: rgb(255, 255, 255);
   display: block;
   margin-left: auto; 
@@ -91,9 +90,8 @@ section .section-list {
   flex-flow: column;
   justify-content: space-between;
   width: 40%;
-  height: 30%;
+  height: 270px;
   margin: 20px 20px 0 0;
-
 }
 /* Personalização seguindo este tutorial https://css-tricks.com/numbering-in-style/*/
 
@@ -101,8 +99,8 @@ ol {
   z-index: 1;
   columns:3; /* baseado neste codepen https://codepen.io/oldrup/pen/Yzygdzv */
   column-gap: 15px;
-  /* height: 500px; */
-  line-height: 200%;
+  height: 270px; /* para ficar apresentável na resolução em que é avaliado, 1366x768 */
+  line-height: 2em; /* medidas 'em' são melhores para caracteres em tela. Isso eu já usava na diagramação */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.3em;
   padding: 0;
@@ -231,5 +229,9 @@ li, li::marker {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
+}
+
+#button-interface:disabled {
+  color: rgb(128, 128, 128);
+  background-color: #ccc;
 }
