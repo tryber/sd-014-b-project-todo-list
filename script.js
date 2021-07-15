@@ -24,3 +24,8 @@ listTask.addEventListener('click', (event) => {
   listTask.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
   });
+
+  const clear = document.querySelector('#apaga-tudo');
+clear.addEventListener('click', () => {
+  listTask.parentNode.removeChild(listTask);
+});
