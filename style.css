@@ -5,3 +5,7 @@
   .selected {
     background-color:rgb(128,128,128);
   }
+
+  li:hover {
+    cursor: pointer;
+  }
