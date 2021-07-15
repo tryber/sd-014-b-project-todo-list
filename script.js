@@ -8,7 +8,16 @@ const salvarTarefas = document.querySelector('#salvar-tarefas');
 const moverCima = document.querySelector('#mover-cima');
 const moverBaixo = document.querySelector('#mover-baixo');
 
-lista.innerHTML = localStorage.getItem('lista');
+function loadTasks() {
+  lista.innerHTML = localStorage.getItem('lista');
+  const itensTarefa = document.querySelectorAll('.tarefa');
+  for (const tarefa of itensTarefa) {
+  tarefa.addEventListener('click', selectItem);
+  tarefa.addEventListener('dblclick', completeItem);
+  }
+}
+
+window.addEventListener('load', loadTasks);
 
 function selectItem (event) {
   const itensTarefa = document.querySelectorAll('.tarefa');
@@ -75,21 +84,13 @@ function moveUp() {
 
 function moveDown() {
   const itemSelecionado = document.querySelector('.selected');
-  const newItem = document.createElement('li');
-  newItem.innerText = itemSelecionado.innerText;
-  newItem.classList.add('tarefa');
-  newItem.classList.add('selected');
-  if (itemSelecionado.classList.contains('completed')) {
-    newItem.classList.add('completed');
-  }
-  newItem.addEventListener('click', selectItem);
-  newItem.addEventListener('dblclick', completeItem);
-  const index = itemSelecionado.nextSibling;
-  index.insertAdjacentElement('afterend', newItem);
-  lista.removeChild(itemSelecionado);
+  const proxElemento = itemSelecionado.nextElementSibling;
+  const espaco = document.createDocumentFragment();
+      espaco.appendChild(proxElemento);
+      lista.insertBefore(espaco, itemSelecionado);
 }
 
-// Aqui eu gastei mais tempo ainda, acredito que tem uma forma mais simples de fazer, mas depois de quebrar a cabeça foi a forma que encontrei ;c,  Source: https://www.w3docs.com/snippets/javascript/how-to-insert-an-element-after-another-element-in-javascript.html
+// Aqui eu gastei mais tempo ainda, como inserir diretamente estava dando muito erro ou não funcionava direito, tive que criar um pedaço html blankg Source: https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
 
 createList.addEventListener('click', createItem);
 
