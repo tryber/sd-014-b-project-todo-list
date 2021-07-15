@@ -4,6 +4,10 @@ const buttonNewTarefa = document.querySelector('#criar-tarefa');
 const inputText = document.querySelector('#texto-tarefa');
 const getSelectionButton = document.querySelector('#buttons');
 
+window.onload = function () {
+  listTarefas.innerHTML = localStorage.getItem('list');
+};
+
 // Função cria elemento li com value digitado no input
 // e em seguida limpa o value do input;
 function addLi() {
@@ -74,6 +78,7 @@ const newButtonSalve = document.createElement('button');
 newButtonSalve.setAttribute('id', 'salvar-tarefas');
 newButtonSalve.innerText = 'Salvar Tarefas';
 getSelectionButton.appendChild(newButtonSalve);
+const getbuttonSave = document.querySelector('#salvar-tarefas');
 
 // Remover tarefa selecionada;
 function removeLiSelected() {
@@ -93,3 +98,9 @@ getSelectionButton.appendChild(newButtonRemove);
 
 const buttonRemove = document.querySelector('#remover-selecionado');
 buttonRemove.addEventListener('click', removeLiSelected);
+
+function saveList() {
+  localStorage.setItem('list', listTarefas.innerHTML);
+}
+
+getbuttonSave.addEventListener('click', saveList);
