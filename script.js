@@ -1,5 +1,4 @@
 const createTask = document.querySelector('#criar-tarefa');
-const listItem = document.querySelectorAll('li');
 const listTask = document.querySelector('#lista-tarefas');
 
 createTask.addEventListener('click', () => {
@@ -15,5 +14,9 @@ createTask.addEventListener('click', () => {
 });
 
 listTask.addEventListener('click', (event) => {
+    const listItem = document.querySelectorAll('li');
+  for (let key = 0; key < listItem.length; key += 1) {
+    listItem[key].style.backgroundColor = 'white';
+  }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
   });
