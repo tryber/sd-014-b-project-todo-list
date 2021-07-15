@@ -13,11 +13,13 @@ document.body.appendChild(createParagraph);
 createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 createParagraph.id = 'funcionamento';
 
+// 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista O que será verificado:
+const createInputTarefa = document.createElement('input');
+document.body.appendChild(createInputTarefa);
+createInputTarefa.id = 'texto-tarefa';
+
 
 /*
-3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
-O que será verificado:
-
 Será verificada a existência de um elemento do tipo input com o id texto-tarefa.
 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
 O que será verificado:
