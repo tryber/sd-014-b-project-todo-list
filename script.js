@@ -29,3 +29,11 @@ listTask.addEventListener('click', (event) => {
 clear.addEventListener('click', () => {
   listTask.parentNode.removeChild(listTask);
 });
+
+const clearCompleted = document.querySelector('#remover-finalizados');
+clearCompleted.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  for (let key = 0; key < completed.length; key += 1) {
+    completed[key].remove();
+  }
+});
