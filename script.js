@@ -20,3 +20,7 @@ listTask.addEventListener('click', (event) => {
   }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
   });
+
+  listTask.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
