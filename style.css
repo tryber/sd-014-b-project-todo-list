@@ -13,3 +13,6 @@ body {
     width: 100px;
     border: 1px solid #e4e4e4;
 }
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}

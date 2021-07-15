@@ -1,21 +1,3 @@
-
-/* 
-addTask.addEventListener('click',function () {
-    let text = textInput.value;
-
-    if (text != '') {
-        let createLi = document.createElement('li');
-        createLi.innerText = text;
-        ols.appendChild(createLi);
-
-        createLi.addEventListener('click', function () {
-            let liItem = document.querySelectorAll('li');
-            for(let index = 0; index < liItem)
-        });
-    }
-    
-    textInput.value = '';
-});  */
 let button = document.querySelector('#criar-tarefa');
 let ol = document.querySelector('#lista-tarefas');
 
@@ -35,6 +17,10 @@ function createLi () {
             liItem[index].style.backgroundColor = 'white';
         }
         event.target.style.backgroundColor = 'rgb(128,128,128)';
+    });
+// riscar elemento
+    createElementLi.addEventListener('dblclick' , function (event) {
+        event.target.classList.toggle('completed');
     });
 }
 button.addEventListener('click' , createLi);
