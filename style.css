@@ -4,10 +4,6 @@ body {
     font-family:monospace;
 }
 
-.cor-de-fundo {
-    background-color: rgb(128,128,128);
-}
-
 #criar-tarefa {
     color: white;
     margin: auto;
