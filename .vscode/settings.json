@@ -1,0 +1,5 @@
+{
+  "liveServer.settings.port": 5501,
+  "stm32-for-vscode.openOCDPath": false,
+  "stm32-for-vscode.armToolchainPath": false
+}
