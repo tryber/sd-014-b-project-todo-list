@@ -17,14 +17,13 @@ createParagraph.id = 'funcionamento';
 const createInputTarefa = document.createElement('input');
 document.body.appendChild(createInputTarefa);
 createInputTarefa.id = 'texto-tarefa';
-
-
+//Será verificada a existência de um elemento do tipo input com o id texto-tarefa.
+// 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
+// O que será verificado: Será verificada a existência de um elemento ol com o id lista-tarefas.
+const createOlList = document.createElement('ol');
+document.body.appendChild(createOlList);
+createOlList.id = 'lista-tarefas';
 /*
-Será verificada a existência de um elemento do tipo input com o id texto-tarefa.
-4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
-O que será verificado:
-
-Será verificada a existência de um elemento ol com o id lista-tarefas.
 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 O que será verificado:
 
