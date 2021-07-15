@@ -66,6 +66,9 @@ function saveTasks() {
 
 function moveUp() {
   const itemSelecionado = document.querySelector('.selected');
+  if (itemSelecionado.previousSibling === null) {
+    return
+  }
   lista.insertBefore(itemSelecionado, itemSelecionado.previousSibling);
 }
 // Gastei um pouco de tempo, mas descobri a função insertBefore() e previousSibling que funcionam muito bem um com o outro, Source: https://www.w3schools.com/jsref/met_node_insertbefore.asp e https://www.w3schools.com/jsref/prop_node_previoussibling.asp
@@ -75,10 +78,14 @@ function moveDown() {
   const newItem = document.createElement('li');
   newItem.innerText = itemSelecionado.innerText;
   newItem.classList.add('tarefa');
-  newItem.classList.add('selected')
+  newItem.classList.add('selected');
+  if (itemSelecionado.classList.contains('completed')) {
+    newItem.classList.add('completed');
+  }
   newItem.addEventListener('click', selectItem);
   newItem.addEventListener('dblclick', completeItem);
-  itemSelecionado.nextSibling.insertAdjacentElement('afterend', newItem);
+  const index = itemSelecionado.nextSibling;
+  index.insertAdjacentElement('afterend', newItem);
   lista.removeChild(itemSelecionado);
 }
 
