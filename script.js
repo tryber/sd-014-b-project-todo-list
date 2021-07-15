@@ -6,12 +6,15 @@ const createH1 = document.createElement('h1');
 document.body.appendChild(createHeader);
 createHeader.appendChild(createH1);
 createH1.innerText = 'Minha Lista de Tarefas';
+// 2 - Adicione abaixo do título um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
+// O que será verificado:Será verificado que existe na sua página um elemento com o id funcionamento com o conteúdo Clique duas vezes em um item para marcá-lo como completo
+const createParagraph = document.createElement('p');
+document.body.appendChild(createParagraph);
+createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+createParagraph.id = 'funcionamento';
+
 
 /*
-2 - Adicione abaixo do título um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
-O que será verificado:
-
-Será verificado que existe na sua página um elemento com o id funcionamento com o conteúdo Clique duas vezes em um item para marcá-lo como completo
 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista
 O que será verificado:
 
