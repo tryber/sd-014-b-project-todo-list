@@ -1,15 +1,19 @@
-body{
+body {
     margin: 20px;
-    text-align: left;
+    text-align:left;
+    font-family:monospace;
 }
-.cor-de-fundo{
-    background-color: rgb(128, 128, 128);
+
+.cor-de-fundo {
+    background-color: rgb(128,128,128);
 }
-#criar-tarefa{
+
+#criar-tarefa {
     color: white;
     margin: auto;
-    background-color: red;
+    background-color: #5fa0ab;
     padding: 5px;
-    border-radius: 15%;
+    border-radius: 15px;
     width: 100px;
+    border: 1px solid #e4e4e4;
 }
