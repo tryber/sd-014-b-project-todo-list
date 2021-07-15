@@ -38,3 +38,13 @@ function addTarefa(){
 document.getElementById('criar-tarefa').addEventListener('click', addTarefa)
 
 
+/* 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista */
+let clearButton = document.getElementById('apaga-tudo')
+clearButton.addEventListener('click', removeAll)
+
+function removeAll(){
+  document.getElementById('lista-tarefas').remove()
+  let ol = document.createElement('ol')
+  ol.id = 'lista-tarefas'
+  document.getElementById('lista').appendChild(ol)  
+}
