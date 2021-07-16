@@ -1,3 +1,5 @@
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
 const addButton = document.querySelector('#criar-tarefa');
 const saveButton = document.querySelector('#salvar-tarefas');
 const eraseButton = document.querySelector('#apaga-tudo');
@@ -75,6 +77,8 @@ function saveList() {
   localStorage.setItem('list', list.innerHTML);
 }
 
+moveUpButton.addEventListener('click', moveUP);
+moveDownButton.addEventListener('click', moveDown);
 addButton.addEventListener('click', addListItem);
 saveButton.addEventListener('click', saveList);
 eraseButton.addEventListener('click', eraseList);
