@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List Project - Tiago Ponce</title>
+    <link rel='stylesheet' href='style.css'>
 </head>
 <body>
     
@@ -53,11 +54,16 @@
             addListTask[i].addEventListener('click', changeBackGroundColor);
             }
 
+            for (let i = 0 ; i < addListTask.length ; i += 1) {
+                addListTask[i].addEventListener('dblclick', riskTask);
+
+            }
+
         }
 
         function changeBackGroundColor (event) {
             event.target.style.backgroundColor = '(rgb(128, 128, 128))';
-            console.log('ttt');
+            
         }
 
 
@@ -81,7 +87,12 @@
 
       
 
-       
+       function riskTask (event ) {
+           if (event.target.className === 'list-tasks completed') {
+            event.target.classList.remove('completed');
+           } else
+            event.target.classList.add("completed");
+       }
 
 
 
