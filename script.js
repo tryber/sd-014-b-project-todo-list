@@ -12,3 +12,16 @@ function addTarefa() {
 }
 
 botaoAdd.addEventListener('click', addTarefa);
+
+//troca cor do funda da tarefa
+const colorTask = document.querySelector('#lista-tarefas');
+
+function changeColor (event) {
+  event.target.classList.add('background-task');
+}
+colorTask.addEventListener('click', changeColor);
+
+// function changeColor() {
+//   document.querySelector('li').style.backgroundColor = 'rgb(128, 128, 128)';
+// }
+// document.addEventListener('click', changeColor);
