@@ -14,28 +14,42 @@ window.onload = function load() {
   selectItem();
 };
 
-//  Verificar, pois não é necessário o for. Basta capturar o selected.
 
-// function moveUp() {
-//   const selectedItem = document.querySelectorAll('.tarefa');
-//   console.log(selectedItem.length);
-//   if (selectedItem.length === 0) {
-//     alert ('Sem item na lista...');
-//   } else {
-//       for (let index = 0; index <= selectedItem.length - 1; index += 1) {
-//         console.log(selectedItem[index].id);
-//         if (selectedItem[index].id === 'selected') {
-//           console.log(selectedItem[index]);
-//         } else {
-//           alert ('Selecione o item a ser movimentado!')
-//           break;
-//         }
-//       }
-//     }
-// }
+function goMoveUp() {
+  console.log("goMoveUp funcionando!")
+}
+
+function moveUp() {
+  const selectedItem = document.querySelectorAll('.tarefa');
+  if (selectedItem.length === 0) {
+    alert ('Sem item na lista...');
+  } else {
+    const getSelected = document.querySelector('#selected');
+    if (getSelected !== null) {
+      goMoveUp();
+    } else {
+      alert ('Selecione o item a ser movido!');
+    }
+  }
+}
+
+function goMoveDown() {
+ console.log('goMoveDown funcionando!')
+} 
+
 
 function moveDown() {
-  console.log("Botão moveDown tá funcionando!");
+  const selectedItem = document.querySelectorAll('.tarefa');
+  if (selectedItem.length === 0) {
+    alert ('Sem item na lista...');
+  } else {
+    const getSelected = document.querySelector('#selected');
+    if (getSelected !== null) {
+      goMoveDown();
+    } else {
+      alert ('Selecione o item a ser movido!');
+    }
+  }
 }
 
 function changeColor(item) {
