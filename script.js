@@ -14,12 +14,38 @@ window.onload = function load() {
   selectItem();
 };
 
+//  Verificar, pois não é necessário o for. Basta capturar o selected.
+
+// function moveUp() {
+//   const selectedItem = document.querySelectorAll('.tarefa');
+//   console.log(selectedItem.length);
+//   if (selectedItem.length === 0) {
+//     alert ('Sem item na lista...');
+//   } else {
+//       for (let index = 0; index <= selectedItem.length - 1; index += 1) {
+//         console.log(selectedItem[index].id);
+//         if (selectedItem[index].id === 'selected') {
+//           console.log(selectedItem[index]);
+//         } else {
+//           alert ('Selecione o item a ser movimentado!')
+//           break;
+//         }
+//       }
+//     }
+// }
+
+function moveDown() {
+  console.log("Botão moveDown tá funcionando!");
+}
+
 function changeColor(item) {
   const selectedItem = document.querySelectorAll('.tarefa');
   for (let index = 0; index <= selectedItem.length - 1; index += 1) {
     selectedItem[index].style.backgroundColor = '';
+    selectedItem[index].id = '';
   }
   item.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  item.target.id = 'selected';
 }
 
 function markAsCompleted(item) {
@@ -77,7 +103,7 @@ function saveList() {
   localStorage.setItem('list', list.innerHTML);
 }
 
-moveUpButton.addEventListener('click', moveUP);
+moveUpButton.addEventListener('click', moveUp);
 moveDownButton.addEventListener('click', moveDown);
 addButton.addEventListener('click', addListItem);
 saveButton.addEventListener('click', saveList);
