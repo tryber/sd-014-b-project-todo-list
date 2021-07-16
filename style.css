@@ -1,11 +1,13 @@
   .completed {
     text-decoration: line-through solid black;
   }
-  
-  .selected { /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
+
+  /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
+  .selected { 
     background-color:rgb(128,128,128);
   }
 
   li:hover {
     cursor: pointer;
   }
+  
