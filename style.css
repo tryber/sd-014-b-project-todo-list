@@ -1,0 +1,11 @@
+#criar-tarefa:hover {
+  background-color: aqua;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
