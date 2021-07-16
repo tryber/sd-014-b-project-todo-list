@@ -1,4 +1,4 @@
-// 1. Crie um Titulo "Minha Lista de Tarefas"
+/* 1. Crie um Titulo "Minha Lista de Tarefas"
 // Adicione à sua lista o título "Minha Lista de Tarefas" em uma tag
 // O que será verificado:  Será verificado se sua página possui uma tag header com o conteúdo Minha Lista de Tarefas
 const createHeader = document.createElement('header');
@@ -14,26 +14,44 @@ createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como co
 createParagraph.id = 'funcionamento';
 
 // 3 - Adicione um input com o id="texto-tarefa" onde a pessoa usuária poderá digitar o nome do item que deseja adicionar à lista O que será verificado:
-const createInputTarefa = document.createElement('input');
-document.body.appendChild(createInputTarefa);
-createInputTarefa.id = 'texto-tarefa';
+const createInputTask = document.createElement('input');
+document.body.appendChild(createInputTask);
+createInputTask.id = 'texto-tarefa';
 //Será verificada a existência de um elemento do tipo input com o id texto-tarefa.
 // 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
 // O que será verificado: Será verificada a existência de um elemento ol com o id lista-tarefas.
 const createOlList = document.createElement('ol');
 document.body.appendChild(createOlList);
 createOlList.id = 'lista-tarefas';
+/* 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+O que será verificado:  Será verificada a existência de um elemento do tipo button com o id criar-tarefa
+const createInputButton = document.createElement('button');
+document.body.appendChild(createInputButton);
+createInputButton.id = 'criar-tarefa';
+createInputButton.innerHTML = 'Add';
+const createTask = document.getElementById('#criar-tarefa');
+createTask.setAttribute(onclick('click', newTask()));
+*/
+
+function newTask() {
+  const li = document.createElement('li');
+  const input = document.getElementById('texto-tarefa');
+  const txt = document.createTextNode(input.value);
+  li.appendChild(txt);
+  document.getElementById('lista-tarefas').appendChild(li);
+  console.log(input);
+  input.value = '';
+}
+
+
 /*
-5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
-O que será verificado:
-
-Será verificada a existência de um elemento do tipo button com o id criar-tarefa
-
 No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
 
 A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados.
+*/
 
-6 - Ordene os itens da lista de tarefas por ordem de criação
+
+/* 6 - Ordene os itens da lista de tarefas por ordem de criação
 O que será verificado:
 
 Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
