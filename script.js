@@ -44,3 +44,11 @@ finishedClearButton.addEventListener('click', function (){
   }  
 })
 
+const saveButton = document.querySelector('#salvar-tarefas');
+saveButton.addEventListener('click', function(){
+  const list = document.querySelector('#lista-tarefas');
+  localStorage.setItem('data',JSON.stringify(list.innerHTML));
+  let getItem = localStorage.getItem('data');
+  console.log(getItem)
+  
+})
