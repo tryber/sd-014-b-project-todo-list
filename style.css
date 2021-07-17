@@ -5,3 +5,7 @@
 .li-style{
     width: fit-content;
 }
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}

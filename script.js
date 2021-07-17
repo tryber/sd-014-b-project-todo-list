@@ -16,8 +16,10 @@ function addNewTask() {
 console.log("addNewTask()");
 
 function changeLiColor (eve) {
-    eve.target.style.backgroundColor = "rgb(128, 128, 128)"
-    console.log(eve.target);
+
+    let rmv = document.querySelector(".selected");
+    rmv.classList.remove("selected");
+    eve.target.classList.add("selected");
     taskList.style.backgroundColor = "cornflowerblue";
 };
 
