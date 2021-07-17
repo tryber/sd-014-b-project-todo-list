@@ -37,5 +37,8 @@ document
   .querySelector('#lista-tarefas')
   .addEventListener('dblclick', taskCompleted);
 
-function deleteItens() {}
+function deleteItens() {
+  const alvo = document.getElementById('lista-tarefas');
+  alvo.innerText = '';
+}
 document.querySelector('#apaga-tudo').addEventListener('click', deleteItens);
