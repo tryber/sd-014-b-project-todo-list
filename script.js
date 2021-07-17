@@ -14,11 +14,16 @@ button.addEventListener('click', addIten);
 // as funcionalidades de addIten serão adicionadas na função abaixo
 
 function corLi(evento) {
-  let li= document.querySelectorAll('li')
-  for (let index of li) {
-    index.style.backgroundColor = 'white'
+  const li = document.querySelectorAll('li');
+  for (const index of li) {
+    index.style.backgroundColor = 'white';
   }
-  evento.target.style.backgroundColor ='rgb(128,128,128)'
+  evento.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 const ol = document.querySelector('#lista-tarefas');
 ol.addEventListener('click', corLi);
+
+
+listTarefa.addEventListener('dblclick', (evento) => {
+  evento.target.classList.toggle('completed');
+});
