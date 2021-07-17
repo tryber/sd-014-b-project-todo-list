@@ -14,9 +14,18 @@ window.onload = function load() {
   selectItem();
 };
 
+// Verificar o funcionamento do outerHTML na monitoria. Por que a saveList funciona com innerHTML e os Moves não?
 
 function goMoveUp() {
-  console.log("goMoveUp funcionando!")
+  let getSelected = document.querySelector('#selected');
+  let beforeGetSelected = getSelected.previousElementSibling;
+  if (beforeGetSelected === null) {
+  } else {
+    let keepHTML = getSelected.outerHTML;
+    getSelected.outerHTML = beforeGetSelected.outerHTML;
+    beforeGetSelected.outerHTML = keepHTML;
+    selectItem();
+  }
 }
 
 function moveUp() {
@@ -34,7 +43,16 @@ function moveUp() {
 }
 
 function goMoveDown() {
- console.log('goMoveDown funcionando!')
+  console.log('goMoveDown funcionando!')
+  let getSelected = document.querySelector('#selected');
+  let afterGetSelected = getSelected.nextElementSibling;
+  if (afterGetSelected === null) {
+  } else {
+    let keepHTML = getSelected.outerHTML;
+    getSelected.outerHTML = afterGetSelected.outerHTML;
+    afterGetSelected.outerHTML = keepHTML;
+    selectItem();
+  }
 } 
 
 
