@@ -29,6 +29,13 @@
         <button id='criar-tarefa'>Criar Tarefa</button>
     </div>
 
+    <div>
+        <button id='apaga-tudo'>Apagar Tudo</button>
+    </div>
+
+    <div>
+        <button id='remover-finalizados'>Remover finalizados</button>
+    </div>
 
 
     <script>
@@ -58,6 +65,16 @@
                 addListTask[i].addEventListener('dblclick', riskTask);
 
             }
+
+            let addButSecond = document.getElementById('apaga-tudo');
+
+            addButSecond.addEventListener('click', apagaTudo);
+
+            let AddButCompleted = document.getElementById('remover-finalizados');
+
+            AddButCompleted.addEventListener('click', removeFinalizados);
+
+
 
         }
 
@@ -96,7 +113,35 @@
 
 
 
+        function apagaTudo () {
+            let addElements = document.getElementsByTagName('li');
+            let addOs = document.getElementById('lista-tarefas');
+            let comprimento = addElements.length;
+            for (let i = 0 ; i < comprimento ; i+= 1)  {
+                let element = addElements[0];
+                addOs.removeChild(element);
+           } 
+        }
+
+        function removeFinalizados () {
+            let addElements = document.getElementsByClassName('completed')
+            let addOs = document.getElementById('lista-tarefas');
+            let comprimento = addElements.length;
+            for (let i = 0 ; i < comprimento; i += 1) {
+                let element = addElements[0];
+                addOs.removeChild(element);
+            }
+
+
+        }
+
         
+
+
+            
+       
+
+    
 
       
 
