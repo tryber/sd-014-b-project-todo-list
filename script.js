@@ -1,3 +1,7 @@
+window.onload = function() {
+  listaTarefas.innerHTML = localStorage.getItem('list');
+};
+
 function addListItem () {
   const addButton = document.querySelector('#criar-tarefa');
   const inputText = document.querySelector('#texto-tarefa');
@@ -59,3 +63,12 @@ function clearFinalized () {
   })
 }
 clearFinalized();
+
+const listaTarefas = document.getElementById('lista-tarefas');
+function saveList () {
+  localStorage.setItem('list', listaTarefas.innerHTML);
+  alert('Conteudo salvo!');
+}
+
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', saveList);
