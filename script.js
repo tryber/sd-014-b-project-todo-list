@@ -6,7 +6,7 @@ criaTask.addEventListener('click', () => {
   const criaList = document.createElement('li'); 
 
   if (input.value === '') alert('Adicione uma tarefa!');
-  criateList.innerText = input.value;
+  criaList.innerText = input.value;
   listaTask.appendChild(criaList);
 
   input.value = '';
@@ -20,16 +20,14 @@ listaTask.addEventListener('click', (event) => {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 });
 
-//Requisito 9
 listaTask.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
 const clearTasks = document.querySelector('#apaga-tudo');
 clearTasks.addEventListener('click', () => {
-  listTask.parentNode.removeChild(listaTask);
+  listaTask.parentNode.removeChild(listaTask);
 });
 
-//Req 10
 const limpaCompleted = document.querySelector('#remover-finalizados');
 limpaCompleted.addEventListener('click', () => {
   const feitas = document.querySelectorAll('.completed');
