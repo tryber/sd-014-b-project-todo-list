@@ -1,4 +1,4 @@
-/*const buttonOne = document.querySelector('#criar-tarefa');
+const buttonOne = document.querySelector('#criar-tarefa');
 
 function moreTask() {
   const enterTask = document.querySelector('#texto-tarefa');
@@ -8,10 +8,11 @@ function moreTask() {
   list.appendChild(listTask);
   listTask.innerText = enterTask.value;
   enterTask.value = '';
-}*/
+}
 
 buttonOne.addEventListener('click', moreTask);
 
+/*
 const botaoAdd = document.querySelector('#criar-tarefa');
 
 function addTarefa() {
@@ -24,4 +25,4 @@ function addTarefa() {
   inputTask.value = '';
 }
 
-botaoAdd.addEventListener('click', addTarefa);
+botaoAdd.addEventListener('click', addTarefa); */
