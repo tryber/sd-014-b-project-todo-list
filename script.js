@@ -72,3 +72,17 @@ function saveList () {
 
 const saveButton = document.getElementById('salvar-tarefas');
 saveButton.addEventListener('click', saveList);
+
+function removeSelected () {
+  const removeSelectedButton = document.getElementById('remover-selecionado');
+  removeSelectedButton.addEventListener('click', function () {
+    const listItens = document.querySelectorAll('.list-item');
+    for (let index = 0; index < listItens.length; index += 1) {
+      let element = listItens[index];
+      if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+        element.remove();
+      }
+    }
+  })
+};
+removeSelected();
