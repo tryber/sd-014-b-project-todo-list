@@ -8,5 +8,15 @@ getButton.addEventListener('click', function() {
     getOrdenedList.appendChild(criaLi).innerText = getInput.value;
   }
   getInput.value = '';
+
+  criaLi.addEventListener('click', gray);
 });
+
+function gray(event) {
+  const getGray = document.querySelector('.gray');
+  event.target.classList.add('gray');
+  if (getGray) {
+    getGray.classList.remove('gray');
+  }
+}
 
