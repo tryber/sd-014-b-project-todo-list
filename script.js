@@ -12,3 +12,13 @@ function addIten() {
 button.addEventListener('click', addIten);
 // onde declaro meu evento, ou seja quando ocorre um click um item é adicionado
 // as funcionalidades de addIten serão adicionadas na função abaixo
+
+function corLi(evento) {
+  let li= document.querySelectorAll('li')
+  for (let index of li) {
+    index.style.backgroundColor = 'white'
+  }
+  evento.target.style.backgroundColor ='rgb(128,128,128)'
+}
+const ol = document.querySelector('#lista-tarefas');
+ol.addEventListener('click', corLi);

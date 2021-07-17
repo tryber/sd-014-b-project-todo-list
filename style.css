@@ -1,7 +1,13 @@
 #Title {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
 }
 
 #funcionamento {
   font-family: Verdana, Tahoma, sans-serif;
 }
+
+.checked {
+  background-color: rgb(128,128,128);
+}
+
