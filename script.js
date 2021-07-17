@@ -12,8 +12,7 @@ function moreTask() {
 
 buttonOne.addEventListener('click', moreTask);
 
-function testeAdd(event) {
-  console.log('deu');
+function bgSelect(event) {
   itensList = document.querySelector('.itensList.background');
   if (itensList === null) {
     event.target.classList.add('background');
@@ -23,26 +22,20 @@ function testeAdd(event) {
     event.target.classList.add('background');
   }
 }
-document.querySelector('#lista-tarefas').addEventListener('click', testeAdd);
+document.querySelector('#lista-tarefas').addEventListener('click', bgSelect);
+
+function taskCompleted(event) {
+  const chooseStyle = document.querySelector('.itensList.completed.background');
+  if (chooseStyle === null) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+}
+
+document
+  .querySelector('#lista-tarefas')
+  .addEventListener('dblclick', taskCompleted);
 
 function deleteItens() {}
 document.querySelector('#apaga-tudo').addEventListener('click', deleteItens);
-/*const itens = document.querySelectorAll('itensList');
-listTask.className = 'itensList';
-for (let i = 0; i < itens.length; i++) {
-  itens[i].onclick = () => {
-    itens[i].className = 'background';
-  };
-}
-
-const itens = document.querySelectorAll('itensList');
-
-for (let i = 0; i < itens.length; i++) {
-  const el = itens[i];
-  el.onclick = () => {
-    for (let j = 0; j < itens.length; j++) {
-      const color = itens[j] === el ? 'red' : 'inherit';
-      itens[j].style.color = color;
-    }
-  };
-} */
