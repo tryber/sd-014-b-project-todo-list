@@ -10,6 +10,8 @@ getButton.addEventListener('click', function() {
   getInput.value = '';
 
   criaLi.addEventListener('click', gray);
+  
+  criaLi.addEventListener('dblclick', completed);
 });
 
 function gray(event) {
@@ -20,3 +22,10 @@ function gray(event) {
   }
 }
 
+function completed(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
