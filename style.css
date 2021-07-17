@@ -1,10 +1,15 @@
+#formulario {
+    background-color: azure;
+}
 #titulo {
     font-size: 30px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-style:normal;
 }
-
 #funcionamento {
     font-size: 16px;
     font-style:italic;
+}
+.completed {
+   text-decoration: line-through;
 }
