@@ -87,13 +87,51 @@ function saveTaskList() {
 }
 
 function generateSaveButton() {
-  saveButton = document.createElement('button');
+  let saveButton = document.createElement('button');
   saveButton.innerText = 'save';
   saveButton.id = 'salvar-tarefas';
   saveButton.addEventListener('click', saveTaskList);
   buttonContainer.appendChild(saveButton);
 }
 generateSaveButton();
+
+function generateArrowButtons() {
+  let upArrow = document.createElement('button');
+  let downArrow = document.createElement('button');
+  upArrow.id = 'mover-cima';
+  upArrow.innerText = 'up';
+  downArrow.id = 'mover-baixo';
+  downArrow.innerText = 'down';
+  upArrow.addEventListener('click', moveUp);
+  downArrow.addEventListener('click', moveDown);
+  buttonContainer.appendChild(upArrow);
+  buttonContainer.appendChild(downArrow);
+}
+generateArrowButtons();
+
+function moveUp() {
+  for (let listIten of toDoList.querySelectorAll('.li')) {
+    if (listIten.style.backgroundColor === 'rgb(128, 128, 128)') {
+      if (listIten === toDoList.firstChild) {
+        break;
+      } else {
+        listIten.parentElement.insertBefore(listIten, listIten.previousSibling);
+      }
+    }
+  }
+}
+
+function moveDown() {
+  for (let listIten of toDoList.querySelectorAll('.li')) {
+    if (listIten.style.backgroundColor === 'rgb(128, 128, 128)') {
+      if (listIten === toDoList.lastChild) {
+        break;
+      } else {
+        listIten.parentElement.insertBefore(listIten.nextSibling, listIten);
+      }
+    }
+  }
+}
 
 window.onload = function () {
   toDoList.innerHTML = localStorage.getItem('userList');

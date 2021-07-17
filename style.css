@@ -1,6 +1,7 @@
 li {
   background-color: white;
 }
+
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
