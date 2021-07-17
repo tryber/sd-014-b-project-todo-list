@@ -35,3 +35,13 @@ const buttonApagaTudo = document.querySelector('#apaga-tudo');
 buttonApagaTudo.addEventListener('click', function () {
   document.querySelector('#lista-tarefas').innerHTML = '';
 });
+
+const buttonRemoveFinalizados = document.querySelector('#remover-finalizados');
+
+buttonRemoveFinalizados.addEventListener('click', function () {
+  const ols = document.querySelectorAll('.completed');
+
+  for (let index = 0; index < ols.length; index +=1) {
+    ols[index].remove();
+  }
+});
