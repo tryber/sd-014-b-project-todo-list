@@ -39,19 +39,14 @@ function newTask() {
   const txt = document.createTextNode(input.value);
   li.appendChild(txt);
   document.getElementById('lista-tarefas').appendChild(li);
-  console.log(input);
   input.value = '';
 }
-
-
 /*
 No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
 
 A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados.
-*/
 
-
-/* 6 - Ordene os itens da lista de tarefas por ordem de criação
+ 6 - Ordene os itens da lista de tarefas por ordem de criação
 O que será verificado:
 
 Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
@@ -85,8 +80,15 @@ O que será verificado:
 
 Será verificado que existe um elemento button com o id apaga-tudo
 
-Será verificado que, dado que uma lista possui tarefas, um clique no botão a deixa vazia
+Será verificado que, dado que uma lista possui tarefas, um clique no botão a deixa vazia */
 
+function clearTasks () { 
+  const removeTasks = document.querySelectorAll('li');
+  for(let index = 0; index < removeTasks.length; index += 1) {
+    removeTasks[index].parentNode.removeChild(removeTasks[index]);
+  }
+}
+/*
 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
 O que será verificado:
 
