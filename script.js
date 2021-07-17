@@ -11,7 +11,11 @@ const buttonBaixo = document.getElementById('mover-baixo');
 window.onload = () => {
     
     listaTarefas.innerHTML = localStorage.getItem("Lista");
+    for (let cont=0;cont < document.querySelectorAll("li").length;cont+=1){
 
+        document.querySelectorAll("li")[cont].addEventListener('click',trocarCor);
+        document.querySelectorAll("li")[cont].addEventListener('dblclick',linhaRiscada);
+    } 
 }
 
 
