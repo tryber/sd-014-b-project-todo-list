@@ -29,3 +29,9 @@ function completed(event) {
     event.target.classList.add('completed');
   }
 }
+
+const buttonApagaTudo = document.querySelector('#apaga-tudo');
+
+buttonApagaTudo.addEventListener('click', function () {
+  document.querySelector('#lista-tarefas').innerHTML = '';
+});
