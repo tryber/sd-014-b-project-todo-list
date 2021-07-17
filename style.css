@@ -1,3 +1,7 @@
 .background-task {
-background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
+
+/* .check-task {
+  text-decoration: rgb(128 , 128 , 128) line-through;
+} */
