@@ -6,6 +6,8 @@ const buttonRemoveFinalizados = document.querySelector('#remover-finalizados');
 const buttonUp = document.querySelector('#mover-cima');
 const buttonDown = document.querySelector('#mover-baixo');
 const buttonSave = document.querySelector('#salvar-tarefas');
+const buttonremove = document.querySelector('#remover-selecionado');
+
 
 function adicionarTarefa() {
   const criaLi = document.createElement('li');
@@ -87,3 +89,14 @@ function moveBaixo() {
 }
 
 buttonDown.addEventListener('click', moveBaixo);
+
+function removeSelecionado() {
+  const gray = document.querySelector('.gray');
+  if (gray) {
+    gray.remove();
+  } else {
+    alert('Selecione uma tarefa para apagar!')
+  }
+}
+
+buttonremove.addEventListener('click', removeSelecionado);
