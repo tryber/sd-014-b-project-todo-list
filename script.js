@@ -6,7 +6,7 @@ window.onload=function(){
         let additem=document.createElement('li');
         additem.innerText=addTask;
         listTask.appendChild(additem);
-        document.querySelector('#texto-tarefa').value = '';
+        document.querySelector('#texto-tarefa').value = ''; 
     }
     buttonAddTask.addEventListener('click',addItem)
 
