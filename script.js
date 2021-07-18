@@ -20,6 +20,11 @@ function UpdateBackgroundColor(params)
   previousSelected = target;
 }
 
+function UpdateCompleteStatus(params) 
+{
+  params.target.classList.toggle('completed');
+}
+
 function CreateTask() 
 {
   const newTask = document.createElement('li');  
@@ -27,6 +32,7 @@ function CreateTask()
   newTask.innerText = taskValue;
   list.appendChild(newTask);
   newTask.addEventListener('click', UpdateBackgroundColor);
+  newTask.addEventListener('dblclick', UpdateCompleteStatus)
   document.getElementById('texto-tarefa').value = '';
 
 }
