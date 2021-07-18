@@ -42,3 +42,16 @@ function deleteItens() {
   alvo.innerText = '';
 }
 document.querySelector('#apaga-tudo').addEventListener('click', deleteItens);
+
+function deleteItensFineshed() {
+  document
+    .querySelectorAll('.completed')
+    .forEach((e) => e.parentNode.removeChild(e));
+  //const test = document.querySelectorAll('.completed');
+  //console.log(test);
+  // (test != null) {
+  // test.remove();
+}
+document
+  .querySelector('#remover-finalizados')
+  .addEventListener('click', deleteItensFineshed);
