@@ -1,11 +1,11 @@
 .cinza {
-    background-color: rgb(128,128,128);
+  background-color: gray;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 button {
-    margin-right: 50px;
+  margin-right: 50px;
 }
