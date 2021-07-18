@@ -21,13 +21,5 @@ getLista.addEventListener('click',function(){
 })
 
 getLista.addEventListener('dblclick',function(){
-    let getLi = document.querySelectorAll("li");
-    for(let i = 0; i < getLi.length; i += 1) {
-        if(getLi[i].classList[0] !== "completed"){
-            event.target.className = "completed";     
-        } else {
-            event.target.classList.remove("completed");
-        }
-    }  
-
+    event.target.classList.toggle('completed');
 })
