@@ -10,14 +10,24 @@ getButton.addEventListener('click',function(){
 })
 
 
-    getLista.addEventListener('click',function(){
-        let getLi = document.querySelectorAll("li");
-        for(let i = 0; i < getLi.length; i += 1) {
-            getLi[i].style.backgroundColor = "white";
+getLista.addEventListener('click',function(){
+    let getLi = document.querySelectorAll("li");
+    for(let i = 0; i < getLi.length; i += 1) {
+        getLi[i].style.backgroundColor = "white";
+    }
+    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+
+
+})
+
+getLista.addEventListener('dblclick',function(){
+    let getLi = document.querySelectorAll("li");
+    for(let i = 0; i < getLi.length; i += 1) {
+        if(getLi[i].classList[0] !== "completed"){
+            event.target.className = "completed";     
+        } else {
+            event.target.classList.remove("completed");
         }
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";
-    
-    
-    })
+    }  
 
-
+})
