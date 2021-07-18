@@ -1,0 +1,43 @@
+body {
+  text-align: center;
+}
+
+#container {
+  margin: 0 50%;
+}
+
+#titulo {
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+}
+
+input {
+  width: 200px;
+  height: 40px;
+  border-color: black;
+}
+
+#criar-tarefa {
+  background-color: rgb(78 , 57 , 196);
+  margin-top: 9px;
+  width: 120px;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+}
+
+ol {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  text-align: left;
+}
+
+#funcionamento {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
