@@ -11,11 +11,15 @@ button.addEventListener('click', addItem);
 const tasks = document.getElementById('lista-tarefas');
 
 function bgColor(event) {
-  event.target.classList.toggle('selected');
+  event.target.classList.add('selected');
   const item = document.querySelector('.selected');
   if (item !== event.target) {
-    item.classList.toggle('selected');
+    item.classList.remove('selected');
   }
+}
+function done(event) {
+  event.target.classList.toggle('completed');
 }
 
 tasks.addEventListener('click', bgColor);
+tasks.addEventListener('dblclick', done);
