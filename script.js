@@ -1,6 +1,7 @@
+const adList = document.querySelector('#lista-tarefas');
 // Requisito 5 - 6
 function Complete() {
-  let completeTask = document.querySelectorAll('.tarefa');
+  const completeTask = document.querySelectorAll('.tarefa');
   for (let index = 0; index < completeTask.length; index += 1) {
     if (completeTask[index].classList.contains('completed')) {
       completeTask[index].classList.remove('completed');
@@ -8,16 +9,12 @@ function Complete() {
   }
 }
 function adTask() {
-  const adList = document.querySelector('#lista-tarefas');
   const taskNew = document.createElement('li');
-  const adTask = document.querySelector('#texto-tarefa').value;
+  adTask = document.querySelector('#texto-tarefa').value;
   taskNew.innerHTML = adTask;
   adList.appendChild(taskNew);
-  adList.addEventListener('dblclick', Complete);
   document.querySelector('#texto-tarefa').value = '';
-  adTask();
 }
-// Requisito 10
 function criaButton() {
   const buttonT = document.querySelector('#criar-tarefa');
   buttonT.addEventListener('click', adTask);
@@ -41,12 +38,25 @@ function clearCompleted() {
   const lista = document.querySelectorAll('.completed');
   const listas = document.querySelector('#lista-tarefas');
   for (let index = 0; index < lista.length; index += 1) {
-    listas.removeChild(lista[index]);
+    listas.removeChild(lista[index]); 
   }
 }
-//Requisito 11
+clearCompleted();
+
 function clearTaskCompleted() {
   const botao = document.querySelector('#remover-finalizados');
-  botao.addEventListener('click', clearTaskCompleted);
+  botao.addEventListener('click', clearCompleted);
 }
-clearTaskCompleted();
+function colorSelect(evento) {
+  const list = document.querySelectorAll('li');
+  for (const index of list) {
+    index.style.backgroundColor = 'white';
+  }
+  evento.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+const ordenedL = document.querySelector('#lista-tarefas');
+ordenedL.addEventListener('click', colorSelect);
+
+lisTask.addEventListener('dblclick', (evento) => {
+  evento.target.classList.toggle('completed');
+});
