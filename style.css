@@ -5,10 +5,10 @@ body {
     font-family: sans-serif;
 }
 
-#funcionamento,
-.usefulbtn,
-.title,
-.inputbtn,
+#funcionamento ,
+.usefulbtn ,
+.title ,
+.inputbtn ,
 .list {
   display: flex;
   justify-content: center;
@@ -53,5 +53,9 @@ body {
 }
 
 ol .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: grey;
+}
+
+ol .completed {
+  text-decoration: line-through;
 }

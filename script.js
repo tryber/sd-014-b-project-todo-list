@@ -15,3 +15,14 @@ document.addEventListener('click', (event) => {
   }
   event.target.classList.add('selected');
 });
+
+// https://developer.mozilla.org/
+// en-US/docs/Web/API/Element/dblclick_event
+
+document.addEventListener('dblclick', (event) => {
+  if (event.target.classList.value.includes('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
