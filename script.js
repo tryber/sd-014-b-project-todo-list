@@ -50,17 +50,36 @@ A adição de elementos na lista será feita algumas vezes, e será checado se t
 O que será verificado:
 
 Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
+
 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
 O que será verificado:
 
 Será verificado que, ao se carregar a página, os itens da lista não tem o estilo CSS background-color: rgb(128, 128, 128)
 
 Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS background-color: rgb(128, 128, 128)
+*/
+const taskList = document.querySelector('#lista-tarefas');
+taskList.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+});
 
+/*
 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
 O que será verificado:
 
 Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo background-color: rgb(128, 128, 128) no elemento.
+*/
+
+function changeColor() {
+  taskList.classList.toggle('body');
+}
+taskList.addEventListener('dblick', changeColor);
+
+
+
+
+/*
+
 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
 Pontos importantes sobre este requisito:
 
@@ -74,6 +93,13 @@ Será verificado que, antes da ação ser disparada, o elemento adicionado à li
 Será verificado que a ação pedida é disparada mediante duplo clique no elemento da lista e que os elementos da lista completos tem em si a classe completed e a propriedade text-decoration com o valor line-through solid rgb(0, 0, 0)
 
 Será verificado que, com um segundo duplo clique, um elemento completo deixa de sê-lo
+function completed(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
 
 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
 O que será verificado:
@@ -103,7 +129,19 @@ O que será verificado:
 Será verificado que existe um elemento button com o id salvar-tarefas
 
 Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
+*/
+const buttonSave = document.querySelector('#salvar-tarefas');
 
+
+function localSave() {
+  localStorage.setItem('listaDeTarefas', taskList.innerHTML);
+}
+buttonSave.addEventListener('click', localSave);
+
+window.onload = function() {
+  taskList.innerHTML = localStorage.getItem('listaDeTarefas');
+};
+/*
 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 Pontos importantes sobre este requisito bônus:
 
