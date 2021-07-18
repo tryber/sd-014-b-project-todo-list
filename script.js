@@ -1,6 +1,7 @@
 const addButton = document.getElementById('criar-tarefa');
-const clearButton = document.getElementById('apaga-tudo');
-let list;
+const allClearButton = document.getElementById('apaga-tudo');
+const doneClearButton = document.getElementById('remover-finalizados');
+let list = document.getElementById('lista-tarefas');
 let firstTime = true;
 let previousSelected;
 
@@ -38,19 +39,30 @@ function CreateTask()
 
 }
 
-function CreateOlList() 
+function UpdateList(clearAll) 
 {
-  list = document.createElement('ol');
-  list.id = 'lista-tarefas';
-  document.getElementById('corpo-lista').appendChild(list);
+  const size = list.children.length;
+  let count = 0;
+  for (i = 0; i < size; i += 1)
+  {
+    if (clearAll) 
+    {
+      list.removeChild(list.firstChild);
+    }
+    else
+    {
+      if (list.children[count].classList.contains('completed')) 
+      {
+        list.removeChild(list.children[count]);
+      }
+      else
+      {
+        count += 1;
+      }
+    }
+  }
 }
 
-function ClearList() 
-{
-  list.parentElement.removeChild(list);  list = document.createElement('ol');
-  CreateOlList();
-}
-
-addButton.addEventListener('click', CreateTask)
-clearButton.addEventListener('click', ClearList)
-window.onload = CreateOlList;
+addButton.addEventListener('click', CreateTask);
+allClearButton.addEventListener('click', function(){UpdateList(true)});
+doneClearButton.addEventListener('click', function(){UpdateList(false)});
