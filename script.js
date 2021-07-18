@@ -2,6 +2,7 @@ let getButton = document.getElementById("criar-tarefa");
 let getInput = document.getElementById("texto-tarefa");
 let getLista = document.getElementById("lista-tarefas");
 let getButton2 = document.getElementById("apaga-tudo");
+let getButton3 = document.getElementById("remover-finalizados");
 
 getButton.addEventListener('click',function(){
     let itemList = document.createElement("li");
@@ -26,5 +27,14 @@ getButton2.addEventListener('click',function(){
     let getLi = document.querySelectorAll("li");
     for (i = 0; i < getLi.length; i += 1) {
         getLista.removeChild(getLi[i]);
+    }
+})
+
+getButton3.addEventListener('click',function(){
+    let getLi = document.querySelectorAll("li");
+    for (i = 0; i < getLi.length; i += 1) {
+        if(getLi[i].classList[0] === "completed") {
+            getLista.removeChild(getLi[i]);
+        }
     }
 })
