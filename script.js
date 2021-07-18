@@ -19,7 +19,9 @@ window.onload=function(){
             event.target.classList.add('selected');
     }
 
-    function complet(){
+    function complet(event){
+        console.log(event.target);
+      event.target.classList.toggle('completed');
 
     }
     if(listTask.childNodes!=null){
