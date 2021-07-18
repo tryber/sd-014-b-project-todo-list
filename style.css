@@ -1,0 +1,33 @@
+div {
+  background-image: linear-gradient(to bottom, #8DFBB4, #B8F9CF);
+  width: 400px;
+  height: 550px;
+  margin: auto;
+  text-align: center;
+}
+
+p {
+  margin-left: 25%;
+  width: fit-content;
+  border-radius: 10px;
+  border: 5px solid white;
+  background-color: white;
+  color: rgb(15, 56, 56);
+}
+
+header {
+  margin-left: 12%;
+  font-size: xx-large;
+  border-radius: 10px;
+  width: fit-content;
+  border: 5px solid #B8F9CF;
+}
+
+#criar-tarefa {
+  box-sizing: border-box;
+  background-color: rgb(15, 56, 56);
+  color: antiquewhite;
+  font-size: 15px;
+  width: 60px;
+  height: 40px;
+}
