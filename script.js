@@ -33,9 +33,16 @@ function alterBackground(evento) {
 
 taskList.addEventListener('dblclick', lineThrough);
 function lineThrough(evento) {
+  if (evento.target.classList.contains('completed')) {
+    evento.target.classList.remove('completed');
+  } else {
+    evento.target.classList.add('completed');
+  }
   //adding class completed to clicked item
-  evento.target.classList.add('completed');
+  //evento.target.classList.add('completed');
+  
 };
+
 
 //atributes the button "apaga-tudo" to "clearItAll"
 const clearItAll = document.querySelector('#apaga-tudo');
