@@ -14,7 +14,7 @@ function bgColor(event) {
   event.target.classList.add('selected');
   const item = document.querySelector('.selected');
   if (item !== event.target) {
-    item.classList.remove('selected');
+    item.classList.toggle('selected');
   }
 }
 function done(event) {
@@ -32,3 +32,12 @@ function cleanAll() {
   }
 }
 clean.addEventListener('click', cleanAll);
+
+const cleanDone = document.getElementById('remover-finalizados');
+function removeDone() {
+  const done = document.querySelectorAll('.completed');
+  for (let index = 0; index < done.length; index += 1) {
+    done[index].remove();
+  }
+}
+cleanDone.addEventListener('click', removeDone);
