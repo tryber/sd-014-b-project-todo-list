@@ -9,10 +9,15 @@ getButton.addEventListener('click',function(){
     getInput.value = '';  
 })
 
-let getLi = document.querySelectorAll("li");
 
     getLista.addEventListener('click',function(){
-        event.target.style.backgroundColor = "red";
+        let getLi = document.querySelectorAll("li");
+        for(let i = 0; i < getLi.length; i += 1) {
+            getLi[i].style.backgroundColor = "white";
+        }
+        event.target.style.backgroundColor = "rgb(128, 128, 128)";
     
     
     })
+
+
