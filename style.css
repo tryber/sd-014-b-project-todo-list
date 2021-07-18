@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(120deg, #256d43, #88c79d);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  font-size: 2vh;
+  margin-bottom: 0.5vh;
+}
+
+#funcionamento {
+  font-size: 1.8vh;
+  margin-bottom: 1vh;
+}
+
+input {
+  margin: 1vh;
+}
+
+.buttons {
+  display: inline-block;
+}
