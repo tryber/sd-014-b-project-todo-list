@@ -1,5 +1,6 @@
-const button = document.getElementById('criar-tarefa');
-const list = document.getElementById('lista-tarefas');
+const addButton = document.getElementById('criar-tarefa');
+const clearButton = document.getElementById('apaga-tudo');
+let list;
 let firstTime = true;
 let previousSelected;
 
@@ -37,4 +38,19 @@ function CreateTask()
 
 }
 
-button.addEventListener('click', CreateTask)
+function CreateOlList() 
+{
+  list = document.createElement('ol');
+  list.id = 'lista-tarefas';
+  document.getElementById('corpo-lista').appendChild(list);
+}
+
+function ClearList() 
+{
+  list.parentElement.removeChild(list);  list = document.createElement('ol');
+  CreateOlList();
+}
+
+addButton.addEventListener('click', CreateTask)
+clearButton.addEventListener('click', ClearList)
+window.onload = CreateOlList;

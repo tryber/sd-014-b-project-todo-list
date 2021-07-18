@@ -5,3 +5,7 @@
 .completed {
     text-decoration: line-through;
 }
+
+button {
+    margin-right: 50px;
+}
