@@ -1,3 +1,5 @@
+const botaoCriarTarefa = document.getElementById('criar-tarefa');
+const botaoApagaTudo = document.getElementById('apaga-tudo');
 let elementoSelecionado = null;
 
 function selecionarTarefa(event) {
@@ -32,5 +34,12 @@ function adicionarTarefa() {
   listaTarefas.appendChild(li);
 }
 
-const botaoCriarTarefa = document.getElementById('criar-tarefa');
+function apagarListaDeTarefas() {
+  const listaTarefas = document.getElementById('lista-tarefas');
+  listaTarefas.innerHTML = '';
+}
+
+
+
 botaoCriarTarefa.addEventListener('click', adicionarTarefa);
+botaoApagaTudo.addEventListener('click', apagarListaDeTarefas);
