@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To do List</title>
   <link rel="stylesheet" href="/style.css">
-  
+
 
 </head>
 
@@ -16,17 +16,25 @@
     <h1>Minha Lista de Tarefas</h1>
   </header>
   <main id="pai-da-lista-tarefa">
+    <div class="container">
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </div>
+  <div class="container">
     <input type="text" name="texto-tarefa" id="texto-tarefa" placeholder="digite suas tarefas aqui">
-    
-      <ol id="lista-tarefas"></ol>
-    
+  </div>
+  <div class="container"> 
+  <ol id="lista-tarefas"></ol>
+</div>
   </main>
+  <div class="container"> 
+
   <footer>
     <button id="criar-tarefa">Adicionar</button>
     <button id="apaga-tudo">Apaga tudo</button>
     <button id="remover-finalizados">Apagar Finalizados</button>
   </footer>
+</div>
+  
   <script src="/script.js"></script>
 </body>
 

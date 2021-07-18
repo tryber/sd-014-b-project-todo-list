@@ -16,4 +16,26 @@ header {
   text-align: center;
   padding: 0.1em;
 }
-main 
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 0.2em;
+  box-shadow: 1px 1px 2px grey
+}
+
+input {
+  padding: 0.2em;
+  width: 25%;
+}
+
+#apaga-tudo {
+  cursor: not-allowed;
+}
+
+#criar-tarefa {
+  cursor: pointer;
+}
