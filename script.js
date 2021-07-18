@@ -23,13 +23,13 @@ function changeColor(event) {
   if (
     classSelector !== null && classSelector !== event.target
   ) {
-    classSelector.classList.remove('background-task'); 
+    classSelector.classList.remove('background-task');
   }
 }
 colorTask.addEventListener('click', changeColor);
 
 // dbclick para riscar tarefa
-function addComplete (event) {
+function addComplete(event) {
   const chooseTask = document.querySelector('.task.completed.background-task');
   if (chooseTask === null) {
     event.target.classList.add('completed');
@@ -48,3 +48,17 @@ function removeTask() {
 }
 
 botaoRemove.addEventListener('click', removeTask);
+
+// remove elementos com risco
+const botaoDone = document.querySelector('#remover-finalizados');
+
+function removeDone() {
+  const removeFinalizado = document.querySelectorAll('li');
+  const removeList = document.querySelector('ol');
+  for (let i of removeFinalizado) {
+    if (i.classList.contains('completed')) {
+      removeList.removeChild(i);
+    }
+  }
+}
+botaoDone.addEventListener('click', removeDone);
