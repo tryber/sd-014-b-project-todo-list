@@ -54,9 +54,5 @@ function colorSelect(evento) {
   }
   evento.target.style.backgroundColor = 'rgb(128,128,128)';
 }
-const ordenedL = document.querySelector('#lista-tarefas');
-ordenedL.addEventListener('click', colorSelect);
-
-lisTask.addEventListener('dblclick', (evento) => {
-  evento.target.classList.toggle('completed');
-});
+const ordenedList = document.querySelector('#lista-tarefas');
+ordenedList.addEventListener('click', colorSelect);
