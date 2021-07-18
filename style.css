@@ -1,0 +1,7 @@
+.background-task {
+  background-color: rgb(128 , 128 , 128);
+}
+
+.completed {
+  text-decoration: rgb(0 , 0 , 0)  solid line-through;
+}
