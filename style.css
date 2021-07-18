@@ -4,3 +4,6 @@ body{
 #texto-tarefa{
     background-color: darkkhaki;
 }
+.selected{
+    background-color: rgb(128, 128, 128)
+ }
