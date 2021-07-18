@@ -1,0 +1,61 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: rgb(164, 235, 238);
+    font-family: sans-serif;
+}
+
+#funcionamento ,
+.usefulbtn ,
+.title ,
+.inputbtn ,
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputbtn,
+.list {
+  margin-bottom: 10px;
+}
+
+.list {
+  background-color: white;
+}
+
+.title {
+  background: steelblue;
+  height: 50px;
+}
+
+
+.usefulbtn {
+  justify-content: space-evenly;
+}
+
+.pretty {
+  border-radius: 1%;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.r {
+  background-color: crimson;
+}
+
+.g {
+  background-color: rgb(16, 161, 16);
+}
+
+.rr {
+  background-color: red;
+}
+
+ol .selected {
+  background-color: grey;
+}
+
+ol .completed {
+  text-decoration: line-through;
+}
