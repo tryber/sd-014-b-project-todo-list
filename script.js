@@ -22,10 +22,22 @@ function changeColor(event) {
   event.target.classList.add('background-task');
   if (
     classSelector !== null && classSelector !== event.target
-  )
-  classSelector.classList.remove('background-task');
+  ) {
+    classSelector.classList.remove('background-task'); 
+  }
 }
 colorTask.addEventListener('click', changeColor);
+
+// dbclick para riscar tarefa
+function addComplete (event) {
+  const chooseTask = document.querySelector('.task.completed.background-task');
+  if (chooseTask === null) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+}
+colorTask.addEventListener('dblclick', addComplete);
 
 // ao clicar no botão limpar tarefas, exclui a lista
 const botaoRemove = document.querySelector('#apaga-tudo');

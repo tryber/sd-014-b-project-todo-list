@@ -2,6 +2,6 @@
   background-color: rgb(128 , 128 , 128);
 }
 
-/* .check-task {
-  text-decoration: rgb(128 , 128 , 128) line-through;
-} */
+.completed {
+  text-decoration: rgb(0 , 0 , 0)  solid line-through;
+}
