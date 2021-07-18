@@ -6,6 +6,13 @@ getButton.addEventListener('click',function(){
     let itemList = document.createElement("li");
     itemList.innerHTML = getInput.value;
     getLista.appendChild(itemList);
-    getInput.value = '';
-    
+    getInput.value = '';  
 })
+
+let getLi = document.querySelectorAll("li");
+
+    getLista.addEventListener('click',function(){
+        event.target.style.backgroundColor = "red";
+    
+    
+    })
