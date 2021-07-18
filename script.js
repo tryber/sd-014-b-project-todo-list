@@ -33,7 +33,7 @@ function completed(event) {
 const buttonApagaTudo = document.querySelector('#apaga-tudo');
 
 buttonApagaTudo.addEventListener('click', function () {
-  document.querySelector('#lista-tarefas').innerHTML = '';
+  getOrdenedList.innerHTML = '';
 });
 
 const buttonRemoveFinalizados = document.querySelector('#remover-finalizados');
@@ -45,3 +45,14 @@ buttonRemoveFinalizados.addEventListener('click', function () {
     ols[index].remove();
   }
 });
+
+
+const buttonSave = document.querySelector('#salvar-tarefas');
+
+buttonSave.addEventListener('click', function() {
+  localStorage.setItem('listaDeTarefas', getOrdenedList.innerHTML);
+});
+
+window.onload = function() {
+  getOrdenedList.innerHTML = localStorage.getItem('listaDeTarefas');
+};
