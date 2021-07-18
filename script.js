@@ -20,6 +20,15 @@ function bgColor(event) {
 function done(event) {
   event.target.classList.toggle('completed');
 }
-
 tasks.addEventListener('click', bgColor);
 tasks.addEventListener('dblclick', done);
+
+const clean = document.getElementById('apaga-tudo');
+
+function cleanAll() {
+  const childs = document.querySelectorAll('li');
+  for (let index = 0; index < childs.length; index += 1) {
+    childs[index].remove();
+  }
+}
+clean.addEventListener('click', cleanAll);
