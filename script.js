@@ -2,6 +2,8 @@ const inputText = document.getElementById('texto-tarefa');
 const buttonAdd = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
 
+// https://www.horadecodar.com.br/2020/12/15/como-pegar-valor-de-input-com-javascript/ referencia 
+
 function criarTarefa() {
   buttonAdd.addEventListener('click', (evento) => {
     const text = inputText.value;
