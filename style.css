@@ -1,9 +1,15 @@
 body {
-  background-color: aqua;
+  background-color: goldenrod;
 }
 
+
+
 .completed {
-text-decoration: line-through;
+text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.selected {
+  background-color: rgb(128,128,128)
 }
 
 
