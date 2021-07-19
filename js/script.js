@@ -2,17 +2,19 @@ const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const botaoApagaTudo = document.getElementById('apaga-tudo');
 const botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
-const classeListaDeTarefas = 'lista-tarefas';
+const botaoMoverParaCima = document.getElementById('mover-cima');
+const botaoMoverParaBaixo = document.getElementById('mover-baixo');
+const idListaDeTarefas = 'lista-tarefas';
 let elementoSelecionado = null;
 
 function selecionarTarefa(event) {
   const elemento = event.target;
 
   if (elementoSelecionado) {
-    elementoSelecionado.style.backgroundColor = '';
+    elementoSelecionado.classList.remove('selected');
   }
 
-  elemento.style.backgroundColor = 'rgb(128, 128, 128)';
+  elemento.classList.add('selected');
   elementoSelecionado = elemento;
 }
 
@@ -22,7 +24,7 @@ function completarTarefa(event) {
   if (elemento.classList.contains('completed')) {
     elemento.classList.remove('completed');
   } else {
-    elemento.setAttribute('class', 'completed');
+    elemento.classList.add('completed');
   }
 }
 
@@ -38,7 +40,7 @@ function criarTarefa(texto, classe = '') {
 }
 
 function adicionarTarefa() {
-  const listaTarefas = document.getElementById(classeListaDeTarefas);
+  const listaTarefas = document.getElementById(idListaDeTarefas);
   const inputTextoTarefa = document.getElementById('texto-tarefa');
   const li = criarTarefa(inputTextoTarefa.value);
   inputTextoTarefa.value = '';
@@ -46,13 +48,13 @@ function adicionarTarefa() {
 }
 
 function apagarListaDeTarefas() {
-  const listaTarefas = document.getElementById(classeListaDeTarefas);
+  const listaTarefas = document.getElementById(idListaDeTarefas);
   listaTarefas.innerHTML = '';
 }
 
 function removerFinalizados() {
-  const listaTarefas = document.getElementById(classeListaDeTarefas);
-  const tarefas = listaTarefas.childNodes;
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  const tarefas = listaTarefas.children;
 
   for (let i = 0; i < tarefas.length; i += 1) {
     const tarefa = tarefas[i];
@@ -65,8 +67,8 @@ function removerFinalizados() {
 }
 
 function salvarTarefas() {
-  const listaTarefas = document.getElementById(classeListaDeTarefas);
-  const tarefas = listaTarefas.childNodes;
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  const tarefas = listaTarefas.children;
   const arrayTarefas = [];
 
   for (let i = 0; i < tarefas.length; i += 1) {
@@ -89,7 +91,7 @@ window.onload = () => {
   }
 
   const tarefas = localStorage.getItem('tarefas').split(',');
-  const listaTarefas = document.getElementById(classeListaDeTarefas);
+  const listaTarefas = document.getElementById(idListaDeTarefas);
 
   for (let i = 0; i < tarefas.length; i += 1) {
     const tarefa = tarefas[i].split(':');
@@ -99,7 +101,60 @@ window.onload = () => {
   }
 };
 
+function renderizarListaDeTarefas(tarefas) {
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  listaTarefas.innerHTML = '';
+
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const tarefa = tarefas[i];
+    listaTarefas.appendChild(tarefa);
+  }
+}
+
+function moverTarefaParaCima() {
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  const tarefas = listaTarefas.children;
+  const tarefasReordenadas = [];
+
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const tarefa = tarefas[i];
+
+    if (i !== 0 && tarefa === elementoSelecionado) {
+      const tarefaAnterior = tarefasReordenadas[tarefasReordenadas.length - 1];
+      tarefasReordenadas[tarefasReordenadas.length - 1] = tarefa;
+      tarefasReordenadas.push(tarefaAnterior);
+    } else {
+      tarefasReordenadas.push(tarefa);
+    }
+  }
+
+  renderizarListaDeTarefas(tarefasReordenadas);
+}
+
+function moverTarefaParaBaixo() {
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  const tarefas = listaTarefas.children;
+  const tarefasReordenadas = [];
+
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const tarefa = tarefas[i];
+
+    if (i < tarefas.length - 1 && tarefa === elementoSelecionado) {
+      const proximaTarefa = tarefas[i + 1];
+      tarefasReordenadas.push(proximaTarefa);
+      tarefasReordenadas.push(tarefa);
+      i += 1;
+    } else {
+      tarefasReordenadas.push(tarefa);
+    }
+  }
+
+  renderizarListaDeTarefas(tarefasReordenadas);
+}
+
 botaoCriarTarefa.addEventListener('click', adicionarTarefa);
 botaoApagaTudo.addEventListener('click', apagarListaDeTarefas);
 botaoRemoverFinalizados.addEventListener('click', removerFinalizados);
 botaoSalvarTarefas.addEventListener('click', salvarTarefas);
+botaoMoverParaCima.addEventListener('click', moverTarefaParaCima);
+botaoMoverParaBaixo.addEventListener('click', moverTarefaParaBaixo);
