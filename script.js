@@ -1,9 +1,11 @@
-// 5, 6
+// 5, 6 
 const findList = document.querySelector('#lista-tarefas');
 const button = document.querySelector("#criar-tarefa");
 const inputValue = document.querySelector("#texto-tarefa");
+const finished = document.querySelectorAll('.completed')
 const deleteAll = document.querySelector('#apaga-tudo');
-const liList = document.querySelectorAll('.li-list');
+const liList = document.getElementsByClassName('li-list');
+const deleteFinished = document.querySelector('#remover-finalizados');
 
 function addItemInList() {
   let createLi = document.createElement('li');
@@ -12,8 +14,6 @@ function addItemInList() {
   findList.appendChild(createLi);
   inputValue.value = "";
   changeColor();
-  // risca as lis
-  createLi.addEventListener('dblclick', lineCompleted)
 }
 button.addEventListener('click', addItemInList);
 
@@ -34,12 +34,14 @@ changeColor();
 
 // 9.
 function lineCompleted(event) {
-  if (document.querySelector('.completed')) {
-    event.target.classList.remove("completed")
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
   } else {
-    event.target.classList.add('completed')
+    event.target.classList.add('completed');
   }
 }
+
+findList.addEventListener('dblclick', lineCompleted);
 
 // 10.
 
@@ -50,3 +52,12 @@ function clearList() {
 }
 
 deleteAll.addEventListener('click', clearList);
+
+// 11.
+
+function clearFinished() {
+  let completed = document.querySelectorAll('.completed');
+  completed.forEach((e) => e.parentNode.removeChild(e))
+}
+
+deleteFinished.addEventListener('click', clearFinished);
