@@ -10,8 +10,13 @@ function adicionaItem() {
 }
 adicionaItemNaLista.addEventListener('click', adicionaItem);
 
-function apaga() {
+function apagaItens() {
   lista.innerHTML = '';
 }
 const botaoDeApagar = document.getElementById('apaga-tudo');
-botaoDeApagar.addEventListener('click', apaga);
+botaoDeApagar.addEventListener('click', apagaItens);
+
+function alteraBackground(evento) {
+  evento.target.style.backgroundColor ='rgb(128,128,128)';
+}
+lista.addEventListener('click', alteraBackground);
