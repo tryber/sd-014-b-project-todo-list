@@ -20,3 +20,10 @@ function selectTask(select) {
 
 const taskList = document.querySelector('#lista-tarefas');
 taskList.addEventListener('click', selectTask);
+
+function completeTask(taskCompleted) {
+  const doubleClickTask = taskCompleted;
+  doubleClickTask.target.classList.toggle('completed')
+}
+
+taskList.addEventListener('dblclick', completeTask);
