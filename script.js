@@ -24,5 +24,16 @@ EraseAllButton.addEventListener('click', () => {
 function taskcompleted(event) {
   event.target.classList.toggle('completed');
 }
-let DoneTask = document.querySelector('ol');
+const DoneTask = document.querySelector('ol');
 DoneTask.addEventListener('dblclick', taskcompleted);
+// Remover finalizados
+const RemoveDone = document.querySelector('#remover-finalizados');
+RemoveDone.addEventListener('click', () => {
+  console.log('entrou');
+  const completed = document.querySelectorAll('.completed');
+  console.log(completed);
+  for (let i = 0; i < completed.length; i += 1) {
+    console.log(completed[i]);
+    completed[i].remove();
+  }
+});
