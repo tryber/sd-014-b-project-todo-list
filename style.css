@@ -7,5 +7,15 @@
 }
 
 button {
-  margin-right: 50px;
+  margin-right: 20px;
+}
+
+#corpo-lista {
+  display: flex;
+}
+
+.move-button {
+  display: block;
+  height: 30px;
+  margin: 20px;
 }
