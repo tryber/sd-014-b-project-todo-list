@@ -1,5 +1,3 @@
-const taskList = document.querySelector('#lista-tarefas');
-const tasks = document.querySelector('#lista-tarefas');
 function addClass(event) {
   const liSelected = document.querySelectorAll('.liCreated');
   for (let index = 0; index < liSelected.length; index += 1) {
@@ -8,9 +6,8 @@ function addClass(event) {
   event.target.classList.add('selected');
 }
 
-function taskCompleted() {
-  const liSelected = document.querySelectorAll('.liCreated');
-  liSelected.classList.toggle('.completed');
+function taskCompleted(event) {
+  event.target.classList.toggle('completed');
 }
 
 function newTask() {
