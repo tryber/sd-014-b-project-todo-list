@@ -9,7 +9,7 @@ function newTask() {
     document.querySelector('#texto-tarefa').value = '';
     
 }
-//Referências: https://www.w3schools.com/jsref/prop_text_value.asp
+//Referência: https://www.w3schools.com/jsref/prop_text_value.asp
 
 function selectTask(select) {
   const taskSelected = document.querySelector('.selected');
@@ -27,3 +27,16 @@ function completeTask(taskCompleted) {
 }
 
 taskList.addEventListener('dblclick', completeTask);
+
+function clearList () {
+  taskList.innerHTML = '';
+}
+
+function clearCompleted (){
+  const completedTasks = document.getElementsByClassName('completed');
+  for (let index = 0; index < completedTasks.length; index += 0) {
+    completedTasks[index].remove();
+  }
+}
+
+//Referência: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove

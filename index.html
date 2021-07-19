@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div id='pagina'>
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.</p>  
@@ -15,10 +16,15 @@
       <section>
     <input id="texto-tarefa" type="text">
     <button id="criar-tarefa" onclick="newTask()">Nova Tarefa</button>
+    <div id="lista">
     <ol id="lista-tarefas">   
     </ol>
+    </div>
+    <button id='apaga-tudo' onclick='clearList();'>Limpar Todas as Tarefas</button>
+    <button id='remover-finalizados' onclick='clearCompleted();'>Limpar Tarefas Finalizadas</button>
       </section>
-<li class='selected' hidden>...</li>   
+<li class='selected' hidden>...</li>
+</div>
     <script src='script.js'></script>
 </body>
 </html>
