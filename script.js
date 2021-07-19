@@ -20,3 +20,4 @@ const EraseAllButton = document.querySelector('#apaga-tudo');
 EraseAllButton.addEventListener('click', () => {
   TaskSelect.parentNode.removeChild(TaskSelect);
 });
+// Selected
