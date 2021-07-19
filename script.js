@@ -2,11 +2,13 @@
 const findList = document.querySelector('#lista-tarefas');
 const button = document.querySelector("#criar-tarefa");
 const inputValue = document.querySelector("#texto-tarefa");
-const childItens = findList.childNodes;
+const deleteAll = document.querySelector('#apaga-tudo');
+const liList = document.querySelectorAll('.li-list');
 
 function addItemInList() {
-  let createLi = document.createElement('li')
+  let createLi = document.createElement('li');
   createLi.innerText = inputValue.value;
+  createLi.classList.add('li-list');
   findList.appendChild(createLi);
   inputValue.value = "";
   changeColor();
@@ -38,3 +40,13 @@ function lineCompleted(event) {
     event.target.classList.add('completed')
   }
 }
+
+// 10.
+
+function clearList() {
+  while (findList.hasChildNodes()) {  
+    findList.removeChild(findList.firstChild);
+  }
+}
+
+deleteAll.addEventListener('click', clearList);
