@@ -9,4 +9,10 @@ button.addEventListener('click', function () {
   toDoList.appendChild(newTasks);
 
   tasks.value = '';
+
+  const buttonClear = document.getElementById('apaga-tudo');
+
+  buttonClear.addEventListener('click', function () {
+    toDoList.innerHTML = '';
+  });
 });
