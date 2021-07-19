@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title> 
+</head>
+<body>
+    <div class="mydiv">
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <p id= 'funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+    <input type="text" id='texto-tarefa'>
+    <ol id='lista-tarefas'> 
+
+    </ol>
+    <button id='criar-tarefa' onclick="newTask()">Criar tarefas</button>
+    <button id='apaga-tudo' onclick="clearTasks()">Apagar tudo</button>
+    <button id="remover-finalizados" onclick="removeSelectedTasks()">Remover finalizados</button>
+    <button id='salvar-tarefas' >Salvar tarefas</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
