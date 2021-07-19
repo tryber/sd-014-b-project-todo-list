@@ -35,3 +35,7 @@ input {
   align-items: center;
   justify-content: center;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
