@@ -1,7 +1,16 @@
 #criar-tarefa {
-    display: inline-block;
+  display: inline-block;
 }
 
 #funcionamento {
-    display: inline-block;
+  display: inline-block;
+}
+
+.marcado {
+  background-color: rgb(128, 128, 128);
+  width: 60%;
+}
+
+.completed {
+  text-decoration: line-through;
 }
