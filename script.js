@@ -28,4 +28,14 @@ toDoList.addEventListener('click', (event) => {
 
 toDoList.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
+
+  const buttonRmv = document.getElementById('remover-finalizados');
+
+  buttonRmv.addEventListener('click', function () {
+    const tasksFinished = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < tasksFinished.length; index += 1) {
+      tasksFinished[index].remove();
+    }
+  });
 });
