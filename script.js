@@ -6,6 +6,23 @@ const clearTask = document.getElementById('remover-finalizados');
 const deleteAllTask = document.getElementById('apaga-tudo');
 
 
+function choiseTask(event) {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+        selected.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+}
+
+function finishedTask(event) {
+    const item = event.target;
+    if (item.className.includes('completed')) {
+        item.classList.remove('completed');
+    } else {
+        item.classList.add('completed');
+    }
+}
+
 
 function addTask() {
          listItem = document.createElement('li');
