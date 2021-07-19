@@ -29,7 +29,7 @@ toDoList.addEventListener('click', (event) => {
 toDoList.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 
-  const buttonRmv = document.getElementById('remover-selecionado');
+  const buttonRmv = document.getElementById('remover-finalizados');
 
   buttonRmv.addEventListener('click', function () {
     const tasksFinished = document.querySelectorAll('.completed');
