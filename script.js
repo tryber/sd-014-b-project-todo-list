@@ -15,10 +15,11 @@ button.addEventListener('click', createListaDeTarefa);
 const listaOrdenada = document.querySelector('ol');
 function colorirLista(event) {
   const listItem = document.querySelectorAll('li');
-  for (const index of listItem) {
-    index.style.backgroundColor = 'white';
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].style.backgroundColor = 'white';
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
+  const evento = event.target;
+  evento.style.backgroundColor = 'rgb(128,128,128)';
 }
 listaOrdenada.addEventListener('click', colorirLista);
 
@@ -31,8 +32,8 @@ listaOrdenada.addEventListener('dblclick', riscado);
 
 /* Requisito 10 */
 function apagaTudo() {
-  const listaOrdenada = document.querySelector('ol');
-  listaOrdenada.innerHTML = '';
+  const ordenadaLista = document.querySelector('ol');
+  ordenadaLista.innerHTML = '';
 }
 const buttonApaga = document.querySelector('#apaga-tudo');
 buttonApaga.addEventListener('click', apagaTudo);
@@ -40,10 +41,10 @@ buttonApaga.addEventListener('click', apagaTudo);
 /* Requisito 11 */
 function removeFinalizado() {
   const apagaFinalizado = document.querySelectorAll('li');
-  const listaOrdenada = document.querySelector('ol');
-  for (let index of apagaFinalizado) {
-    if (index.classList.contains('completed')) {
-      listaOrdenada.removeChild(index);
+  const orderedList = document.querySelector('ol');
+  for (let index = 0; index < apagaFinalizado.length; index += 1) {
+    if (apagaFinalizado[index].classList.contains('completed')) {
+      orderedList.removeChild(apagaFinalizado[index]);
     }
   }
 }
