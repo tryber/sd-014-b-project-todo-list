@@ -1,6 +1,5 @@
 function createListItem(text) {
   const listItem = document.createElement('li');
-  // listItem.className = '';
   listItem.innerText = text;
   return listItem;
 }
@@ -61,7 +60,9 @@ function completedButton() {
 
 function removeSelected(){
   const selectedItem = document.getElementById('selected');
-  selectedItem.remove();
+  if (selectedItem) {
+    selectedItem.remove();
+  }
 }
 function selectedButton() {
   const removeSelecButton = document.getElementById('remover-selecionado');
@@ -94,11 +95,36 @@ function buttonDown() {
   upButton.addEventListener('click', moveDown);
 }
 
+function saveListButton() {
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click', ()=> {
+    let listArray = [];
+    const ordList = document.getElementById('lista-tarefas');
+      listArray.push(ordList.innerHTML);
+    localStorage.setItem('listItens_toDoList', JSON.stringify(listArray));
+  })
+}
+
+function loadListOnLocal() {
+  if (localStorage.getItem('listItens_toDoList')) {
+    const savedItens = JSON.parse(localStorage.getItem('listItens_toDoList'));
+    const ordList = document.getElementById('lista-tarefas');
+    ordList.innerHTML = savedItens;
+    const itensList = document.querySelectorAll('li');
+    for (let index of itensList) {
+      index.addEventListener('click', addIdStyle);
+      index.addEventListener('dblclick', addClassStyle);
+    }
+  }
+}
+
 window.onload = () => {
+  loadListOnLocal();
   addListItem();
   eraseButton();
   completedButton();
   selectedButton();
   buttonUp();
   buttonDown();
+  saveListButton();
 };
