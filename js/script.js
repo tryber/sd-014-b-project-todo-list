@@ -1,21 +1,22 @@
 const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const botaoApagaTudo = document.getElementById('apaga-tudo');
 const botaoRemoverFinalizados = document.getElementById('remover-finalizados');
+const botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
 const botaoMoverParaCima = document.getElementById('mover-cima');
 const botaoMoverParaBaixo = document.getElementById('mover-baixo');
 const idListaDeTarefas = 'lista-tarefas';
-let elementoSelecionado = null;
+let tarefaSelecionada = null;
 
 function selecionarTarefa(event) {
   const elemento = event.target;
 
-  if (elementoSelecionado) {
-    elementoSelecionado.classList.remove('selected');
+  if (tarefaSelecionada) {
+    tarefaSelecionada.classList.remove('selected');
   }
 
   elemento.classList.add('selected');
-  elementoSelecionado = elemento;
+  tarefaSelecionada = elemento;
 }
 
 function completarTarefa(event) {
@@ -52,6 +53,12 @@ function apagarListaDeTarefas() {
   listaTarefas.innerHTML = '';
 }
 
+function desmarcarSelecionadoSeRemovido(tarefaRemovida) {
+  if (tarefaSelecionada === tarefaRemovida) {
+    tarefaSelecionada = null;
+  }
+}
+
 function removerFinalizados() {
   const listaTarefas = document.getElementById(idListaDeTarefas);
   const tarefas = listaTarefas.children;
@@ -60,10 +67,21 @@ function removerFinalizados() {
     const tarefa = tarefas[i];
 
     if (tarefa.classList.contains('completed')) {
+      desmarcarSelecionadoSeRemovido(tarefa);
       listaTarefas.removeChild(tarefa);
       i -= 1;
     }
   }
+}
+
+function removerSelecionado() {
+  if (!tarefaSelecionada) {
+    return;
+  }
+
+  const listaTarefas = document.getElementById(idListaDeTarefas);
+  listaTarefas.removeChild(tarefaSelecionada);
+  tarefaSelecionada = null;
 }
 
 function salvarTarefas() {
@@ -119,7 +137,7 @@ function moverTarefaParaCima() {
   for (let i = 0; i < tarefas.length; i += 1) {
     const tarefa = tarefas[i];
 
-    if (i !== 0 && tarefa === elementoSelecionado) {
+    if (i !== 0 && tarefa === tarefaSelecionada) {
       const tarefaAnterior = tarefasReordenadas[tarefasReordenadas.length - 1];
       tarefasReordenadas[tarefasReordenadas.length - 1] = tarefa;
       tarefasReordenadas.push(tarefaAnterior);
@@ -139,7 +157,7 @@ function moverTarefaParaBaixo() {
   for (let i = 0; i < tarefas.length; i += 1) {
     const tarefa = tarefas[i];
 
-    if (i < tarefas.length - 1 && tarefa === elementoSelecionado) {
+    if (i < tarefas.length - 1 && tarefa === tarefaSelecionada) {
       const proximaTarefa = tarefas[i + 1];
       tarefasReordenadas.push(proximaTarefa);
       tarefasReordenadas.push(tarefa);
@@ -155,6 +173,7 @@ function moverTarefaParaBaixo() {
 botaoCriarTarefa.addEventListener('click', adicionarTarefa);
 botaoApagaTudo.addEventListener('click', apagarListaDeTarefas);
 botaoRemoverFinalizados.addEventListener('click', removerFinalizados);
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
 botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 botaoMoverParaCima.addEventListener('click', moverTarefaParaCima);
 botaoMoverParaBaixo.addEventListener('click', moverTarefaParaBaixo);
