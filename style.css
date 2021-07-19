@@ -13,6 +13,11 @@
     text-decoration: line-through;
 }
 
-.listItemOfTask{
-  text-align: justify;
+#remover-finalizados {
+  border-radius: 10px;
+  height: 25px;
+  margin-right: 30px;
+  border: 2px solid rgb(248, 248, 147);
+  background-color: rgb(248, 248, 147);
+  font-weight: bold;
 }

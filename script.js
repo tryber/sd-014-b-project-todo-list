@@ -2,6 +2,7 @@ const addButton = document.querySelector('#criar-tarefa');
 const inputText = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const clsButton = document.querySelector('#apaga-tudo');
+const buttonX = document.querySelector('#remover-finalizados');
 
 addButton.addEventListener('click', function() {
   const createList = document.createElement('li');
@@ -39,5 +40,14 @@ function selectCls() {
 
 clsButton.addEventListener('click', selectCls);
 
+function removeTask(event) {
+  let list = document.querySelectorAll("li");
+  let fatherLIst = document.querySelector('ol');
+  for (let index of list) {
+    if (index.classList.contains('completed')) {
+      fatherLIst.removeChild(index);
+    }
+  }
+}  
 
-
+buttonX.addEventListener("click", removeTask);
