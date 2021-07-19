@@ -8,6 +8,7 @@ function addTarefa (event) {
   let input = textInput.value;
   let todoItem = document.createElement('li');
   todoItem.addEventListener('click',select);
+  todoItem.addEventListener('dblclick', complete)
   todoItem.innerText = input;
   todoList.appendChild(todoItem);
   textInput.value = "";
@@ -28,3 +29,14 @@ function select (event) {
   }
 }
 
+function complete (event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+    }
+    else {
+      let completed = document.querySelector('.completed');
+      if (completed != null)
+      completed.classList.remove('completed');
+      event.target.classList.add('completed');
+    }
+}
