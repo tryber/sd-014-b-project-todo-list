@@ -2,8 +2,11 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/CSS" href="style.css">
+    <script src="script.js" async></script>
     <style>
     </style>
   </head>
@@ -12,9 +15,18 @@
           <h1 id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</h1>
       </header>
       <section>
-          <input id='texto-tarefa'>
+          <input type = 'text' id='texto-tarefa'><button id='criar-tarefa'>Nova Tarefa</button>
+          <br>
+          <div>
           <h2>Lista de Tarefas</h2>
-          <ol id='lista-tarefas'></ol>
+          <ol id='lista-tarefas'>
+
+          </ol>
+          </div>
+      </section>
+      <section>
+        <button id="apaga-tudo">Apagar Tudo</button>
+        <button id="remover-finalizados">Remover Concluídas</button>
       </section>
   </body>
 </html>
