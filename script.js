@@ -1,4 +1,13 @@
 const button = document.querySelector('#criar-tarefa');
+const list = document.querySelector('#lista-tarefas');
+
+window.onload = function load() {
+  list.innerHTML = localStorage.getItem('list'); 
+  for (let index = 0; index < document.querySelectorAll('li').length; index += 1){
+    document.querySelectorAll("li")[index].addEventListener('click',changeClass);
+    document.querySelectorAll("li")[index].addEventListener('dblclick',completedTask);
+  }
+}
 
 button.addEventListener('click', function(){
   const list = document.querySelector('#lista-tarefas');
@@ -47,8 +56,27 @@ finishedClearButton.addEventListener('click', function (){
 const saveButton = document.querySelector('#salvar-tarefas');
 saveButton.addEventListener('click', function(){
   const list = document.querySelector('#lista-tarefas');
-  localStorage.setItem('data',JSON.stringify(list.innerHTML));
-  let getItem = localStorage.getItem('data');
-  console.log(getItem)
-  
+  localStorage.setItem('list',list.innerHTML);
+})
+
+const moveUpBtn = document.querySelector('#up');
+const moveDownBtn = document.querySelector('#down');
+
+moveUpBtn.addEventListener('click', function(){
+  let targetTask = document.querySelector('.selectedTask');
+  if (targetTask === list.firstElementChild) {
+    alert('Limite de posição atingido');
+  } else if (targetTask){
+    list.insertBefore(targetTask, targetTask.previousElementSibling)
+  }
+})
+
+moveDownBtn.addEventListener('click', function(){
+let targetTask = document.querySelector('.selectedTask');
+if (targetTask == list.lastElementChild){
+  alert('Limite de posição atingido');
+} else if (targetTask) {
+  list.insertBefore(targetTask.nextElementSibling, targetTask)
+}
+
 })
