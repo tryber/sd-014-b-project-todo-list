@@ -29,3 +29,9 @@ input {
 .buttons {
   display: inline-block;
 }
+
+.todo-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
