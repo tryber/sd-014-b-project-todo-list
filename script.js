@@ -87,7 +87,7 @@ function salvarTarefas(){
 function moverParaCima(){
     let no = document.querySelector('.selected');
     if (no == listaTarefas.firstElementChild){
-        alert('ERRO')
+        alert('Ja chegou no topo da lista')
     }else if(no){
         listaTarefas.insertBefore(no, no.previousElementSibling)
     }
@@ -97,7 +97,7 @@ function moverParaCima(){
 function moverParaBaixo(){
     let no = document.querySelector('.selected');
     if (no == listaTarefas.lastElementChild){
-        alert('ERRO')
+        alert('Ja chegou na ultima linha')
     }else if(no){
         listaTarefas.insertBefore(no.nextElementSibling, no)
     }
