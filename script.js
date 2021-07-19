@@ -20,4 +20,9 @@ const EraseAllButton = document.querySelector('#apaga-tudo');
 EraseAllButton.addEventListener('click', () => {
   TaskSelect.parentNode.removeChild(TaskSelect);
 });
-// Selected
+// Selected via .toggle(Bel Albuquerque, 2021)
+function taskcompleted(event) {
+  event.target.classList.toggle('completed');
+}
+let DoneTask = document.querySelector('ol');
+DoneTask.addEventListener('dblclick', taskcompleted);
