@@ -29,14 +29,13 @@ function select (event) {
   }
 }
 
+//Adciona a classe completed aos itens clicados duas vezes
+
 function complete (event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
     }
     else {
-      let completed = document.querySelector('.completed');
-      if (completed != null)
-      completed.classList.remove('completed');
       event.target.classList.add('completed');
     }
 }
