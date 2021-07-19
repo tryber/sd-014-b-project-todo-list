@@ -17,6 +17,10 @@ const botaoDeApagar = document.getElementById('apaga-tudo');
 botaoDeApagar.addEventListener('click', apagaItens);
 
 function alteraBackground(evento) {
-  evento.target.style.backgroundColor ='rgb(128,128,128)';
+  const li = document.querySelectorAll('li');
+  for (let indice = 0; indice < li.length; indice += 1) {
+    li[indice].style.backgroundColor = '';
+  }
+  evento.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 lista.addEventListener('click', alteraBackground);
