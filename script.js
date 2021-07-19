@@ -10,3 +10,13 @@ function newTask() {
     
 }
 //Referências: https://www.w3schools.com/jsref/prop_text_value.asp
+
+function selectTask(select) {
+  const taskSelected = document.querySelector('.selected');
+  taskSelected.classList.remove('selected');
+  select.target.classList.add('selected');
+  console.log(select.target)
+}
+
+const taskList = document.querySelector('#lista-tarefas');
+taskList.addEventListener('click', selectTask);
