@@ -1,5 +1,6 @@
 const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const botaoApagaTudo = document.getElementById('apaga-tudo');
+const botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 let elementoSelecionado = null;
 
 function selecionarTarefa(event) {
@@ -39,7 +40,20 @@ function apagarListaDeTarefas() {
   listaTarefas.innerHTML = '';
 }
 
+function removerFinalizados() {
+  const listaTarefas = document.getElementById('lista-tarefas');
+  const tarefas = listaTarefas.childNodes;
 
+  for (let i = 0; i < tarefas.length; i += 1) {
+    const tarefa = tarefas[i];
+
+    if (tarefa.classList.contains('completed')) {
+      listaTarefas.removeChild(tarefa);
+      i -= 1;
+    }
+  }
+}
 
 botaoCriarTarefa.addEventListener('click', adicionarTarefa);
 botaoApagaTudo.addEventListener('click', apagarListaDeTarefas);
+botaoRemoverFinalizados.addEventListener('click', removerFinalizados);
