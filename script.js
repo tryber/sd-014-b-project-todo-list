@@ -2,40 +2,53 @@ const inputText = document.getElementById('texto-tarefa');
 const buttonAdd = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
 
-// https://www.horadecodar.com.br/2020/12/15/como-pegar-valor-de-input-com-javascript/ referencia 
+// https://www.horadecodar.com.br/2020/12/15/como-pegar-valor-de-input-com-javascript/ referencia
 
 function criarTarefa() {
   buttonAdd.addEventListener('click', (evento) => {
     const text = inputText.value;
     const li = document.createElement('li');
     li.innerText = text;
+    li.addEventListener('click', mudarCor);
+    li.addEventListener('dblclick', riscarTarefa);
     ol.appendChild(li);
     inputText.value = '';
   });
 }
 criarTarefa();
 
-function doisclicks(valor) {
-  valor.target.classlist.toggle('completed');
+function mudarCor(event) {
+  const tarefasCriadas = document.getElementsByTagName('li');
+  for (const i of tarefasCriadas) {
+    i.style.removeProperty('background-color');
+  }
+  let li = event.srcElement;
+  li.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-ol.addEventListener('dblclick', doisclicks);
+function riscarTarefa(event) {
+  let li = event.srcElement;
+  if (li.classList.contains('completed')) {
+    li.style.textDecoration = 'none';
+    li.classList.remove('completed');
+  } else {
+    li.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    li.classList.add('completed');
+  }
+}
 
-function mudarCorFundo() {
-  const tarefasCriadas = document.getElementsByTagName('li');
-  const listaOrdenada = document.querySelector('ol');
-  listaOrdenada.addEventListener('click', (evento) => {
-    for (let index = 0; index < tarefasCriadas.length; index += 1) {
-      const li = tarefasCriadas[index];
-      li.style.backgroundColor = 'rgb(128, 128, 128)';
-      li.style.backgroundColor = '';
+function removerFinalizados() {
+  const botaoLimpar = document.getElementById('remover-finalizados');
+  botaoLimpar.addEventListener('click', () => {
+    const lis = document.querySelectorAll('li');
+    for (let li of lis) {
+      if (li.classList.contains('completed')) {
+        li.remove();
+      }
     }
-    evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    evento.target.style.height = 'auto';
-    evento.target.style.width = 'auto';
   });
 }
-mudarCorFundo();
+removerFinalizados();
 
 function limpartodastarefas() {
   const botaoDeleteAll = document.getElementById('apaga-tudo');
