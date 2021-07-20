@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: green;
+  color: bisque;
+}
+
+#criar-tarefa {
+  background-color: aqua;
+  color: #000000;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#apaga-tudo {
+  background-color: red;
+  color:rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 10px;
+} 
+
+section {
+  text-align: center;
+  padding: 80px;
+}
+
+#texto-tarefa {
+  background-color: blue;
+  color: aliceblue;
+}
+
+.completed {
+  text-decoration: line-through rgb(0, 0, 0);
+}
