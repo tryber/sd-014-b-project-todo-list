@@ -1,0 +1,44 @@
+.completed {
+  text-decoration: line-through solid black;
+}
+
+#cabecalho {
+  background-image: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: center;
+  padding: 14px;
+  border: 1px solid black;
+}
+
+h1 {
+  color: rgb(7 , 6 , 2);
+}
+
+body {
+  background-image: url('https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+
+}
+
+.btn {
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.font {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: large;
+  color: black;
+  font-weight: 800;
+}
+
+#funcionamento {
+  margin: 10px;
+  font-weight: 700;
+}
+
+#texto-tarefa {
+  margin-left: 10px;
+}
