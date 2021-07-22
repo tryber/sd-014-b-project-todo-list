@@ -3,6 +3,7 @@ function alterColor() {
   const getTasks = document.querySelectorAll('.task');
   for (let index = 0; index < getTasks.length; index += 1) {
     getTasks[index].classList.remove('selected');
+    getTasks[index].style.backgroundColor = 'white';
   }
 }
 
@@ -11,6 +12,7 @@ function empityTasks() {
   while (getOl.firstChild) {
     getOl.removeChild(getOl.firstChild);
   }
+  localStorage.removeItem('taskList');
 }
 function removeCompleted() {
   const getOl = document.getElementById('lista-tarefas');
@@ -22,17 +24,22 @@ function removeCompleted() {
 
 // eslint-disable-next-line max-lines-per-function
 function addTask() {
+  // eslint-disable-next-line sonarjs/no-duplicate-string
   const getOl = document.querySelector('#lista-tarefas');
   const getButtonTask = document.querySelector('#criar-tarefa');
   const getInput = document.querySelector('#texto-tarefa');
   // eslint-disable-next-line prefer-arrow-callback
-  getButtonTask.addEventListener('click', function () {
+  // eslint-disable-next-line func-names
+  // eslint-disable-next-line max-lines-per-function
+  getButtonTask.addEventListener('click', () => {
     const createLi = document.createElement('li');
     createLi.className = 'task';
     createLi.innerHTML = getInput.value;
     createLi.addEventListener('click', (event) => {
       alterColor();
       event.target.classList.add('selected');
+      // eslint-disable-next-line no-param-reassign
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       // eslint-disable-next-line no-param-reassign
     });
     createLi.addEventListener('dblclick', (event) => {
@@ -89,6 +96,7 @@ function moveUp() {
     const getSelected = document.querySelector('.selected');
     const getTasks = document.querySelectorAll('.task');
     if (getSelected === null) {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       alert('Nenhuma tarefa foi selecionada');
     } else if (getSelected !== getTasks[0]) {
       getSelected.parentNode.insertBefore(getSelected, getSelected.previousElementSibling);
