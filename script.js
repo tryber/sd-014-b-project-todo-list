@@ -85,6 +85,16 @@ function setTasksSaved() {
   if (localStorage.getItem('taskList') !== '') {
     taskList.innerHTML = localStorage.getItem('taskList');
   }
+  const getTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < getTasks.length; index += 1) {
+    getTasks[index].addEventListener('click', (event) => {
+      alterColor();
+      event.target.classList.add('selected');
+      // eslint-disable-next-line no-param-reassign
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      alert('teste');
+    });
+  }
 }
 setTasksSaved();
 
