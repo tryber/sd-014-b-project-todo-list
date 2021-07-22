@@ -8,6 +8,7 @@ function addTask() {
     let itemClass = 'lista-item';
     newItem.className = itemClass;
     newItem.classList.add('color');
+    newItem.classList.add('font');
     newItem.classList.remove('color');
     newItem.innerText = input.value;
     lista.appendChild(newItem)
