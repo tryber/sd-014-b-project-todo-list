@@ -5,7 +5,7 @@ const createTask = document.getElementById('criar-tarefa');
 const clearTask = document.getElementById('remover-finalizados');
 const deleteAllTask = document.getElementById('apaga-tudo');
 
-
+//referência do código do fernando serpa
 function choiseTask(event) {
     const selected = document.querySelector('.selected');
     if (selected !== null) {
@@ -23,9 +23,8 @@ function finishedTask(event) {
     }
 }
 
-
 function addTask() {
-         listItem = document.createElement('li');
+    listItem = document.createElement('li');
     listItem.innerText = taskText.value;
     taskList.appendChild(listItem);
     taskText.value = '';
@@ -44,13 +43,15 @@ function deleteTask () {
 
 
 //limpa todos os itens da lista
+//https://www.javascripttutorial.net/javascript-dom/javascript-removechild/
 function deleteAll(){
-    let allList = document.querySelectorAll('li');
-    for (let index = 0; index < allList.length; index += 1) {
-        taskList.removeChild(list.lastChild);
+    let allItens = document.getElementById('lista-tarefas');
+    while (allItens.firstChild) {
+        allItens.removeChild(allItens.firstChild);
     }
-};
+    
+}
 
-deleteAllTask.addEventListener('click', deleteTask);
+deleteAllTask.addEventListener('click', deleteAll);
 createTask.addEventListener('click', addTask);
 clearTask.addEventListener('click', deleteTask);
