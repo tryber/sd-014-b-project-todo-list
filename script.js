@@ -50,3 +50,19 @@ function removeFinalizado() {
 }
 const buttonFinaliza = document.querySelector('#remover-finalizados');
 buttonFinaliza.addEventListener('click', removeFinalizado);
+
+/* Requisito 12 */
+
+const saveButton = document.querySelector('#salvar-tarefas');
+
+function saveTasks() {
+  const taskList = document.querySelector('ol').innerHTML;
+  localStorage.setItem('save', taskList);
+}
+
+window.onload = () => {
+  const taskList = document.querySelector('ol');
+  taskList.innerHTML = localStorage.getItem('save');
+};
+
+saveButton.addEventListener('click', saveTasks);
