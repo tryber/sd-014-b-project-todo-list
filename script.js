@@ -1,0 +1,3 @@
+function alertaaa(){
+    alert("Photografh!");
+}
