@@ -66,3 +66,40 @@ window.onload = () => {
 };
 
 saveButton.addEventListener('click', saveTasks);
+
+/* Requisito 13 */
+const moveUpButton = document.querySelector('#mover-cima');
+function moveListItemUp() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    if (listItem[index].previousElementSibling && listItem[index].style.backgroundColor === 'rgb(128,128,128)') {
+      listItem[index].parentElement.insertBefore(listItem[index], listItem[index].previousElementSibling);
+    }
+  }
+}
+
+moveUpButton.addEventListener('click', moveListItemUp);
+
+const moveDownButton = document.querySelector('#mover-baixo');
+function moveListItemDown() {
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    if (listItems[index].previousElementSibling && listItems[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      listItems[index].parentElement.insertBefore(listItems[index], listItems[index + 1].nextElementSibling);
+    }
+  }
+}
+
+moveDownButton.addEventListener('click', moveListItemDown);
+
+/* Requisito 13 */
+function deleteTaskSelect() {
+  const selectedTask = document.querySelectorAll('li');
+  for (let index = 0; index < selectedTask.length; index += 1) {
+    if (selectedTask[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      selectedTask[index].remove();
+    }
+  }
+}
+const deleteBtn = document.querySelector('#remover-selecionado');
+deleteBtn.addEventListener('click', deleteTaskSelect);
