@@ -9,3 +9,15 @@ function addTask() {
   enterTask.value = '';
 }
 clickButton.addEventListener('click', addTask);
+
+function clickItem(event) {
+  const listItem = document.querySelector('.listIten.background');
+  if (listItem === null) {
+    event.target.classList.add('background');
+  } else {
+    const selectItem = document.querySelector('.background');
+    selectItem.classList.remove('background');
+    event.target.classList.add('background');
+  }
+}
+document.querySelector('#lista-tarefas').addEventListener('click', clickItem);
