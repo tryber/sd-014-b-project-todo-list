@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="style.css" rel="stylesheet">
-  <title>To do Project</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>To Do List</title>
 </head>
 <body>
-  <header>
-    Minha Lista de Tarefas
-  </header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <div class="container"> 
-    <input id="texto-tarefa" type="text"><br>
-    <button id="criar-tarefa">Criar Tarefa</button>
-    <ol id="lista-tarefas">Tarefas</ol>
-    <button id="apaga-tudo">Apagar Lista</button>
-    <button id="remover-finalizados">Apagar Completados</button>
-    <button id="remover-selecionado">Salvar Tarefas</button>
-    <button id="salvar-tarefas">Salvar Tarefas</button>
-    <button id="mover-cima">Salvar Tarefas</button>
-    <button id="mover-baixo">Salvar Tarefas</button>
-  </div>
-  <script src='script.js' type="text/javascript"></script>
+	<header>
+		<h1>Minha Lista de Tarefas</h1>
+		<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+	</header>
+	<section id="input-section">
+		<input type="text" id="texto-tarefa">
+		<button id="criar-tarefa" class="button">ADICIONAR</button>
+	</section>
+	<ol id="lista-tarefas"></ol>
+	<section class="btn-section">
+		<button id="remover-finalizados" class="button">Apagar Completados</button>
+		<button id="remover-selecionado" class="button">Apagar Selecionado</button>
+		<button id="apaga-tudo" class="button">Apagar Tudo!</button>
+	</section>
+	<section>
+		<button id="mover-cima" class="button">Subir</button>
+		<button id="mover-baixo" class="button">Descer</button>
+		<button id="salvar-tarefas" class="button">Salvar</button>
+	</section>
+	<script src="script.js"></script>
 </body>
 </html>
