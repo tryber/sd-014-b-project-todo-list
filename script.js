@@ -29,7 +29,7 @@ button.innerText = 'Enviar';
 document.body.appendChild(button);
 // Quando o botão for clicado
 const buttonLi = document.querySelector('#criar-tarefa');
-button.addEventListener('click', function(){
+button.addEventListener('click', function (){
   const ol = document.querySelector('ol');
   const li = document.createElement('li');
   const input = document.querySelector('input');
@@ -39,25 +39,25 @@ button.addEventListener('click', function(){
 });
 
 // Requesito 7 e 8
-//const ol = document.querySelector('ol');
-//function colorLi(event){
-  //const lis = document.querySelectorAll('li');
-  //for(let list of lis){
-    //list.style.backgroundColor = 'white';
-  //}
-  //const click = event.target;
-  //click.style.backgroundColor = rgb(128, 128, 128);
-//}
-//ol.addEventListener('click', colorLi);
-
-
+const olItems = document.querySelector('ol');
+function colorLi(event){
+  const list = document.querySelectorAll('li');
+  for(let li of list){
+  li.style.backgroundColor = 'white';
+  }
+  const click = event.target;
+  click.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+olItems.addEventListener('click', colorLi);
 
 
 // Requesito 9
-//function colorCompleted(event){
-  //event.target.classList.toggle('completed');
-//};
-//colorLi.addEventListener('dbclick', colorCompleted);
+// Documentação - https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle
+function colorCompleted(event){
+  const twoClick = event.target
+  twoClick.classList.toggle('completed');
+};
+olItems.addEventListener('dblclick', colorCompleted);
 
 
 // Requesito 10
@@ -71,8 +71,28 @@ buttonClear.addEventListener('click', function (){
   ol.innerText = '';
 });
 
+// Requesito 11
+const buttonClearFinished = document.createElement('button');
+buttonClearFinished.id = 'remover-finalizados';
+buttonClearFinished.innerText = 'Remover';
+document.body.appendChild(buttonClearFinished);
+// Quando ele for clicado
+// Documentação - https://developer.mozilla.org/pt-BR/docs/Web/API/Node/contains
+const buttonRemoveFinished = document.querySelector('#remover-finalizados')
+buttonRemoveFinished.addEventListener('click', function(){
+  const olRemove = document.querySelector('ol');
+  const lis = document.querySelectorAll('li')
+  for(let index = 0; index < lis.length; index += 1){
+    if(lis[index].classList.contains('completed')){
+      olRemove.removeChild(lis[index]);
+    }
+  }
+});
 
-
-
+// Requesito 12
+const buttonSalve = document.createElement('button');
+buttonSalve.id = 'salvar-tarefas';
+buttonSalve.innerText = 'Salvar Tarefas';
+document.body.appendChild(buttonSalve);
 
 
