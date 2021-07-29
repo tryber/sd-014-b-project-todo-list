@@ -18,7 +18,7 @@ const input = document.createElement('input');
 input.id = 'texto-tarefa';
 document.body.appendChild(input);
 
-// Requesito 4 e 5
+// Requesito 4, 5 e 6
 // Criar os elementos
 const ol = document.createElement('ol');
 ol.id = 'lista-tarefas';
@@ -53,12 +53,10 @@ olItems.addEventListener('click', colorLi);
 
 // Requesito 9
 // Documentação - https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle
-function colorCompleted(event){
-  const twoClick = event.target
+olItems.addEventListener('dblclick', function(event) {
+  const twoClick = event.target;
   twoClick.classList.toggle('completed');
-};
-olItems.addEventListener('dblclick', colorCompleted);
-
+});
 
 // Requesito 10
 const buttonClear = document.createElement('button');
@@ -66,7 +64,7 @@ buttonClear.id = 'apaga-tudo';
 buttonClear.innerText = 'Apagar tudo';
 document.body.appendChild(buttonClear);
 
-buttonClear.addEventListener('click', function (){
+buttonClear.addEventListener('click', function(){
   const ol = document.querySelector('ol');
   ol.innerText = '';
 });
@@ -78,10 +76,10 @@ buttonClearFinished.innerText = 'Remover';
 document.body.appendChild(buttonClearFinished);
 // Quando ele for clicado
 // Documentação - https://developer.mozilla.org/pt-BR/docs/Web/API/Node/contains
-const buttonRemoveFinished = document.querySelector('#remover-finalizados')
-buttonRemoveFinished.addEventListener('click', function(){
+const buttonRemoveFinished = document.querySelector('#remover-finalizados');
+buttonRemoveFinished.addEventListener('click', function (){
   const olRemove = document.querySelector('ol');
-  const lis = document.querySelectorAll('li')
+  const lis = document.querySelectorAll('li');
   for(let index = 0; index < lis.length; index += 1){
     if(lis[index].classList.contains('completed')){
       olRemove.removeChild(lis[index]);
