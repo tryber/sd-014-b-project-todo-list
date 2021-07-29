@@ -1,22 +1,28 @@
-function createListItem(text) {
+const ordList = document.getElementById('lista-tarefas');
+const textInput = document.getElementById('texto-tarefa');
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
+const removeSelecButton = document.getElementById('remover-selecionado');
+const removeCompButton = document.getElementById('remover-finalizados');
+const eraseAll = document.getElementById('apaga-tudo');
+
+function createListItem() {
+  const text = textInput.value;
   const listItem = document.createElement('li');
   listItem.innerText = text;
   return listItem;
 }
-function textListItem() {
-  const currentInput = document.getElementById('texto-tarefa').value;
-  return currentInput;
-}
 
 function addIdStyle() {
   const listedItem = document.querySelectorAll('li');
-  // if (this.id === 'selected') {
-  //   this.removeAttribute('id');
-  // } else {
-    for (const indexIn of listedItem) { indexIn.id = ''; }
-    this.setAttribute('id', 'selected');
-  // }
+  Array.from(listedItem).reduce((acc, cur) => {
+    const ind = cur;
+    ind.removeAttribute('id', 'selected');
+    return undefined;
+  }, 0);
+  this.setAttribute('id', 'selected');
 }
+
 function addClassStyle() {
   if (this.className === 'completed') {
     this.classList.remove('completed');
@@ -28,46 +34,30 @@ function addClassStyle() {
 function addListItem() {
   const addItem = document.getElementById('criar-tarefa');
   addItem.addEventListener('click', () => {
-    const ordList = document.getElementById('lista-tarefas');
-    const currentInput = document.getElementById('texto-tarefa');
-    const currentItem = createListItem(textListItem());
+    const currentItem = createListItem();
     currentItem.addEventListener('click', addIdStyle);
     currentItem.addEventListener('dblclick', addClassStyle);
     ordList.appendChild(currentItem);
-    currentInput.value = '';
+    textInput.value = '';
   });
 }
 
-function eraseList() {
-  const ordList = document.getElementById('lista-tarefas');
-  ordList.innerHTML = '';
-}
-function eraseButton() {
-  const eraseAll = document.getElementById('apaga-tudo');
-  eraseAll.addEventListener('click', eraseList);
-}
-
-function removeCompleted(){
+function removeCompleted() {
   const completedItens = document.querySelectorAll('.completed');
-  for (let index of completedItens) {
+  Array.from(completedItens).reduce((acc, cur) => {
+    const index = cur;
     index.remove();
-  }
-}
-function completedButton() {
-  const removeCompButton = document.getElementById('remover-finalizados');
-  removeCompButton.addEventListener('click', removeCompleted);
+    return Error;
+  }, 0);
 }
 
-function removeSelected(){
+function removeSelected() {
   const selectedItem = document.getElementById('selected');
   if (selectedItem) {
     selectedItem.remove();
   }
 }
-function selectedButton() {
-  const removeSelecButton = document.getElementById('remover-selecionado');
-  removeSelecButton.addEventListener('click', removeSelected);
-}
+
 // Após pesquisar sobre "mover posição elementos HTML", encontrei uma dica no Stackoverflow sobre o "insertBefore()", analizando sua documentação pude concluir que seu uso seria útil para este requisito.
 function moveUp() {
   const selectedItem = document.getElementById('selected');
@@ -76,10 +66,6 @@ function moveUp() {
   if (selectedItem && selectedItem !== itensList[0]) {
     list.insertBefore(selectedItem, selectedItem.previousSibling);
   }
-}
-function buttonUp() {
-  const upButton = document.getElementById('mover-cima');
-  upButton.addEventListener('click', moveUp);
 }
 
 function moveDown() {
@@ -90,41 +76,40 @@ function moveDown() {
     list.insertBefore(selectedItem.nextSibling, selectedItem);
   }
 }
-function buttonDown() {
-  const upButton = document.getElementById('mover-baixo');
-  upButton.addEventListener('click', moveDown);
-}
 
 function saveListButton() {
   const saveButton = document.getElementById('salvar-tarefas');
-  saveButton.addEventListener('click', ()=> {
-    let listArray = [];
-    const ordList = document.getElementById('lista-tarefas');
-      listArray.push(ordList.innerHTML);
+  saveButton.addEventListener('click', () => {
+    const listArray = [];
+    listArray.push(ordList.innerHTML);
     localStorage.setItem('listItens_toDoList', JSON.stringify(listArray));
-  })
+  });
 }
 
 function loadListOnLocal() {
   if (localStorage.getItem('listItens_toDoList')) {
     const savedItens = JSON.parse(localStorage.getItem('listItens_toDoList'));
-    const ordList = document.getElementById('lista-tarefas');
     ordList.innerHTML = savedItens;
     const itensList = document.querySelectorAll('li');
-    for (let index of itensList) {
+    Array.from(itensList).reduce((acc, cur) => {
+      const index = cur;
       index.addEventListener('click', addIdStyle);
       index.addEventListener('dblclick', addClassStyle);
-    }
+      return undefined;
+    }, 0);
   }
 }
 
 window.onload = () => {
+  upButton.addEventListener('click', moveUp);
+  downButton.addEventListener('click', moveDown);
+  removeSelecButton.addEventListener('click', removeSelected);
+  removeCompButton.addEventListener('click', removeCompleted);
+  eraseAll.addEventListener('click', () => {
+    ordList.innerHTML = '';
+  });
+
   loadListOnLocal();
   addListItem();
-  eraseButton();
-  completedButton();
-  selectedButton();
-  buttonUp();
-  buttonDown();
   saveListButton();
 };
