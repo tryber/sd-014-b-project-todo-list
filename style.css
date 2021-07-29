@@ -1,0 +1,126 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-color: sandybrown;
+}
+
+main {
+  background-color: palegreen;
+  position: relative;
+  border: groove;
+  border-radius: 15%;
+  margin: 3% 8%;
+  padding: 10% 0;
+}
+
+header {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  padding: 10px;
+  margin-top: -10%;
+}
+ button:active {
+  opacity: 0.8;
+ }
+
+#funcionamento {
+  color:rgb(128, 128, 128);
+  font-size: medium;
+  text-align: center;
+}
+
+#texto-tarefa {
+  width: 45%;
+  padding: 1% 5%;
+  margin-left: 15%;
+}
+
+#criar-tarefa {
+  font-weight: 600;
+  padding: 1%;
+  background-color: seagreen;
+  border: solid thin;
+  border-radius: 5%;
+}
+
+#mover-cima {
+  margin: 0 0 5px 2%;
+}
+
+#mover-baixo {
+  margin: 0 0 -50% 0.5%;
+}
+
+.movePosition {
+  border-radius: 10%;
+  background-color: whitesmoke;
+  color: darkmagenta;
+  font-size: 1.5rem;
+}
+.moveDiv {
+  display: inline-block;
+  margin: 0 0 -50% 5%;
+}
+
+#remover-selecionado {
+  font-weight: 600;
+  padding: 1%;
+  background-color: goldenrod;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 2%;
+}
+
+#remover-finalizados {
+  font-weight: 600;
+  padding: 1%;
+  background-color: coral;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 2%;
+}
+
+#apaga-tudo {
+  font-weight: 600;
+  padding: 1%;
+  background-color: firebrick;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 2%;
+}
+
+#salvar-tarefas {
+  font-weight: 600;
+  padding: 1%;
+  background-color: cadetblue;
+  border: solid thin;
+  border-radius: 5%;
+  margin: 0 0 -50% 2%;
+}
+
+#selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+ol {
+  padding: 3% 10%;
+}
+
+li {
+  background-color: olivedrab;
+  list-style: inside decimal;
+  padding: 0.5rem;
+  margin: 1%;
+  font-size: large;
+  width: fit-content;
+  border: solid thin black;
+  border-radius: 25%;
+  user-select: none;
+}
