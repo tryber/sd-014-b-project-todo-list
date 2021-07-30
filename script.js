@@ -29,3 +29,11 @@ const insertLi = () => {
 };
 
 query('#criar-tarefa').addEventListener('click', insertLi);
+
+const del = query('#apaga-tudo');
+del.addEventListener('click', () => {
+  const tasks = queryAll('li');
+  tasks.forEach((element) => {
+    element.remove();
+  });
+});
