@@ -16,6 +16,7 @@ document.body.appendChild(h4);
 // Requesito 3
 const input = document.createElement('input');
 input.id = 'texto-tarefa';
+input.placeholder = 'Escreva suas tarefas:';
 document.body.appendChild(input);
 
 // Requesito 4, 5 e 6
@@ -92,5 +93,46 @@ const buttonSalve = document.createElement('button');
 buttonSalve.id = 'salvar-tarefas';
 buttonSalve.innerText = 'Salvar Tarefas';
 document.body.appendChild(buttonSalve);
+// Quando receber o click
+// Documentação - https://www.w3schools.com/jsref/met_storage_setitem.asp
+const salvar = document.querySelector('#salvar-tarefas');
+salvar.addEventListener('click', function(){
+  const olLi = document.querySelector('#lista-tarefas');
+  localStorage.setItem('list', olLi.innerHTML); // Salvar as informações
+});
+
+// Documentação - https://www.w3schools.com/jsref/met_storage_getitem.asp
+window.onload = function(){
+  const olLi = document.querySelector('#lista-tarefas');
+  olLi.innerHTML = localStorage.getItem('list'); // Retornar as informações
+}
+
+// Requesito 13
+const buttonMove = document.createElement('button');
+buttonMove.id = 'mover-cima';
+buttonMove.innerText = 'Mover para Cima'
+const buttonMoveList = document.createElement('button');
+buttonMoveList.innerText = 'Mover para Baixo'
+buttonMoveList.id = 'mover-baixo';
+document.body.appendChild(buttonMove);
+document.body.appendChild(buttonMoveList);
+
+
+// Requesito 14
+// Documentação - https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
+const remove = document.createElement('button');
+remove.id = 'remover-selecionado';
+remove.innerText = 'Remover Tarefas Realidazadas';
+document.body.appendChild(remove);
+const buttonCheckRemove = document.querySelector('#remover-selecionado');
+buttonCheckRemove.addEventListener('click', function(){
+  const li = document.querySelectorAll('li');
+  for(let i = 0; i < li.length; i += 1){
+    if(li[i].style.backgroundColor === 'rgb(128, 128, 128)'){
+      li[i].remove();
+    }
+  }
+});
+
 
 
