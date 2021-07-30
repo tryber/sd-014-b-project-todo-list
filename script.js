@@ -30,10 +30,18 @@ const insertLi = () => {
 
 query('#criar-tarefa').addEventListener('click', insertLi);
 
-const del = query('#apaga-tudo');
-del.addEventListener('click', () => {
-  const tasks = queryAll('li');
-  tasks.forEach((element) => {
-    element.remove();
+const deleted = query('#apaga-tudo');
+deleted.addEventListener('click', () => {
+  let tasks = queryAll('li');
+  tasks.forEach((e) => {
+    e.remove();
+  });
+});
+
+const deleteTagCompleted = query('#remover-finalizados');
+deleteTagCompleted.addEventListener('click', () => {
+  let taskTagCompleted = queryAll('.completed');
+  taskTagCompleted.forEach((e) => {
+    e.remove();
   });
 });
