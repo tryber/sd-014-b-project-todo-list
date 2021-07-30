@@ -1,4 +1,4 @@
-////https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 const query = document.querySelector.bind(document);
 const queryAll = document.querySelectorAll.bind(document);
 
@@ -8,7 +8,7 @@ const turnGrey = (x) =>
     event.target.classList.add('selected');
   });
 
-//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 const lineTrough = (y) => {
   y.addEventListener('dblclick', (e) => {
     e.target.classList.contains('completed')
@@ -18,9 +18,9 @@ const lineTrough = (y) => {
 };
 
 const insertLi = () => {
-  let taskList = query('#lista-tarefas');
-  let newLi = document.createElement('li');
-  let tagTextoTarefa = query('#texto-tarefa');
+  const taskList = query('#lista-tarefas');
+  const newLi = document.createElement('li');
+  const tagTextoTarefa = query('#texto-tarefa');
   taskList.appendChild(newLi);
   turnGrey(newLi);
   lineTrough(newLi);
@@ -32,7 +32,7 @@ query('#criar-tarefa').addEventListener('click', insertLi);
 
 const deleted = query('#apaga-tudo');
 deleted.addEventListener('click', () => {
-  let tasks = queryAll('li');
+  const tasks = queryAll('li');
   tasks.forEach((e) => {
     e.remove();
   });
@@ -40,8 +40,40 @@ deleted.addEventListener('click', () => {
 
 const deleteTagCompleted = query('#remover-finalizados');
 deleteTagCompleted.addEventListener('click', () => {
-  let taskTagCompleted = queryAll('.completed');
+  const taskTagCompleted = queryAll('.completed');
   taskTagCompleted.forEach((e) => {
     e.remove();
+  });
+});
+
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/parentNode
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/contains
+
+const up = query('#mover-cima');
+up.addEventListener('click', () => {
+  const a = queryAll('.selected').length;
+  if (!queryAll('li')[0].classList.contains('selected') && a === 1) {
+    const li = query('.selected');
+    li.parentNode.insertBefore(li, li.previousElementSibling);
+  }
+});
+const down = query('#mover-baixo');
+down.addEventListener('click', () => {
+  const a = queryAll('.selected').length;
+  const tagLi = queryAll('li');
+  const tagLiLength = tagLi.length - 1;
+  if (!tagLi[tagLiLength].classList.contains('selected') && a === 1) {
+    const li = query('.selected');
+    li.parentNode.insertBefore(li.nextElementSibling, li);
+  }
+});
+
+const removeSelected = query('#remover-selecionado');
+removeSelected.addEventListener('click', () => {
+  const task = queryAll('li');
+  task.forEach((e) => {
+    if (e.classList.contains('selected')) {
+      e.remove();
+    }
   });
 });
