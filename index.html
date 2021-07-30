@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minha lista de Tarefas</title>
 </head>
-    <header>Minha lista de Tarefas</header>
-    <h4>Clique duas vezes em um item para marcá-lo como completo</h4>
+    <header>Minha Lista de Tarefas</header>
+    <h4 id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</h4>
 <body>
 
     <input type="text" id="texto-tarefa"> </input>
-    <button onclick="alertaaa()">Adicionar</button>
+    <button onclick="adicionarItem()" id="criar-tarefa">Adicionar</button>
 
     <br>
     <br>
 
     <div>As tarefas entram nessa div
-        <ol id="lista-tarefas">
-
-        </ol>
+                    
+            <ol id="lista-tarefas">
+            
+            
+    </ol>
         
     </div>
 
@@ -28,22 +30,21 @@
     <br>
 
     <div>
-        <button onclick="alertaaa()" id="remover-selecionado"> X </button>
+        <button onclick="rmv()" id="remover-selecionado"> X </button>
         <button onclick="alertaaa()" id="mover-cima">Para cima</button>
         <button onclick="alertaaa()" id="mover-baixo">Para baixo</button>
-        <button onclick="alertaaa()" id="remover-finalizados">Limpar complementos</button>
-        <button onclick="alertaaa()" id="apaga-tudo">Limpar Lista</button>
-        <button onclick="alertaaa()" id="salvar-tarefas">Salvar Lista</button>
+        <button onclick="rmvfinalizados()" id="remover-finalizados">Limpar complementos</button>
+        <button onclick="apagatudo()" id="apaga-tudo">Limpar Lista</button>
+        <button onclick="load()" id="salvar-tarefas">Salvar Lista</button>
         
     </div>
     
 
 <script src="script.js">
-           
 
+   
 </script>
-    
-
 
 </body>
+
 </html>
