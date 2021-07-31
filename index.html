@@ -5,27 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" async></script>
 <title>To Do List - Ana Alice</title>
 </head>
 <body>
-  <header>
-    <h1> Minha Lista de Tarefas </h1>
-       </header>
+<div  class = "titulo">
+<header>
+  <h1>Minha Lista de Tarefas</h1>
+</header>
 
-    <p id="funcionamento"><em> Clique duas vezes em um item para marcá-lo como completo <em></p>
+<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
-      <input type="text" id="texto-tarefa" value="">
-      <button id="criar-tarefa">Criar Tarefa</button>
+<div class = "task">
+    <input type="text"  id="texto-tarefa">
+    <button type="button"  id="criar-tarefa" onclick = "adicionar()" >Criar tarefa</button>
+</div>
 
-      <ol id="lista-tarefas"></ol>
-       <li></li>
-       <li><li>
-       </li></li>
+  <ol id="lista-tarefas"></ol>
 
-      <div id="btnsArea">
-          <button id="remover-finalizados" class="btn">Limpar Completos</button>
-          <button id="apaga-tudo" class="btn">Limpar Lista</button>
-      </div>
+      <button  type="button"id="remover-finalizados" onclick="removeFinalizados()">Remover tarefa</button>
+      <button  type="button"  id="remover-selecionado">Remover Selecionado</button>
+      <button  id="salvar-tarefas" >Salvar Tarefa</button>
+      <button  id="mover-cima" onclick="moveUp()">↑</button>
+      <button  id="mover-baixo">↓</button>
+
+<div class = "footer">
+  <button  type="button"id="apaga-tudo">Apaga Tudo</button>
+</div>
+</div>
+  <script src="script.js"></script>
+
 </body>
 </html> 
