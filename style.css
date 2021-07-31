@@ -47,12 +47,12 @@
   padding: 5px;
 }
 
-.titulo .lista {
+/* .titulo .lista {
   max-height: 250px;
   overflow-y: auto;
-}
+} */
 
-.lista li {
+/* .lista li {
   list-style: none;
   height: 25px;
   line-height: 30px;
@@ -62,9 +62,9 @@
   margin: 20px 0;
   padding: 0 15px;
   overflow: hidden;
-}
+} */
 
-.lista-tarefas li {
+/* .lista-tarefas li {
   position: absolute;
   right: 35px;
   width: 15%;
@@ -73,7 +73,7 @@
   background: blueviolet;
   border-radius: 0 1px 1px 0;
   padding: 5px;
-}
+} */
 
 .titulo .footer {
   display: flex;
@@ -102,8 +102,9 @@ body {
   width: 100%;
 }
 
-.ol {
+.li {
   padding: 15px;
+  width: 25%;
 }
 
 button:hover {
@@ -111,6 +112,9 @@ button:hover {
 }
 
 .completed {
-  text-decoration: line-through solid rgb (0 , 0 , 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
 
+.selected {
+  background-color: rgb(128 , 128 , 128);
 }

@@ -1,12 +1,13 @@
 const createTask = document.querySelector('#criar-tarefa');
 const clearAll = document.querySelector('#apaga-tudo');
-// const removeAllFinal = document.querySelector('#remover-finalizados');
+const removeAllFinal = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
 const moveUp = document.querySelector('#mover-cima');
 const moveDown = document.querySelector('#mover-baixo');
-const removeSelected = document.querySelector('#remover-selecionado');
+// const removeSelected = document.querySelector('#remover-selecionado');
 const newTask = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
+let list = document.querySelectorAll('li');
 
 //  questão 5 - cria-se novo item na lista
 function createNewTask (){
@@ -25,20 +26,25 @@ createTask.addEventListener('click', createNewTask);
 
 // -----------------------------------------------------------------------------------------------
 // questão 7
-newTask.addEventListener('click', (event) => {
-  const white = event.target;
-  if (white.className === 'item-list') {
-    const selectedColor = document.querySelector('.selected');
-    if (selectedColor !== null) {
-      selectedColor.classList.remove('.selected');
-      selectedColor.style.backgroundColor = 'white';
+function backgroundGray (){
+  list.querySelectorAll('li');
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('.selected')) {
+      list[i].style.backgroundColor = 'rgb(128, 128, 128)';
+    } else {
+      list[i].style.backgroundColor = '';
     }
-    white.classList.add('.selected');
-    white.style.backgroundColor = 'rgb(128,128,128)';
   }
-});
-
-// ---------------------------------------------------------------------------------------------
+}
+// -------------------------------------------------------------------------------------
+// questão 8
+// function removeSelec(event) {
+//   const taskSelected = event.target;
+//   if (taskSelected) {
+//     taskSelected.classList.remove('selected');
+//   }
+//   event.target.classList.add('selected');
+// }
 // questão 9
 function completed(event){
   const riscaTask = event.target;
@@ -56,6 +62,15 @@ function clearTask() {
 }
 clearAll.addEventListener('click', clearTask);
 
+// --------------------------------------------------------------------------------------------
+// questão 11 pois é Brasil aqui estava chamando queryselector e não pela className!
+function removeFinalizados (){
+let fim = document.getElementsByClassName('completed');
+  for (let index = 0; index < fim.length; index += 1) {
+    fim[index].remove();     
+  }
+}
+removeAllFinal.addEventListener('click', removeFinalizados);
 // --------------------------------------------------------------------------------------------
 //  questão 12
 function saveAllTask() {
