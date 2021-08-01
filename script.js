@@ -3,7 +3,7 @@ const listaOrdenada = document.getElementById('lista-tarefas');
 const textoTarefa   = document.getElementById('texto-tarefa');
 const btnApagar     = document.getElementById('apaga-tudo');
 const btnRemoverFinalizados = document.getElementById('remover-finalizados');
-
+const btnRemoverSelecionados = document.getElementById('remover-selecionado');
 
 btnCriaTarefa.addEventListener('click', function() {
   const itemLista = document.createElement('li');
@@ -41,5 +41,12 @@ btnRemoverFinalizados.addEventListener('click', function(){
   for (var i = 0; i < completos.length; i++) {
     completos[i].remove();
   }
+});
 
+btnRemoverSelecionados.addEventListener('click',function(){
+  let selecionados = document.querySelectorAll('.selected');
+  for (let index = 0; index < selecionados.length; index++) {
+     selecionados[index].remove();
+    
+  }
 });
