@@ -127,6 +127,19 @@ ol.lastChild.classList.add('completed');
 }
 }
 
+const removeSelecionado = () => {
+  let ol = document.querySelector('ol');
+  let lista = document.querySelectorAll('li'); 
+  let item = document.querySelector('.cinza');
+  if (item === null) { return 'Erro'; }
+  const lista2 = lista.map((items) => {
+    if (item === items) {
+      ol.removeChild(item);
+    }
+    lista.forEach((itens) => { ol.removeChild(itens); });
+    return lista2.forEach((itens) => { ol.appendChild(itens); });
+  });
+};
 
 const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
 const buttonApagaTudo = document.getElementById('apaga-tudo');
@@ -134,6 +147,7 @@ const button = document.getElementById('criar-tarefa');
 const buttonSalvar = document.getElementById('salvar-tarefas');
 const buttonMoveUp = document.getElementById('mover-cima');
 const buttonMovedown = document.getElementById('mover-baixo');
+const buttonRemoverSelecionado = document.getElementById('remover-selecionado');
 button.addEventListener('click', createItem);
 button.addEventListener('click', addEvent);
 buttonApagaTudo.addEventListener('click', apagaLista);
@@ -143,3 +157,4 @@ imprimirListaSalva();
 addEvent();
 buttonMoveUp.addEventListener('click', moveUp);
 buttonMovedown.addEventListener('click', moveDown);
+buttonRemoverSelecionado.addEventListener('click', removeSelecionado);
