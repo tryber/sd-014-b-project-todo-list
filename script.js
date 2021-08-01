@@ -7,10 +7,18 @@ const moveDown = document.querySelector('#mover-baixo');
 // const removeSelected = document.querySelector('#remover-selecionado');
 const newTask = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
-let list = document.querySelectorAll('li');
+const list = document.querySelectorAll('li');
 
+function alert() {
+  document.querySelector('#criar-tarefa').onclick = function () {
+    if (document.querySelector('.task input').value.length === 0){
+      alert("Adicione uma tarefa!");
+    }
+  }  
+}
+alert();
 //  questão 5 - cria-se novo item na lista
-function createNewTask (){
+function createNewTask() {
   if (inputTask.value === '') {
     return null;
   }
@@ -26,25 +34,20 @@ createTask.addEventListener('click', createNewTask);
 
 // -----------------------------------------------------------------------------------------------
 // questão 7
-function backgroundGray (){
-  list.querySelectorAll('li');
-  for (let i = 0; i < list.length; i += 1) {
-    if (list[i].classList.contains('.selected')) {
-      list[i].style.backgroundColor = 'rgb(128, 128, 128)';
-    } else {
-      list[i].style.backgroundColor = '';
+function backgroundGray(){
+  newTask.addEventListener('click', (event) => {
+    for (let i = 0; i < list.length; i++) {
+      const listGray = list[i];
+      listGray.style.backgroundColor = 'rgb(128,128,128)';
+      listGray.style.backgroundColor = '';
     }
-  }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+});
 }
+  backgroundGray();
 // -------------------------------------------------------------------------------------
 // questão 8
-// function removeSelec(event) {
-//   const taskSelected = event.target;
-//   if (taskSelected) {
-//     taskSelected.classList.remove('selected');
-//   }
-//   event.target.classList.add('selected');
-// }
+
 // questão 9
 function completed(event){
   const riscaTask = event.target;
@@ -64,8 +67,8 @@ clearAll.addEventListener('click', clearTask);
 
 // --------------------------------------------------------------------------------------------
 // questão 11 pois é Brasil aqui estava chamando queryselector e não pela className!
-function removeFinalizados (){
-let fim = document.getElementsByClassName('completed');
+function removeFinalizados(){
+const fim = document.getElementsByClassName('completed');
   for (let index = 0; index < fim.length; index += 1) {
     fim[index].remove();     
   }
@@ -86,38 +89,25 @@ function saveLocal() {
 }
 saveLocal();
 
-
 // ------------------------------------------------------------------------------------------
 // questão 13 
 function buttonUp() {
   const selectButtonUp = document.querySelector('.selected');
-    if (selectButtonUp !== null) {
-    const taskUp = selectButtonUp.previousElementSibling;
-    if (selectButtonUp !== newTask.firstChild) {
-      newTask.insertBefore(selectButtonUp, taskUp);
+    if (selectButtonUp !== null && selectButtonUp.previousElementSibling) {
+  selectButtonUp.parentNode.insertBefore(selectButtonUp.nextElementSibling.selectButtonUp);
     }
-  }
 }
+moveUp.addEventListener('click',buttonUp);
 
 function buttonDown (){
   const selectButtonDown = document.querySelector('.selected');
-  if (selectButtonDown !== null) {
-    const taskDown = selectButtonDown.nextElementSibling;
-    if (selectButtonDown !== newTask.lastChild) {
-    newTask.insertBefore(selectButtonDown, taskDown.nextElementSibling);
-    }
+  if (selectButtonDown!== null && selectButtonDown.previousElementSibling) {
+    selectButtonDown.parentNode.insertBefore(selectButtonDown.nextElementSibling.selectButtonDown);
   }
 }
-
-moveUp.addEventListener('click',buttonUp);
 moveDown.addEventListener('click',buttonDown);
-// --------------------------------------------------------------------------------
-  document.querySelector('#criar-tarefa').onclick = function () {
-  if (document.querySelector('.task input').value.length === 0){
-  alert ("Adicione uma tarefa!")
-   }
-}  
 
+// --------------------------------------------------------------------------------
 // referências;
 // https://www.youtube.com/watch?v=cOUNOi297Mw&list=PLX4L0zwlay26RzUq6leLM0mdAEFQY1Rky&index=65&ab_channel=CodingArtist
 // /* https://www.w3schools.com/css/css_overflow.asp
