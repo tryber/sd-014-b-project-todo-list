@@ -132,7 +132,7 @@ const removeSelecionado = () => {
   const lista = document.querySelectorAll('li'); 
   const item = document.querySelector('.cinza');
   if (item === null) { return 'Erro'; }
-  const lista2 = Array.from(lista).filter((items) => (item !== items));
+  const lista2 = Array.from(lista).filter((items) => (item !== items)); // https://stackoverflow.com/questions/32765157/filter-or-map-nodelists-in-es6
   lista.forEach((itens) => { ol.removeChild(itens); });
   lista2.forEach((itens) => { ol.appendChild(itens); });
 };
