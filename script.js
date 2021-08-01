@@ -128,17 +128,13 @@ ol.lastChild.classList.add('completed');
 }
 
 const removeSelecionado = () => {
-  let ol = document.querySelector('ol');
-  let lista = document.querySelectorAll('li'); 
-  let item = document.querySelector('.cinza');
+  const ol = document.querySelector('ol');
+  const lista = document.querySelectorAll('li'); 
+  const item = document.querySelector('.cinza');
   if (item === null) { return 'Erro'; }
-  const lista2 = lista.map((items) => {
-    if (item === items) {
-      ol.removeChild(item);
-    }
-    lista.forEach((itens) => { ol.removeChild(itens); });
-    return lista2.forEach((itens) => { ol.appendChild(itens); });
-  });
+  const lista2 = Array.from(lista).filter((items) => (item !== items));
+  lista.forEach((itens) => { ol.removeChild(itens); });
+  lista2.forEach((itens) => { ol.appendChild(itens); });
 };
 
 const buttonRemoveFinalizados = document.getElementById('remover-finalizados');
