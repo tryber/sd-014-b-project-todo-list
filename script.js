@@ -29,29 +29,42 @@ function moveUp() {
   let ol = document.querySelector('ol');
   let lista = document.querySelectorAll('li'); 
   let item = document.querySelector('.cinza');
-  let itemNumber = 0;
-  let tarefas = [];
-  for(let index = 0; index <= lista.length - 1; index += 1) {
-    // tarefas.push(lista[index]);
-    if(item === lista[index]) {
-      itemNumber = index;
-      console.log(itemNumber);
-    }
+  if (item === null) { return 'Erro'; }
+  let posicao = 0;
+  lista.forEach((itens, index) => { { if ( itens === item ) { posicao = index; } } });
+  const up = posicao - 1;
+  let lista2 = [];
+  for (let index = 0; index < lista.length; index += 1) {
+    if (index === up) {
+      lista2.push(item);
+      lista2.push(lista[index]);
+      index += 1;
+    } else { lista2.push(lista[index]); }
   }
-  console.log(lista);
-  if (itemNumber !== 0 && itemNumber !== lista.length - 1) {
-    for(let index = 0; index <= lista.length - 1; index += 1) {
-      if(index === itemNumber){
-      }
-       if(index < itemNumber) {
-      ol.removeChild(lista[index]);
-      ol.appendChild(lista[index]);
-      return;
-      }
-    }
-  }
+  lista.forEach((itens) => { ol.removeChild(itens); });
+  lista.forEach((itens, index) => { ol.appendChild(lista2[index]); });
 }
 
+function moveDown() {
+  let ol = document.querySelector('ol');
+  let lista = document.querySelectorAll('li'); 
+  let item = document.querySelector('.cinza');
+  if (item === null) { return 'Erro'; }
+  let posicao = 0;
+  lista.forEach((itens, index) => { { if ( itens === item ) { posicao = index; } } });
+  let lista2 = [];
+  if (posicao !== lista.length - 1) {
+    for (let index = 0; index < lista.length; index += 1) {
+      if (index === posicao) {
+        lista2.push(lista[index + 1]);
+        lista2.push(item);
+        index += 1;
+      } else { lista2.push(lista[index]); }
+    }
+    lista.forEach((itens) => { ol.removeChild(itens); });
+    lista.forEach((itens, index) => { ol.appendChild(lista2[index]); });
+  }
+}
 
 function addEvent() {
 let lista = document.querySelectorAll('li');
@@ -60,7 +73,7 @@ for (let item of lista) {
 item.addEventListener('click', becomeGrey);
 item.addEventListener('dblclick', riscar);
 }
-}
+} 
 
 function becomeGrey(event) {
 let lista = document.querySelectorAll('li');
@@ -129,3 +142,4 @@ buttonSalvar.addEventListener('click', salvarLista);
 imprimirListaSalva();
 addEvent();
 buttonMoveUp.addEventListener('click', moveUp);
+buttonMovedown.addEventListener('click', moveDown);
