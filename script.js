@@ -37,8 +37,9 @@ btnApagar.addEventListener('click', function(){
 });
 
 btnRemoverFinalizados.addEventListener('click', function(){
-  let completos = document.getElementsByClassName('completed');
+  let completos = document.querySelectorAll('.completed');
   for (var i = 0; i < completos.length; i++) {
-    completos[0].parentNode.removeChild(completos[0]);
+    completos[i].remove();
   }
+
 });
