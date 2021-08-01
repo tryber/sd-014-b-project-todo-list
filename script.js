@@ -4,6 +4,9 @@ const textoTarefa   = document.getElementById('texto-tarefa');
 const btnApagar     = document.getElementById('apaga-tudo');
 const btnRemoverFinalizados = document.getElementById('remover-finalizados');
 const btnRemoverSelecionados = document.getElementById('remover-selecionado');
+const btnSalvarTarefas = document.getElementById('salvar-tarefas');
+
+
 
 btnCriaTarefa.addEventListener('click', function() {
   const itemLista = document.createElement('li');
@@ -50,3 +53,13 @@ btnRemoverSelecionados.addEventListener('click',function(){
     
   }
 });
+
+btnSalvarTarefas.addEventListener('click', function(){
+  localStorage.setItem('salvos', listaOrdenada.innerHTML);
+});
+
+window.onload = function () {
+  if (localStorage.getItem('salvos')) {
+    listaOrdenada.innerHTML = localStorage.getItem('salvos');
+  }
+}
