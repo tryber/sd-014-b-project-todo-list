@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.titulo {
+  margin: 220px auto;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  background-color: yellowgreen;
+  border-radius: 5px;
+}
+
+.titulo header {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.titulo .task {
+  display: flex;
+  height: 30px;
+  width: 80%;
+  margin: 20px 0;
+}
+
+.task input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid black;
+  font-size: 15px;
+  border-radius: 2px;
+}
+
+.task button {
+  border: none;
+  outline: none;
+  color: white;
+  background: blueviolet;
+  width: 200px;
+  height: 120%;
+  border-radius: 1px;
+  margin: auto;
+  font-size: 15px;
+  padding: 5px;
+}
+
+/* .titulo .lista {
+  max-height: 250px;
+  overflow-y: auto;
+} */
+
+/* .lista li {
+  list-style: none;
+  height: 25px;
+  line-height: 30px;
+  position: relative;
+  background: white;
+  border-radius: 3px;
+  margin: 20px 0;
+  padding: 0 15px;
+  overflow: hidden;
+} */
+
+/* .lista-tarefas li {
+  position: absolute;
+  right: 35px;
+  width: 15%;
+  color: white;
+  text-align: center;
+  background: blueviolet;
+  border-radius: 0 1px 1px 0;
+  padding: 5px;
+} */
+
+.titulo .footer {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer button {
+  border: none;
+  outline: none;
+  color: white;
+  background: blueviolet;
+  width: 100px;
+  height: 120%;
+  border-radius: 1px;
+  margin: auto;
+  font-size: 15px;
+  padding: 5px;
+}
+
+body {
+  background-color: aliceblue;
+  height: 100vh;
+  width: 100%;
+}
+
+.li {
+  padding: 15px;
+  width: 25%;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
