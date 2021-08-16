@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(255 255 224);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+header {
+  background-color: burlywood;
+  margin-top: 50px;
+}
+
+.h1-header {
+  margin-top: 20px;
+}
+
+#funcionamento {
+  margin-top: 32px;
+}
+
+#texto-tarefa {
+  width: 100%;
+  margin: 0%;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.btn-custom {
+  border-radius: 50px;
+  margin: 10px;
+}
