@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-constant-condition */
 function alterColor() {
   const getTasks = document.querySelectorAll('.task');
@@ -80,6 +81,7 @@ function saveTasks() {
 }
 saveTasks();
 
+// eslint-disable-next-line max-lines-per-function
 function setTasksSaved() {
   const taskList = document.querySelector('#lista-tarefas');
   if (localStorage.getItem('taskList') !== '') {
@@ -87,12 +89,21 @@ function setTasksSaved() {
   }
   const getTasks = document.querySelectorAll('.task');
   for (let index = 0; index < getTasks.length; index += 1) {
+    // eslint-disable-next-line sonarjs/no-identical-functions
     getTasks[index].addEventListener('click', (event) => {
       alterColor();
-      event.target.classList.add('selected');
-      // eslint-disable-next-line no-param-reassign
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      alert('teste');
+      const getEvent = event.target;
+      getEvent.classList.add('selected');
+      getEvent.style.backgroundColor = 'rgb(128, 128, 128)';
+      // eslint-disable-next-line no-shadow
+      // eslint-disable-next-line sonarjs/no-identical-functions
+      getTasks.addEventListener('dblclick', (event) => {
+        if (event.target.classList.contains('completed')) {
+          event.target.classList.remove('completed');
+        } else {
+          event.target.classList.add('completed');
+        }
+      });
     });
   }
 }
