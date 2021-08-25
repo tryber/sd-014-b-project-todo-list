@@ -56,3 +56,23 @@ body {
 /**********
 ----- Conteúdo de Funções -----
 **********/
+
+#texto-tarefa {
+  height: 27px;
+}
+
+.btn-format {
+  width: 150px;
+  height: 33px;
+  background: rgb(255, 168, 82);
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-out;
+}
+
+.btn-format:hover {
+  background:rgb(255, 212, 82);
+}
