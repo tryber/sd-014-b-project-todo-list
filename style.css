@@ -2,6 +2,11 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0)
 }
+
+#selected {
+  background-color:rgb(97, 223, 204);
+}
+
 html {
   height:100%;
 }
