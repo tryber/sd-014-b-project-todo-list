@@ -2,27 +2,26 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0)
 }
+html {
+  height:100%;
+}
 
 body {
-display: flex;
-flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
+  height:100%;
+  background-color: rgb(97, 223, 204);
 }
 
 header {
   display: flex;
   justify-content:space-around;
-  border: 1px black solid;
 }
 
 main {
-border: 1px black solid;
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  height:100%;
 }
 
 
-
-footer {
-  border: 1px black solid;
-}
