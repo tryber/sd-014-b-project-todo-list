@@ -23,7 +23,7 @@ function corDeFundoItemLista(event) {
     tarefas[i].style.backgroundColor = '';
     tarefas[i].removeAttribute('id');
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.style.backgroundColor = 'hsl(171, 100%, 41%)';
   event.target.id = 'selected';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
@@ -58,7 +58,6 @@ function saveTasks() {
   localStorage.setItem('list', listaTarefas.innerHTML);
 }
 
-
 buttonSaveTasks.addEventListener('click', saveTasks);
 
 function moveUp() {
@@ -73,7 +72,7 @@ function moveUp() {
             array[iTrocado].innerHTML = array[index].innerHTML;
             array[iTroca].innerHTML = position;
             array[iTrocado].id = 'selected';
-            array[iTrocado].style.backgroundColor = 'rgb(128, 128, 128)';
+            array[iTrocado].style.backgroundColor = 'hsl(171, 100%, 41%)';
             // array[iTrocado].className = 'tarefa completed';
             array[index].removeAttribute('id');
             array[index].style.backgroundColor = '';
@@ -110,7 +109,7 @@ function moveDown () {
             array[iTrocado].innerHTML = array[index].innerHTML;
             array[iTroca].innerHTML = position;
             array[iTrocado].id = 'selected';
-            array[iTrocado].style.backgroundColor = 'rgb(128, 128, 128)';
+            array[iTrocado].style.backgroundColor = 'hsl(171, 100%, 41%)';
             // array[iTrocado].className = 'tarefa completed';
             array[index].removeAttribute('id');
             array[index].style.backgroundColor = '';

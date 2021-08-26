@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/da7a1467d8.js" crossorigin="anonymous"></script>
     <title>To-Do List</title>
 </head>
 <body class="content">
@@ -19,25 +20,38 @@
                     <input class="input is-hovered" type="text" id="texto-tarefa">
                 </div>
                 <div class="control">
-                    <button class="button" type="submit" id="criar-tarefa">Adicionar</button>
+                    <button class="button is-primary is-outlined" type="submit" id="criar-tarefa">Adicionar</button>
                 </div>
             </div>
             <ol id="lista-tarefas"></ol>
-            <div>
-                <button id="apaga-tudo">Apagar Tudo</button>
-                <button id="remover-finalizados">Limpar Completos</button>
-                <button id="salvar-tarefas">Salvar Tarefas</button>
-                <button id="remover-selecionado">Remover Selecionado</button>
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-rounded is-link" id="mover-cima">
+                  <span class="icon">
+                    <i class="fas fa-angle-up"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="control">
+                <button class="button is-rounded is-link" id="mover-baixo">
+                  <span class="icon">
+                    <i class="fas fa-angle-down"></i>
+                  </span>
+                </button>
+              </div>
             </div>
-            <button id="mover-cima">Cima</button>
-            <button id="mover-baixo">Abaixo</button>
+            <div>
+                <button class="button" id="apaga-tudo">Apagar Tudo</button>
+                <button class="button" id="remover-finalizados">Limpar Completos</button>
+                <button class="button" id="salvar-tarefas">Salvar Tarefas</button>
+                <button class="button" id="remover-selecionado">Remover Selecionado</button>
+            </div>
         </div>
     </main>
     <footer class="block">
         <div>
             footer
         </div>
-        
     </footer>
     <script src="/script.js"></script>
 </body>
