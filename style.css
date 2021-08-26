@@ -1,3 +1,28 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0)
+}
+
+body {
+display: flex;
+flex-direction: column;
+
+}
+
+header {
+  display: flex;
+  justify-content:space-around;
+  border: 1px black solid;
+}
+
+main {
+border: 1px black solid;
+display: flex;
+justify-content: space-around;
+}
+
+
+
+footer {
+  border: 1px black solid;
 }

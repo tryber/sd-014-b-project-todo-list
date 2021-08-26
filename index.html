@@ -5,24 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>To-Do List</title>
 </head>
-<body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
+<body class="content">
+    <header class="block">
+        <h1 class="title">Minha Lista de Tarefas</h1>
     </header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
-    <button type="submit" id="criar-tarefa">Adicionar</button>
-    <ol id="lista-tarefas"></ol>
-    <div>
-        <button id="apaga-tudo">Apagar Tudo</button>
-        <button id="remover-finalizados">Limpar Completos</button>
-        <button id="salvar-tarefas">Salvar Tarefas</button>
-        <button id="remover-selecionado">Remover Selecionado</button>
-    </div>
-    <button id="mover-cima">Cima</button>
-    <button id="mover-baixo">Abaixo</button>
+    <main class="block">
+        <div class="box">
+            <p class="subtitle" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input is-hovered" type="text" id="texto-tarefa">
+                </div>
+                <div class="control">
+                    <button class="button" type="submit" id="criar-tarefa">Adicionar</button>
+                </div>
+            </div>
+            <ol id="lista-tarefas"></ol>
+            <div>
+                <button id="apaga-tudo">Apagar Tudo</button>
+                <button id="remover-finalizados">Limpar Completos</button>
+                <button id="salvar-tarefas">Salvar Tarefas</button>
+                <button id="remover-selecionado">Remover Selecionado</button>
+            </div>
+            <button id="mover-cima">Cima</button>
+            <button id="mover-baixo">Abaixo</button>
+        </div>
+    </main>
+    <footer class="block">
+        <div>
+            footer
+        </div>
+        
+    </footer>
     <script src="/script.js"></script>
 </body>
 </html>
