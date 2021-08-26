@@ -7,6 +7,7 @@ const buttonSaveTasks = document.getElementById('salvar-tarefas');
 const buttonUp = document.getElementById('mover-cima');
 const buttonDown = document.getElementById('mover-baixo');
 const removeSelectedButton = document.getElementById('remover-selecionado');
+const cor = 'hsl(171, 100%, 41%)';
 
 function addTarefaLista() {
   const tarefa = document.createElement('li');
@@ -23,8 +24,9 @@ function corDeFundoItemLista(event) {
     tarefas[i].style.backgroundColor = '';
     tarefas[i].removeAttribute('id');
   }
-  event.target.style.backgroundColor = 'hsl(171, 100%, 41%)';
-  event.target.id = 'selected';
+  const tarefa = event.target;
+  tarefa.style.backgroundColor = cor;
+  tarefa.id = 'selected';
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
 
