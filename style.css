@@ -18,46 +18,36 @@ body {
   margin: 10px;
 }
 
-#apaga-tudo {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 4px;
-  border: 2px solid black;
-  background-color: blue;
-  color: white;
-  font-weight: 700;
-}
-
 #texto-tarefa {
   border: 2px solid black;
   border-radius: 4px;
-  padding: 5px;
+  padding: 10px;
+  margin: 5px;
 }
 
 #criar-tarefa {
-  margin: 10px;
-  padding: 4px 8px;
+  margin: 5px;
+  padding: 10px;
   border-radius: 4px;
   border: 2px solid black;
-  background-color: blue;
-  color: white;
+  background-color: black;
+  color: blue;
   font-weight: 700;
 }
 
 #lista-tarefas {
-  width: 50%;
+  width: 40%;
   margin: auto;
   text-align: initial;
 }
 
-#remover-finalizados {
+.li-list {
+  text-align: center;
   margin: 10px;
-  padding: 10px;
+  border: 1px solid black;
+  padding: 5px;
   border-radius: 4px;
-  border: 2px solid black;
-  background-color: blue;
-  color: white;
-  font-weight: 700;
+  list-style: none;
 }
 
 .selected {
@@ -68,8 +58,36 @@ body {
   text-decoration: line-through solid black;
 }
 
+.buttons {
+  display: flex;
+  max-width: 500px;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+#remover-finalizados {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#apaga-tudo {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
 #salvar-tarefas {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border: 2px solid black;
@@ -79,7 +97,7 @@ body {
 }
 
 #mover-cima {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border: 2px solid black;
@@ -89,7 +107,7 @@ body {
 }
 
 #mover-baixo {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border: 2px solid black;
@@ -99,11 +117,34 @@ body {
 }
 
 #remover-selecionado {
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border: 2px solid black;
   background-color: blue;
   color: white;
   font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+  #criar-tarefa{
+    display: flex;
+    max-width: 200px;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #lista-tarefas {
+    display: flex;
+    width: 150px;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .buttons {
+    max-width: 200px;
+    flex-flow: column wrap;
+  }
 }

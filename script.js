@@ -2,9 +2,7 @@
 const findList = document.querySelector('#lista-tarefas');
 const button = document.querySelector('#criar-tarefa');
 const inputValue = document.querySelector('#texto-tarefa');
-// const finished = document.querySelectorAll('.completed');
 const deleteAll = document.querySelector('#apaga-tudo');
-// const liList = document.getElementsByClassName('li-list');
 const deleteFinished = document.querySelector('#remover-finalizados');
 const salvarTarefas = document.querySelector('#salvar-tarefas');
 const moverCima = document.querySelector('#mover-cima');
