@@ -1,0 +1,31 @@
+@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css';
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+#selected {
+  background-color: rgb(97 , 223 , 204);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgb(97 , 223 , 204);
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/da7a1467d8.js" crossorigin="anonymous"></script>
+    <title>To-Do List</title>
+</head>
+<body class="content">
+    <header class="box is-flex">
+        <h1 class="title is-1">
+          <span class="icon">
+            <i class="fas fa-clipboard-list"></i>
+          </span>
+          <span>Minha Lista de Tarefas</span>
+          </h1>
+          <div class="block">
+            <a href="https://github.com/esdrasoliveira5" target="_blank">
+              <span class="icon has-text-primary subtitle is-4">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+            <a href="">
+              <span class="icon has-text-primary subtitle is-4" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </span>
+            </a>
+          </div>
+    </header>
+    <main>
+      <div class="block">
+        <div class="box">
+          <p class="subtitle" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+          <div class="field has-addons">
+              <div class="control">
+                  <input class="input is-hovered" type="text" id="texto-tarefa">
+              </div>
+              <div class="control">
+                  <button class="button is-primary is-outlined" type="submit" id="criar-tarefa">Adicionar</button>
+              </div>
+          </div>
+          <ol id="lista-tarefas"></ol>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-rounded is-link" id="mover-cima">
+                <span class="icon">
+                  <i class="fas fa-angle-up"></i>
+                </span>
+              </button>
+            </div>
+            <div class="control">
+              <button class="button is-rounded is-link" id="mover-baixo">
+                <span class="icon">
+                  <i class="fas fa-angle-down"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-danger" id="apaga-tudo">
+                <span class="icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <span>Apagar Tudo</span>
+                </button>
+            </div>
+            <div class="control">
+              <button class="button is-warning" id="remover-finalizados">
+                <span class="icon">
+                  <i class="fas fa-check"></i>
+                </span>
+                <span>Limpar Completos</span>
+                </button>
+            </div>
+            <div class="control">
+              <button class="button is-success" id="salvar-tarefas">
+                <span class="icon">
+                  <i class="far fa-save"></i>
+                </span>
+                <span>Salvar Tarefas</span>
+                </button>
+            </div>
+            <div class="control">
+              <button class="button is-info" id="remover-selecionado">
+                <span class="icon">
+                  <i class="far fa-trash-alt"></i>
+                </span>
+                <span>Remover Selecionado</span>
+                </button>
+            </div>
+          </div>
+      </div>
+      </div>
+    </main>
+    <footer class="footer">
+        <div class="content has-text-centered">
+           To-Do List by Esdras Oliveira. Project carried out during the basics module of the <a href="https://www.betrybe.com/" target="_blank">Trybe</a> web development course.
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>
