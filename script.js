@@ -1,36 +1,36 @@
-// 5, 6 
+// 5 e 6
 const findList = document.querySelector('#lista-tarefas');
-const button = document.querySelector("#criar-tarefa");
-const inputValue = document.querySelector("#texto-tarefa");
-const finished = document.querySelectorAll('.completed')
+const button = document.querySelector('#criar-tarefa');
+const inputValue = document.querySelector('#texto-tarefa');
+// const finished = document.querySelectorAll('.completed');
 const deleteAll = document.querySelector('#apaga-tudo');
-const liList = document.getElementsByClassName('li-list');
+// const liList = document.getElementsByClassName('li-list');
 const deleteFinished = document.querySelector('#remover-finalizados');
-
-function addItemInList() {
-  let createLi = document.createElement('li');
-  createLi.innerText = inputValue.value;
-  createLi.classList.add('li-list');
-  findList.appendChild(createLi);
-  inputValue.value = "";
-  changeColor();
-}
-button.addEventListener('click', addItemInList);
+const moverCima = document.querySelector('#mover-cima');
+const moverBaixo = document.querySelector('#mover-baixo');
+const removerSelecionado = document.querySelector('#remover-selecionado');
 
 // 7 e 8.
 
-function changeColor() {findList.addEventListener('click', function(event) {
-    let list = document.querySelectorAll('#lista-tarefas>li');
-    for (let index = 0; index < list.length; index += 1) {
-      let backColor = list[index].style.backgroundColor;
-      if (backColor === 'rgb(128, 128, 128)') {
-        list[index].style.backgroundColor = 'white';
-      }
-    }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
-};
-changeColor();
+function addItemInList() {
+  const createLi = document.createElement('li');
+  createLi.innerText = inputValue.value;
+  createLi.classList.add('li-list');
+  findList.appendChild(createLi);
+  inputValue.value = '';
+}
+button.addEventListener('click', addItemInList);
+
+function changeToGray(event) {
+  const selected = document.querySelector('.selected');
+  if (selected !== null) {
+    selected.classList.remove('selected');
+  }
+  const element = event;
+  element.target.classList.add('selected');
+}
+
+findList.addEventListener('click', changeToGray);
 
 // 9.
 function lineCompleted(event) {
@@ -46,7 +46,7 @@ findList.addEventListener('dblclick', lineCompleted);
 // 10.
 
 function clearList() {
-  while (findList.hasChildNodes()) {  
+  while (findList.hasChildNodes()) {
     findList.removeChild(findList.firstChild);
   }
 }
@@ -56,8 +56,41 @@ deleteAll.addEventListener('click', clearList);
 // 11.
 
 function clearFinished() {
-  let completed = document.querySelectorAll('.completed');
-  completed.forEach((e) => e.parentNode.removeChild(e))
+  const completed = document.querySelectorAll('.completed');
+  completed.forEach((element) => element.parentNode.removeChild(element));
 }
 
 deleteFinished.addEventListener('click', clearFinished);
+
+// 13.
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (findList.firstChild !== selected && selected !== null) {
+    findList.insertBefore(selected, selected.previousSibling);
+  } else {
+    alert('Retorno inválido!');
+  }
+}
+
+moverCima.addEventListener('click', moveUp);
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (findList.lastChild !== selected && selected !== null) {
+    findList.insertBefore(selected.nextSibling, selected);
+  } else {
+    alert('Retorno inválido!');
+  }
+}
+
+moverBaixo.addEventListener('click', moveDown);
+
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  if (findList.contains(selected)) {
+    findList.removeChild(selected);
+  }
+}
+
+removerSelecionado.addEventListener('click', removeSelected);
