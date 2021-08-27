@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.title {
+  margin: 10px;
+}
+
+#funcionamento {
+  margin: 10px;
+}
+
+#texto-tarefa {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
+}
+
+#criar-tarefa {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: black;
+  color: blue;
+  font-weight: 700;
+}
+
+#lista-tarefas {
+  width: 40%;
+  margin: auto;
+  text-align: initial;
+}
+
+.li-list {
+  text-align: center;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 4px;
+  list-style: none;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.buttons {
+  display: flex;
+  max-width: 500px;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+#remover-finalizados {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#apaga-tudo {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#salvar-tarefas {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#mover-cima {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#mover-baixo {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+#remover-selecionado {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+  #criar-tarefa{
+    display: flex;
+    max-width: 200px;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
+  #lista-tarefas {
+    display: flex;
+    width: 150px;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .buttons {
+    max-width: 200px;
+    flex-flow: column wrap;
+  }
+}
