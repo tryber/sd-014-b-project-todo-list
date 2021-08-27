@@ -18,14 +18,22 @@ function addTarefaLista() {
 }
 botaoCriarTarefa.addEventListener('click', addTarefaLista);
 
-function corDeFundoItemLista(event) {
+function removeId() {
   const tarefas = document.getElementsByClassName('tarefa');
+  for (let i = 0; i < tarefas.length; i += 1) {
+    tarefas[i].removeAttribute('id');
+  }
+}
+
+function corDeFundoItemLista(event) {
   const tarefa = event.target;
   if (tarefa.className === 'tarefa' || tarefa.className === tarefaCompleted) {
-    for (let i = 0; i < tarefas.length; i += 1) {
-      tarefas[i].removeAttribute('id');
+    if (tarefa.id === 'selected') {
+      tarefa.removeAttribute('id');
+    } else {
+      removeId();
+      tarefa.id = 'selected';
     }
-    tarefa.id = 'selected';
   }
 }
 listaTarefas.addEventListener('click', corDeFundoItemLista);
@@ -93,14 +101,16 @@ buttonSaveTasks.addEventListener('click', saveTasks);
 
 function moveUp() {
   const selected = document.querySelector('#selected');
-  const position = selected.previousElementSibling.innerHTML;
-  selected.previousElementSibling.innerHTML = selected.innerHTML;
-  selected.previousElementSibling.id = 'selected';
-  selected.innerHTML = position;
-  selected.removeAttribute('id');
-  if (selected.className === tarefaCompleted) {
-    selected.classList.remove('completed');
-    selected.previousElementSibling.className = tarefaCompleted;
+  if (selected.previousElementSibling !== null) {
+    const position = selected.previousElementSibling.innerHTML;
+    selected.previousElementSibling.innerHTML = selected.innerHTML;
+    selected.previousElementSibling.id = 'selected';
+    selected.innerHTML = position;
+    selected.removeAttribute('id');
+    if (selected.className === tarefaCompleted) {
+      selected.classList.remove('completed');
+      selected.previousElementSibling.className = tarefaCompleted;
+    }
   }
 }
 
@@ -137,14 +147,16 @@ buttonUp.addEventListener('click', moveUp);
 
 function moveDown() {
   const selected = document.querySelector('#selected');
-  const position = selected.nextElementSibling.innerHTML;
-  selected.nextElementSibling.innerHTML = selected.innerHTML;
-  selected.nextElementSibling.id = 'selected';
-  selected.innerHTML = position;
-  selected.removeAttribute('id');
-  if (selected.className === tarefaCompleted) {
-    selected.classList.remove('completed');
-    selected.nextElementSibling.className = tarefaCompleted;
+  if (selected.nextElementSibling !== null) {
+    const position = selected.nextElementSibling.innerHTML;
+    selected.nextElementSibling.innerHTML = selected.innerHTML;
+    selected.nextElementSibling.id = 'selected';
+    selected.innerHTML = position;
+    selected.removeAttribute('id');
+    if (selected.className === tarefaCompleted) {
+      selected.classList.remove('completed');
+      selected.nextElementSibling.className = tarefaCompleted;
+    }
   }
 }
 buttonDown.addEventListener('click', moveDown);
