@@ -6,6 +6,7 @@ const inputValue = document.querySelector('#texto-tarefa');
 const deleteAll = document.querySelector('#apaga-tudo');
 // const liList = document.getElementsByClassName('li-list');
 const deleteFinished = document.querySelector('#remover-finalizados');
+const salvarTarefas = document.querySelector('#salvar-tarefas');
 const moverCima = document.querySelector('#mover-cima');
 const moverBaixo = document.querySelector('#mover-baixo');
 const removerSelecionado = document.querySelector('#remover-selecionado');
@@ -62,6 +63,18 @@ function clearFinished() {
 
 deleteFinished.addEventListener('click', clearFinished);
 
+// 12.
+
+function saveList() {
+  localStorage.setItem('listaDeTarefas', findList.innerHTML);
+}
+
+salvarTarefas.addEventListener('click', saveList);
+
+window.onload = () => {
+  findList.innerHTML = localStorage.getItem('listaDeTarefas');
+};
+
 // 13.
 
 function moveUp() {
@@ -85,6 +98,8 @@ function moveDown() {
 }
 
 moverBaixo.addEventListener('click', moveDown);
+
+// 14.
 
 function removeSelected() {
   const selected = document.querySelector('.selected');
