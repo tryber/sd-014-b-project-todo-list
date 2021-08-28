@@ -7,11 +7,6 @@
     src: url(fontes/ELEGANT\ TYPEWRITER\ Bold.ttf);
 }
 
-@font-face {
-    font-family: punk;
-    src: url();
-}
-
 body{
     background-image: url(/images/oldpaper.jpg);
     background-size: 100%;
@@ -49,9 +44,13 @@ input {
     font-size: large;
 }
 
+#lista-tarefas {
+    font-family: machineWrite;
+    font-size: xx-large;
+}
 
 .selected {
-    background-color: rgb(128, 128, 128);
+    background-color: transparent;
 }
 .completed {
     text-decoration: line-through;
