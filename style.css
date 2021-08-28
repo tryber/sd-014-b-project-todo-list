@@ -1,0 +1,75 @@
+@font-face {
+    font-family: writeMachine;
+    src: url(fontes/Type\ Keys.ttf);
+}
+@font-face {
+    font-family: machineWrite;
+    src: url(fontes/ELEGANT\ TYPEWRITER\ Bold.ttf);
+}
+
+body{
+    background-image: url(/images/oldpaper.jpg);
+    background-size: 100%;
+}
+
+header {
+    text-align: center;
+    font-family: writeMachine;
+    font-size:xx-large
+}
+
+#funcionamento {
+    text-align: center;
+    font-family: machineWrite;
+    font-size: 30px;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     width: 100%;
+    padding-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-family: machineWrite;
+    font-size: large;
+}
+
+.button {
+    font-family: writeMachine;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    background-color: transparent;
+    padding-top: 5px;
+}
+
+.button1 {
+    font-family: writeMachine;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    background-color: transparent;
+    align-items: center;
+}
+
+#lista-tarefas {
+    font-family: machineWrite;
+    font-size: xx-large;
+}
+
+.selected {
+    background-color: transparent;
+}
+.completed {
+    text-decoration: line-through;
+}
