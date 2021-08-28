@@ -1,7 +1,7 @@
 body {
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(224 , 224 , 224);
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Open Sans, sans-serif;
 }
 
 main {
@@ -11,7 +11,7 @@ main {
   padding: 20px;
   box-sizing: border-box;
   width: 600px;
-  box-shadow: 0 0 15px rgba(100, 100, 100, 0.2);
+  box-shadow: 0 0 15px rgba(100 , 100 , 100 , 0.2);
 }
 
 h1 {
@@ -25,7 +25,7 @@ h1 {
 #texto-tarefa {
   padding: 10px;
   border: none;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(230 , 230 , 230);
   border-radius: 5px;
   width: 47%;
   font-size: 16px;
@@ -33,13 +33,13 @@ h1 {
 
 #listaVazia {
   text-align: center;
-  color: rgb(195, 195, 195);
+  color: rgb(195 , 195 , 195);
   margin: 40px 0;
 }
 
 #lista-tarefas {
   margin: 20px 0;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(243 , 243 , 243);
   padding: 20px 20px 20px 40px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -66,21 +66,21 @@ li {
 }
 
 #criar-tarefa {
-  background-color: rgb(17, 230, 116);
+  background-color: rgb(17 , 230 , 116);
 }
 
 #apaga-tudo {
-  background-color: rgb(236, 108, 108);
+  background-color: rgb(236 , 108 , 108);
 }
 
 #salvar-tarefas {
-  background-color: rgb(153, 208, 253);
+  background-color: rgb(153 , 208 , 253);
 }
 
-#mover-cima:hover, #mover-baixo:hover {
-  background-color: rgb(253, 253, 125);
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgb(253 , 253 , 125);
 }
 
-#remover-selecionado:hover, #remover-finalizados:hover {
-  background-color: rgb(236, 108, 108);
+#remover-selecionado:hover , #remover-finalizados:hover {
+  background-color: rgb(236 , 108 , 108);
 }
