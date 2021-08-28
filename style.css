@@ -44,6 +44,24 @@ input {
     font-size: large;
 }
 
+.button {
+    font-family: writeMachine;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    background-color: transparent;
+    padding-top: 5px;
+}
+
+.button1 {
+    font-family: writeMachine;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    background-color: transparent;
+    align-items: center;
+}
+
 #lista-tarefas {
     font-family: machineWrite;
     font-size: xx-large;
