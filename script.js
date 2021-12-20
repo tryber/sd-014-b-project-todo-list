@@ -9,7 +9,6 @@ const btnMoveUp = document.querySelector('#mover-cima');
 const btnMoveDown = document.querySelector('#mover-baixo');
 const btnRemoveSelected = document.getElementById('remover-selecionado');
 let listItens = taskList.children;
-
 btnCreateTask.addEventListener('click', addTask);
 
 function addTask() {
@@ -30,14 +29,16 @@ inputTask.addEventListener('keypress', function (event) {
 
 function addListItemListeners(listItem) {
   listItem.addEventListener('click', function (event) {
+    if(event.target.id !== 'selected'){
       for (let item of taskList.children) {
-        if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
-          item.style.backgroundColor = '';
+        if (item.id == 'selected') {
           item.removeAttribute('id');
         }
       }
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       event.target.id = 'selected';
+    }else if(event.target.id === 'selected'){
+      event.target.removeAttribute('id');
+    }
   });
 
   listItem.addEventListener('dblclick', function (event) {
