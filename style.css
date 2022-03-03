@@ -52,6 +52,15 @@
   margin-left: 10px;
 }
 
+#salvar-tarefas {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 #listBox {
   margin: 30px auto;
   display: flex;

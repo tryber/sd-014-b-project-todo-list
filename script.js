@@ -57,3 +57,14 @@ clearDone.addEventListener('click', clearFinished);
 
 // Impede seleção dentro da área da lista - por motivos estéticos
 list.addEventListener('mousedown', (e) => { e.preventDefault(); }, false);
+
+// Salvar as tarefas!
+
+if (localStorage.getItem('my-tasks') !== null) {
+  localStorage.clear();
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('my-tasks');
+}
+const saveList = document.getElementById('salvar-tarefas');
+saveList.addEventListener('click', () => {
+  localStorage.setItem('my-tasks', document.getElementById('lista-tarefas').innerHTML);
+});
