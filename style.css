@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#myList {
+  font-size: xx-large;
+  text-align: center;
+  background-color: black;
+  color: orangered;
+  text-transform: uppercase;
+  font-family: Encode Sans SC, sans-serif, serif;
+  margin-bottom: 20px;
+}
+
+#options {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#funcionamento {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+}
+
+#texto-tarefa {
+  font-family: Encode Sans SC, sans-serif, serif;
+  margin-right: 15px;
+}
+
+#criar-tarefa {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+}
+
+#apaga-tudo {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin-left: 10px;
+}
+
+#remover-finalizados {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin-left: 10px;
+}
+
+#salvar-tarefas {
+  font-family: Encode Sans SC, sans-serif, serif;
+  padding: 0 15px;
+  background-color: orangered;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#listBox {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  line-height: 45px;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
